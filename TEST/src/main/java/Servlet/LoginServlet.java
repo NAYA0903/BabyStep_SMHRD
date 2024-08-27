@@ -1,6 +1,8 @@
 package Servlet;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
@@ -16,14 +18,27 @@ import javax.servlet.http.HttpServletResponse;
 
 import Model.DBConnection;
 
+
+
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// GET 요청이 들어오면 로그인 페이지로 리디렉션
-		response.sendRedirect("Login.html");  // 상대 경로로 변경
+	        throws ServletException, IOException {
+	    response.setContentType("text/html; charset=UTF-8");
+	    response.setCharacterEncoding("UTF-8");
+
+	    String filePath = getServletContext().getRealPath("/Login.html");
+
+	    if (filePath != null) {
+	        response.setContentType("text/html");
+	        Files.copy(Paths.get(filePath), response.getOutputStream());  // getOutputStream만 사용
+	    } else {
+	        response.getWriter().write("HTML file not found");  // 이 경우에만 getWriter() 호출
+	    }
+	    
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -32,17 +47,11 @@ public class LoginServlet extends HttpServlet {
 		String ID = request.getParameter("ID");
 		String password = request.getParameter("PASSWORD");
 
-		// 입력 값 검증
-		if (ID == null || ID.isEmpty() || password == null || password.isEmpty()) {
-			System.out.println("아이디 또는 비밀번호를 입력안하셨습니다. 다시 입력해주세요.");
-			return;
-		}
-
 		// 비밀번호 해싱 (SHA-256 사용)
 		String hashedPassword = hashPassword(password);
 
 		try (Connection connection = DBConnection.getConnection()) {
-			String sql = "SELECT PASSWORD FROM USERS WHERE ID = ? ";
+			String sql = "SELECT PASSWORD FROM USERS WHERE ID = ?";
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setString(1, ID);
 
@@ -56,11 +65,11 @@ public class LoginServlet extends HttpServlet {
 				if (hashedPassword.equals(storedPassword)) {
 
 					// 비밀번호가 일치하는 경우
-					response.sendRedirect("Main.html");  // 상대 경로로 변경
+					response.sendRedirect("Main.html");  
 				} else {
 
 					// 비밀번호가 일치하지 않는 경우
-					response.sendRedirect("Login.html?error=invalid");  // 상대 경로로 변경
+					response.sendRedirect("Login.html?error=invalid");  
 				}
 
 			}
