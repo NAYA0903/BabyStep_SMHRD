@@ -51,6 +51,7 @@ public class LoginServlet extends HttpServlet {
 		String hashedPassword = hashPassword(password);
 
 		try (Connection connection = DBConnection.getConnection()) {
+			
 			String sql = "SELECT PASSWORD FROM USERS WHERE ID = ?";
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setString(1, ID);
@@ -59,6 +60,9 @@ public class LoginServlet extends HttpServlet {
 
 			if (rs.next()) {
 				String storedPassword = rs.getString("PASSWORD");
+				
+				System.out.println("Hashed Password: " + hashedPassword);
+				System.out.println("Stored Password: " + storedPassword);
 				
 
 				// 입력한 비밀번호의 해시 값과 데이터베이스의 해시 값 비교
