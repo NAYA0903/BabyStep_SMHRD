@@ -1,1 +1,1 @@
-# SMHRD_PROJECT
+# 혜성팀 지켜야할 것 
