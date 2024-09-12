@@ -55,6 +55,6 @@
 			<attribute name="m2e-apt" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/smhrd1/Desktop/cos-2020.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/BabyStep/SMHRD_PROJECT/Ajang/Ajang/src/main/webapp/WEB-INF/lib/cos-2020.4.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
