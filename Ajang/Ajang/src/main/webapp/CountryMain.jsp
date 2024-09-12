@@ -154,7 +154,7 @@
 
 
 <% 
-    // BoardDAO 객체를 통해 데이터베이스의 모든 게시글을 조회하여 List<BoardDTO> 객체에 저장
+    // BoardDAO 객체를 통해 데이터베이스의 모든 게시글을 조회하여 List<CountryDTO> 객체에 저장
 	  
     List<CountryDTO> countrys = new CountryDAO().allCountry(); 
 
