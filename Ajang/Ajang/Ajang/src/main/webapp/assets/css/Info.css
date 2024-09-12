@@ -1,0 +1,95 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'BMJUA';
+	src:
+		url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+#main a {
+	color: black; /* 텍스트 색상을 검정색으로 설정 */
+	text-decoration: none; /* 밑줄 제거 */
+}
+
+#main a:hover {
+	color: skyblue; /* 마우스를 올릴 때 하늘색으로 변경 */
+	text-decoration: underline; /* 마우스를 올릴 때 밑줄 표시 */
+}
+
+* {
+	font-family: 'BMJUA';
+	color: black;
+}
+
+#image img {
+	max-width: 100%; /* 가로 크기를 컨테이너의 100%로 설정 */
+	height: 60px; /* 높이는 자동으로 설정하여 비율을 유지 */
+	margin-top: 20px;
+	
+}
+
+.select {
+	background-color: rgb(255, 255, 255);
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: flex-start; /* 항목들을 상단에 정렬 */
+	position: fixed;
+	width: 1920px;   /* 100% 너비를 설정하여 화면 전체 폭을 채움 */
+    height: 100px;
+    z-index: 1000; /* 다른 요소보다 앞에 배치 */
+}
+
+.item {
+	background-color: white;
+	flex-basis: 15%;
+	display: flex; /* 내부 항목들도 중앙에 정렬 */
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	font-size: 24px;
+	
+}
+
+.btn-group {
+	width: 100px;
+	height: 30px;
+	background-color: white;
+	flex-basis: 15%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#main {
+	flex-basis: 70%;
+	display: flex;
+	justify-content: space-around; /* 항목들 간의 간격 조정 */
+	align-items: center;
+	margin: 31px;
+}
+
+#login {
+	flex-basis: 10%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 31px;
+}
+
+.main {
+    background-color: yellow; /* 원하는 색상 코드로 변경 */
+    height: 1200px;
+    
+}
+
+.info1 {
+	width: 1920px;
+	margin-top: 100px;
+	
+
+}
+
