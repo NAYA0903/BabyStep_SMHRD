@@ -28,6 +28,12 @@
   	<description></description>
   	<servlet-class>com.babystep.controller.ChatService</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>UserServlet</servlet-name>
+  	<display-name>UserServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.babystep.controller.UserServlet</servlet-class>
+  </servlet>
   
   <servlet-mapping>
   	<servlet-name>LoginService</servlet-name>
@@ -44,6 +50,10 @@
   <servlet-mapping>
   	<servlet-name>ChatService</servlet-name>
   	<url-pattern>/ChatService</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UserServlet</servlet-name>
+  	<url-pattern>/UserServlet</url-pattern>
   </servlet-mapping>
   
 </web-app>

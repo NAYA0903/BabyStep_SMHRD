@@ -17,6 +17,8 @@
 		SELECT USER_PW FROM TB_USER WHERE USER_ID=#{id}
 	</select>
 	
-	
+	<select id="getNicknameById" parameterType="String" resultType="String">
+		SELECT USER_NICK FROM TB_USER WHERE USER_ID=#{id}
+	</select>
 
 </mapper>
