@@ -12,7 +12,7 @@ public class CountryDTO {
     private String USED_IMG2;
     private String USED_IMG3;
     private String USED_IMG4;
-    private Timestamp CREATED_AT;  // Data -> Timestamp로 수정
+    private Timestamp CREATED_AT;  
     private String USED_DONE;
     private String USER_ID;
 

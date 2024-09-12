@@ -33,7 +33,6 @@ public class CountryDAO {
 	   public List<CountryDTO> allCountry() {
 		   List<CountryDTO> countrys = null ;
 		   System.out.println("allCountry 도달");
-		    System.out.println(countrys);
 		    try {
 		    	countrys = sqlSession.selectList("com.babystep.db.CountryMapper.allCountry");
 		        System.out.println("게시글 개수: " + countrys.size()); // 로그 출력
