@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.babystep.db.ChatMapper">
+
+	<!-- 채팅 시작 -->
+	<insert id="insertChat" parameterType="ChatDTO">
+    	INSERT INTO CHAT (USER_ID, CHAT_CONTENT, CHATTED_AT)
+    	VALUES (#{USER_ID}, #{CHAT_CONTENT}, SYSDATE)
+	</insert>
+	
+	<!-- 채팅방 선택 -->
+	<select id="selectChatByRoom" parameterType="int" resultType="ChatDTO">
+    	SELECT * FROM CHAT WHERE ROOM_IDX = #{ROOM_IDX} ORDER BY CHATTED_AT ASC
+	</select>
+
+</mapper>

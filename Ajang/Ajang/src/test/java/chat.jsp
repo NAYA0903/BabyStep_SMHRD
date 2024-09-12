@@ -22,6 +22,7 @@
     <div id="chatDiv" style="display: none;">
         <ul id="messages"></ul>
         <input id="input" autocomplete="off" /><button onclick="sendMessage()">Send</button>
+        <button onclick="location.href='Main.jsp'">메인으로 이동</button>
     </div>
 
     <script>

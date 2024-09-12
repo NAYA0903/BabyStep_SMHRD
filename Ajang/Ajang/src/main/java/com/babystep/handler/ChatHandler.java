@@ -14,7 +14,7 @@ public class ChatHandler extends TextWebSocketHandler {
 
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
-        String userId = (String) session.getAttributes().get("userId");
+        String userId = (String) session.getAttributes().get("id");
         sessions.put(userId, session);
         System.out.println(userId + " connected");
     }
@@ -32,7 +32,7 @@ public class ChatHandler extends TextWebSocketHandler {
 
     @Override
     public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
-        String userId = (String) session.getAttributes().get("userId");
+        String userId = (String) session.getAttributes().get("id");
         sessions.remove(userId);
         System.out.println(userId + " disconnected");
     }
