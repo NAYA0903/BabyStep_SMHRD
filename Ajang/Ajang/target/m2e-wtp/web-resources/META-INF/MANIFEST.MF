@@ -1,5 +1,9 @@
 Manifest-Version: 1.0
-Built-By: smhrd
+Built-By: smhrd1
 Build-Jdk: 22.0.1
+Implementation-Title: Ajang Maven Webapp
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.babystep
+Implementation-URL: http://www.example.com
 Created-By: Maven Integration for Eclipse
 
