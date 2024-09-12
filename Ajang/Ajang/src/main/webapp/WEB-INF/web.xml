@@ -4,12 +4,7 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
-  <servlet>
-  	<servlet-name>LoginService</servlet-name>
-  	<display-name>LoginService</display-name>
-  	<description></description>
-  	<servlet-class>com.babystep.controller.LoginService</servlet-class>
-  </servlet>
+  
   <servlet>
   	<servlet-name>RegisterService</servlet-name>
   	<display-name>RegisterService</display-name>
@@ -22,11 +17,14 @@
   	<description></description>
   	<servlet-class>com.babystep.controller.LogoutService</servlet-class>
   </servlet>
-  
-  <servlet-mapping>
+  <servlet>
   	<servlet-name>LoginService</servlet-name>
-  	<url-pattern>/LoginService</url-pattern>
-  </servlet-mapping>
+  	<display-name>LoginService</display-name>
+  	<description></description>
+  	<servlet-class>com.babystep.controller.LoginService</servlet-class>
+  </servlet>
+  
+  
   <servlet-mapping>
   	<servlet-name>RegisterService</servlet-name>
   	<url-pattern>/RegisterService</url-pattern>
@@ -34,6 +32,10 @@
   <servlet-mapping>
   	<servlet-name>LogoutService</servlet-name>
   	<url-pattern>/LogoutService</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LoginService</servlet-name>
+  	<url-pattern>/LoginService</url-pattern>
   </servlet-mapping>
   
 </web-app>
