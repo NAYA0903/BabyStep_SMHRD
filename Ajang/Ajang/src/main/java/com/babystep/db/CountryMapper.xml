@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace ="com.babystep.db.CountryMapper">
+
+<insert id="writeCountry" parameterType = "CountryDTO">
+insert into Country
+VALUES
+(Country_NUM.NEXTVAL, #{C_TITLE},#{C_WRITER},{C_FILENAME},#{C_CONTENT}, SYSDATE)
+
+</insert>
+</mapper>
