@@ -5,22 +5,22 @@
 <mapper namespace="com.babystep.mapper.ChatRoomMapper">
     <select id="getAllRooms" resultType="ChatRoomDTO">
         SELECT ROOM_IDX, ROOM_TITLE, OPENED_AT, ROOM_LIMIT, USER_ID, ROOM_IMG
-        FROM CROOM
+        FROM TB_CROOM
     </select>
 
     <select id="getRoomByIdx" parameterType="int" resultType="ChatRoomDTO">
         SELECT ROOM_IDX, ROOM_TITLE, OPENED_AT, ROOM_LIMIT, USER_ID, ROOM_IMG
-        FROM CROOM
+        FROM TB_CROOM
         WHERE ROOM_IDX = #{ROOM_IDX}
     </select>
 
     <insert id="createRoom" parameterType="ChatRoomDTO">
-        INSERT INTO CROOM (ROOM_TITLE, OPENED_AT, ROOM_LIMIT, USER_ID, ROOM_IMG)
-        VALUES (#{ROOM_TITLE}, SYSDATE, #{ROOM_LIMIT}, #{userId}, #{ROOM_IMG})
+        INSERT INTO TB_CROOM (ROOM_TITLE, OPENED_AT, ROOM_LIMIT, USER_ID, ROOM_IMG)
+        VALUES (#{ROOM_TITLE}, SYSDATE, #{ROOM_LIMIT}, #{USER_ID}, #{ROOM_IMG})
     </insert>
 
     <update id="updateRoom" parameterType="ChatRoomDTO">
-        UPDATE CROOM
+        UPDATE TB_CROOM
         SET ROOM_TITLE = #{ROOM_TITLE},
             ROOM_LIMIT = #{ROOM_LIMIT},
             ROOM_IMG = #{ROOM_IMG}
@@ -28,6 +28,6 @@
     </update>
 
     <delete id="deleteRoom" parameterType="int">
-        DELETE FROM CROOM WHERE ROOM_IDX = #{ROOM_IDX}
+        DELETE FROM TB_CROOM WHERE ROOM_IDX = #{ROOM_IDX}
     </delete>
 </mapper>
