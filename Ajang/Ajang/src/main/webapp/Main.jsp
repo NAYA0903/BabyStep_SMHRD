@@ -25,26 +25,29 @@
 
 	<!-- 타이틀 부분 -->
 	<div class="title">
-		<img src="img/MainLogo.png" alt="걸음마 로고" class="logo-image"> 
-		<a class="com" href="">소개</a>
-		<a class="com" href="">WITHKIDS</a> 
-		<a class="com" href="BoardMain.jsp">게시판</a> 
-		<a class="com" href="">중고거래</a>
+		<img src="img/MainLogo.png" alt="걸음마 로고" class="logo-image"> <a
+			class="com" href="">소개</a> <a class="com" href="">WITHKIDS</a> <a
+			class="com" href="BoardMain.jsp">게시판</a> <a class="com" href="">중고거래</a>
 
 		<!-- 다크 모드 스위치 -->
-      <label class="dark-mode-switch"> <input type="checkbox"
-         id="darkModeToggle"> <span class="slider"></span>
-      </label> 
-      
-      <a href="LogoutService"> <img src="img/Logout.png" alt="로그아웃"
-         class="logout-image">
-      </a> 
-      
-      <a href="" onclick="togglePopup(); return false;"> <img
-         src="img/Mypage.png" alt="마이페이지" class="mypage-image">
-      </a>
+		<label class="dark-mode-switch"> <input type="checkbox"
+			id="darkModeToggle"> <span class="slider"></span>
+			
+		</label> 
+		
+		<a href="" onclick="togglePopup(); return false;"> <img
+			src="img/Mypage2.png" alt="마이페이지" class="mypage-image">
+		</a>
+		
+		<a href=""> <img src="img/Chat.png" alt="채팅"
+			class="chat-image">
+		</a> 
+		
+		<a href="LogoutService"> <img src="img/Logout3.png" alt="로그아웃"
+			class="logout-image">
+		</a> 
 
-      <jsp:include page="Popup.jsp" />
+		<jsp:include page="Popup.jsp" />
 
 
 
@@ -61,38 +64,38 @@
 		</div>
 
 		<!-- 오른쪽 6 부분 -->
-			<div class="right-section">
-			
-			
-		<!-- 날짜 표시 영역 -->
- 			
- 				<div class="date-section">
-    				<h2>날짜</h2>
-    					<%
-    						String selectedDate = (String) session.getAttribute("selectedDate");
-   							 if (selectedDate != null) {
-        						out.println("<span>" + selectedDate + "</span>");
-  							  } else {
-      							  out.println("<span>선택된 날짜가 없습니다.</span>");
-   							  }
-						  %>
+		<div class="right-section">
 
-				</div>
+
+			<!-- 날짜 표시 영역 -->
+
+			<div class="date-section">
+				<h2>날짜</h2>
+				<%
+				String selectedDate = (String) session.getAttribute("selectedDate");
+				if (selectedDate != null) {
+					out.println("<span>" + selectedDate + "</span>");
+				} else {
+					out.println("<span>선택된 날짜가 없습니다.</span>");
+				}
+				%>
+
+			</div>
 
 			<!-- To-do 리스트 -->
 			<div class="todo-section">
 				<h3>To-do 리스트</h3>
 				<div class="todo-item">
-					<img src="https://via.placeholder.com/30" alt="아이콘"> 
-					<span>할일 1</span>
+					<img src="https://via.placeholder.com/30" alt="아이콘"> <span>할일
+						1</span>
 				</div>
 				<div class="todo-item">
-					<img src="https://via.placeholder.com/30" alt="아이콘"> 
-					<span>할일 2</span>
+					<img src="https://via.placeholder.com/30" alt="아이콘"> <span>할일
+						2</span>
 				</div>
 				<div class="todo-item">
-					<img src="https://via.placeholder.com/30" alt="아이콘"> 
-					<span>할일 3</span>
+					<img src="https://via.placeholder.com/30" alt="아이콘"> <span>할일
+						3</span>
 				</div>
 			</div>
 

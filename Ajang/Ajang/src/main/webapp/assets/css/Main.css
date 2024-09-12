@@ -59,6 +59,19 @@ body.dark-mode .title {
    margin-left: 2vw;
 }
 
+.chat-image {
+   margin: 0;
+   padding: 0;
+   width: 30px;
+   /* 이미지 크기를 적절히 조정하세요 */
+   height: auto;
+   position: absolute;
+   right: 270px;
+   /* 다크 모드 스위치 쪽으로 조정할 값 */
+   top: 50%;
+   transform: translateY(-50%);
+}
+
 .logout-image {
    margin: 0;
    padding: 0;
@@ -66,7 +79,7 @@ body.dark-mode .title {
    /* 이미지 크기를 적절히 조정하세요 */
    height: auto;
    position: absolute;
-   right: 200px;
+   right: 130px;
    /* 다크 모드 스위치 쪽으로 조정할 값 */
    top: 50%;
    transform: translateY(-50%);
@@ -79,7 +92,7 @@ body.dark-mode .title {
    /* 이미지 크기를 적절히 조정하세요 */
    height: auto;
    position: absolute;
-   right: 130px;
+   right: 200px;
    /* 다크 모드 스위치 쪽으로 조정할 값 */
    top: 50%;
    transform: translateY(-50%);
