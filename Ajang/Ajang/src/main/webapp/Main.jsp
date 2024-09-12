@@ -36,7 +36,7 @@
          id="darkModeToggle"> <span class="slider"></span>
       </label> 
       
-      <a href=""> <img src="img/Logout.png" alt="로그아웃"
+      <a href="LogoutService"> <img src="img/Logout.png" alt="로그아웃"
          class="logout-image">
       </a> 
       
