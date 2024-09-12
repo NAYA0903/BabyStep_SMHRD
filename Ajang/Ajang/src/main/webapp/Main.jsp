@@ -32,20 +32,21 @@
 		<a class="com" href="">중고거래</a>
 
 		<!-- 다크 모드 스위치 -->
-		<label class="dark-mode-switch"> <input type="checkbox"
-			id="darkModeToggle"> <span class="slider"></span>
-		</label> <label class="dark-mode-switch"> <input type="checkbox"
-			id="darkModeToggle"> <span class="slider"></span>
-		</label>
-		<!-- 로그아웃 이미지 -->
-		<a href="LogoutService"> <img src="img/Logout.png" alt="로그아웃"
-			class="logout-image">
-		</a>
+      <label class="dark-mode-switch"> <input type="checkbox"
+         id="darkModeToggle"> <span class="slider"></span>
+      </label> 
+      
+      <a href=""> <img src="img/Logout.png" alt="로그아웃"
+         class="logout-image">
+      </a> 
+      
+      <a href="" onclick="togglePopup(); return false;"> <img
+         src="img/Mypage.png" alt="마이페이지" class="mypage-image">
+      </a>
 
-		<!-- 팝업 버튼 -->
-		<button class="popupmain" onclick="togglePopup()">
-			<img src="/IMG/google.png" alt="Popup" />
-		</button>
+      <jsp:include page="Popup.jsp" />
+
+
 
 
 	</div>
@@ -114,60 +115,9 @@
 			</div>
 		</div>
 	</div>
-<<<<<<< HEAD
-	
-=======
 
 
 
-	<!-- 팝업 -->
-	<div id="popup" class="popup">
-		<!-- 프로필 사진과 사용자 정보를 표시하는 부분입니다. -->
-		<div class="popup-header">
-			<img src="profile-picture.jpg" alt="Profile Picture">
-			<!-- 프로필 사진 -->
-			<div>
-				<h1>닉네임 데이터 가져와서 넣어야함</h1>
-				<!-- 사용자 닉네임 -->
-				<p>가입일자 뽑아서 넣어야함</p>
-				<!-- 가입일 -->
-				<button><a href="" /> 회원정보 수정 </button>
-			</div>
-		</div>
-
-		<!-- 관심 장소 섹션입니다. -->
-		<div class="section">
-			<h2>관심 장소 클릭하면 관심장소 주르륵 나오는 페이지 나와야 함.</h2>
-			<ul> <!-- 최근 관심등록기준으로 3번째 까지 추출할 수 있을까요...? -->
-				<li>장소 1</li>
-				<li>장소 2</li>
-				<li>장소 3</li>
-			</ul>
-		</div>
-
-		<!-- 관심 거래 섹션입니다. -->
-		<div class="section">
-			<h2>관심 거래 누르면 관심거래 주르륵 나오는 페이지 나와야 함.</h2>
-			<ul> <!-- 최근 관심등록기준으로 3번째 까지 추출할 수 있을까요...? -->
-				<li>거래 1</li>
-				<li>거래 2</li>
-				<li>거래 3</li>
-			</ul>
-		</div>
-
-		<!-- 공유 현황 섹션입니다. -->
-		<div class="section">
-			<h2>공유 현황</h2>
-			<p class="share-status">공유되고 있는 아이디(닉네임)를 띄워줘야합니다. 근데 이제 프로필 사진을 곁들인</p>
-		</div>
-
-		<!-- 팝업을 닫는 버튼입니다. -->
-		<button class="close-btn" onclick="togglePopup()">닫기</button>
-	</div>
-
-	<!-- Overlay (배경을 어둡게 하여 팝업을 강조합니다.) -->
-	<div id="overlay" class="popup-overlay" onclick="togglePopup()"></div>
->>>>>>> branch 'master' of https://github.com/NAYA0903/SMHRD_PROJECT.git
 	<script src="assets/js/Main.js"></script>
 
 </body>

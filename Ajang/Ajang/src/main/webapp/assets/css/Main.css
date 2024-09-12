@@ -1,448 +1,348 @@
 @charset "UTF-8";
 
 html, body {
-	margin: 0;
-	padding: 0;
-	height: 100%;
-	overflow: hidden;
-	font-family: 'Arial', sans-serif;
+   margin: 0;
+   padding: 0;
+   height: 100%;
+   overflow: hidden;
+   font-family: 'Arial', sans-serif;
 }
 
 body {
-	display: flex;
-	flex-direction: column;
+   display: flex;
+   flex-direction: column;
 }
 
+/* 라이트 모드 스타일 */
 body.light-mode {
-	background-color: rgb(205, 205, 208);
-	color: black;
+   background-color: rgb(205, 205, 208);
+   color: black;
 }
 
 body.light-mode .title {
-	background-color: white;
-	color: #333;
+   background-color: white;
+   color: #333;
 }
 
+/* 다크 모드 스타일 */
 body.dark-mode {
-	background-color: #383535;
-	color: white;
+   background-color: #383535;
+   color: white;
 }
 
 body.dark-mode .title {
-	background-color: #706b6b;
-	color: white;
+   background-color: #706b6b;
+   color: white;
 }
 
 .title {
-	width: 100vw;
-	background-color: black;
-	color: white;
-	position: fixed;
-	top: 0;
-	left: 0;
-	padding: 1% 0;
-	z-index: 1000;
-	text-align: left;
-	box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.2);
-	display: flex;
-	align-items: center;
+   width: 100vw;
+   background-color: black;
+   color: white;
+   position: absolute;
+   top: 0;
+   left: 0;
+   padding: 1% 0;
+   z-index: 1000;
+   text-align: left;
+   box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+   display: flex;
+   align-items: center;
 }
 
 .logo-image {
-	width: 10vw;
-	height: auto;
-	margin-right: 1vw;
-	vertical-align: middle;
-	display: inline-block;
-	margin-left: 2vw;
+   width: 10vw;
+   height: auto;
+   margin-right: 1vw;
+   vertical-align: middle;
+   display: inline-block;
+   margin-left: 2vw;
 }
 
+.logout-image {
+   margin: 0;
+   padding: 0;
+   width: 30px;
+   /* 이미지 크기를 적절히 조정하세요 */
+   height: auto;
+   position: absolute;
+   right: 200px;
+   /* 다크 모드 스위치 쪽으로 조정할 값 */
+   top: 50%;
+   transform: translateY(-50%);
+}
+
+.mypage-image {
+   margin: 0;
+   padding: 0;
+   width: 30px;
+   /* 이미지 크기를 적절히 조정하세요 */
+   height: auto;
+   position: absolute;
+   right: 130px;
+   /* 다크 모드 스위치 쪽으로 조정할 값 */
+   top: 50%;
+   transform: translateY(-50%);
+}
+
+/* 타이틀 수정부분 */
 .com {
-	padding: 0px 1vw;
-	color: #333333;
-	text-decoration: none;
-	display: inline-block;
-	font-family: "Dongle", sans-serif;
-	font-size: 2.5vw;
-	font-weight: 600;
-	border: 2px solid transparent;
-	transition: all 0.3s ease;
-	margin: 0 60px;
+   padding: 0px 1vw;
+   color: #333333;
+   text-decoration: none;
+   display: inline-block;
+   font-family: "Dongle", sans-serif;
+   font-size: 2.5vw;
+   font-weight: 600;
+   border: 2px solid transparent;
+   transition: all 0.3s ease;
+   margin: 0 60px;
+
+   /* 항목 간의 간격을 추가 */
 }
 
 .com:hover {
-	color: #db2360;
+   color: #db2360;
 }
 
-/* 로그아웃 이미지 스타일 */
-.logout-image {
-	width: 30px; /* 이미지 크기를 조정 */
-	height: 30px;
-	margin-right: 5vw;; /* 타이틀 오른쪽 끝과 간격 */
-	cursor: pointer;
-	vertical-align: middle; /* 다크 모드 스위치와 수직으로 정렬 */
-}
-
-.logout-image:hover {
-	opacity: 0.8; /* 마우스를 올리면 약간 투명하게 표시 */
-}
-
-.mypage-image:hover {
-	opacity: 0.8; /* 마우스를 올리면 약간 투명하게 표시 */
-}
-
+/* 다크 모드 스위치 스타일 */
 .dark-mode-switch {
-	position: absolute;
-	right: 30px;
-	top: 50%;
-	transform: translateY(-50%);
-	width: 60px;
-	height: 34px;
+   position: absolute;
+   right: 30px;
+   top: 50%;
+   transform: translateY(-50%);
+   width: 60px;
+   height: 34px;
 }
 
 .dark-mode-switch input {
-	opacity: 0;
-	width: 0;
-	height: 0;
+   opacity: 0;
+   width: 0;
+   height: 0;
 }
 
 .slider {
-	position: absolute;
-	cursor: pointer;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-color: #f1e1e1;
-	transition: 0.4s;
-	border-radius: 34px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+   position: absolute;
+   cursor: pointer;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background-color: #f1e1e1;
+   transition: 0.4s;
+   border-radius: 34px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 }
 
 .slider:before {
-	font-family: 'Material Symbols Outlined';
-	content: "";
-	font-size: 20px;
-	color: white;
-	transition: 0.4s;
+   font-family: 'Material Symbols Outlined';
+   content: "";
+   font-size: 20px;
+   color: white;
+   transition: 0.4s;
 }
 
 .slider:after {
-	position: absolute;
-	content: "";
-	height: 26px;
-	width: 26px;
-	left: 4px;
-	bottom: 4px;
-	background-color: #ad880e;
-	transition: 0.4s;
-	border-radius: 50%;
+   position: absolute;
+   content: "";
+   height: 26px;
+   width: 26px;
+   left: 4px;
+   bottom: 4px;
+   background-color: #ad880e;
+   transition: 0.4s;
+   border-radius: 50%;
 }
 
 input:checked+.slider {
-	background-color: #f1e1e1;
+   background-color: #f1e1e1;
 }
 
 input:checked+.slider:before {
-	content: "";
+   content: "";
 }
 
 input:checked+.slider:after {
-	transform: translateX(26px);
+   transform: translateX(26px);
 }
 
-/* 메인 콘텐츠 레이아웃 */
+/* 메인 콘텐츠 영역 4:6 레이아웃 */
 .main-content {
-	display: flex;
-	flex-grow: 1;
-	width: 100%;
-	box-sizing: border-box;
-	flex: 1;
+   display: flex;
+   flex-grow: 1;
+   width: 100%;
+   box-sizing: border-box;
+   flex: 1;
 }
 
+/* 좌측 40%, 우측 60% 비율을 flexbox로 처리 */
 .left-section {
-	flex-basis: 40%;
-	background-color: #e6e6e6;
-	padding: 0;
-	box-sizing: border-box;
-	height: 100%; /* 4구역의 높이를 100%로 설정 */
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding-bottom: 40px; /* 하단에 20px 여백 추가 */
-}
-
-.calendar-container {
-	width: 100%;
-	height: 100%; /* 부모 컨테이너에 맞게 캘린더 크기를 조정 */
-	padding: 10px;
-	box-sizing: border-box;
-	display: flex;
-	flex-direction: column; /* 타이틀과 테이블을 세로로 배치 */
-	justify-content: space-between;
+   flex-basis: 40%;
+   background-color: #e6e6e6;
+   padding: 20px;
+   border-right: 2px solid #ddd;
+   box-sizing: border-box;
 }
 
 .right-section {
-	flex-basis: 60%;
-	background-color: #f7f7f7;
-	padding: 20px;
-	box-sizing: border-box;
-	height: 100vh;
-	overflow-y: auto;
+   flex-basis: 60%;
+   background-color: #f7f7f7;
+   padding: 20px;
+   box-sizing: border-box;
+   height: 100vh;
+   /* 전체 화면 높이에 맞춤 */
+   overflow-y: auto;
+   /* 세로 스크롤 추가 */
 }
 
 /* 날짜 표시 영역 */
 .date-section {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 20px;
-	background-color: #e6e6e6;
-	border: 1px solid #ddd;
-	margin-top: 20px;
-	/* 타이틀 경계면에서 띄우기 위한 여백 */
-	margin-bottom: 20px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 20px;
+   background-color: #e6e6e6;
+   border: 1px solid #ddd;
+   margin-top: 20px;
+   /* 타이틀 경계면에서 띄우기 위한 여백 */
+   margin-bottom: 20px;
 }
 
 .date-section h2 {
-	margin: 0;
-	font-size: 24px;
+   margin: 0;
+   font-size: 24px;
 }
 
 /* To-do 리스트 */
 .todo-section {
-	background-color: #ffffff;
-	padding: 20px;
-	border: 1px solid #ddd;
-	margin-bottom: 20px;
+   background-color: #ffffff;
+   padding: 20px;
+   border: 1px solid #ddd;
+   margin-bottom: 20px;
 }
 
 .todo-section h3 {
-	margin: 0 0 10px 0;
-	font-size: 20px;
+   margin: 0 0 10px 0;
+   font-size: 20px;
 }
 
 .todo-item {
-	display: flex;
-	align-items: center;
-	margin-bottom: 10px;
+   display: flex;
+   align-items: center;
+   margin-bottom: 10px;
 }
 
 .todo-item img {
-	width: 30px;
-	height: 30px;
-	margin-right: 10px;
+   width: 30px;
+   height: 30px;
+   margin-right: 10px;
 }
 
 .todo-item span {
-	font-size: 18px;
+   font-size: 18px;
 }
 
 /* 이미지 업로드 섹션과 일기 작성 섹션을 가로로 나누는 부모 컨테이너 */
 .upload-diary-container {
-	display: flex;
-	justify-content: space-between;
-	margin-bottom: 10px;
-	height: 100%; /* 전체 화면 높이를 맞추도록 설정 */
+   display: flex;
+   justify-content: space-between;
+   margin-bottom: 10px;
+   height: 100%;
+   /* 전체 화면 높이를 맞추도록 설정 */
 }
 
 /* 이미지 업로드 섹션 */
 .image-upload-section {
-	background-color: #ffffff;
-	padding: 20px;
-	border: 1px solid #ddd;
-	width: 48%;
-	height: 80%;
+   background-color: #ffffff;
+   padding: 20px;
+   border: 1px solid #ddd;
+   width: 48%;
+   height: 80%;
 }
 
 .image-upload-section h3 {
-	margin: 0 0 10px 0;
-	font-size: 20px;
+   margin: 0 0 10px 0;
+   font-size: 20px;
 }
 
 .image-upload-section input {
-	margin-top: 10px;
+   margin-top: 10px;
 }
 
 /* 일기 메모 작성 섹션 */
 .diary-section {
-	background-color: #ffffff;
-	padding: 20px;
-	border: 1px solid #ddd;
-	width: 100%;
-	height: 80%;
-	/* 부모 영역 전체를 차지하게 설정 */
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	/* 버튼을 하단에 배치 */
+   background-color: #ffffff;
+   padding: 20px;
+   border: 1px solid #ddd;
+   width: 100%;
+   height: 80%;
+   /* 부모 영역 전체를 차지하게 설정 */
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   /* 버튼을 하단에 배치 */
 }
 
 .diary-section textarea {
-	width: 100%;
-	height: 150px;
-	padding: 10px;
-	font-size: 16px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-	resize: none;
-	flex-grow: 1;
-	/* 메모 영역이 가능한 공간을 차지하도록 설정 */
+   width: 100%;
+   height: 150px;
+   padding: 10px;
+   font-size: 16px;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+   resize: none;
+   flex-grow: 1;
+   /* 메모 영역이 가능한 공간을 차지하도록 설정 */
 }
 
 /* 작성하기 버튼 */
 .button-container {
-	margin-top: 10px;
-	text-align: right;
-	/* 버튼을 오른쪽으로 정렬 */
+   margin-top: 10px;
+   text-align: right;
+   /* 버튼을 오른쪽으로 정렬 */
 }
 
 .write-btn {
-	padding: 10px 20px;
-	font-size: 16px;
-	background-color: #5cb85c;
-	color: white;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
+   padding: 10px 20px;
+   font-size: 16px;
+   background-color: #5cb85c;
+   color: white;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
 }
 
 .write-btn:hover {
-	background-color: #3a298f;
+   background-color: #3a298f;
 }
 
 .diary-section .write-btn:hover {
-	background-color: #2f1364;
+   background-color: #2f1364;
 }
 
+/* 반응형을 위한 미디어 쿼리 - 작은 화면에서 처리 */
 @media ( max-width : 768px) {
-	.title {
-		padding: 2% 0;
-	}
-	.logo-image {
-		width: 15vw;
-	}
-	.com {
-		font-size: 4vw;
-		padding: 10px 2vw;
-	}
-	.left-section, .right-section {
-		flex-basis: 100%;
-		padding: 10px;
-	}
-	.upload-diary-container {
-		flex-direction: column;
-	}
-	.image-upload-section, .diary-section {
-		width: 100%;
-		margin-bottom: 20px;
-	}
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	/* 팝업 버튼 스타일 */
-	.popupmain {
-		font-family: Arial, sans-serif;
-		margin: 0;
-		padding: 0;
-		background-color: #f4f4f4;
-		border: none;
-		background: transparent;
-		cursor: pointer;
-	}
-	.popupmain img {
-		width: 30px;
-		height: 30px;
-	}
-
-	/* 팝업 스타일 */
-	.popup {
-		display: none; /* 기본적으로 숨겨짐 */
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background: #fff;
-		padding: 20px;
-		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-		z-index: 1001;
-		overflow: auto; /* 스크롤이 필요할 경우 */
-	}
-
-	/* 팝업 헤더 스타일 */
-	.popup-header {
-		display: flex;
-		align-items: center;
-		border-bottom: 2px solid #ddd;
-		padding-bottom: 10px;
-		margin-bottom: 10px;
-	}
-	.popup-header img {
-		border-radius: 50%;
-		width: 80px;
-		height: 80px;
-		margin-right: 20px;
-	}
-	.popup-header h1 {
-		margin: 0;
-		font-size: 20px;
-	}
-	.popup-header p {
-		margin: 5px 0;
-		color: #666;
-	}
-
-	/* 팝업 섹션 스타일 */
-	.popup .section {
-		margin-bottom: 20px;
-	}
-	.popup .section h2 {
-		font-size: 18px;
-		margin-bottom: 10px;
-		border-bottom: 1px solid #ddd;
-		padding-bottom: 5px;
-	}
-	.popup .section ul {
-		list-style: none;
-		padding: 0;
-	}
-	.popup .section ul li {
-		background: #f9f9f9;
-		border: 1px solid #ddd;
-		margin-bottom: 10px;
-		padding: 10px;
-	}
-
-	/* 팝업 닫기 버튼 스타일 */
-	.popup .close-btn {
-		display: block;
-		margin: 0 auto;
-		padding: 10px 20px;
-		background: #007BFF;
-		color: #fff;
-		border: none;
-		cursor: pointer;
-	}
-
-	/* Overlay 스타일 */
-	.popup-overlay {
-		display: none; /* 기본적으로 숨겨짐 */
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background: rgba(0, 0, 0, 0.5);
-		z-index: 1000;
-	}
+   .title {
+      padding: 2% 0;
+   }
+   .logo-image {
+      width: 15vw;
+   }
+   .com {
+      font-size: 4vw;
+      padding: 10px 2vw;
+   }
+   .left-section, .right-section {
+      flex-basis: 100%;
+      padding: 10px;
+   }
+   .upload-diary-container {
+      flex-direction: column;
+   }
+   .image-upload-section, .diary-section {
+      width: 100%;
+      margin-bottom: 20px;
+   }
 }
