@@ -7,10 +7,10 @@
     <title>Chat Room</title>
     <script>
         let ws;
-        let USER_ID = '<%= session.getAttribute("id") %>';
+        let userId = '<%= session.getAttribute("id") %>';
         console.log("사용자 ID: " + userId);
         
-        let ROOM_TITLE = '<%= request.getParameter("roomTitle") %>';
+        let roomTitle = '<%= request.getParameter("roomTitle") %>';
         console.log("채팅방 이름: " + roomTitle);
 
         function connect() {

@@ -7,13 +7,13 @@
 
 	<!-- 채팅 시작 -->
 	<insert id="insertChat" parameterType="ChatDTO">
-    	INSERT INTO CHAT (USER_ID, CHAT_CONTENT, CHATTED_AT)
-    	VALUES (#{USER_ID}, #{CHAT_CONTENT}, SYSDATE)
+    	INSERT INTO TB_CHAT (USER_ID, CHAT_CONTENT, CHATTED_AT)
+    	VALUES (#{userId}, #{chatContent}, SYSDATE)
 	</insert>
 	
 	<!-- 채팅방 선택 -->
 	<select id="selectChatByRoom" parameterType="int" resultType="ChatDTO">
-    	SELECT * FROM CHAT WHERE ROOM_IDX = #{ROOM_IDX} ORDER BY CHATTED_AT ASC
+    	SELECT * FROM TB_CHAT WHERE ROOM_IDX = #{roomIdx} ORDER BY CHATTED_AT ASC
 	</select>
 
 </mapper>

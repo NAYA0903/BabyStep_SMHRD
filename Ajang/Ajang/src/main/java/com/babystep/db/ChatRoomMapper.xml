@@ -4,7 +4,8 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.babystep.db.ChatRoomMapper">
     <select id="getAllRooms" resultType="ChatRoomDTO">
-        SELECT ROOM_IDX, ROOM_TITLE, OPENED_AT, ROOM_LIMIT, USER_ID, ROOM_IMG
+        SELECT ROOM_IDX as roomIndex, ROOM_TITLE as roomTitle, OPENED_AT as openedAt, ROOM_LIMIT as roomLimit,
+         USER_ID as userId, ROOM_IMG as roomImg
         FROM TB_CROOM
     </select>
 
@@ -23,13 +24,13 @@
 
     <update id="updateRoom" parameterType="ChatRoomDTO">
         UPDATE TB_CROOM
-        SET ROOM_TITLE = #{ROOM_TITLE},
-            ROOM_LIMIT = #{ROOM_LIMIT},
-            ROOM_IMG = #{ROOM_IMG}
-        WHERE ROOM_IDX = #{ROOM_IDX}
+        SET ROOM_TITLE = #{roomTitle},
+            ROOM_LIMIT = #{roomLimit},
+            ROOM_IMG = #{roomImg}
+        WHERE ROOM_IDX = #{roomIdx}
     </update>
 
     <delete id="deleteRoom" parameterType="int">
-        DELETE FROM TB_CROOM WHERE ROOM_IDX = #{ROOM_IDX}
+        DELETE FROM TB_CROOM WHERE ROOM_IDX = #{roomIdx}
     </delete>
 </mapper>

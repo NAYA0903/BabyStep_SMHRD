@@ -18,7 +18,7 @@ public class ChatDAO {
         sqlSession.insert(NAMESPACE + ".insertChat", chat);
     }
 
-    public List<ChatDTO> selectChatByRoom(int ROOM_IDX) {
-        return sqlSession.selectList(NAMESPACE + ".selectChatByRoom", ROOM_IDX);
+    public List<ChatDTO> selectChatByRoom(int roomIdx) {
+        return sqlSession.selectList(NAMESPACE + ".selectChatByRoom", roomIdx);
     }
 }

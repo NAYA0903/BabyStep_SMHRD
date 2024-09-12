@@ -19,25 +19,25 @@ public class ChatWebSocketHandler {
     private static Map<String, Map<String, Session>> roomSessions = new ConcurrentHashMap<>();
 
     @OnOpen
-    public void onOpen(Session session, @PathParam("ROOM_IDX") String roomIdx) {
-        roomSessions.putIfAbsent(roomIdx, new ConcurrentHashMap<>());
-        roomSessions.get(roomIdx).put(session.getId(), session);
-        System.out.println("New connection to room " + roomIdx + " by session: " + session.getId());
+    public void onOpen(Session session, @PathParam("ROOM_TITLE") String roomTitle) {
+        roomSessions.putIfAbsent(roomTitle, new ConcurrentHashMap<>());
+        roomSessions.get(roomTitle).put(session.getId(), session);
+        System.out.println("New connection to room " + roomTitle + " by session: " + session.getId());
     }
 
     @OnMessage
-    public void onMessage(String message, Session session, @PathParam("ROOM_IDX") String roomIdx) {
-        System.out.println("Message received in room " + roomIdx + ": " + message);
+    public void onMessage(String message, Session session, @PathParam("ROOM_TITLE") String roomTitle) {
+        System.out.println("Message received in room " + roomTitle + ": " + message);
         // 해당 방의 모든 사용자에게 메시지를 브로드캐스트
-        for (Session s : roomSessions.get(roomIdx).values()) {
+        for (Session s : roomSessions.get(roomTitle).values()) {
             s.getAsyncRemote().sendText(message);
         }
     }
 
     @OnClose
-    public void onClose(Session session, @PathParam("ROOM_IDX") String roomIdx) {
-        roomSessions.get(roomIdx).remove(session.getId());
-        System.out.println("Connection closed in room " + roomIdx + " for session: " + session.getId());
+    public void onClose(Session session, @PathParam("ROOM_TITLE") String roomTitle) {
+        roomSessions.get(roomTitle).remove(session.getId());
+        System.out.println("Connection closed in room " + roomTitle + " for session: " + session.getId());
     }
 
     @OnError
