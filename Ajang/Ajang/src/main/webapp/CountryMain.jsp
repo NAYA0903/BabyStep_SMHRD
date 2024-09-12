@@ -158,7 +158,6 @@
 	  
     List<CountryDTO> countrys = new CountryDAO().allCountry(); 
 
-	
 // 조회된 게시글 리스트의 크기를 출력하여, 게시글의 개수를 확인 (디버깅용)
     System.out.print(countrys.size());
     // 조회된 게시글 리스트를 JSP 페이지의 pageContext에 저장하여 이후 페이지에서 사용 가능하게 설정
