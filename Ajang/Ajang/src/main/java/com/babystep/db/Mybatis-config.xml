@@ -11,6 +11,8 @@
         <typeAlias type="com.babystep.model.BoardDTO" alias="BoardDTO"/>
         <typeAlias type="com.babystep.model.CountryDTO" alias="CountryDTO"/>
         <typeAlias type="com.babystep.model.CalendarDTO" alias="CalendarDTO"/>
+        <typeAlias type="com.babystep.model.ChatDTO" alias="ChatDTO"/>
+        <typeAlias type="com.babystep.model.ChatRoomDTO" alias="ChatRoomDTO"/>
     </typeAliases>    
 
     <!-- 환경 설정 (데이터베이스 연결) -->
