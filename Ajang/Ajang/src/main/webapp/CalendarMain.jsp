@@ -81,9 +81,17 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var dayCells = document.querySelectorAll('td[data-day]');
-            
+            var selectedCell = null;
+
             dayCells.forEach(function(cell) {
                 cell.addEventListener('click', function() {
+                    if (selectedCell) {
+                        selectedCell.classList.remove('selected'); // 이전 선택된 셀에서 클래스 제거
+                    }
+
+                    cell.classList.add('selected'); // 선택된 셀에 클래스 추가
+                    selectedCell = cell;
+
                     var selectedDay = cell.getAttribute('data-day');
                     var year = "<%= year %>";
                     var month = "<%= month %>";
@@ -97,6 +105,7 @@
                     // 서버 응답 처리
                     xhr.onreadystatechange = function() {
                         if (xhr.readyState === 4 && xhr.status === 200) {
+                            // 추가적으로 서버 응답 처리 내용이 필요할 경우 여기에 작성
                         }
                     };
                 });

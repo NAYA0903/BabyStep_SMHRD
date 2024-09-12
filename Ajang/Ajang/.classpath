@@ -37,7 +37,7 @@
 			<attribute name="optional" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/smhrd/Desktop/cos-2020.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/smhrd1/Desktop/cos-2020.4.jar"/>
 	<classpathentry kind="src" path="target/generated-sources/annotations">
 		<attributes>
 			<attribute name="ignore_optional_problems" value="true"/>

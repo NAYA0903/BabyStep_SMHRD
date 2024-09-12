@@ -71,7 +71,7 @@
     					<%
     						String selectedDate = (String) session.getAttribute("selectedDate");
    							 if (selectedDate != null) {
-        						out.println("<span>선택한 날짜: " + selectedDate + "</span>");
+        						out.println("<span>" + selectedDate + "</span>");
   							  } else {
       							  out.println("<span>선택된 날짜가 없습니다.</span>");
    							  }
