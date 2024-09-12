@@ -6,7 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.babystep.db.SqlSessionManager;
-import com.babystep.model.BoardDTO;
+
 
 public class BoardDAO {
    SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();

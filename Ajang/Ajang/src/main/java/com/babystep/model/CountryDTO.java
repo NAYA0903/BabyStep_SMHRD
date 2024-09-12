@@ -1,54 +1,96 @@
 package com.babystep.model;
 
+import javax.xml.crypto.Data;
+
+import oracle.sql.NUMBER;
+
 public class CountryDTO {
 
-   private int c_num ; 
-   private String c_title ;
-   private String c_writer ;
-   private String c_filename ;
-   private String c_content ;
-   private String c_bdate ;
-   private int c_snum ;
+
+	private String USED_IDX ;
+	private String USED_TITLE;
+	private String USED_CONTENT ;
+	private int USED_PRICE ;
+	private String USED_IMG1;
+	private String USED_IMG2;
+	private String USED_IMG3;
+	private String USED_IMG4;
+	private Data CREATED_AT ;
+	private String USED_DONE;
+	private String USER_ID ;
+	
+	public CountryDTO(String USED_TITLE, int USED_PRICE,  String USED_CONTENT, String USED_IMG1, String USED_IMG2, String USED_IMG3,String USED_IMG4, String USER_ID) {
+		
+		this.USED_TITLE = USED_TITLE;
+		this.USED_PRICE = USED_PRICE;
+		this.USED_CONTENT = USED_CONTENT;
+		this.USED_IMG1 = USED_IMG1;
+		this.USED_IMG2 = USED_IMG2;
+		this.USED_IMG3 = USED_IMG3;
+		this.USED_IMG4 = USED_IMG4;
+		this.USER_ID = USER_ID;
+	}
+
+	public CountryDTO(String USED_IDX, String USED_TITLE, String USED_CONTENT, int USED_PRICE, String USED_IMG1,
+			String USED_IMG2, String USED_IMG3, String USED_IMG4, Data CREATED_AT, String USED_DONE, String USER_ID) {
+	
+		this.USED_IDX = USED_IDX;
+		this.USED_TITLE = USED_TITLE;
+		this.USED_CONTENT = USED_CONTENT;
+		this.USED_PRICE = USED_PRICE;
+		this.USED_IMG1 = USED_IMG1;
+		this.USED_IMG2 = USED_IMG2;
+		this.USED_IMG3 = USED_IMG3;
+		this.USED_IMG4 = USED_IMG4;
+		this.CREATED_AT = CREATED_AT;
+		this.USED_DONE = USED_DONE;
+		this.USER_ID = USER_ID;
+	}
+
+	public String getUSED_IDX() {
+		return USED_IDX;
+	}
+
+	public String getUSED_TITLE() {
+		return USED_TITLE;
+	}
+
+	public String getUSED_CONTENT() {
+		return USED_CONTENT;
+	}
+
+	public int getUSED_PRICE() {
+		return USED_PRICE;
+	}
+
+	public String getUSED_IMG1() {
+		return USED_IMG1;
+	}
+
+	public String getUSED_IMG2() {
+		return USED_IMG2;
+	}
+
+	public String getUSED_IMG3() {
+		return USED_IMG3;
+	}
+
+	public String getUSED_IMG4() {
+		return USED_IMG4;
+	}
+
+	public Data getCREATED_AT() {
+		return CREATED_AT;
+	}
+
+	public String getUSED_DONE() {
+		return USED_DONE;
+	}
+
+	public String getUSER_ID() {
+		return USER_ID;
+	}
    
-   public CountryDTO(int c_num, String c_title, String c_writer, String c_filename, String c_content, String c_bdate,
-         int c_snum) {
-   
-      this.c_num = c_num;
-      this.c_title = c_title;
-      this.c_writer = c_writer;
-      this.c_filename = c_filename;
-      this.c_content = c_content;
-      this.c_bdate = c_bdate;
-      this.c_snum = c_snum;
-   }
-
-   public int getC_num() {
-      return c_num;
-   }
-
-   public String getC_title() {
-      return c_title;
-   }
-
-   public String getC_writer() {
-      return c_writer;
-   }
-
-   public String getC_filename() {
-      return c_filename;
-   }
-
-   public String getC_content() {
-      return c_content;
-   }
-
-   public String getC_bdate() {
-      return c_bdate;
-   }
-
-   public int getC_snum() {
-      return c_snum;
-   }
-
-   
+	
+  
 }

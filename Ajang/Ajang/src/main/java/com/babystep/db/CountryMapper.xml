@@ -3,13 +3,25 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-
-<mapper namespace ="com.babystep.db.CountryMapper">
-
-<insert id="writeCountry" parameterType = "CountryDTO">
-insert into Country
-VALUES
-(Country_NUM.NEXTVAL, #{C_TITLE},#{C_WRITER},{C_FILENAME},#{C_CONTENT}, SYSDATE)
-
-</insert>
-</mapper>
+	<mapper namespace="com.babystep.db.CountryMapper">
+	
+	    <!-- INSERT 구문 -->
+	    <insert id="writeCountry" parameterType="CountryDTO">
+	        insert into TB_USED (
+	            USED_TITLE, USED_CONTENT, USED_PRICE, USED_IMG1, USED_IMG2, USED_IMG3, USED_IMG4, CREATED_AT, USER_ID
+	        ) VALUES (
+	            #{USED_TITLE}, #{USED_CONTENT}, #{USED_PRICE}, #{USED_IMG1}, #{USED_IMG2}, #{USED_IMG3}, #{USED_IMG4}, SYSDATE,  #{USER_ID}
+	        )
+	    </insert>
+	
+	    <!-- 전체 조회 -->
+	    <select id="allCountry" resultType="CountryDTO">
+	        SELECT * FROM TB_USED ORDER BY USED_IDX DESC
+	    </select>
+	
+	    <!-- 특정 항목 조회 -->
+	    <select id="detailCountry" resultType="CountryDTO">
+	        SELECT * FROM TB_USED WHERE USED_IDX = #{USED_IDX}
+	    </select>
+	
+	</mapper>

@@ -31,6 +31,7 @@
     <!-- 매퍼 설정 -->
     <mappers>
         <mapper resource="com/babystep/db/UserMapper.xml"/>
-        <mapper resource="com/babystep/db/BoardMapper.xml"/> <!-- BoardMapper 추가 -->
+        <mapper resource="com/babystep/db/BoardMapper.xml"/> 
+        <mapper resource="com/babystep/db/CountryMapper.xml"/> 
     </mappers>
 </configuration>
