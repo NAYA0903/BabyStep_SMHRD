@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Built-By: smhrd1
+Built-By: smhrd
 Build-Jdk: 22.0.1
 Implementation-Title: Ajang Maven Webapp
 Implementation-Version: 0.0.1-SNAPSHOT
