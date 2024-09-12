@@ -14,6 +14,8 @@ import com.babystep.model.CountryDTO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import oracle.sql.NUMBER;
+
 
 @WebServlet("/CountryService")
 public class CountryService extends HttpServlet {
@@ -52,7 +54,7 @@ public class CountryService extends HttpServlet {
             // 폼 데이터에서 사용자가 입력한 제목, 작성자, 내용 가져오기
             String USED_TITLE = multi.getParameter("title"); // 중고나라 제목
             System.out.println(USED_TITLE);
-            int USED_PRICE = Integer.parseInt(multi.getParameter("price")); // 중고나라 가격
+            Integer USED_PRICE = Integer.parseInt(multi.getParameter("price")); // 중고나라 가격
             System.out.println(USED_PRICE);
             String USED_CONTENT = multi.getParameter("content"); // 중고나라 내용
             System.out.println(USED_CONTENT);

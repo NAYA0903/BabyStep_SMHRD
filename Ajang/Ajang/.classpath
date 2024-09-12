@@ -37,7 +37,10 @@
 			<attribute name="optional" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/smhrd1/Desktop/cos-2020.4.jar"/>
+=======
+>>>>>>> branch 'master' of https://github.com/NAYA0903/SMHRD_PROJECT.git
 	<classpathentry kind="src" path="target/generated-sources/annotations">
 		<attributes>
 			<attribute name="ignore_optional_problems" value="true"/>
@@ -55,5 +58,6 @@
 			<attribute name="test" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/smhrd1/Desktop/cos-2020.4.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
