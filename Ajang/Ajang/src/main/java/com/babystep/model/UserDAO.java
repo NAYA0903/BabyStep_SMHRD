@@ -59,7 +59,21 @@ public class UserDAO {
 	    }
 
 		
-		
+	 // 사용자 ID로 해싱된 비밀번호 가져오기 (로그인에 사용)
+	    public String getNicknameById(String id) {
+	        // SqlSession을 생성
+	        SqlSession session = sqlSessionFactory.openSession();
+
+	        String storedNickname = null;
+	        try {
+	            // MyBatis 매퍼에서 getPasswordById 쿼리 실행
+	            storedNickname = session.selectOne("com.babystep.db.UserMapper.getNicknameById", id);
+	        } finally {
+	            session.close(); // 세션을 반드시 닫아야 함
+	        }
+	        return storedNickname;
+	    }
+
 		
 	
 
