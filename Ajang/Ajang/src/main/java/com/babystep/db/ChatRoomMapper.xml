@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.babystep.mapper.ChatRoomMapper">
+<mapper namespace="com.babystep.db.ChatRoomMapper">
     <select id="getAllRooms" resultType="ChatRoomDTO">
         SELECT ROOM_IDX, ROOM_TITLE, OPENED_AT, ROOM_LIMIT, USER_ID, ROOM_IMG
         FROM TB_CROOM

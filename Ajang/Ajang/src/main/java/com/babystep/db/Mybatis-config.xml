@@ -33,5 +33,7 @@
         <mapper resource="com/babystep/db/UserMapper.xml"/>
         <mapper resource="com/babystep/db/BoardMapper.xml"/> 
         <mapper resource="com/babystep/db/CountryMapper.xml"/> 
+        <mapper resource="com/babystep/db/ChatMapper.xml"/>
+        <mapper resource="com/babystep/db/ChatRoomMapper.xml"/>
     </mappers>
 </configuration>
