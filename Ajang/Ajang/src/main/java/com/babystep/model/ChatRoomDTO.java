@@ -1,73 +1,68 @@
 package com.babystep.model;
 
-	public class ChatRoomDTO {
-	
-		private int ROOM_INDEX ;
-		private String ROOM_TITLE ;
-		private String OPENED_AT ;
-		private int ROOM_LIMIT ;
-		private String USER_ID ;
-		private String ROOM_IMG ;
-	
-	public ChatRoomDTO(int ROOM_INDEX, String ROOM_TITLE, String OPENED_AT, 
-						int ROOM_LIMIT, String USER_ID, String ROOM_IMG) {
-		
-		this.ROOM_INDEX = ROOM_INDEX;
-		this.ROOM_TITLE = ROOM_TITLE;
-		this.OPENED_AT = OPENED_AT;
-		this.ROOM_LIMIT = ROOM_LIMIT;
-		this.USER_ID = USER_ID;
-		this.ROOM_IMG = ROOM_IMG;
-		
-	}
+public class ChatRoomDTO {
 
-	public int getROOM_INDEX() {
-		return ROOM_INDEX;
-	}
+    private int roomIndex;
+    private String roomTitle;
+    private String openedAt;
+    private int roomLimit;
+    private String userId;
+    private String roomImg;
 
-	public void setROOM_INDEX(int ROOM_INDEX) {
-		this.ROOM_INDEX = ROOM_INDEX;
-	}
+    public ChatRoomDTO(int roomIndex, String roomTitle, String openedAt, int roomLimit, String userId, String roomImg) {
+        this.roomIndex = roomIndex;
+        this.roomTitle = roomTitle;
+        this.openedAt = openedAt;
+        this.roomLimit = roomLimit;
+        this.userId = userId;
+        this.roomImg = roomImg;
+    }
 
-	public String getROOM_TITLE() {
-		return ROOM_TITLE;
-	}
+    public int getRoomIndex() {
+        return roomIndex;
+    }
 
-	public void setROOM_TITLE(String ROOM_TITLE) {
-		this.ROOM_TITLE = ROOM_TITLE;
-	}
+    public void setRoomIndex(int roomIndex) {
+        this.roomIndex = roomIndex;
+    }
 
-	public String getOPENED_AT() {
-		return OPENED_AT;
-	}
+    public String getRoomTitle() {
+        return roomTitle;
+    }
 
-	public void setOPENED_AT(String OPENED_AT) {
-		this.OPENED_AT = OPENED_AT;
-	}
+    public void setRoomTitle(String roomTitle) {
+        this.roomTitle = roomTitle;
+    }
 
-	public int getROOM_LIMIT() {
-		return ROOM_LIMIT;
-	}
+    public String getOpenedAt() {
+        return openedAt;
+    }
 
-	public void setROOM_LIMIT(int ROOM_LIMIT) {
-		this.ROOM_LIMIT = ROOM_LIMIT;
-	}
+    public void setOpenedAt(String openedAt) {
+        this.openedAt = openedAt;
+    }
 
-	public String getUSER_ID() {
-		return USER_ID;
-	}
+    public int getRoomLimit() {
+        return roomLimit;
+    }
 
-	public void setUSER_ID(String USER_ID) {
-		this.USER_ID = USER_ID;
-	}
+    public void setRoomLimit(int roomLimit) {
+        this.roomLimit = roomLimit;
+    }
 
-	public String getROOM_IMG() {
-		return ROOM_IMG;
-	}
+    public String getUserId() {
+        return userId;
+    }
 
-	public void setROOM_IMG(String ROOM_IMG) {
-		this.ROOM_IMG = ROOM_IMG;
-	}
-	
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
+    public String getRoomImg() {
+        return roomImg;
+    }
+
+    public void setRoomImg(String roomImg) {
+        this.roomImg = roomImg;
+    }
 }

@@ -18,8 +18,8 @@ public class ChatRoomService {
         return chatRoomMapper.getAllRooms();
     }
 
-    public ChatRoomDTO getRoomByIdx(int ROOM_IDX) {
-        return chatRoomMapper.getRoomByIdx(ROOM_IDX);
+    public ChatRoomDTO getRoomByTitle(String roomTitle) {
+        return chatRoomMapper.getRoomByTitle(roomTitle);
     }
 
     public void createRoom(ChatRoomDTO room) {
@@ -30,7 +30,7 @@ public class ChatRoomService {
         chatRoomMapper.updateRoom(room);
     }
 
-    public void deleteRoom(int ROOM_IDX) {
-        chatRoomMapper.deleteRoom(ROOM_IDX);
+    public void deleteRoom(int roomIdx) {
+        chatRoomMapper.deleteRoom(roomIdx);
     }
 }

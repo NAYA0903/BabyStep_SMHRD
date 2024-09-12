@@ -6,7 +6,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.babystep.db.SqlSessionManager;
-import com.babystep.model.CountryDTO;
 
 public class CountryDAO {
 	  SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();

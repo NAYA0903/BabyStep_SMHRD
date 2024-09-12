@@ -8,13 +8,13 @@
     <script>
         let ws;
         let USER_ID = '<%= session.getAttribute("id") %>';
-        console.log("User ID: " + USER_ID);
+        console.log("사용자 ID: " + userId);
         
-        let ROOM_IDX = '<%= request.getParameter("ROOM_IDX") %>';
-        console.log("Room ID: " + ROOM_IDX);
+        let ROOM_TITLE = '<%= request.getParameter("roomTitle") %>';
+        console.log("채팅방 이름: " + roomTitle);
 
         function connect() {
-            ws = new WebSocket("ws://localhost:8083/chat/websocket/" + ROOM_IDX);
+            ws = new WebSocket("ws://localhost:8083/chat/websocket/" + roomTitle);
             
             ws.onmessage = function (event) {
                 let message = event.data;
@@ -35,8 +35,8 @@
             let message = document.getElementById("message").value;
             if (message.trim() !== "") {
                 ws.send(JSON.stringify({
-                    userId: USER_ID,
-                    roomIdx: ROOM_IDX,
+                    userId: userId,
+                    roomTitle: roomTitle,
                     content: message
                 }));
                 document.getElementById("message").value = "";
@@ -47,9 +47,9 @@
     </script>
 </head>
 <body>
-    <h2>Chat Room: <%= request.getParameter("ROOM_IDX") %></h2>
+    <h2>Chat Room: <%= request.getParameter("roomTitle") %></h2>
     <div id="chatBox" style="border:1px solid #000; height:300px; overflow-y:scroll; width: 400px;"></div>
-    <input type="text" id="message" placeholder="Type a message" style="width: 300px;">
+    <input type="text" id="message" placeholder="메세지를 입력하세요." style="width: 300px;">
     <button onclick="sendMessage()">Send</button>
 </body>
 </html>

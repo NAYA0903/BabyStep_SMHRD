@@ -18,7 +18,7 @@ public class ChatService {
         chatDAO.insertChat(chat);
     }
 
-    public List<ChatDTO> getChatByRoom(int ROOM_IDX) {
-        return chatDAO.selectChatByRoom(ROOM_IDX);
+    public List<ChatDTO> getChatByRoom(int roomIdx) {
+        return chatDAO.selectChatByRoom(roomIdx);
     }
 }

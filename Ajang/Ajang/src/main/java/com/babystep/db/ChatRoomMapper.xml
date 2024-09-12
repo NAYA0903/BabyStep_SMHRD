@@ -8,15 +8,17 @@
         FROM TB_CROOM
     </select>
 
-    <select id="getRoomByIdx" parameterType="int" resultType="ChatRoomDTO">
-        SELECT ROOM_IDX, ROOM_TITLE, OPENED_AT, ROOM_LIMIT, USER_ID, ROOM_IMG
-        FROM TB_CROOM
-        WHERE ROOM_IDX = #{ROOM_IDX}
-    </select>
+    <select id="getRoomByTitle" parameterType="String" resultType="ChatRoomDTO">
+    	SELECT ROOM_IDX as roomIndex, ROOM_TITLE as roomTitle, OPENED_AT as openedAt, 
+          	 ROOM_LIMIT as roomLimit, USER_ID as userId, ROOM_IMG as roomImg
+    	FROM TB_CROOM
+    	WHERE ROOM_TITLE = #{ROOM_TITLE}
+	</select>
+
 
     <insert id="createRoom" parameterType="ChatRoomDTO">
         INSERT INTO TB_CROOM (ROOM_TITLE, OPENED_AT, ROOM_LIMIT, USER_ID, ROOM_IMG)
-        VALUES (#{ROOM_TITLE}, SYSDATE, #{ROOM_LIMIT}, #{USER_ID}, #{ROOM_IMG})
+        VALUES (#{roomTitle}, SYSDATE, #{roomLimit}, #{userId}, #{roomImg})
     </insert>
 
     <update id="updateRoom" parameterType="ChatRoomDTO">
