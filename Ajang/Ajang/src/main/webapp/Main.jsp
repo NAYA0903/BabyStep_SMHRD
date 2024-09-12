@@ -29,23 +29,24 @@
 			class="com" href="">소개</a> <a class="com" href="">WITHKIDS</a> <a
 			class="com" href="BoardMain.jsp">게시판</a> <a class="com" href="">중고거래</a>
 
-		<!-- 다크 모드 스위치 -->
-		<label class="dark-mode-switch"> <input type="checkbox"
-			id="darkModeToggle"> <span class="slider"></span>
-			
-		</label> 
+		<a href="ChatRoom.jsp"> <img src="img/Chat.png" alt="채팅"
+			class="chat-image">
+		</a> 
 		
 		<a href="" onclick="togglePopup(); return false;"> <img
 			src="img/Mypage2.png" alt="마이페이지" class="mypage-image">
 		</a>
 		
-		<a href="ChatRoom.jsp"> <img src="img/Chat.png" alt="채팅"
-			class="chat-image">
-		</a> 
 		
 		<a href="LogoutService"> <img src="img/Logout3.png" alt="로그아웃"
 			class="logout-image">
 		</a> 
+
+		<!-- 다크 모드 스위치 -->
+		<label class="dark-mode-switch"> <input type="checkbox"
+			id="darkModeToggle"> <span class="slider"></span>
+			
+		</label> 
 
 		<jsp:include page="Popup.jsp" />
 
