@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.babystep.model.ChatRoomDTO;
@@ -42,4 +44,11 @@ public class ChatRoomController {
         model.addAttribute("chatRoom", chatRoom);
         return "chatRoom"; // chatRoom.jsp로 이동
     }
+    
+    @PostMapping("/createRoom")
+    public String createRoom(ChatRoomDTO room, Model model) {
+        chatRoomService.createRoom(room);  // 방 생성 로직 호출
+        return "redirect:/Ajang/ChatRooms.jsp";  // 방 생성 후 리다이렉트
+    }
+
 }

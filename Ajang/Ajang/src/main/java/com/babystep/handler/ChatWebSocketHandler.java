@@ -12,7 +12,7 @@ import jakarta.websocket.OnMessage;
 import jakarta.websocket.OnOpen;
 import jakarta.websocket.Session;
 
-@ServerEndpoint("/chat/websocket/{roomIdx}")
+@ServerEndpoint("/chat/websocket/{roomTitle}")
 public class ChatWebSocketHandler {
 
     // 방 별로 WebSocket 세션을 관리합니다.
@@ -39,6 +39,9 @@ public class ChatWebSocketHandler {
         roomSessions.get(roomTitle).remove(session.getId());
         System.out.println("Connection closed in room " + roomTitle + " for session: " + session.getId());
     }
+    
+    
+    
 
     @OnError
     public void onError(Session session, Throwable throwable) {

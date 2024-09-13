@@ -34,6 +34,12 @@
   	<description></description>
   	<servlet-class>com.babystep.controller.UserServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>webConfig</servlet-name>
+  	<display-name>webConfig</display-name>
+  	<description></description>
+  	<servlet-class>com.babystep.config.webConfig</servlet-class>
+  </servlet>
   
   <servlet-mapping>
   	<servlet-name>LoginService</servlet-name>
@@ -54,6 +60,10 @@
   <servlet-mapping>
   	<servlet-name>UserServlet</servlet-name>
   	<url-pattern>/UserServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>webConfig</servlet-name>
+  	<url-pattern>/webConfig</url-pattern>
   </servlet-mapping>
   
 </web-app>

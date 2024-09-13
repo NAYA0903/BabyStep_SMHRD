@@ -17,7 +17,7 @@
         <!-- 방 목록을 반복해서 출력 -->
         <c:forEach var="room" items="${rooms}">
             <li>
-                ${chatRoom.roomTitle} - <a href="/chatRoom?roomIdx=${chatRoom.roomTitle}">입장하기</a>
+                ${chatRoom.roomTitle} - <a href="/chatRoom?roomIdx=${chatRoom.roomIdx}">입장하기</a>
                 
             </li>
         </c:forEach>

@@ -69,7 +69,7 @@
 				<% String errorMessage = (String) request.getAttribute("errorMessage"); %>
 				<% if (errorMessage != null) { %>
     				<div class="error">
-        				<p1><%= errorMessage %></p1>
+        				<p><%= errorMessage %></p>
     				</div>
 				<% } %>
 				
