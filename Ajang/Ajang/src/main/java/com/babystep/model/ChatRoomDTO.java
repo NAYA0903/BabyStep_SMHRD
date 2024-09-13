@@ -1,29 +1,40 @@
 package com.babystep.model;
 
+import java.util.Date;
+
 public class ChatRoomDTO {
 
-    private int roomIndex;
-    private String roomTitle;
-    private String openedAt;
+    private int roomIdx;
+
+	private String roomTitle;
+    private Date openedAt;
     private int roomLimit;
     private String userId;
     private String roomImg;
 
-    public ChatRoomDTO(int roomIndex, String roomTitle, String openedAt, int roomLimit, String userId, String roomImg) {
-        this.roomIndex = roomIndex;
-        this.roomTitle = roomTitle;
-        this.openedAt = openedAt;
-        this.roomLimit = roomLimit;
-        this.userId = userId;
-        this.roomImg = roomImg;
+    public ChatRoomDTO(int roomIdx, String roomTitle, Date openedAt, int roomLimit, String userId, String roomImg) {
+    	super();
+    	this.roomIdx = roomIdx;
+    	this.roomTitle = roomTitle;
+    	this.openedAt = openedAt;
+    	this.roomLimit = roomLimit;
+    	this.userId = userId;
+    	this.roomImg = roomImg;
+    }
+    
+    public ChatRoomDTO(String roomTitle, int roomLimit, String roomImg, String userId) {
+    	this.roomTitle = roomTitle ;
+    	this.roomLimit = roomLimit ;
+    	this.roomImg = roomImg ;
+    	this.userId = userId ;
+    }
+    
+    public int getRoomIdx() {
+        return roomIdx;
     }
 
-    public int getRoomIndex() {
-        return roomIndex;
-    }
-
-    public void setRoomIndex(int roomIndex) {
-        this.roomIndex = roomIndex;
+    public void setRoomIdx(int roomIdx) {
+        this.roomIdx = roomIdx;
     }
 
     public String getRoomTitle() {
@@ -34,11 +45,11 @@ public class ChatRoomDTO {
         this.roomTitle = roomTitle;
     }
 
-    public String getOpenedAt() {
+    public Date getOpenedAt() {
         return openedAt;
     }
 
-    public void setOpenedAt(String openedAt) {
+    public void setOpenedAt(Date openedAt) {
         this.openedAt = openedAt;
     }
 

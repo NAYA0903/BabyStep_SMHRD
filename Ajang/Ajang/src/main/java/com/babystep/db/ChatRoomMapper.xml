@@ -1,37 +1,31 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper
-  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 <mapper namespace="com.babystep.db.ChatRoomMapper">
 
-    <select id="getAllRooms" resultType="ChatRoomDTO">
-        SELECT ROOM_IDX as roomIndex, ROOM_TITLE as roomTitle, OPENED_AT as openedAt, ROOM_LIMIT as roomLimit,
-         USER_ID as userId, ROOM_IMG as roomImg
-        FROM TB_CROOM
-    </select>
-
-    <select id="getRoomByTitle" parameterType="String" resultType="ChatRoomDTO">
-    	SELECT ROOM_IDX as roomIndex, ROOM_TITLE as roomTitle, OPENED_AT as openedAt, 
-          	 ROOM_LIMIT as roomLimit, USER_ID as userId, ROOM_IMG as roomImg
-    	FROM TB_CROOM
-    	WHERE ROOM_TITLE = #{ROOM_TITLE}
-	</select>
-
-
-    <insert id="createRoom" parameterType="ChatRoomDTO">
+    <!-- 채팅방 생성 -->
+    <insert id="insertChatRoom" parameterType="ChatRoomDTO">
         INSERT INTO TB_CROOM (ROOM_TITLE, OPENED_AT, ROOM_LIMIT, USER_ID, ROOM_IMG)
         VALUES (#{roomTitle}, SYSDATE, #{roomLimit}, #{userId}, #{roomImg})
     </insert>
 
-    <update id="updateRoom" parameterType="ChatRoomDTO">
-        UPDATE TB_CROOM
-        SET ROOM_TITLE = #{roomTitle},
-            ROOM_LIMIT = #{roomLimit},
-            ROOM_IMG = #{roomImg}
+    <!-- 채팅방 조회 (ID 기준) -->
+    <select id="selectChatRoomById" parameterType="int" resultType="ChatRoomDTO">
+        SELECT ROOM_IDX, ROOM_TITLE, OPENED_AT, ROOM_LIMIT, USER_ID, ROOM_IMG 
+        FROM TB_CROOM 
         WHERE ROOM_IDX = #{roomIdx}
-    </update>
+    </select>
 
-    <delete id="deleteRoom" parameterType="int">
+    <!-- 모든 채팅방 목록 조회 -->
+    <select id="selectAllChatRooms" resultType="ChatRoomDTO">
+        SELECT ROOM_IDX, ROOM_TITLE, OPENED_AT, ROOM_LIMIT, USER_ID, ROOM_IMG 
+        FROM TB_CROOM
+    </select>
+
+    <!-- 채팅방 삭제 -->
+    <delete id="deleteChatRoom" parameterType="int">
         DELETE FROM TB_CROOM WHERE ROOM_IDX = #{roomIdx}
     </delete>
+    
 </mapper>

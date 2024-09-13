@@ -33,42 +33,40 @@
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
 		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
 		<dependency>
 			<groupId>javax.servlet</groupId>   <!-- 서블릿 라이브러리 -->
 			<artifactId>javax.servlet-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
+		
 		<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc8 -->
 		<dependency>
 			<groupId>com.oracle.database.jdbc</groupId>   <!-- 오라클 연동 JDBC -->
 			<artifactId>ojdbc8</artifactId>
 		</dependency>
+		
 		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
 		<dependency>
 			<groupId>org.mybatis</groupId>     <!-- mybatis -->
 			<artifactId>mybatis</artifactId>
 			<version>3.5.6</version>
 		</dependency>
-		<!--
-		https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+		
+		<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>     <!-- Httpclient -->
 			<artifactId>httpclient</artifactId>
 		</dependency>
+		
 		<!-- https://mvnrepository.com/artifact/com.jfinal/cos -->
 		<dependency>
 			<groupId>com.jfinal</groupId>
 			<artifactId>cos</artifactId>
 			<version>2020.4</version>
 		</dependency>
-		<!-- 트랜젝션 START -->
-		<!-- https://mvnrepository.com/artifact/org.springframework/spring-tx -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-tx</artifactId>
-		</dependency>
-		<!-- 트랜젝션 END -->
+		
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
@@ -80,27 +78,39 @@
 			<artifactId>tyrus-client</artifactId>
 			<version>2.1.5</version>
 		</dependency>
+		
+		    <!-- WebSocket API -->
+  	    <dependency>
+  	        <groupId>javax.websocket</groupId>
+  	        <artifactId>javax.websocket-api</artifactId>
+  	    </dependency>
+  	    
+  	     <!-- JSON Processing (Jackson) -->
+   	    <dependency>
+   	        <groupId>com.fasterxml.jackson.core</groupId>
+   	        <artifactId>jackson-databind</artifactId>
+   	    </dependency>
+   	    
+   	     <!-- SLF4J (로깅) -->
+  	    <dependency>
+  	        <groupId>org.slf4j</groupId>
+  	        <artifactId>slf4j-api</artifactId>
+  	    </dependency>
+  	    
+  	    <dependency>
+       	    <groupId>org.slf4j</groupId>
+       		<artifactId>slf4j-simple</artifactId>
+   		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-websocket</artifactId>
-		</dependency>
-
-		<!-- Spring Boot Web Starter -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
-		</dependency>
-
-
-
+		<!-- JSP (JSP 페이지에서 사용할 경우) -->
+ 	    <dependency>
+      	    <groupId>javax.servlet.jsp</groupId>
+      	    <artifactId>javax.servlet.jsp-api</artifactId>
+      	    <version>2.3.3</version>
+       	    <scope>provided</scope>
+   	    </dependency>
+    
 	</dependencies>
-
 
 	<build>
 		<finalName>Ajang</finalName>

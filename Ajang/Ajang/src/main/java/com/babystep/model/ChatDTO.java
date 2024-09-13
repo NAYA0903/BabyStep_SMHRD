@@ -1,22 +1,19 @@
 package com.babystep.model;
 
+import java.util.Date;
+
 public class ChatDTO {
 
     private int chatIdx;
-    private int roomIdx;
+
+	private int roomIdx;
     private String userId;
     private String chatContent;
-    private String chatEmoticon;
+    private String chatEmoti;
     private String chatFile;
-    private String chattedAt;
-
-    public ChatDTO(String userId, String chatContent) {
-        this.userId = userId;
-        this.chatContent = chatContent;
-    }
-
-    // Getters and Setters
-
+    private Date chattedAt;
+    
+    
     public int getChatIdx() {
         return chatIdx;
     }
@@ -49,12 +46,12 @@ public class ChatDTO {
         this.chatContent = chatContent;
     }
 
-    public String getChatEmoticon() {
-        return chatEmoticon;
+    public String getChatEmoti() {
+        return chatEmoti;
     }
 
-    public void setChatEmoticon(String chatEmoticon) {
-        this.chatEmoticon = chatEmoticon;
+    public void setChatEmoti(String chatEmoti) {
+        this.chatEmoti = chatEmoti;
     }
 
     public String getChatFile() {
@@ -65,11 +62,11 @@ public class ChatDTO {
         this.chatFile = chatFile;
     }
 
-    public String getChattedAt() {
+    public Date getChattedAt() {
         return chattedAt;
     }
 
-    public void setChattedAt(String chattedAt) {
+    public void setChattedAt(Date chattedAt) {
         this.chattedAt = chattedAt;
     }
 }
