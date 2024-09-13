@@ -29,17 +29,30 @@
 </head>
 <body>
     <h1>옹알이방</h1>
-
-    <div class="room-list">
-        <!-- 방 목록을 출력 -->
-        <c:forEach var="room" items="${chatRoomList}">
-            <div class="room">
-                <a href="chatRoom.jsp?roomId=${room.roomIdx}&nickname=${sessionScope.userId}">
-                    방 이름: ${room.roomTitle}, 개설자: ${room.userId}
-                </a>
-            </div>
-        </c:forEach>
-    </div>
+    
+    <c:out value="${chatRoomList}" />
+    
+    <table>
+            <tr>
+               <th class="num">번호</th>
+               <th class="title">옹알이 방 제목</th>
+               <th class="name">생성자</th>
+               <th class="open">생성일자</th>
+               <th class="limit">제한인원</th>
+            </tr>
+            
+            <c:forEach var="room" items="${chatRoomList}" varStatus="s">
+						<tr>
+						
+							<td>${s.count}</td>
+							<td><a href="BoardDetail.jsp?num=${room.roomIdx}">${room.roomTitle}</a></td>
+							<td>${room.userId}</td>
+							<td>${room.openedAt}</td>
+							<td>${room.roomLimit}</td>
+						</tr>
+					</c:forEach>
+            <!-- 게시판 데이터 삽입 -->
+         </table>
 
     <!-- 방 생성 버튼 추가 -->
     <div class="create-room">
