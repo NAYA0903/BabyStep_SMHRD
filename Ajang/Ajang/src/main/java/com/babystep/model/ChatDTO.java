@@ -1,18 +1,34 @@
 package com.babystep.model;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class ChatDTO {
 
     private int chatIdx;
 
 	private int roomIdx;
-    private String userId;
+
+	private String userId;
     private String chatContent;
     private String chatEmoti;
     private String chatFile;
     private Date chattedAt;
     
+    public ChatDTO() {
+    	
+    }
+    
+    public ChatDTO(int chatIdx, int roomIdx, String userId, String chatContent, String chatEmoti, String chatFile,
+    		Date chattedAt) {
+    	super();
+    	this.chatIdx = chatIdx;
+    	this.roomIdx = roomIdx;
+    	this.userId = userId;
+    	this.chatContent = chatContent;
+    	this.chatEmoti = chatEmoti;
+    	this.chatFile = chatFile;
+    	this.chattedAt = chattedAt;
+    }
     
     public int getChatIdx() {
         return chatIdx;

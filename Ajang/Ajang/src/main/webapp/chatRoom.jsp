@@ -10,9 +10,9 @@
         let websocket;
 
         function connect() {
-            let roomId = "<%= request.getParameter("roomId") %>";
-            let nickname = "<%= request.getParameter("nickname") %>";
-            websocket = new WebSocket("ws://localhost:8083/chat/" + roomId + "/" + nickname);
+            let roomIdx = "<%= request.getParameter("roomIdx") %>";
+            let userId = "<%= request.getParameter("userId") %>";
+            websocket = new WebSocket("ws://localhost:8083/chat/" + roomIdx + "/" + userId);
 
             websocket.onmessage = function(event) {
                 const chatBox = document.getElementById("chatBox");
@@ -50,7 +50,8 @@
     </style>
 </head>
 <body onload="connect()">
-    <h1>채팅방: <%= request.getParameter("roomId") %></h1>
+    <h1>채팅방: <%= request.getParameter("roomIdx") %></h1>
+    
 
     <div id="chatBox"></div>
     
