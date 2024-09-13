@@ -1,13 +1,14 @@
 package com.babystep.model;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class ChatRoomDTO {
 
     private int roomIdx;
 
 	private String roomTitle;
-    private Date openedAt;
+
+	private Date openedAt;
     private int roomLimit;
     private String userId;
     private String roomImg;
@@ -27,6 +28,12 @@ public class ChatRoomDTO {
     	this.roomLimit = roomLimit ;
     	this.roomImg = roomImg ;
     	this.userId = userId ;
+    }
+    
+    @Override
+    public String toString() {
+    	return "ChatRoomDTO [roomIdx=" + roomIdx + ", roomTitle=" + roomTitle + ", openedAt=" + openedAt
+    			+ ", roomLimit=" + roomLimit + ", userId=" + userId + ", roomImg=" + roomImg + "]";
     }
     
     public int getRoomIdx() {

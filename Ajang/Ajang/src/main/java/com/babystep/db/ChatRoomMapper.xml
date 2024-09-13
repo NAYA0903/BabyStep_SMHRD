@@ -19,8 +19,7 @@
 
     <!-- 모든 채팅방 목록 조회 -->
     <select id="selectAllChatRooms" resultType="ChatRoomDTO">
-        SELECT ROOM_IDX, ROOM_TITLE, OPENED_AT, ROOM_LIMIT, USER_ID, ROOM_IMG 
-        FROM TB_CROOM
+        SELECT * FROM TB_CROOM ORDER BY ROOM_IDX DESC
     </select>
 
     <!-- 채팅방 삭제 -->
