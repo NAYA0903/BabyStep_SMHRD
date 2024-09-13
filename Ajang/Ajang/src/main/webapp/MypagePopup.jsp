@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>내 정보 팝업</title>
-    <link rel="stylesheet" href="assets/css/Popup.css">
+    <link rel="stylesheet" href="assets/css/MypagePopup.css">
 </head>
 <body>
 
