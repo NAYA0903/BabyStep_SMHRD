@@ -45,7 +45,7 @@
 
 		</label>
 
-		<jsp:include page="Popup.jsp" />
+		<jsp:include page="MypagePopup.jsp" />
 
 
 
