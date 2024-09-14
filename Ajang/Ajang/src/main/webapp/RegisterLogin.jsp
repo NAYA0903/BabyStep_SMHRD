@@ -54,7 +54,7 @@
 				
 				<h1>로그인</h1>
 				<div class="social-container">
-					<a href="#" class="social-kakao"><img alt="KakaoLogo" class="Kakao" src="img/kakao.png"></a>
+					<a href="kakaoLogin.html" class="social-kakao"><img alt="KakaoLogo" class="Kakao" src="img/kakao.png"></a>
 					<a href="#" class="social-google">G</a> 
 					<a href="#" class="social-naver">N</a>
 				</div>
@@ -95,6 +95,7 @@
 	</div>
 
 	<script src="assets/js/RegisterLogin.js"></script>
+	
 
 </body>
 
