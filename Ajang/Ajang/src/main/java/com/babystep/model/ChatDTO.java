@@ -10,13 +10,14 @@ public class ChatDTO {
 
 	private String userId;
     private String chatContent;
-    private String chatEmoti;
-    private String chatFile;
+    private String chatEmoti = "";
+    private String chatFile = "";
     private Date chattedAt;
     
     public ChatDTO() {
     	
     }
+    
     
     public ChatDTO(int chatIdx, int roomIdx, String userId, String chatContent, String chatEmoti, String chatFile,
     		Date chattedAt) {

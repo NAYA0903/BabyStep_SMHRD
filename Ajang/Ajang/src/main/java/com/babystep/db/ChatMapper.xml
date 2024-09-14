@@ -4,15 +4,14 @@
 
 <mapper namespace="com.babystep.db.ChatMapper">
 
-    <!-- 채팅 메시지 삽입 -->
-    <insert id="insertChatMessage" parameterType="ChatDTO">
-        INSERT INTO TB_CHAT (ROOM_IDX, USER_ID, CHAT_CONTENT, CHAT_EMOTI, CHAT_FILE, CHATTED_AT)
-        VALUES (#{roomIdx}, #{userId}, #{chatContent}, #{chatEmoti}, #{chatFile}, SYSDATE)
-    </insert>
+   <insert id="insertChatMessage" parameterType="ChatDTO">
+    INSERT INTO TB_CHAT (ROOM_IDX, USER_ID, CHAT_CONTENT, CHAT_EMOTICON, CHAT_FILE, CHATTED_AT)
+    VALUES (#{roomIdx}, #{userId}, #{chatContent}, #{chatEmoti,jdbcType=VARCHAR}, #{chatFile,jdbcType=VARCHAR}, SYSDATE)
+</insert>
 
     <!-- 채팅방 내 모든 메시지 조회 -->
     <select id="selectChatMessagesByRoomId" parameterType="int" resultType="ChatDTO">
-        SELECT CHAT_IDX, ROOM_IDX, USER_ID, CHAT_CONTENT, CHAT_EMOTI, CHAT_FILE, CHATTED_AT 
+        SELECT CHAT_IDX, ROOM_IDX, USER_ID, CHAT_CONTENT, CHAT_EMOTICON, CHAT_FILE, CHATTED_AT 
         FROM TB_CHAT 
         WHERE ROOM_IDX = #{roomIdx} 
         ORDER BY CHATTED_AT ASC

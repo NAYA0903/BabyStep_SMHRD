@@ -8,32 +8,58 @@
     <title>Chat Room</title>
     <script>
         let websocket;
+        let userId = "<%= session.getAttribute("id") %>";  // 세션에서 사용자 ID를 가져옴
 
         function connect() {
             let roomIdx = "<%= request.getParameter("roomIdx") %>";
-            let userId = "<%= request.getParameter("userId") %>";
-            websocket = new WebSocket("ws://localhost:8083/chat/" + roomIdx + "/" + userId);
+            websocket = new WebSocket("ws://localhost:8083/Ajang/chat/" + roomIdx);
 
             websocket.onmessage = function(event) {
                 const chatBox = document.getElementById("chatBox");
+                const messageData = event.data.split(':');  // 메시지를 'userId: message' 형태로 받는다고 가정
+                const senderId = messageData[0].trim();
+                const messageContent = messageData[1].trim();
+
                 const message = document.createElement("p");
-                message.textContent = event.data;
+
+                // 자신이 보낸 메시지는 오른쪽, 상대방이 보낸 메시지는 왼쪽에 표시
+                if (senderId === userId) {
+                    message.classList.add("my-message");
+                    message.textContent = "나: " + messageContent;
+                } else {
+                    message.classList.add("other-message");
+                    message.textContent = senderId + ": " + messageContent;
+                }
+
                 chatBox.appendChild(message);
+                chatBox.scrollTop = chatBox.scrollHeight;  // 스크롤을 맨 아래로 이동
             };
 
             websocket.onclose = function() {
-                alert("연결이 종료되었습니다.");
+                alert("WebSocket 연결이 종료되었습니다.");
             };
         }
 
         function sendMessage() {
             const messageInput = document.getElementById("messageInput");
-            websocket.send(messageInput.value);
-            messageInput.value = '';
+            if (websocket && websocket.readyState === 1) {
+                console.log("Sending message: " + messageInput.value);
+                websocket.send(messageInput.value);
+                messageInput.value = '';
+            } else {
+                console.error("WebSocket connection is not open");
+            }
         }
+        
+     // Enter 키로 메시지 전송
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                sendMessage();
+            }
+        });
+     
     </script>
     <style>
-        /* 스타일 정의 */
         body {
             font-family: Arial, sans-serif;
         }
@@ -43,15 +69,36 @@
             height: 400px;
             overflow-y: scroll;
             margin-bottom: 10px;
+            background-color: white;
+            color: black;
+            padding: 10px;
         }
         #messageInput {
             width: 300px;
+        }
+
+        /* 메시지 스타일 */
+        .my-message {
+            text-align: right;
+            background-color: #e0ffe0;
+            padding: 5px;
+            border-radius: 10px;
+            margin: 5px;
+            color: #000;
+        }
+
+        .other-message {
+            text-align: left;
+            background-color: #f0f0f0;
+            padding: 5px;
+            border-radius: 10px;
+            margin: 5px;
+            color: #000;
         }
     </style>
 </head>
 <body onload="connect()">
     <h1>채팅방: <%= request.getParameter("roomIdx") %></h1>
-    
 
     <div id="chatBox"></div>
     

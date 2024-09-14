@@ -66,7 +66,7 @@
         <c:forEach var="room" items="${chatRoomList}" varStatus="s">
             <tr>
                 <td>${s.index + 1}</td> <!-- 1부터 시작 -->
-                <td><a href="chatRoom.jsp?num=${room.roomIdx}">${room.roomTitle}</a></td>
+                <td><a href="chatRoom.jsp?roomIdx=${room.roomIdx}&userId=${sessionScope.id}">${room.roomTitle}</a></td>
                 <td>${room.userId}</td>
                 <td>${room.openedAt}</td>
                 <td>${room.roomLimit}</td>
