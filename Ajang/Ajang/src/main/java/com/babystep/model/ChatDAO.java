@@ -18,10 +18,13 @@ public class ChatDAO {
     }
 
     public List<ChatDTO> selectChatMessagesByRoomId(int roomIdx) {
-        List<ChatDTO> messages = sqlSession.selectList("com.babystep.db.ChatMapper.selectChatMessagesByRoomId", roomIdx);
-        System.out.println("Retrieved Messages: " + messages); // 로그 추가
-        return messages;
+        System.out.println("roomIdx: " + roomIdx); // roomIdx 값 로그 확인
+        
+        List<ChatDTO> message = sqlSession.selectList("com.babystep.db.ChatMapper.selectChatMessagesByRoomId", roomIdx);
+        System.out.println("Retrieved Messages: " + message); // 쿼리 결과 로그 확인
+        return message;
     }
+    
     public void deleteChatMessage(int chatIdx) {
         sqlSession.delete("com.babystep.db.ChatMapper.deleteChatMessage", chatIdx);
     }

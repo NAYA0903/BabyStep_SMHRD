@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
+        
 <mapper namespace="com.babystep.db.ChatRoomMapper">
+
+	<resultMap id="ChatResultMap" type="com.babystep.model.ChatDTO">
+   		 <id property="chatIdx" column="CHAT_IDX"/>
+    	 <result property="roomIdx" column="ROOM_IDX"/>
+    	 <result property="userId" column="USER_ID"/>
+     	 <result property="chatContent" column="CHAT_CONTENT"/>
+    	 <result property="chatEmoti" column="CHAT_EMOTICON"/>
+    	 <result property="chatFile" column="CHAT_FILE"/>
+    	 <result property="chattedAt" column="CHATTED_AT"/>
+	</resultMap>
 
     <!-- 채팅방 생성 -->
     <insert id="insertChatRoom" parameterType="ChatRoomDTO">

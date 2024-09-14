@@ -10,7 +10,7 @@ public class ChatDTO {
 
 	private String userId;
     private String chatContent;
-    private String chatEmoti = "";
+    private String chatEmoticon = "";
     private String chatFile = "";
     private Date chattedAt;
     
@@ -19,16 +19,17 @@ public class ChatDTO {
     }
     
     
-    public ChatDTO(int chatIdx, int roomIdx, String userId, String chatContent, String chatEmoti, String chatFile,
+    public ChatDTO(int chatIdx, int roomIdx, String userId, String chatContent, String chatEmoticon, String chatFile,
     		Date chattedAt) {
-    	super();
+    	
     	this.chatIdx = chatIdx;
     	this.roomIdx = roomIdx;
     	this.userId = userId;
     	this.chatContent = chatContent;
-    	this.chatEmoti = chatEmoti;
+    	this.chatEmoticon = chatEmoticon;
     	this.chatFile = chatFile;
     	this.chattedAt = chattedAt;
+    	
     }
     
     public int getChatIdx() {
@@ -63,12 +64,12 @@ public class ChatDTO {
         this.chatContent = chatContent;
     }
 
-    public String getChatEmoti() {
-        return chatEmoti;
+    public String getChatEmoticon() {
+        return chatEmoticon;
     }
 
-    public void setChatEmoti(String chatEmoti) {
-        this.chatEmoti = chatEmoti;
+    public void setChatEmoti(String chatEmoticon) {
+        this.chatEmoticon = chatEmoticon;
     }
 
     public String getChatFile() {

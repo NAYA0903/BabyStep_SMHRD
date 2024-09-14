@@ -36,4 +36,6 @@
         <mapper resource="com/babystep/db/ChatMapper.xml"/> 
         <mapper resource="com/babystep/db/ChatRoomMapper.xml"/> 
     </mappers>
+    
+    
 </configuration>

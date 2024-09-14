@@ -34,12 +34,18 @@ public class ChatWebSocketServer {
             System.out.println(userId + " has joined room: " + roomIdx);
             
             // 채팅방 이전 메시지 불러오기
-            List<ChatDTO> previousMessages = chatDAO.selectChatMessagesByRoomId(roomIdx);
+            List<ChatDTO> messages = chatDAO.selectChatMessagesByRoomId(roomIdx);
+            
+            for (ChatDTO message : messages) {
+                System.out.println("Message ID: " + message.getChatIdx());
+                System.out.println("User ID: " + message.getUserId());
+                System.out.println("Content: " + message.getChatContent());
+            }
             
             // 이전 메시지를 클라이언트에 전송
-            if (previousMessages != null && !previousMessages.isEmpty()) {
+            if (messages != null && !messages.isEmpty()) {
                 try {
-                    for (ChatDTO chatMessage : previousMessages) {
+                    for (ChatDTO chatMessage : messages) {
                         if (chatMessage != null && chatMessage.getUserId() != null) {
                             session.getBasicRemote().sendText(chatMessage.getUserId() + ": " + chatMessage.getChatContent());
                         }
@@ -68,7 +74,7 @@ public class ChatWebSocketServer {
         ChatDTO chatMessage = new ChatDTO();
         chatMessage.setRoomIdx(roomIdx);
         chatMessage.setUserId(userId);
-        chatMessage.setChatContent(fullMessage);
+        chatMessage.setChatContent(message);
         chatDAO.insertChatMessage(chatMessage);
 
         // 같은 roomIdx에 있는 사용자에게 메시지 전송
