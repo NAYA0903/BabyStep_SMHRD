@@ -15,9 +15,7 @@ public class ChatDTO {
     private String chatFile = "";
     private Timestamp chattedAt;
     
-    public ChatDTO() {
-    	
-    }
+    public ChatDTO() {}
     
     
     public ChatDTO(int chatIdx, int roomIdx, String userId, String chatContent, String chatEmoticon, String chatFile,

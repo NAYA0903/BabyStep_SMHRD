@@ -27,6 +27,19 @@ public class ChatWebSocketServer {
     @OnOpen
     public void onOpen(Session session, @PathParam("roomIdx") int roomIdx) {
         HttpSession httpSession = (HttpSession) session.getUserProperties().get("httpSession");
+        
+        // httpSession Null 체크 
+        if (httpSession == null) {
+            System.out.println("HttpSession is null - Handshake failed to capture the session.");
+            try {
+                session.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return;
+        }
+        
+        
         String userId = (String) httpSession.getAttribute("id");
 
         if (userId != null) {

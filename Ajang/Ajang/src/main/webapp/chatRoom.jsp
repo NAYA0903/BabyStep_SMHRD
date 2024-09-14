@@ -13,6 +13,21 @@
         function connect() {
             let roomIdx = "<%= request.getParameter("roomIdx") %>";
             websocket = new WebSocket("ws://localhost:8083/Ajang/chat/" + roomIdx);
+            
+            // WebSocket 연결이 열렸을 때 호출
+            websocket.onopen = function(event) {
+                console.log("WebSocket is open now.");
+            };
+
+            // WebSocket 연결이 닫혔을 때 호출
+            websocket.onclose = function(event) {
+                console.log("WebSocket is closed now.");
+            };
+
+            // WebSocket 오류가 발생했을 때 호출
+            websocket.onerror = function(event) {
+                console.error("WebSocket error observed:", event);
+            };
 
             websocket.onmessage = function(event) {
                 const chatBox = document.getElementById("chatBox");
