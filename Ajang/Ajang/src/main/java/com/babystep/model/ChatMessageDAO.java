@@ -18,7 +18,7 @@ public class ChatMessageDAO {
         ChatDTO chatMessage = new ChatDTO();
         chatMessage.setRoomIdx(Integer.parseInt(roomIdx));
         chatMessage.setChatContent(message);
-        chatMessage.setChattedAt(new java.sql.Date(System.currentTimeMillis())); // 메시지 전송 시간 설정
+        chatMessage.setChattedAt(new java.sql.Timestamp(System.currentTimeMillis())); // 메시지 전송 시간 설정
         sqlSession.insert("com.babystep.db.ChatMapper.insertChatMessage", chatMessage);
         sqlSession.commit(); // 트랜잭션 커밋
     }

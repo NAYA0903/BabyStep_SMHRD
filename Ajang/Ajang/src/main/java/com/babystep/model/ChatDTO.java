@@ -1,6 +1,7 @@
 package com.babystep.model;
 
-import java.sql.Date;
+import java.sql.Timestamp;
+import java.util.Calendar;
 
 public class ChatDTO {
 
@@ -12,7 +13,7 @@ public class ChatDTO {
     private String chatContent;
     private String chatEmoticon = "";
     private String chatFile = "";
-    private Date chattedAt;
+    private Timestamp chattedAt;
     
     public ChatDTO() {
     	
@@ -20,7 +21,7 @@ public class ChatDTO {
     
     
     public ChatDTO(int chatIdx, int roomIdx, String userId, String chatContent, String chatEmoticon, String chatFile,
-    		Date chattedAt) {
+    		Timestamp chattedAt) {
     	
     	this.chatIdx = chatIdx;
     	this.roomIdx = roomIdx;
@@ -80,11 +81,12 @@ public class ChatDTO {
         this.chatFile = chatFile;
     }
 
-    public Date getChattedAt() {
+    public Timestamp getChattedAt() {
         return chattedAt;
     }
 
-    public void setChattedAt(Date chattedAt) {
+    public void setChattedAt(Timestamp chattedAt) {
         this.chattedAt = chattedAt;
     }
+    
 }

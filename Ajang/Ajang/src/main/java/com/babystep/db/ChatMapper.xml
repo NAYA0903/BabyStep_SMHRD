@@ -6,7 +6,7 @@
 
    <insert id="insertChatMessage" parameterType="ChatDTO">
     INSERT INTO TB_CHAT (ROOM_IDX, USER_ID, CHAT_CONTENT, CHAT_EMOTICON, CHAT_FILE, CHATTED_AT)
-    VALUES (#{roomIdx}, #{userId}, #{chatContent}, #{chatEmoticon,jdbcType=VARCHAR}, #{chatFile,jdbcType=VARCHAR}, SYSDATE)
+    VALUES (#{roomIdx}, #{userId}, #{chatContent}, #{chatEmoticon,jdbcType=VARCHAR}, #{chatFile,jdbcType=VARCHAR}, TO_TIMESTAMP(TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS'), 'YYYY-MM-DD HH24:MI:SS'))
    </insert>
 
     <!-- 채팅방 내 모든 메시지 조회 -->

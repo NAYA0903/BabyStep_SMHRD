@@ -15,11 +15,6 @@ public class LoginService extends HttpServlet {
 
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
-        // 도달했는지 확인하기 위한 LoginService
-        System.out.println("==========================");
-        System.out.println("[LoginService]");
-        System.out.println("==========================");
-        
         // 1. 인코딩 작업
         request.setCharacterEncoding("UTF-8");
         

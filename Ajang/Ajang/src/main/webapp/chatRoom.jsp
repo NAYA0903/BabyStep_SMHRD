@@ -25,7 +25,7 @@
                 // 자신이 보낸 메시지는 오른쪽, 상대방이 보낸 메시지는 왼쪽에 표시
                 if (senderId === userId) {
                     message.classList.add("my-message");
-                    message.textContent = "나: " + messageContent;
+                    message.textContent = messageContent;
                 } else {
                     message.classList.add("other-message");
                     message.textContent = senderId + ": " + messageContent;
@@ -47,7 +47,7 @@
                 websocket.send(messageInput.value);
                 messageInput.value = '';
             } else {
-                console.error("WebSocket connection is not open");
+                console.error("웹소켓 안열림");
             }
         }
         
@@ -98,11 +98,11 @@
     </style>
 </head>
 <body onload="connect()">
-    <h1>채팅방: <%= request.getParameter("roomIdx") %></h1>
+    <h1>옹알이방: <%= request.getParameter("roomIdx") %></h1>
 
     <div id="chatBox"></div>
     
     <input type="text" id="messageInput" placeholder="메시지 입력">
-    <button onclick="sendMessage()">Send</button>
+    <button onclick="sendMessage()">전송</button>
 </body>
 </html>

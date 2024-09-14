@@ -1,6 +1,7 @@
 package com.babystep.handler ;
 
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -36,12 +37,6 @@ public class ChatWebSocketServer {
             // 채팅방 이전 메시지 불러오기
             List<ChatDTO> messages = chatDAO.selectChatMessagesByRoomId(roomIdx);
             
-            for (ChatDTO message : messages) {
-                System.out.println("Message ID: " + message.getChatIdx());
-                System.out.println("User ID: " + message.getUserId());
-                System.out.println("Content: " + message.getChatContent());
-            }
-            
             // 이전 메시지를 클라이언트에 전송
             if (messages != null && !messages.isEmpty()) {
                 try {
@@ -67,14 +62,18 @@ public class ChatWebSocketServer {
     public void onMessage(String message, Session session) {
         String userId = userIds.get(session);
         int roomIdx = roomIdxes.get(session);
+        
+        // 현재 시간 포함한 Timestamp 생성
+        Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+        
         String fullMessage = userId + ": " + message;
-        System.out.println("Received message from user " + userId + ": " + message);
 
         // 채팅 메시지 저장
         ChatDTO chatMessage = new ChatDTO();
         chatMessage.setRoomIdx(roomIdx);
         chatMessage.setUserId(userId);
         chatMessage.setChatContent(message);
+        chatMessage.setChattedAt(currentTime);
         chatDAO.insertChatMessage(chatMessage);
 
         // 같은 roomIdx에 있는 사용자에게 메시지 전송
