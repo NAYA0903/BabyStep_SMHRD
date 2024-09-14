@@ -23,7 +23,7 @@
 	<script>
 		function loginWithKakao() {
 			Kakao.Auth.authorize({
-				redirectUri : 'http://localhost:8080/Ajang/RegisterSuccess.jsp',
+				redirectUri : 'http://localhost:8083/Ajang/RegisterSuccess.jsp',
 			});
 		}
 
@@ -33,7 +33,7 @@
 			data : {
 				grant_type : 'authorization_code',
 				client_id : '9a52835cd6bdda610b62d36bc22609b8',
-				redirect_uri : 'http://localhost:8080/Ajang/RegisterSuccess.jsp',
+				redirect_uri : 'http://localhost:8083/Ajang/RegisterSuccess.jsp',
 				code : 'RECEIVED_AUTHORIZATION_CODE'
 			},
 			contentType : 'application/x-www-form-urlencoded;charset=utf-8',
