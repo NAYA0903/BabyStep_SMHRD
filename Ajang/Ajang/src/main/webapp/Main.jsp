@@ -38,58 +38,38 @@
 		<!-- 다크 모드 스위치 -->
 		<label class="dark-mode-switch"> <input type="checkbox"
 			id="darkModeToggle"> <span class="slider"></span>
-
 		</label>
 
 		<jsp:include page="MypagePopup.jsp" />
-
-
-
-
 	</div>
-
 
 	<!-- 좌우 4:6 레이아웃의 메인 컨텐츠 -->
 	<div class="main-content">
 		<!-- 왼쪽 4 부분 (캘린더 API 통합 예정) -->
 		<div class="left-section">
 			<jsp:include page="CalendarMain.jsp" />
-
 		</div>
 
 		<!-- 오른쪽 6 부분 -->
 		<div class="right-section">
 
-
 			<!-- 날짜 표시 영역 -->
-
 			<div class="date-section">
 				<h2>날짜</h2>
-				<%
-				String selectedDate = (String) session.getAttribute("selectedDate");
-				if (selectedDate != null) {
-					out.println("<span>" + selectedDate + "</span>");
-				} else {
-					out.println("<span>선택된 날짜가 없습니다.</span>");
-				}
-				%>
-
+				<span id="selectedDateDisplay">선택된 날짜가 없습니다.</span>
 			</div>
 
 			<!-- To-do 리스트 -->
 			<div class="todo-section">
 				<h3>To-do 리스트</h3>
 				<div class="todo-item">
-					<img src="https://via.placeholder.com/30" alt="아이콘"> <span>할일
-						1</span>
+					<img src="https://via.placeholder.com/30" alt="아이콘"> <span>할일 1</span>
 				</div>
 				<div class="todo-item">
-					<img src="https://via.placeholder.com/30" alt="아이콘"> <span>할일
-						2</span>
+					<img src="https://via.placeholder.com/30" alt="아이콘"> <span>할일 2</span>
 				</div>
 				<div class="todo-item">
-					<img src="https://via.placeholder.com/30" alt="아이콘"> <span>할일
-						3</span>
+					<img src="https://via.placeholder.com/30" alt="아이콘"> <span>할일 3</span>
 				</div>
 			</div>
 
@@ -113,8 +93,35 @@
 		</div>
 	</div>
 
+	<script>
+		// 페이지가 로드된 후 오늘 날짜를 자동으로 표시
+		document.addEventListener('DOMContentLoaded', function() {
+			// td.today가 있으면 선택된 날짜로 자동 표시
+			var todayCell = document.querySelector('td.today');
+			if (todayCell) {
+				// 현재 연도와 월을 동적으로 가져오기
+				var year = document.querySelector('.calendar-title span').textContent.split('년')[0].trim();
+				var month = document.querySelector('.calendar-title span').textContent.split('년')[1].split('월')[0].trim();
+				var day = todayCell.getAttribute('data-day'); // 오늘 날짜
 
+				document.getElementById('selectedDateDisplay').textContent = year + "년 " + month + "월 " + day + "일";
+			}
+
+			// 날짜를 클릭했을 때, 선택된 날짜를 실시간으로 갱신
+			var dayCells = document.querySelectorAll('td[data-day]');
+			dayCells.forEach(function(cell) {
+				cell.addEventListener('click', function() {
+					var selectedDay = cell.getAttribute('data-day');
+					// 현재 연도와 월을 다시 가져와서 업데이트
+					var year = document.querySelector('.calendar-title span').textContent.split('년')[0].trim();
+					var month = document.querySelector('.calendar-title span').textContent.split('년')[1].split('월')[0].trim();
+
+					document.getElementById('selectedDateDisplay').textContent = year + "년 " + month + "월 " + selectedDay + "일";
+				});
+			});
+		});
+	</script>
 
 	<script src="assets/js/Main.js"></script>
-
 </body>
+</html>

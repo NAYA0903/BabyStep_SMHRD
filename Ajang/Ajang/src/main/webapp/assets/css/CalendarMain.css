@@ -75,9 +75,17 @@ td.today {
 
 /* 선택된 칸 스타일 */
 td.selected {
-	background-color: #99ccff !important;
-	color: white;
-	font-weight: bold;
+    background-color: #99ccff !important;
+    color: white;
+    font-weight: bold;
+}
+
+/* 오늘 날짜 스타일 */
+td.today {
+    border: 2px solid red;
+    border-radius: 50%;
+    color: red;
+    font-weight: bold;
 }
 
 td:hover {

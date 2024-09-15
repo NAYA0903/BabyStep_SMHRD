@@ -12,12 +12,16 @@
 <body>
     <div class="calendar-container">
         <%
-            CalendarDAO calendarDAO = new CalendarDAO();
-            CalendarDTO today = calendarDAO.getToday();
-            int year = today.getYear();
-            int month = today.getMonth();
+            // 오늘 날짜 가져오기
+            Calendar todayCalendar = Calendar.getInstance();
+            int currentYear = todayCalendar.get(Calendar.YEAR);
+            int currentMonth = todayCalendar.get(Calendar.MONTH) + 1; // Calendar.MONTH는 0부터 시작하므로 1을 더해줌
+            int currentDay = todayCalendar.get(Calendar.DAY_OF_MONTH); // 오늘의 날짜
 
-            // URL에서 전달된 연도와 월 가져오기
+            int year = currentYear;
+            int month = currentMonth;
+
+            // URL에서 전달된 연도와 월 가져오기 (없으면 기본값은 오늘)
             try {
                 year = Integer.parseInt(request.getParameter("year"));
                 month = Integer.parseInt(request.getParameter("month"));
@@ -33,14 +37,14 @@
                 month = 1;
             }
 
-            int lastDay = calendarDAO.getLastDay(year, month); // 해당 월의 마지막 날
-            int start = calendarDAO.getWeekDay(year, month, 1); // 1일의 요일
+            int lastDay = todayCalendar.getActualMaximum(Calendar.DAY_OF_MONTH); // 해당 월의 마지막 날
+            int start = todayCalendar.get(Calendar.DAY_OF_WEEK) - 1; // 1일의 요일
         %>
 
         <!-- 이전달, 다음달 버튼 -->
         <div class="calendar-title">
             <input type="button" value="이전달" onclick="location.href='?year=<%=year%>&month=<%=month - 1%>'">
-            <span><%=year%>년 <%=month%>월</span>
+            	<span><%=year%>년 <%=month%>월</span>
             <input type="button" value="다음달" onclick="location.href='?year=<%=year%>&month=<%=month + 1%>'">
         </div>
 
@@ -64,12 +68,18 @@
 
                     // 날짜 출력
                     for (int day = 1; day <= lastDay; day++) {
-                        int weekday = calendarDAO.getWeekDay(year, month, day);
+                        int weekday = (start + day - 1) % 7;
                         String dayClass = (weekday == 0) ? "sun" : (weekday == 6) ? "sat" : "day";
+
+                        // 오늘 날짜에 "today" 클래스 추가
+                        if (year == currentYear && month == currentMonth && day == currentDay) {
+                            dayClass += " today";
+                        }
+
                         out.println("<td class='" + dayClass + "' data-day='" + day + "'>" + day + "</td>");
 
                         // 줄 바꿈
-                        if ((start + day) % 7 == 0) {
+                        if (weekday == 6) {
                             out.println("</tr><tr>");
                         }
                     }
@@ -101,13 +111,6 @@
                     xhr.open("POST", "SaveSelectedDate.jsp", true);
                     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                     xhr.send("year=" + year + "&month=" + month + "&day=" + selectedDay);
-
-                    // 서버 응답 처리
-                    xhr.onreadystatechange = function() {
-                        if (xhr.readyState === 4 && xhr.status === 200) {
-                            // 추가적으로 서버 응답 처리 내용이 필요할 경우 여기에 작성
-                        }
-                    };
                 });
             });
         });
