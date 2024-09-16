@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class TodoDTO {
 	
+
 	private int todoIdx;
     private String todoContent;
     private Date todoDate;
@@ -11,7 +12,23 @@ public class TodoDTO {
     private String userId;
     private Date createdAt;
     
+    public TodoDTO(String todoContent, String todoDone) {
+    	
+    	this.todoContent = todoContent ;
+    	this.todoDone = todoDone ;
+    	
+    }
     
+    
+    public TodoDTO(int todoIdx, String todoContent, Date todoDate, String todoDone, String userId, Date createdAt) {
+
+    	this.todoIdx = todoIdx;
+    	this.todoContent = todoContent;
+    	this.todoDate = todoDate;
+    	this.todoDone = todoDone;
+    	this.userId = userId;
+    	this.createdAt = createdAt;
+    }
 
     // Getter와 Setter 메서드
     

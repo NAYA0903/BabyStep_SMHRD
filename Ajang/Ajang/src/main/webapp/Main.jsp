@@ -1,6 +1,5 @@
 <%@page import="java.util.Calendar"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -8,15 +7,12 @@
 <meta charset="UTF-8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-	href="https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&display=swap"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet"
 	href=https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200 " />
 
-<link rel="icon" href="img/BabyStepLogo.ico" sizes="128x128"
-	type="image/x-icon">
+<link rel="icon" href="img/BabyStepLogo.ico" sizes="128x128" type="image/x-icon">
 <title>아장</title>
 <link rel="stylesheet" href="assets/css/Main.css">
 </head>
@@ -36,8 +32,9 @@
 		<a href="LogoutService"><img src="img/Logout3.png" alt="로그아웃" class="logout-image"></a>
 
 		<!-- 다크 모드 스위치 -->
-		<label class="dark-mode-switch"> <input type="checkbox"
-			id="darkModeToggle"> <span class="slider"></span>
+		<label class="dark-mode-switch"> 
+            <input type="checkbox" id="darkModeToggle"> 
+            <span class="slider"></span>
 		</label>
 
 		<jsp:include page="MypagePopup.jsp" />
@@ -62,14 +59,8 @@
 			<!-- To-do 리스트 -->
 			<div class="todo-section">
 				<h3>To-do 리스트</h3>
-				<div class="todo-item">
-					<img src="https://via.placeholder.com/30" alt="아이콘"> <span>할일 1</span>
-				</div>
-				<div class="todo-item">
-					<img src="https://via.placeholder.com/30" alt="아이콘"> <span>할일 2</span>
-				</div>
-				<div class="todo-item">
-					<img src="https://via.placeholder.com/30" alt="아이콘"> <span>할일 3</span>
+				<div id="todoList">
+					<p>할 일이 없습니다.</p>
 				</div>
 			</div>
 
@@ -105,6 +96,7 @@
 				var day = todayCell.getAttribute('data-day'); // 오늘 날짜
 
 				document.getElementById('selectedDateDisplay').textContent = year + "년 " + month + "월 " + day + "일";
+				loadTodoList(year, month, day); // TODO 리스트 로드
 			}
 
 			// 날짜를 클릭했을 때, 선택된 날짜를 실시간으로 갱신
@@ -117,9 +109,24 @@
 					var month = document.querySelector('.calendar-title span').textContent.split('년')[1].split('월')[0].trim();
 
 					document.getElementById('selectedDateDisplay').textContent = year + "년 " + month + "월 " + selectedDay + "일";
+
+					// 선택된 날짜에 맞는 TODO 리스트를 서버로부터 불러오기
+					loadTodoList(year, month, selectedDay);
 				});
 			});
 		});
+
+		// 선택된 날짜에 맞는 TODO 리스트를 서버에서 불러오는 함수
+		function loadTodoList(year, month, day) {
+			var xhr = new XMLHttpRequest();
+			xhr.open("GET", "TodoListServlet?year=" + year + "&month=" + month + "&day=" + day, true);
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState == 4 && xhr.status == 200) {
+					document.getElementById("todoList").innerHTML = xhr.responseText;
+				}
+			};
+			xhr.send();
+		}
 	</script>
 
 	<script src="assets/js/Main.js"></script>

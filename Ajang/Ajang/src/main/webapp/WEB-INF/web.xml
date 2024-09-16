@@ -66,6 +66,12 @@
   	<description></description>
   	<servlet-class>com.babystep.controller.ChatRoomController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>TodoListServlet</servlet-name>
+  	<display-name>TodoListServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.babystep.controller.TodoListServlet</servlet-class>
+  </servlet>
   
   <servlet-mapping>
   	<servlet-name>LoginService</servlet-name>
@@ -94,6 +100,10 @@
   <servlet-mapping>
   	<servlet-name>ChatRoomController</servlet-name>
   	<url-pattern>/ChatRoomController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>TodoListServlet</servlet-name>
+  	<url-pattern>/TodoListServlet</url-pattern>
   </servlet-mapping>
   
 </web-app>
