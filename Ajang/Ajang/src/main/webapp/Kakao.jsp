@@ -15,6 +15,15 @@
 
 }
 
+
+.Naver {
+
+
+ width: 40px ; 
+ height: 40px;
+
+}
+
 </style>
 
 
@@ -22,6 +31,6 @@
 <body>
 
 <img alt="KakaoLogo" class="Kakao" src="img/kakao.png">
-
+<img alt="NaverLogo" class="Naver"src="img/naver.png">
 </body>
 </html>

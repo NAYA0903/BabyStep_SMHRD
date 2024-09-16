@@ -29,7 +29,7 @@
 							
 							<%
 								String nickname = (String) request.getAttribute("nickname");
-							
+							    
 							%>
 							
 							<!--  EL기법 : 표현하고자 하는 데이터를 손 쉽게 표현할 수 있도록 도와주는 기법 

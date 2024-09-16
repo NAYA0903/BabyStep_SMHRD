@@ -56,7 +56,7 @@
 				<div class="social-container">
 					<a href="kakaoLogin.html" class="social-kakao"><img alt="KakaoLogo" class="Kakao" src="img/kakao.png"></a>
 					<a href="#" class="social-google">G</a> 
-					<a href="#" class="social-naver">N</a>
+					<a href="naverLogin.html" class="social-naver"><img alt="NaverLogo" class="Naver" src="#"></a>
 				</div>
 				<span>or use your account</span> 
 				<input type="hidden" name="action" value="login" />
