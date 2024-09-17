@@ -26,7 +26,7 @@ document.getElementById('register-form').addEventListener('submit', function (ev
     .then(result => {
         if (result.success) {
             alert('등록 요청이 성공적으로 제출되었습니다.');
-            window.location.href = 'index.html'; // 메인 페이지로 리디렉션
+            window.location.href = 'PlaceMain.jsp'; // 메인 페이지로 리디렉션
         } else {
             alert('등록 요청에 실패하였습니다. 다시 시도해 주세요.');
         }

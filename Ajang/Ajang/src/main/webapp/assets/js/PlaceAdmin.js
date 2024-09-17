@@ -6,7 +6,7 @@ function approveRequest(requestId) {
     .then(result => {
         if (result.success) {
             alert('요청이 수락되었습니다.');
-            window.location.href = 'admin.html'; // 관리자 페이지로 리디렉션
+            window.location.href = 'PlaceAdmin.jsp'; // 관리자 페이지로 리디렉션
         } else {
             alert('수락 처리 중 오류가 발생했습니다.');
         }
@@ -25,7 +25,7 @@ function rejectRequest(requestId) {
     .then(result => {
         if (result.success) {
             alert('요청이 거부되었습니다.');
-            window.location.href = 'admin.html'; // 관리자 페이지로 리디렉션
+            window.location.href = 'PlaceAdmin.jsp'; // 관리자 페이지로 리디렉션
         } else {
             alert('거부 처리 중 오류가 발생했습니다.');
         }
