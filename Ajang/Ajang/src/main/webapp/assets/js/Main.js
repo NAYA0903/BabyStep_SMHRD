@@ -32,3 +32,17 @@ window.onload = function () {
       } else {
           document.body.classList.add('light-mode'); // 기본 모드는 라이트 모드
       }
+
+	  function openChatRoomPopup() {
+	         // 팝업 창을 열기 위한 window.open() 함수 사용
+	         var popupWidth = 400;
+	         var popupHeight = 600;
+	         var popupX = (window.screen.width / 2) - (popupWidth / 2);
+	         var popupY = (window.screen.height / 2) - (popupHeight / 2);
+
+	         window.open(
+	             'chatRoomList.jsp', // 열고자 하는 페이지 경로
+	             '채팅방 리스트', // 팝업 창 이름
+	             'status=no, location=no, height=' + popupHeight + ', width=' + popupWidth + ', left=' + popupX + ', top=' + popupY + ', resizable=yes'
+	         );
+	     }
