@@ -1,0 +1,34 @@
+@charset "UTF-8";
+/* 관리자 페이지 스타일 */
+#request-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.request-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+.request-item button {
+    background-color: #28a745;
+}
+
+.request-item button:hover {
+    background-color: #218838;
+}
+
+.request-detail {
+    margin-top: 20px;
+}
+
+.request-detail h2 {
+    margin-bottom: 10px;
+}
+
+.request-detail button {
+    margin-right: 10px;
+}
