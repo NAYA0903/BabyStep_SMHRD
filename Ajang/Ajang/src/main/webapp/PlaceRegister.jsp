@@ -24,7 +24,7 @@
                 </select>
                 
                 <label for="photo">사진 URL:</label>
-                <input type="file" id="photo" name="photo" required>
+                <input type="file" id="photo" name="photo" required> <!-- 수정됨: 파일 업로드를 위한 input -->
                 
                 <label for="name">장소명:</label>
                 <input type="text" id="name" name="name" required>
@@ -48,4 +48,5 @@
     <script src="assets/js/PlaceRegister.js"></script>
 </body>
 </html>
+
 

@@ -8,7 +8,6 @@
     <title>장소 등록 요청 관리</title>
     <link rel="stylesheet" href="assets/css/PlaceAll.css">
     <link rel="stylesheet" href="assets/css/PlaceAdmin.css">
-    
 </head>
 <body>
     <header>
@@ -16,6 +15,10 @@
     </header>
     <main>
         <div class="container">
+            <div id="action-buttons">
+                <button id="accept-button">선택 요청 수락</button>
+                <button id="reject-button">선택 요청 거부</button>
+            </div>
             <div id="request-list">
                 <!-- 등록 요청 목록이 여기에 동적으로 추가됨 -->
             </div>
@@ -24,4 +27,6 @@
     <script src="assets/js/PlaceAdmin.js"></script>
 </body>
 </html>
+
+
 

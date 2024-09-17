@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /* 등록 페이지 스타일 */
 form {
     display: flex;
@@ -10,10 +9,10 @@ form label {
     font-weight: bold;
 }
 
-form input, form select, form textarea {
+form input, form select, form textarea, form button {
     margin-bottom: 15px;
 }
 
-form textarea {
-    height: 80px;
+form input[type="file"] {
+    padding: 0;
 }
