@@ -12,8 +12,14 @@
 
         function connect() {
             let roomIdx = "<%= request.getParameter("roomIdx") %>";
-            websocket = new WebSocket("ws://localhost:8083/Ajang/chat/" + roomIdx);
-            
+            let protocol = window.location.protocol === 'https:' ? 'wss' : 'ws';  // 프로토콜 결정 (http면 ws, https면 wss)
+            let host = window.location.hostname;  // 동적으로 현재 호스트를 가져옴
+            let port = window.location.port;      // 동적으로 현재 포트를 가져옴
+            let wsUrl = `${protocol}://${host}:${port}/Ajang/chat/${roomIdx}`;  // 동적 URL 생성
+            console.log("WebSocket URL: ", wsUrl);
+
+            websocket = new WebSocket(wsUrl);
+
             // WebSocket 연결이 열렸을 때 호출
             websocket.onopen = function(event) {
                 console.log("WebSocket is open now.");
@@ -62,11 +68,11 @@
                 websocket.send(messageInput.value);
                 messageInput.value = '';
             } else {
-                console.error("웹소켓 안열림");
+                console.error("WebSocket 연결이 열려 있지 않습니다.");
             }
         }
         
-     // Enter 키로 메시지 전송
+        // Enter 키로 메시지 전송
         document.addEventListener("keydown", function(event) {
             if (event.key === "Enter") {
                 sendMessage();
