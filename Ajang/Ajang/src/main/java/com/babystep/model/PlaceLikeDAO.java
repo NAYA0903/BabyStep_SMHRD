@@ -43,4 +43,13 @@ public class PlaceLikeDAO {
             sqlSession.delete("PlaceLikeMapper.deleteFavorite", favIdx);
         }
     }
+    
+    // 추가된 메서드
+    public List<PlaceDTO> getFavoritePlacesByUser(String userId) {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+            return sqlSession.selectList("PlaceLikeMapper.getFavoritesByUser", userId);
+        }
+    }
+
+    
 }
