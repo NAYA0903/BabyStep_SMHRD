@@ -173,7 +173,7 @@
     <!-- 채팅방 리스트 -->
     <div class="chat-room-list">
         <c:forEach var="room" items="${chatRoomList}" varStatus="s">
-            <div class="chat-room" onclick="location.href='chatRoom.jsp?roomIdx=${room.roomIdx}&userId=${sessionScope.id}'">
+            <div class="chat-room" onclick="location.href='chatRoom.jsp?roomIdx=${room.roomIdx}&roomTitle=${room.roomTitle}&userId=${sessionScope.id}'">
     			<div class="chat-room-thumbnail">
         			<img src="img/BabyStepLogo.png" alt="Thumbnail">
    				</div>
