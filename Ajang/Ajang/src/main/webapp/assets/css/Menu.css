@@ -1,70 +1,69 @@
-@charset "UTF-8";
-
 html, body {
-	margin: 0;
-	padding: 0;
-	height: 100%;
-	overflow: hidden;
-	font-family: 'Arial', sans-serif;
+   margin: 0;
+   padding: 0;
+   height: 100%;
+   overflow: hidden;
+   font-family: 'Arial', sans-serif;
 }
 
 body {
-	display: flex;
-	flex-direction: column;
+   display: flex;
+   flex-direction: column;
 }
 
 /* 라이트 모드 스타일 */
 body.light-mode {
-	background-color: rgb(205, 205, 208);
-	color: white;
+   background-color: rgb(205, 205, 208);
+   color: black;
 }
 
 body.light-mode .title {
-	background-color: white;
-	color: #333;
+   background-color: white;
+   color: #333;
 }
 
 /* 다크 모드 스타일 */
 body.dark-mode {
-	background-color: #383535;
-	color: white;
+   background-color: #383535;
+   color: white;
 }
 
 body.dark-mode .title {
-	background-color: #706b6b;
-	color: white;
+   background-color: #706b6b;
+   color: white;
 }
 
 .title {
-	width: 100vw;
-	background-color: black;
-	color: white;
-	position: fixed; /* 스크롤 시에도 고정 */
-	top: 0;
-	left: 0;
-	padding: 1.5% 0; /* 상대적 패딩 */
-	z-index: 100;
-	text-align: left;
-	box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.2);
-	display: flex;
-	align-items: center;
-	justify-content: space-between; /* 양 끝으로 정렬 */
-	
+   width: 100vw;
+   background-color: black;
+   color: white;
+   position: fixed; /* 스크롤 시에도 고정 */
+   top: 0;
+   left: 0;
+   padding: 1.5% 0; /* 상대적 패딩 */
+   z-index: 100;
+   text-align: left;
+   box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+   display: flex;
+   align-items: center;
+   justify-content: space-between; /* 양 끝으로 정렬 */
+   font-size: 1.5vw;
+   
 }
 
 .logo-image {
-	width: 12vw; /* 뷰포트 너비에 맞춰 크기 조정 */
-	height: auto;
-	margin-left: 2vw;
+   width: 12vw; /* 뷰포트 너비에 맞춰 크기 조정 */
+   height: auto;
+   margin-left: 2vw;
 }
 
 .chat-image, .logout-image, .mypage-image {
-	width: 30px; /* 이미지 크기 고정 */
-	height: auto;
-	margin: 0 ;
-	top: 10px; /* 높이를 더 아래로 조정 */
-	transform: translateY(5%); /* 높낮이를 조정하여 더 낮게 보이도록 설정 */
-	display: flex;
+   width: 30px; /* 이미지 크기 고정 */
+   height: auto;
+   margin: 0 ;
+   top: 10px; /* 높이를 더 아래로 조정 */
+   transform: translateY(5%); /* 높낮이를 조정하여 더 낮게 보이도록 설정 */
+   display: flex;
 }
 
 .dark-mode-switch {
@@ -77,29 +76,27 @@ body.dark-mode .title {
 
 /* 타이틀 수정부분 */
 .com {
-	padding: 0px 1vw;
-	color: #333333;
-	text-decoration: none;
-	display: inline-block;
-	font-family: "Dongle", sans-serif;
-	font-size: 2.5vw;
-	font-weight: 600;
-	border: 2px solid transparent;
-	transition: all 0.1s ease;
-	margin: 0 40px;
+   padding: 0px 1vw;
+   color: #333333;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 1vw;
+   font-weight: 600;
+   border: 2px solid transparent;
+   transition: all 0.1s ease;
+   margin: 0 20px;
 
-	/* 항목 간의 간격을 추가 */
+   /* 항목 간의 간격을 추가 */
 }
 
 .com:hover {
-	color: #db2360;
+   color: rgb(255, 0, 0);
 }
-
 /* 다크 모드 스위치 스타일 */
 .dark-mode-switch input {
-	opacity: 0;
-	width: 0;
-	height: 0;
+   opacity: 0;
+   width: 0;
+   height: 0;
 }
 
 .slider {
@@ -143,4 +140,4 @@ input:checked + .slider:before {
 
 .slider.round:before {
    border-radius: 50%;
-}
+} 
