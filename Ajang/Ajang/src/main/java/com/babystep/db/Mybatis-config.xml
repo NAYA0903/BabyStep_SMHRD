@@ -20,8 +20,8 @@
 		<typeAlias type="com.babystep.model.ChatRoomDTO"
 			alias="ChatRoomDTO" />
 		<typeAlias type="com.babystep.model.TodoDTO" alias="TodoDTO" />
-		<typeAlias type="com.babystep.model.CountryLikeDTO"
-			alias="CountryLikeDTO" />
+		<typeAlias type="com.babystep.model.CountryLikeDTO" alias="CountryLikeDTO" />
+		<typeAlias type="com.babystep.model.HolidayDTO" alias="HolidayDTO" />
 	</typeAliases>
 
 	<!-- 환경 설정 (데이터베이스 연결) -->
@@ -47,6 +47,7 @@
 		<mapper resource="com/babystep/db/TodoMapper.xml" />
 		<mapper resource="com/babystep/db/CounrtyLikeMapper.xml" />
 		<mapper resource="com/babystep/db/BoardLikeMapper.xml"/>
+		<mapper resource="com/babystep/db/HolidayMapper.xml"/>
 		
 	</mappers>
 	
