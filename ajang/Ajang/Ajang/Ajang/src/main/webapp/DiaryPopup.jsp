@@ -152,8 +152,8 @@
 <!-- 팝업 창 -->
 <div id="diaryPopup" class="popup">
     <div class="button-container">
-        <button class="close-btn" onclick="toggleDiaryPopup()">Ⅹ</button>
    </div>
+        <button class="close-btn" onclick="toggleDiaryPopup()">Ⅹ</button>
     <h2>Diary Entry</h2>
     <div>
         <label>제목:</label>
