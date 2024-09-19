@@ -29,6 +29,15 @@
                 // 기본값은 현재 연도와 월
             }
 
+            // 월이 0보다 작거나 13 이상일 때 연도 조정
+            if (month < 1) {
+                year--;
+                month = 12;
+            } else if (month > 12) {
+                year++;
+                month = 1;
+            }
+
             // 선택된 달의 첫 날로 Calendar 객체 설정
             calendar.set(Calendar.YEAR, year);
             calendar.set(Calendar.MONTH, month - 1); // Calendar.MONTH는 0부터 시작
