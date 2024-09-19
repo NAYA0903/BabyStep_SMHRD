@@ -33,7 +33,6 @@ public class HolidayDAO {
             System.out.println(month);
             System.out.println(paramMap);
 
-//          List<HolidayDTO> holidays = sqlSession.selectList("com.babystep.db.HolidayMapper.getHolidaysByMonth", paramMap);
             List<HolidayDTO> holidays = sqlSession.selectList("com.babystep.db.HolidayMapper.getHolidaysByMonth", paramMap);
             
             
