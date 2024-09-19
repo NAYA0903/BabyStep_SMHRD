@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  <mapper>
+  <mapper namespace="com.babystep.db.DiaryPopupMapper">
   <insert id="insertdiary" parameterType="DiaryPopupDTO">
   INSERT INTO TB_DIARY (DI_IDX, DI_TITLE, DI_CONTENT, DI_FILE1,
 	DI_FILE2, CREATED_AT, USER_ID, DI_BABYNUMBER, DI_HEIGHT, DI_WEIGHT)
