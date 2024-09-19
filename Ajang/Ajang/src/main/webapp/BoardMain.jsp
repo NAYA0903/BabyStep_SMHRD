@@ -3,7 +3,7 @@
 <%@page import="com.babystep.model.BoardDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8" 	isELIgnored="false" %>
+   pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
    
 <!DOCTYPE html>
@@ -11,7 +11,7 @@
 <head>
 <meta charset="UTF-8">
 <title>게시판</title>
-
+<link rel="stylesheet" href="assets/css/Main.css">
 <style>
 /* 기본적인 body 스타일 */
 html, body {
@@ -25,7 +25,7 @@ html, body {
 
 /* 컨테이너 설정 */
 .container {
-    width: 100%;
+    width: 80%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
@@ -101,7 +101,7 @@ th, td {
     white-space: nowrap;
 }
 
-.title {
+.titles {
     padding: 0px 60px;
 }
 
@@ -163,11 +163,6 @@ td {
     }
 }
 
-.titles {
-  text-decoration: none; /* 밑줄 제거 */
-  color: black;
-}
-
 </style>
 </head>
 <body>
@@ -183,12 +178,15 @@ td {
     pageContext.setAttribute("boards", boards); 
 %>
 
+<!-- 타이틀 부분 -->
+		<jsp:include page="Menu.jsp" />
+
    <div class="container">
       <div class="card">
          <h2>게시판</h2>
          <div class="search-form">
             <select>
-               <option value="title">제목</option>
+               <option value="titles">제목</option>
                <option value="name">이름</option>
                <option value="content">내용</option>
             </select>
@@ -204,7 +202,7 @@ td {
          <table>
             <tr>
                <th class="num">번호</th>
-               <th class="title">제목</th>
+               <th class="titles">제목</th>
                <th class="name">작성자</th>
                <th class="credate">작성일자</th>
                <th class="like">하트수</th>
@@ -215,26 +213,17 @@ td {
 						<tr>
 						
 							<td>${s.count}</td>
-							<td><a class = titles href="BoardDetail.jsp?num=${b.BO_IDX}">${b.BO_TITLE}</a></td>
-							<td>${b.USER_NICK}</td>
+							<td><a href="BoardDetail.jsp?num=${b.BO_IDX}">${b.BO_TITLE}</a></td>
+							<td>${b.USER_ID}</td>
 							<td>${b.CREATED_AT}</td>
 							<td>${b.BO_LIKES}</td>
 							<td>${b.BO_VIEWS}</td>
-							
 						</tr>
 					</c:forEach>
             <!-- 게시판 데이터 삽입 -->
          </table>
       </div>
    </div>
-<script type="text/javascript">
-var title = document.getElementById('title');
-
-title.addEventListener('click', function () {
-<% %>
-
-</script>
 
 </body>
-
 </html>

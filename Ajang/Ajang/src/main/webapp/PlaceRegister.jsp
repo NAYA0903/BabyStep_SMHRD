@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="javax.servlet.http.HttpSession" %>
 <%
-    HttpSession session = request.getSession(false); // 현재 세션 가져오기
+    HttpSession sessHttpSession = request.getSession(false); // 현재 세션 가져오기
     String userId = null;
     if (session != null) {
         userId = (String) session.getAttribute("userId"); // 세션에서 사용자 ID 가져오기
