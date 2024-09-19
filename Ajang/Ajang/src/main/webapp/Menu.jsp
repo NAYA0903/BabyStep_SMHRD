@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<link rel="stylesheet" href="assets/css/Menu.css">
 <body>
 	<!-- menu.jsp -->
 	<div class="title">
@@ -26,6 +27,6 @@
 
 		<jsp:include page="MypagePopup.jsp" />  
 	</div>
-
+	<script src="assets/js/Menu.js"></script>
 </body>
 </html>

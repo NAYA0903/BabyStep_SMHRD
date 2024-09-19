@@ -16,7 +16,7 @@ body {
 /* 라이트 모드 스타일 */
 body.light-mode {
 	background-color: rgb(205, 205, 208);
-	color: black;
+	color: white;
 }
 
 body.light-mode .title {
