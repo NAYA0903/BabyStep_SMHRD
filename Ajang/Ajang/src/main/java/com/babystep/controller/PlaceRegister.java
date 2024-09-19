@@ -8,7 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
+
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Paths;
 import java.sql.Date;
 
 @WebServlet("/api/createPlace") // 이 서블릿의 URL 매핑
@@ -49,5 +53,13 @@ public class PlaceRegister extends HttpServlet {
             response.setContentType("application/json");
             response.getWriter().write("{\"success\":false, \"message\":\"등록 중 오류 발생\"}"); // 오류 응답
         }
+        
+        // 파일 업로드 처리
+        Part filePart = request.getPart("placePhoto"); // "placePhoto"는 HTML에서 지정한 name
+        String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // 파일 이름 가져오기
+        InputStream fileContent = filePart.getInputStream();
+
+        // 파일을 저장하거나 필요한 방식으로 처리하는 코드 추가
+
     }
 }
