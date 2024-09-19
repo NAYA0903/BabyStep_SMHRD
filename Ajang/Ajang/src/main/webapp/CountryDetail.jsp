@@ -34,8 +34,8 @@ body {
 /* 슬라이더 전체 컨테이너 */
 .slider-container {
 	position: relative;
-	width: 400px;
-	height: 400px;
+	width: 300px;	
+	height: 300px;
 	overflow: hidden;
 	margin: 20px auto;
 	border-radius: 10px;
@@ -46,13 +46,13 @@ body {
 .slider {
 	display: flex;
 	transition: transform 0.5s ease-in-out;
-	width: 400%; /* 이미지가 4개라고 가정하고 4배의 너비를 설정 */
+	width: 350%; /* 이미지가 4개라고 가정하고 4배의 너비를 설정 */
 }
 
 /* 각 이미지의 스타일 */
 .slider img {
-	width: 400px;
-	height: 400px;
+	width: 300px;
+	height: 300px;
 	object-fit: cover;
 	object-position: center;
 	border-radius: 10px;
@@ -204,10 +204,6 @@ body {
 		System.out.println("CountryDTO 객체가 정상적으로 반환되었습니다.");
 	}
 
-	// num을 전달하여 countryDAO 객체의 detailCountry() 메서드를 호출
-	// 이 메서드는 데이터베이스에서 num에 해당하는 게시글을 조회하는 SQL 쿼리를 실행하여 
-	// 해당 게시글의 세부 정보를 가져오는 역할을 한다
-	// CountryDTO dto는 데이터베이스에서 불러온 게시글의 상세 정보를 저장할 객체이다.
 	%>
 
 	<div class="container">
@@ -261,9 +257,6 @@ body {
 				<!-- 좋아요 버튼, 만약 isLiked가 true면 'liked' 클래스 추가 -->
 				<button id="heart" class='<%=isLiked ? "liked" : ""%>'>❤︎</button>
 
-
-
-
 				<button class="chat-btn">채팅하기</button>
 			</div>
 		</div>
@@ -282,31 +275,23 @@ body {
 	            const isLiked = this.classList.toggle('liked'); // 하트 상태 변경
 	            const num = <%=num%>; // 게시글 ID
 
-	            if (isLiked) {
-	                // 좋아요 추가 요청
-	                fetch('CountryLikeService', {
-	                    method: 'POST',
-	                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-	                    body: `action=like&num=${num}`
-	                }).then(() => {
-	                    console.log('좋아요 추가 성공');
-	                }).catch(err => {
-	                    console.error('좋아요 추가 실패', err);
-	                });
-	            } else {
-	                // 좋아요 취소 요청
-	                fetch('CountryLikeService', {
-	                    method: 'POST',
-	                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-	                    body: `action=unlike&num=${num}`
-	                }).then(() => {
-	                    console.log('좋아요 취소 성공');
-	                }).catch(err => {
-	                    console.error('좋아요 취소 실패', err);
-	                });
-	            }
+	            const xhr = new XMLHttpRequest();
+	            xhr.open('POST', 'CountryLikeService', true);
+	            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+	            let action = isLiked ? 'like' : 'unlike';
+
+	            xhr.onreadystatechange = function() {
+	                if (xhr.readyState === 4 && xhr.status === 200) {
+	                    // 서버 응답을 처리
+	                    console.log(action === 'like' ? '좋아요 추가 성공' : '좋아요 취소 성공');
+	                }
+	            };
+
+	            xhr.send(`action=${action}&num=${num}`);
 	        });
-	        
+	 };
+
     const slider = document.getElementById('slider');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
@@ -343,9 +328,7 @@ body {
             updateSlider();
         });
     });
-	 };
-   
-</script>
+	</script>
 
 </body>
 </html>
