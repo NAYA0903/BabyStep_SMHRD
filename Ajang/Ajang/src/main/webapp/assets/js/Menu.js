@@ -30,6 +30,14 @@ darkModeToggle.addEventListener('change', () => {
 	}
 });
 
+// 사용자의 이전 선택 기억 (로컬 저장소)
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+          document.body.classList.add(savedTheme === 'dark' ? 'dark-mode' : 'light-mode');
+          darkModeToggle.checked = savedTheme === 'dark';
+      } else {
+          document.body.classList.add('light-mode'); // 기본 모드는 라이트 모드
+      }
 
 
 function openChatRoomPopup() {
