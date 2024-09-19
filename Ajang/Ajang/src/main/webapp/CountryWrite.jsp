@@ -180,15 +180,18 @@ h2 {
 
 				<!-- 파일 업로드 -->
 				<div class="form-group">
-					<label for="file1">첨부 파일 1</label> <input type="file" id="file1"
-						name="file1"> <label for="file2">첨부 파일 2</label> <input
-						type="file" id="file2" name="file2"> <label for="file3">첨부
-						파일 3</label> <input type="file" id="file3" name="file3"> <label
-						for="file4">첨부 파일 4</label> <input type="file" id="file4"
-						name="file4">
+					<label for="file1">첨부 파일 1</label>
+					 <input type="file" id="file1" name="file1">
+					 <label for="file2">첨부 파일 2</label> 
+					 <input type="file" id="file2" name="file2"> 
+					 <label for="file3">첨부 파일 3</label> 
+					 <input type="file" id="file3" name="file3">
+					  <label for="file4">첨부 파일 4</label> 
+					  <input type="file" id="file4" name="file4">
 				</div>
 				<div class="form-group">
-					<label for="title">제목</label> <input type="text" id="title"
+					<label for="title">제목</label> 
+					<input type="text" id="title"
 						name="title" placeholder="제목" required>
 				</div>
 
