@@ -7,7 +7,6 @@
 <meta charset="UTF-8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet"
 	href=https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200 " />
@@ -22,10 +21,10 @@
 	<!-- 타이틀 부분 -->
 	<div class="title">
 		<img src="img/MainLogo.png" alt="걸음마 로고" class="logo-image"> 
-		<a class="com" href="Info.jsp">소개</a> 
-		<a class="com" href="PlaceMain.jsp">WITHKIDS</a>
-		<a class="com" href="BoardMain.jsp">게시판</a> 
+		<a class="com" href="PlaceMain.jsp">추천서비스</a>
+		<a class="com" href="BoardMain.jsp">커뮤니티</a> 
 		<a class="com" href="CountryMain.jsp">중고거래</a>
+		<a class="com" href="Info.jsp">성장일기</a> 
 
 		<a href="#" onclick="openChatRoomPopup()"><img src="img/Chat.png" alt="채팅" class="chat-image"></a> 
 		<a href="" onclick="togglePopup(); return false;"><img src="img/Mypage2.png" alt="마이페이지" class="mypage-image"></a> 
