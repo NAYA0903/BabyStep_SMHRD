@@ -16,6 +16,10 @@
         <jsp:include page="Menu.jsp" /> 
     </div>
     
+    <div class="search-container">
+            <input type="text" id="search-input" class="search-input" placeholder="목록 검색..." onkeyup="filterItems()"> <!-- 키를 눌 때마다 filterItems() 호출 -->
+    </div>
+    
     <div class="container">
         <div class="item-list">
             <!-- 각 항목 클릭 시 팝업에 제목, 설명, URL을 전달합니다. -->

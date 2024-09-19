@@ -29,3 +29,20 @@ window.onclick = function(event) {
 	}
 }
 
+// 목록 필터링 기능 추가
+function filterItems() {
+	const searchInput = document.getElementById('search-input').value; // 입력값 그대로 사용 (한국어 지원)
+	const items = document.querySelectorAll('.item'); // 모든 아이템 선택
+
+	items.forEach((item) => {
+		const itemText = item.innerText; // 각 아이템의 텍스트
+		// 입력값이 아이템 텍스트에 포함되면 보여주고, 그렇지 않으면 숨김
+		if (itemText.includes(searchInput)) {
+			item.style.display = 'block'; // 일치하면 표시
+		} else {
+			item.style.display = 'none'; // 불일치하면 숨김
+		}
+	});
+}
+
+
