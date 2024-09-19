@@ -1,3 +1,8 @@
+<%@page import="java.util.Map"%>
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.List"%>
+<%@page import="com.babystep.model.HolidayDAO"%>
+<%@page import="com.babystep.model.HolidayDTO"%>
 <%@page import="java.util.Calendar"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -18,6 +23,41 @@
 </head>
 
 <body>
+
+	<%	
+	
+	  	// 오늘 날짜 가져오기
+    	Calendar calendar = Calendar.getInstance();
+    	int currentYear = calendar.get(Calendar.YEAR);  // 현재 연도
+    	int currentMonth = calendar.get(Calendar.MONTH) + 1; // 현재 월 (0부터 시작하므로 1 더함)
+
+    	int year = currentYear;  // 기본값은 현재 연도
+    	int month = currentMonth;  // 기본값은 현재 월
+
+    	// URL에서 연도와 월 가져오기
+    	try {
+        	year = Integer.parseInt(request.getParameter("year"));
+        	month = Integer.parseInt(request.getParameter("month"));
+    	} catch (Exception e) {
+        // 예외 발생 시 기본값 유지
+    }
+    
+		// HolidayDAO를 사용하여 공휴일 데이터를 가져옴
+    	HolidayDAO holidayDAO = new HolidayDAO();
+    	List<HolidayDTO> holidays = holidayDAO.getHolidaysByMonth(year, month);
+
+   	 	// 공휴일을 날짜별로 매핑
+    	Map<Integer, String> holidayMap = new HashMap<>();
+    	if (holidays != null && !holidays.isEmpty()) {  // holidays가 null이 아니고 비어있지 않을 때만 처리
+        	for (HolidayDTO holiday : holidays) {
+            	Calendar holidayCal = Calendar.getInstance();
+            	holidayCal.setTime(holiday.getHolidayDate());
+            	int holidayDay = holidayCal.get(Calendar.DAY_OF_MONTH);
+            	holidayMap.put(holidayDay, holiday.getHolidayName());
+        	}
+    	}
+	%>
+
 
    <!-- 타이틀 부분 -->
    <jsp:include page="Menu.jsp" />

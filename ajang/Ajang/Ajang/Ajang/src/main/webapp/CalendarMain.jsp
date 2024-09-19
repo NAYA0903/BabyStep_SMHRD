@@ -112,7 +112,7 @@
 
                         // 공휴일 이름 출력
                         if (holidayMap.containsKey(day)) {
-                            out.println("<br>" + holidayMap.get(day));
+                        	out.println("<br><span class='holidayName'>" + holidayMap.get(day) + "</span>");
                         }
 
                         out.println("</td>");

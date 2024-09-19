@@ -29,22 +29,15 @@ public class HolidayDAO {
             paramMap.put("year", year);
             paramMap.put("month", month);
             
-            System.out.println("DAO" + year);
-            System.out.println(month);
-            System.out.println(paramMap);
-
             List<HolidayDTO> holidays = sqlSession.selectList("com.babystep.db.HolidayMapper.getHolidaysByMonth", paramMap);
             
-            
-            System.out.println("데이터2 : " + holidays);
-            
             if (holidays == null) {
-            	System.out.println("데이터3 : " + holidays);
                 
-                return new ArrayList<>();  // null이 반환되면 빈 리스트로 대체
+                return new ArrayList<>();  
             }                  
 
             return holidays;
+            
         } finally {
             session.close();
         }

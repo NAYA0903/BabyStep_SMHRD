@@ -115,3 +115,13 @@ td:hover {
 		height: 40px;
 	}
 }
+
+.holiday {
+	color: red;
+}
+
+.holidayName {
+	color: red;
+	font-size: 10px;
+	
+}
