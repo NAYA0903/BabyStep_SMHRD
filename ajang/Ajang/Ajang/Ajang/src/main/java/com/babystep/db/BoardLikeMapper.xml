@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.babystep.db.BoardLikeMapper">
+
+
+	<!-- 좋아요 누른 게시글 테이블에 저장 -->
+	<insert id="addBoard" parameterType="BoardLikeDTO"  useGeneratedKeys="true" keyProperty="LIKE_ID">
+		INSERT INTO TB_BOARDLIKE ( LIKE_ID, BO_IDX, USER_ID )  
+		VALUES (TB_BOARDLIKE_SEQ.nextval , #{BO_IDX},  #{USER_ID})
+	</insert>
+
+	<update id="UpdateLike" parameterType="BoardLikeDTO">
+		UPDATE TB_BOARD
+		SET BO_LIKES = BO_LIKES+1
+		WHERE BO_IDX = #{BO_IDX}
+	</update>
+
+	<update id="DeleteLike" parameterType="BoardLikeDTO">
+		UPDATE TB_BOARD
+		SET BO_LIKES = BO_LIKES-1
+		WHERE BO_IDX = #{BO_IDX}
+	</update>
+
+	<delete id="DeleteBoard" parameterType="BoardLikeDTO">
+		DELETE FROM TB_BOARDLIKE
+		WHERE USER_ID = #{USER_ID} AND BO_IDX = #{BO_IDX}
+	</delete>
+
+	<select id="StateBoard" resultType="Integer">
+		SELECT LIKE_ID
+		FROM TB_BOARDLIKE
+		WHERE USER_ID = #{USER_ID} AND BO_IDX = #{BO_IDX}
+	</select>
+
+</mapper>
+

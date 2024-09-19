@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	<mapper namespace="com.babystep.db.CountryMapper">
+	
+	    <!-- INSERT 구문 -->
+	    <insert id="writeCountry" parameterType="CountryDTO">
+	        insert into TB_USED (
+	            USED_TITLE, USED_CONTENT, USED_PRICE, USED_IMG1, USED_IMG2, USED_IMG3, USED_IMG4, CREATED_AT, USER_ID
+	        ) VALUES (
+	            #{USED_TITLE}, #{USED_CONTENT}, #{USED_PRICE}, #{USED_IMG1}, #{USED_IMG2}, #{USED_IMG3}, #{USED_IMG4}, SYSDATE,  #{USER_ID}
+	        )
+	    </insert>
+
+	    <!-- 전체 조회 -->
+	    <select id="allCountry" resultType="CountryDTO">
+    SELECT 
+        b.USED_IDX, b.USED_TITLE, b.USED_CONTENT, b.USED_PRICE, 
+        b.USED_IMG1, b.USED_IMG2, b.USED_IMG3, b.USED_IMG4, 
+        b.CREATED_AT, b.USED_DONE, b.USER_ID,
+        u.USER_NICK AS USER_NICK, b.USED_LIKE
+    FROM 
+        TB_USED b
+    JOIN 
+        TB_USER u ON b.USER_ID = u.USER_ID  
+    ORDER BY 
+        b.USED_IDX DESC
+</select>
+
+	    <!-- 특정 항목 조회 -->
+<select id="detailCountry" resultType="CountryDTO">
+   SELECT 
+        b.USED_IDX, b.USED_TITLE, b.USED_CONTENT, b.USED_PRICE, 
+        b.USED_IMG1, b.USED_IMG2, b.USED_IMG3, b.USED_IMG4, 
+        b.CREATED_AT, b.USED_DONE, b.USER_ID, 
+        u.USER_NICK AS USER_NICK, b.USED_LIKE
+    FROM 
+        TB_USED b
+    JOIN 
+        TB_USER u ON b.USER_ID = u.USER_ID  
+    WHERE 
+        USED_IDX = #{USED_IDX}
+</select>
+
+
+
+	</mapper>

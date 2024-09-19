@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.babystep.db.CountryLikeMapper">
+
+  <!-- 특정 사용자가 좋아요를 눌렀는지 확인 -->
+  <select id="selectLike" resultType="int">
+    SELECT COUNT(*)
+    FROM TB_USEDLIKE
+    WHERE USER_ID = #{USER_ID} AND USED_IDX = #{USED_IDX}
+  </select>
+
+  <!-- 좋아요 추가 -->
+  <insert id="addLikeCountry" parameterType="CountryLikeDTO" useGeneratedKeys="true" keyProperty="LIKE_ID">
+    INSERT INTO TB_USEDLIKE (LIKE_ID, USER_ID, USED_IDX)
+    VALUES (SEQ_LIKE_ID.nextval, #{USER_ID}, #{USED_IDX})
+  </insert>
+
+  <!-- 게시물의 좋아요 수 증가 -->
+  <update id="UpdateLike" parameterType="CountryLikeDTO">
+    UPDATE TB_USED
+    SET USED_LIKE = USED_LIKE + 1
+    WHERE USED_IDX = #{USED_IDX}
+  </update>
+
+  <!-- 게시물의 좋아요 수 감소 -->
+  <update id="DeleteCountry" parameterType="CountryLikeDTO">
+    UPDATE TB_USED
+    SET USED_LIKE = USED_LIKE - 1
+    WHERE USED_IDX = #{USED_IDX}
+  </update>
+
+  <!-- 좋아요 기록 삭제 -->
+  <delete id="DeleteLike" parameterType="CountryLikeDTO">
+    DELETE FROM TB_USEDLIKE
+    WHERE USER_ID = #{USER_ID} AND USED_IDX = #{USED_IDX}
+  </delete>
+
+  <!-- 특정 사용자가 좋아요를 눌렀는지 확인 -->
+  <select id="StateCountry" resultType="Integer">
+    SELECT LIKE_ID
+    FROM TB_USEDLIKE
+    WHERE USER_ID = #{USER_ID} AND USED_IDX = #{USED_IDX}
+  </select>
+
+</mapper>

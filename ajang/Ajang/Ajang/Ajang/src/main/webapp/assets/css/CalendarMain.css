@@ -1,0 +1,117 @@
+@charset "UTF-8";
+
+/* 달력 테이블 스타일 */
+table {
+	width: 100%;
+	height: auto;
+	border-collapse: collapse;
+	background-color: white;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
+}
+
+/* 달력 타이틀 스타일 */
+.calendar-title {
+	width: 100%;
+	text-align: center;
+	font-size: 24px;
+	margin-bottom: 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 50%; /* 둥근 모양 */
+}
+
+.calendar-title input[type="button"] {
+	background-color: rgb(255, 255, 255);
+	color: rgb(0, 0, 0);
+	border: none;
+	padding: 10px;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 14px;
+}
+
+.calendar-title input[type="button"]:hover {
+	background-color: rgb(192, 192, 192);
+}
+
+/* 요일 헤더 */
+th {
+	text-align: center;
+	vertical-align: middle;
+	padding: 10px;
+	font-weight: bold;
+	font-size: 16px;
+	background-color: transparent; /* 배경을 투명으로 설정 */
+	color: #343a40; /* 요일 텍스트 색상 */
+}
+
+/* 일요일(SUN)과 토요일(SAT) 요일에 적용 */
+th.sun {
+	color: #ff6b6b; /* 일요일 텍스트 색상 (빨간색) */
+}
+
+th.sat {
+	color: #74c0fc; /* 토요일 텍스트 색상 (파란색) */
+}
+
+/* 일요일과 토요일의 숫자를 색상으로 구분 */
+td.sun {
+	color: #ff6666;
+}
+
+td.sat {
+	color: #6666ff;
+}
+
+/* 날짜 셀 기본 스타일 */
+td {
+    width: 14.28%; /* 7열 기준으로 균등 분배 */
+    height: 80px;  /* 원하는 높이 설정 */
+    padding: 10px;
+    text-align: center; /* 숫자를 중앙에 고정 */
+    vertical-align: middle;
+    font-size: 16px;
+    background-color: transparent; /* 기본 배경색 */
+    color: #343a40; /* 기본 텍스트 색상 */
+    transition: background-color 0.2s ease; /* 배경색 전환 효과만 추가 */
+}
+
+/* 오늘 날짜 강조 (숫자는 중앙, 배경색만 변경) */
+td.today {
+    background-color: #f0f8ff; /* 밝은 파란색 배경 */
+    color: #000; /* 숫자 색상은 검정으로 */
+    font-weight: normal; /* 두께는 기본 */
+}
+
+/* 선택된 날짜 (숫자는 중앙, 배경색만 변경) */
+td.selected {
+    background-color: #d3e0ff; /* 선택된 날짜 배경색만 변경 */
+    color: #000; /* 텍스트 색상 유지 */
+    font-weight: normal; /* 두께는 기본 */
+}
+
+/* 클릭할 때 텍스트 위치 변경 없음, 배경색만 변경 */
+td:active {
+    background-color: #d3e0ff; /* 클릭 시에도 배경색만 변경 */
+    color: #000;
+}
+
+/* 호버 시 배경색만 살짝 변경 (선택적) */
+td:hover {
+    background-color: #f0f8ff; /* 호버 시 밝은 색으로 */
+    cursor: pointer;
+}
+
+/* 반응형을 위한 미디어 쿼리 */
+@media ( max-width : 768px) {
+	td {
+		font-size: 12px;
+		height: 60px;
+	}
+	th {
+		font-size: 14px;
+		height: 40px;
+	}
+}
