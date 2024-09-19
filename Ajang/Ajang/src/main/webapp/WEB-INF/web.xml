@@ -78,6 +78,12 @@
   	<description></description>
   	<servlet-class>com.babystep.controller.PlaceRegister</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>HolidayController</servlet-name>
+  	<display-name>HolidayController</display-name>
+  	<description></description>
+  	<servlet-class>com.babystep.controller.HolidayController</servlet-class>
+  </servlet>
   
   <servlet-mapping>
   	<servlet-name>LoginService</servlet-name>
@@ -114,6 +120,10 @@
   <servlet-mapping>
   	<servlet-name>PlaceRegister</servlet-name>
   	<url-pattern>/PlaceRegister</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>HolidayController</servlet-name>
+  	<url-pattern>/HolidayController</url-pattern>
   </servlet-mapping>
   
 </web-app>
