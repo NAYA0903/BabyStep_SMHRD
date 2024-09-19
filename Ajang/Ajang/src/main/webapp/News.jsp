@@ -10,7 +10,7 @@
 </head>
 <body>
 <!-- 메뉴 바 포함 -->
-   <!-- <jsp:include page="Menu.jsp" /> --> 
+   <jsp:include page="Menu.jsp" /> 
     
     
     <div class="container">
@@ -30,7 +30,7 @@
         </div>
     </div>
     
-    <script src="News.js"></script>
+    <script src="assets/js/News.js"></script>
     
 </body>
 </html>
