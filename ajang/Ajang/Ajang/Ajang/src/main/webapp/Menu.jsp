@@ -10,7 +10,7 @@
 <body>
 	<!-- menu.jsp -->
 	<div class="title">
-		<img src="img/MainLogo.png" alt="걸음마 로고" class="logo-image"> 
+		<img src="img/MainLogo.png" alt="걸음마 로고" class="logo-image" onclick="location.href='Main.jsp'"> 
 		<a class="com" href="Info.jsp">소개</a> 
 		<a class="com" href="News.jsp">WITHKIDS</a>
 		<a class="com" href="BoardMain.jsp">게시판</a> <a class="com"
