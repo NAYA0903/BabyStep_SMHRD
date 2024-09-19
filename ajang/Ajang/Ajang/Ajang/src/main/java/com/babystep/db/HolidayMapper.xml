@@ -6,10 +6,10 @@
 
     <!-- 특정 연도와 월의 공휴일 조회 -->
     <select id="getHolidaysByMonth" resultType="HolidayDTO">
-        SELECT HOLIDAY_DATE, HOLIDAY_NAME 
+      SELECT HOLIDAY_DATE AS holidayDate, HOLIDAY_NAME AS holidayName
         FROM TB_HOLIDAYS
-        WHERE EXTRACT(YEAR FROM HOLIDAY_DATE) = #{year}
-        AND EXTRACT(MONTH FROM HOLIDAY_DATE) = #{month}
+        WHERE EXTRACT(YEAR FROM HOLIDAY_DATE) = #{year, jdbcType=INTEGER}
+        AND EXTRACT(MONTH FROM HOLIDAY_DATE) = #{month, jdbcType=INTEGER} 
     </select>
 
 </mapper>
