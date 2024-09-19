@@ -14,10 +14,11 @@ public class BoardDTO {
     private String BO_FILENAME2; // 파일이름2
     private String BO_FILENAME3; // 파일이름3
     private String BO_FILENAME4; // 파일이름4
+    private String USER_NICK ;
     
     // 생성자
     public BoardDTO(int BO_IDX, String BO_TITLE, String BO_CONTENT, Date CREATED_AT, Integer BO_VIEWS, Integer BO_LIKES,
-            String USER_ID, String BO_FILENAME1, String BO_FILENAME2, String BO_FILENAME3, String BO_FILENAME4) {
+            String USER_ID, String BO_FILENAME1, String BO_FILENAME2, String BO_FILENAME3, String BO_FILENAME4, String USER_NICK)  {
         this.BO_IDX = BO_IDX;
         this.BO_TITLE = BO_TITLE;
         this.BO_CONTENT = BO_CONTENT;
@@ -29,7 +30,10 @@ public class BoardDTO {
         this.BO_FILENAME2 = BO_FILENAME2;
         this.BO_FILENAME3 = BO_FILENAME3;
         this.BO_FILENAME4 = BO_FILENAME4;
+        this.USER_NICK = USER_NICK; 
     }
+    
+    
 
     public BoardDTO(String BO_TITLE, String BO_CONTENT, String USER_ID, String BO_FILENAME1, String BO_FILENAME2, 
                     String BO_FILENAME3, String BO_FILENAME4) {
@@ -95,4 +99,12 @@ public class BoardDTO {
     public String getBO_FILENAME4() {
         return BO_FILENAME4;
     }
+    public String getUSER_NICK() {
+        return USER_NICK;
+    }
+    public void setUSER_NICK(String USER_NICK) {
+        this.USER_NICK = USER_NICK;
+    }
+
 }
+

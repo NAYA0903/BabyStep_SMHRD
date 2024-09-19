@@ -1,5 +1,7 @@
 package com.babystep.model;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -59,7 +61,7 @@ public class UserDAO {
 	    }
 
 		
-	 // 사용자 ID로 해싱된 비밀번호 가져오기 (로그인에 사용)
+	 // 닉네임으로 사용
 	    public String getNicknameById(String id) {
 	        // SqlSession을 생성
 	        SqlSession session = sqlSessionFactory.openSession();
@@ -75,12 +77,36 @@ public class UserDAO {
 	    }
 
 		
+	public String getsysdate(String sysdate) {
+		 SqlSession session = sqlSessionFactory.openSession();
+
+	        String joindate = null;
+	        try {
+	            // MyBatis 매퍼에서 getPasswordById 쿼리 실행
+	        	joindate = session.selectOne("com.babystep.db.UserMapper.getsysdate", sysdate);
+	        } finally {
+	            session.close(); // 세션을 반드시 닫아야 함
+	        }
+	        return joindate;
+	    }
 	
+	
+	public List<CountryDTO> getUsedLike(String userId) {
+	    SqlSession session = sqlSessionFactory.openSession();
+	    List<CountryDTO> likedItems = null;
+	    try {
+	        likedItems = session.selectList("com.babystep.db.UserMapper.getUsedLike", userId);
+	    } finally {
+	        session.close();
+	    }
+	    return likedItems;
+	}
 
 
-	
-	
-	
 
-	
 }
+	
+	
+
+	
+

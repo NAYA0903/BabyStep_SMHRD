@@ -1,3 +1,4 @@
+<%@page import="com.babystep.model.BoardLikeDAO"%>
 <%@page import="com.babystep.model.BoardDAO"%>
 <%@page import="com.babystep.model.BoardDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -8,103 +9,169 @@
 <meta charset="UTF-8">
 <title>게시판 상세보기</title>
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
-    margin: 0;
-    padding: 20px;
-  }
+    body {
+        font-family: 'Noto Sans KR', sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
 
-  #board {
-    width: 80%;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-  }
+    .container {
+        width: 90vw;
+        height: 90vh;
+        max-width: 1200px;
+        max-height: 800px;
+        background-color: white;
+        border: 1px solid #333;
+        padding: 20px;
+        box-sizing: border-box;
+        overflow: auto;
+    }
 
-  #list {
-    width: 100%;
-    border-collapse: collapse;
-  }
+    .title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 5px;
+    }
 
-  #list tr, #list td {
-    padding: 10px;
-    border: 1px solid #ddd;
-  }
+    .meta {
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 5px;
+    }
 
-  #list td {
-    text-align: left;
-  }
+    .content {
+        width: 100%;
+        min-height: 100px;
+        border: 1px solid #ccc;
+        margin-bottom: 15px;
+        overflow: auto;
+    }
 
-  #list h3 {
-    margin: 0;
-    padding: 0;
-  }
+    .content img {
+        max-width: 75%; /* 이미지를 컨테이너의 75% 너비로 제한 */
+        max-height: 500px; /* 이미지의 최대 높이를 500px로 제한 */
+        height: auto;    /* 비율에 맞춰 자동으로 높이 조정 */
+        margin-bottom: 10px; /* 이미지 간 간격 */
+        display: block;
+        margin-left: auto;
+        margin-right: auto; /* 이미지를 중앙에 정렬 */
+    }
 
-  img {
-    max-width: 200px;
-    margin: 10px 0;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
+    .interactions {
+        text-align: center;
+        margin-bottom: 15px;
+        font-size: 14px;
+        color: #555;
+    }
 
-  button {
-    background-color: #adb5bd;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+    .comments-section {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-top: 20px;
+    }
 
-  button:hover {
-    background-color: #868e96;
-  }
+    .comment {
+        margin-bottom: 10px;
+    }
 
-  td[colspan="2"] {
-    text-align: center;
-  }
+    .comment-author {
+        font-weight: bold;
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    #heart {
+        font-size: 22px;
+        color: black;
+        background: none;
+        border: none;
+    }
+
+    #heart.liked {
+        color: red;
+    }
 </style>
 </head>
 <body>
 
-	<%
-	// 게시글 번호를 통해 조회수 증가 및 게시글 상세정보 불러오기
-	int num = Integer.parseInt(request.getParameter("num"));
-	BoardDTO dto = new BoardDAO().detailBoard(num); // 게시글 상세 정보 가져오기
-	%>
+    <%
+    int num = Integer.parseInt(request.getParameter("num"));
+    BoardDTO dto = new BoardDAO().detailBoard(num);
+    
+    String userId = (String)session.getAttribute("id");
+    boolean isLiked = new BoardLikeDAO().isLikedByUser(num,userId);
 
-	<div id="board">
-		<table id="list">
-			<tr>
-				<td>제목</td>
-				<td><%=dto.getBO_TITLE()%></td>
-			</tr>
-			<tr>
-				<td>작성자</td>
-				<td><%=dto.getUSER_ID()%></td>
-			</tr>
-			<tr>
-				<td colspan="2">내용</td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<img alt="" src="./file/<%=dto.getBO_FILENAME1()%>"> 
-					<img alt="" src="./file/<%=dto.getBO_FILENAME2()%>"> 
-					<img alt="" src="./file/<%=dto.getBO_FILENAME3()%>"> 
-					<img alt="" src="./file/<%=dto.getBO_FILENAME4()%>">
-					<h3><%=dto.getBO_CONTENT()%></h3> 
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2"><a href="BoardMain.jsp"><button>뒤로가기</button></a></td>
-			</tr>
-		</table>
-	</div>
+    %>
+    
+    <div class="container">
+        <div class="title"><%=dto.getBO_TITLE() %></div>
+        <div class="meta"><%=dto.getUSER_NICK() %>   |   <%=dto.getCREATED_AT() %></div>
+        
+        <div class="content">
+            <% if(dto.getBO_FILENAME1() != null) { %>
+            <img alt="" src="./file/<%=dto.getBO_FILENAME1()%>">
+            <%}if(dto.getBO_FILENAME2() != null) {%> 
+            <img alt="" src="./file/<%=dto.getBO_FILENAME2()%>">
+            <%}if(dto.getBO_FILENAME3() != null) { %>
+            <img alt="" src="./file/<%=dto.getBO_FILENAME3()%>">
+            <%}if(dto.getBO_FILENAME4() != null) { %>
+            <img alt="" src="./file/<%=dto.getBO_FILENAME4()%>"> 
+            <%} %>
+            <p><%=dto.getBO_CONTENT()%></p>
+        </div>
+        <div class="interactions"><button id="heart" class='<%=isLiked ? "liked" : ""%>'>❤</button> | 댓글수</div>
 
+        <div class="comments-section">
+            <div class="comment">
+                <div class="comment-author">익명 1</div>
+                <div class="comment-content">댓글 내용</div>
+            </div>
+        </div>
+    </div>
+
+<script>
+    window.onload  = function() {
+        var heartBtn = document.getElementById('heart');
+        if (<%=isLiked%>) {
+            heartBtn.classList.add('liked');
+        }
+
+        heartBtn.addEventListener('click', function () {
+            const isLiked = this.classList.toggle('liked');
+            const num = <%=num%>;
+
+            if (isLiked) {
+                fetch('BoardLikeService', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: `action=like&num=${num}`
+                }).then(() => {
+                    console.log('좋아요 추가 성공');
+                }).catch(err => {
+                    console.error('좋아요 추가 실패', err);
+                });
+            } else {
+                fetch('BoardLikeService', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: `action=unlike&num=${num}`
+                }).then(() => {
+                    console.log('좋아요 취소 성공');
+                }).catch(err => {
+                    console.error('좋아요 취소 실패', err);
+                });
+            }
+        });
+    }
+</script>
 </body>
 </html>

@@ -8,6 +8,7 @@ public class UserDTO {
 	private String pw;
 	private String nickname;
 	private String addr;
+	private String JOINED_AT ;
 	
 	public UserDTO(String id, String pw, String nickname, String addr) {
 		
@@ -16,6 +17,18 @@ public class UserDTO {
 		this.nickname = nickname;
 		this.addr = addr;
 	}
+	
+	
+
+	public UserDTO(String id, String pw, String nickname, String addr, String jOINED_AT) {
+		this.id = id;
+		this.pw = pw;
+		this.nickname = nickname;
+		this.addr = addr;
+		this.JOINED_AT = jOINED_AT;
+	}
+
+
 
 	public String getAddr() {
 		return addr;
@@ -34,6 +47,10 @@ public class UserDTO {
 	public String getPW() {
 		return pw;
 	}
+	
+	public String JOINED_AT() {
+		return JOINED_AT;
+	}
 	public void setPW(String pw) {
 		this.pw = pw;
 	}
@@ -43,5 +60,6 @@ public class UserDTO {
 	public void setNICKNAME(String nickname) {
 		this.nickname = nickname;
 	}
+	
 	
 }

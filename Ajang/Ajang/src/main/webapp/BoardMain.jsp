@@ -3,7 +3,7 @@
 <%@page import="com.babystep.model.BoardDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8" isELIgnored="false" %>
+   pageEncoding="UTF-8" 	isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
    
 <!DOCTYPE html>
@@ -25,7 +25,7 @@ html, body {
 
 /* 컨테이너 설정 */
 .container {
-    width: 80%;
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
@@ -163,6 +163,11 @@ td {
     }
 }
 
+.titles {
+  text-decoration: none; /* 밑줄 제거 */
+  color: black;
+}
+
 </style>
 </head>
 <body>
@@ -210,17 +215,26 @@ td {
 						<tr>
 						
 							<td>${s.count}</td>
-							<td><a href="BoardDetail.jsp?num=${b.BO_IDX}">${b.BO_TITLE}</a></td>
-							<td>${b.USER_ID}</td>
+							<td><a class = titles href="BoardDetail.jsp?num=${b.BO_IDX}">${b.BO_TITLE}</a></td>
+							<td>${b.USER_NICK}</td>
 							<td>${b.CREATED_AT}</td>
-							<td>${b.BO_VIEWS}</td>
 							<td>${b.BO_LIKES}</td>
+							<td>${b.BO_VIEWS}</td>
+							
 						</tr>
 					</c:forEach>
             <!-- 게시판 데이터 삽입 -->
          </table>
       </div>
    </div>
+<script type="text/javascript">
+var title = document.getElementById('title');
+
+title.addEventListener('click', function () {
+<% %>
+
+</script>
 
 </body>
+
 </html>
