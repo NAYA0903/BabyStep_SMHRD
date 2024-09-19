@@ -69,13 +69,11 @@
 				<!-- 이미지 업로드 섹션 -->
 				<div class="image-upload-section">
 					<h3>이미지를 파일 첨부로 올리세요</h3>
-					<input type="file" accept="image/*">
 				</div>
 
 				<!-- 일기 메모 작성 섹션 -->
 				<div class="diary-section">
-					<h3>일기 형식의 메모 창</h3>
-					<textarea placeholder="여기에 메모를 작성하세요..."></textarea>
+					<h3>일기 칸</h3>
 					<div class="button-container">
 						<button class="write-btn">작성하기</button>
 					</div>
