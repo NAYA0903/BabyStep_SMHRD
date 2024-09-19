@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mapper namespace="PlaceMapper">
+<mapper namespace="com.babystep.db.PlaceMapper">
     <insert id="createPlace" parameterType="com.babystep.model.PlaceDTO">
         INSERT INTO tb_place (place_idx, place_name, place_addr, place_tel, place_url, createc_at, user_id, place_likes)
         VALUES (#{placeIdx}, #{placeName}, #{placeAddr}, #{placeTel}, #{placeUrl}, #{createcAt}, #{userId}, #{placeLikes})

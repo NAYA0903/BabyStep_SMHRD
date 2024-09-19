@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mapper namespace="PlaceLikeMapper">
+<mapper namespace="com.babystep.db.PlaceLikeMapper">
     <insert id="createFavorite" parameterType="com.babystep.model.PlaceLikeDTO">
         INSERT INTO tb_favorite (fav_idx, place_idx, user_id, created_at)
         VALUES (#{favIdx}, #{placeIdx}, #{userId}, #{createdAt})
