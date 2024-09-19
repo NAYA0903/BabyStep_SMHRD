@@ -7,7 +7,6 @@
 <meta charset="UTF-8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet"
 	href=https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200 " />
@@ -20,7 +19,25 @@
 <body>
 
 	<!-- 타이틀 부분 -->
-	 <jsp:include page="Menu.jsp" />
+	<div class="title">
+		<img src="img/MainLogo.png" alt="걸음마 로고" class="logo-image"> 
+		<a class="com" href="PlaceMain.jsp">추천서비스</a>
+		<a class="com" href="BoardMain.jsp">커뮤니티</a> 
+		<a class="com" href="CountryMain.jsp">중고거래</a>
+		<a class="com" href="Info.jsp">성장일기</a> 
+
+		<a href="#" onclick="openChatRoomPopup()"><img src="img/Chat.png" alt="채팅" class="chat-image"></a> 
+		<a href="" onclick="togglePopup(); return false;"><img src="img/Mypage2.png" alt="마이페이지" class="mypage-image"></a> 
+		<a href="LogoutService"><img src="img/Logout3.png" alt="로그아웃" class="logout-image"></a>
+
+		<!-- 다크 모드 스위치 -->
+		<label class="dark-mode-switch"> 
+            <input type="checkbox" id="darkModeToggle"> 
+            <span class="slider"></span>
+		</label>
+
+		<jsp:include page="MypagePopup.jsp" />
+	</div>
 
 	<!-- 좌우 4:6 레이아웃의 메인 컨텐츠 -->
 	<div class="main-content">
@@ -51,11 +68,13 @@
 				<!-- 이미지 업로드 섹션 -->
 				<div class="image-upload-section">
 					<h3>이미지를 파일 첨부로 올리세요</h3>
+					<input type="file" accept="image/*">
 				</div>
 
 				<!-- 일기 메모 작성 섹션 -->
 				<div class="diary-section">
-					<h3>일기 칸</h3>
+					<h3>일기 형식의 메모 창</h3>
+					<textarea placeholder="여기에 메모를 작성하세요..."></textarea>
 					<div class="button-container">
 						<button class="write-btn">작성하기</button>
 					</div>
