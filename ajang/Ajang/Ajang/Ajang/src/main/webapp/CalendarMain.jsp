@@ -1,7 +1,11 @@
-<%@page import="com.babystep.model.CalendarDAO"%>
-<%@page import="com.babystep.model.CalendarDTO"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="java.util.HashMap"%>
+<%@ page import="java.util.Map"%>
 <%@ page import="java.util.Calendar"%>
+<%@ page import="com.babystep.model.HolidayDTO"%>
+<%@ page import="com.babystep.model.HolidayDAO"%>
+<%@ page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,6 +52,19 @@
 
             // 해당 월의 첫 번째 날의 요일 계산 (0: 일요일, 1: 월요일, ...)
             int start = calendar.get(Calendar.DAY_OF_WEEK) - 1;
+
+            // HolidayDAO를 사용하여 공휴일 데이터를 가져옴
+            HolidayDAO holidayDAO = new HolidayDAO();
+            List<HolidayDTO> holidays = holidayDAO.getHolidaysByMonth(year, month);
+
+            // 공휴일을 날짜별로 매핑
+            Map<Integer, String> holidayMap = new HashMap<>();
+            for (HolidayDTO holiday : holidays) {
+                Calendar holidayCal = Calendar.getInstance();
+                holidayCal.setTime(holiday.getHolidayDate());
+                int holidayDay = holidayCal.get(Calendar.DAY_OF_MONTH);
+                holidayMap.put(holidayDay, holiday.getHolidayName());
+            }
         %>
 
         <!-- 이전달, 다음달 버튼 -->
@@ -60,13 +77,13 @@
         <!-- 달력 -->
         <table>
             <tr>
-                <th class="sun">SUN</th>
-                <th>MON</th>
-                <th>TUE</th>
-                <th>WHD</th>
-                <th>THU</th>
-                <th>FRI</th>
-                <th class="sat">SAT</th>
+                <th class="sun">일</th>
+                <th>월</th>
+                <th>화</th>
+                <th>수</th>
+                <th>목</th>
+                <th>금</th>
+                <th class="sat">토</th>
             </tr>
             <tr>
                 <%
@@ -85,7 +102,20 @@
                             dayClass += " today";
                         }
 
-                        out.println("<td class='" + dayClass + "' data-day='" + day + "'>" + day + "</td>");
+                        // 공휴일이 있는 경우
+                        if (holidayMap.containsKey(day)) {
+                            dayClass += " holiday";
+                        }
+
+                        out.println("<td class='" + dayClass + "' data-day='" + day + "'>");
+                        out.println(day);
+
+                        // 공휴일 이름 출력
+                        if (holidayMap.containsKey(day)) {
+                            out.println("<br>" + holidayMap.get(day));
+                        }
+
+                        out.println("</td>");
 
                         // 줄 바꿈 (토요일 다음에는 줄을 바꿈)
                         if (weekday == 6) {
