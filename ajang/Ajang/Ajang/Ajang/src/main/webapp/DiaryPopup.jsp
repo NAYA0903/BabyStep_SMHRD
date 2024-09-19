@@ -32,8 +32,11 @@
         max-height: 80vh; /* 화면 높이에 맞게 최대 높이 제한 */
     }
 
-    /* 팝업 내부 항목 스타일 */
-    .popup div {
+    /* 팝업 헤더 */
+    .popup-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         margin-bottom: 15px;
     }
 
@@ -41,6 +44,24 @@
         font-size: 24px;
         font-weight: bold;
         color: #333;
+        margin: 0;
+    }
+
+    .popup .close-btn {
+        background-color: transparent; /* 배경을 투명하게 설정 */
+        color: #CF0202;
+        font-size: 30px;
+        text-align: center;
+        border: none; /* 테두리도 제거 */
+        cursor: pointer;
+    }
+
+    .popup .close-btn:hover {
+        color: #a00000; /* 버튼이 활성화될 때 색상 변경 */
+    }
+
+    /* 팝업 내부 항목 스타일 */
+    .popup div {
         margin-bottom: 15px;
     }
 
@@ -68,13 +89,14 @@
     }
 
     /* 사진 업로드 영역 */
-    .popup div.photo-upload {
+    .photo-upload {
         display: flex;
-        gap: 10px;
+        flex-direction: column; /* 세로로 나열 */
+        gap: 15px; /* 사진 업로드 필드 간의 간격 */
     }
 
-    .popup div.photo-upload div {
-        width: 48%;
+    .photo-upload div {
+        width: 100%; /* 사진 업로드 필드를 100%로 설정 */
     }
 
     /* 팝업 배경 어두운 부분 */
@@ -121,19 +143,6 @@
         background-color: #8ea78d;
     }
 
-    .popup .close-btn {
-        background-color: transparent; /* 배경을 투명하게 설정 */
-        color: #CF0202;
-        font-size: 30px;
-        text-align: center;
-        border: none; /* 테두리도 제거 */
-        cursor: pointer;
-    }
-
-    .popup .close-btn:hover {
-        color: #a00000; /* 버튼이 활성화될 때 색상 변경 */
-    }
-
     /* 버튼 간 간격을 패딩으로 조정 */
     .popup .add-btn,
     .popup .update-btn,
@@ -151,10 +160,10 @@
 
 <!-- 팝업 창 -->
 <div id="diaryPopup" class="popup">
-    <div class="button-container">
-   </div>
-        <button class="close-btn" onclick="toggleDiaryPopup()">Ⅹ</button>
-    <h2>Diary Entry</h2>
+    <div class="popup-header">
+        <h2>Diary Entry</h2>
+        <button class="close-btn" onclick="toggleDiaryPopup()">❌</button>
+    </div>
     <div>
         <label>제목:</label>
         <input type="text" name="title" placeholder="제목을 입력하세요">

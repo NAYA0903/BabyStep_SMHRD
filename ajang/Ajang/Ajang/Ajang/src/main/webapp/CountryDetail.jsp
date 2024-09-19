@@ -34,8 +34,8 @@ body {
 /* 슬라이더 전체 컨테이너 */
 .slider-container {
 	position: relative;
-	width: 400px;
-	height: 400px;
+	width: 300px;
+	height: 300px;
 	overflow: hidden;
 	margin: 20px auto;
 	border-radius: 10px;
@@ -51,8 +51,8 @@ body {
 
 /* 각 이미지의 스타일 */
 .slider img {
-	width: 400px;
-	height: 400px;
+	width: 300px;
+	height: 300px;
 	object-fit: cover;
 	object-position: center;
 	border-radius: 10px;
