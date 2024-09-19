@@ -15,7 +15,6 @@
     </div>
     
     <div class="container">
-        <h1>세련된 목록</h1>
         <div class="item-list">
             <div class="item" onclick="openPopup('Item 1', '이것은 아이템 1에 대한 세부 정보입니다.')">적절한 이유식 시작 시기</div>
             <div class="item" onclick="openPopup('Item 2', '이것은 아이템 2에 대한 세부 정보입니다.')">이유식 준비물과 추천 레시피</div>
