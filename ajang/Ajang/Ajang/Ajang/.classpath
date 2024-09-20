@@ -45,7 +45,7 @@
 			<attribute name="m2e-apt" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/smhrd1/Desktop/ajang/ajang/ajang/Ajang/Ajang/Ajang/src/main/webapp/WEB-INF/lib/cos-2020.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/smhrd/Desktop/Ajang/ajang/ajang/Ajang/Ajang/Ajang/src/main/webapp/WEB-INF/lib/cos-2020.4.jar"/>
 	<classpathentry kind="src" output="target/test-classes" path="target/generated-test-sources/test-annotations">
 		<attributes>
 			<attribute name="optional" value="true"/>
