@@ -83,8 +83,10 @@
 				<div id="todoList">
 					<p>할 일이 없습니다.</p>
 				</div>
-				<button class="todo-write-btn"
-					onclick="toggleTodoPopup(); return false;">작성하기</button>
+				<button class="todo-write-btn" onclick="toggleTodoPopup(); return false;">작성하기</button>
+				
+				<!-- TodoPopup.jsp 와 연결 -->
+				<jsp:include page="TodoPopup.jsp" />
 			</div>
 
 			<!-- 이미지 업로드와 일기 작성 섹션을 가로로 나누는 부분 -->
@@ -130,8 +132,7 @@
 				<div id="diary-section">
 					<h3>일기</h3>
 				</div>
-				<button class="write-btn"
-					onclick="toggleDiaryPopup(); return false;">작성하기</button>
+				<button class="write-btn" onclick="toggleDiaryPopup(); return false;">작성하기</button>
 			</div>
 			<jsp:include page="DiaryPopup.jsp" />
 		</div>

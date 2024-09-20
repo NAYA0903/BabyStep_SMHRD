@@ -19,6 +19,14 @@ public class TodoDTO {
     	
     }
     
+    public TodoDTO(String todoContent, Date todoDate, String userId, Date createdAt) {
+    	
+    	this.todoContent = todoContent;
+    	this.todoDate = todoDate;
+    	this.userId = userId;
+    	this.createdAt = createdAt;
+    }
+    
     
     public TodoDTO(int todoIdx, String todoContent, Date todoDate, String todoDone, String userId, Date createdAt) {
 
