@@ -97,18 +97,30 @@
 						for (DiaryPopupDTO diary : diaryList) {
 							if (diary.getDI_FILE1() != null && !diary.getDI_FILE1().isEmpty()) {
 					%>
+					
 					<img src="./file/<%=diary.getDI_FILE1()%>" alt="Diary Image 1">
+					
 					<%
 					}
+							
 					if (diary.getDI_FILE2() != null && !diary.getDI_FILE2().isEmpty()) {
+						
 					%>
+					
 					<img src="./file/<%=diary.getDI_FILE2()%>" alt="Diary Image 2">
+					
 					<%
+					
 					}
-					}
+					
+						}
+					
 					} else {
+					
 					%>
+					
 					<p>이미지가 없습니다.</p>
+					
 					<%
 					}
 					%>
@@ -133,83 +145,71 @@
 		;
 
 		// 페이지가 로드된 후 오늘 날짜를 자동으로 표시
-		document
-				.addEventListener(
-						'DOMContentLoaded',
-						function() {
-							var todayCell = document.querySelector('td.today');
-							if (todayCell) {
-								var year = document
-										.querySelector('.calendar-title span').textContent
-										.split('년')[0].trim();
-								var month = document
-										.querySelector('.calendar-title span').textContent
-										.split('년')[1].split('월')[0].trim();
-								var day = todayCell.getAttribute('data-day'); // 오늘 날짜
+		document.addEventListener('DOMContentLoaded',function() {
+				
+			var todayCell = document.querySelector('td.today');
+							
+			if (todayCell) {
+								
+				var year = document.querySelector('.calendar-title span').textContent.split('년')[0].trim();
+				
+				var month = document.querySelector('.calendar-title span').textContent.split('년')[1].split('월')[0].trim();
+								
+				var day = todayCell.getAttribute('data-day'); // 오늘 날짜
 
-								document.getElementById('selectedDateDisplay').textContent = year
-										+ "년 " + month + "월 " + day + "일";
+								
+				document.getElementById('selectedDateDisplay').textContent = year + "년 " + month + "월 " + day + "일";
 
-								// 공휴일이 있는지 확인하고, 있으면 공휴일 이름 표시
-								if (holidayMap[day]) {
-									document
-											.getElementById('holidayNameDisplay').textContent = holidayMap[day];
-								} else {
-									document
-											.getElementById('holidayNameDisplay').textContent = "";
-								}
+				// 공휴일이 있는지 확인하고, 있으면 공휴일 이름 표시
+				if (holidayMap[day]) {
+									
+					document.getElementById('holidayNameDisplay').textContent = holidayMap[day];
+								
+				} else {
+						
+					document.getElementById('holidayNameDisplay').textContent = "";
+								
+				}
 
-								loadTodoList(year, month, day); // TODO 리스트 로드\
-								loadDiaryList(year, month, day); // Diary 리스트 로드\
-							}
+				loadTodoList(year, month, day); // TODO 리스트 로드\
+				loadDiaryList(year, month, day); // Diary 리스트 로드\
+						
+			}
 
-							// 날짜를 클릭했을 때, 선택된 날짜를 실시간으로 갱신
-							var dayCells = document
-									.querySelectorAll('td[data-day]');
-							dayCells
-									.forEach(function(cell) {
-										cell
-												.addEventListener(
-														'click',
-														function() {
-															var selectedDay = cell
-																	.getAttribute('data-day');
-															var year = document
-																	.querySelector('.calendar-title span').textContent
-																	.split('년')[0]
-																	.trim();
-															var month = document
-																	.querySelector('.calendar-title span').textContent
-																	.split('년')[1]
-																	.split('월')[0]
-																	.trim();
+			// 날짜를 클릭했을 때, 선택된 날짜를 실시간으로 갱신
+			
+			var dayCells = document.querySelectorAll('td[data-day]');
+							
+			dayCells.forEach(function(cell) {cell.addEventListener('click',function() {
+															
+				var selectedDay = cell.getAttribute('data-day');
+															
+				var year = document.querySelector('.calendar-title span').textContent.split('년')[0].trim();
+															
+				var month = document.querySelector('.calendar-title span').textContent.split('년')[1].split('월')[0].trim();
 
-															document
-																	.getElementById('selectedDateDisplay').textContent = year
-																	+ "년 "
-																	+ month
-																	+ "월 "
-																	+ selectedDay
-																	+ "일";
+															
+				document.getElementById('selectedDateDisplay').textContent = year + "년 " + month + "월 "+ selectedDay + "일";
 
-															// 선택된 날짜가 공휴일인지 확인하고 표시
-															if (holidayMap[selectedDay]) {
-																document
-																		.getElementById('holidayNameDisplay').textContent = holidayMap[selectedDay];
-															} else {
-																document
-																		.getElementById('holidayNameDisplay').textContent = "";
-															}
+															
+				// 선택된 날짜가 공휴일인지 확인하고 표시
+															
+				if (holidayMap[selectedDay]) {document.getElementById('holidayNameDisplay').textContent = holidayMap[selectedDay];
+															
+				} else {document.getElementById('holidayNameDisplay').textContent = "";
+															
+				}
 
-															loadTodoList(year,
-																	month,
-																	selectedDay); // 선택된 날짜의 To-do 리스트 로드
-															loadDiaryList(year,
-																	month,
-																	selectedDay); // 선택된 날짜의 To-do 리스트 로드
-														});
-									});
-						});
+															
+				loadTodoList(year,month,selectedDay); // 선택된 날짜의 To-do 리스트 로드
+															
+				loadDiaryList(year,month,selectedDay); // 선택된 날짜의 To-do 리스트 로드
+														
+			});
+									
+			});
+						
+		});
 
 		// 선택된 날짜에 맞는 TODO 리스트를 서버에서 불러오는 함수
 		function loadTodoList(year, month, day) {
