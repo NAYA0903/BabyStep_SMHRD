@@ -66,11 +66,12 @@
 
 
 	<!-- ***************** 검색 쿼리 추가 ***************** -->
+	<!-- BoardMapper.xml -->
+	<!-- BoardMapper.xml -->
 	<select id="searchBoard" parameterType="map"
 		resultType="BoardDTO">
-		SELECT * FROM board WHERE ${field} LIKE #{searchText}
+		SELECT * FROM board WHERE ${field} LIKE '%' || #{searchText} || '%'
 	</select>
-
 
 
 	<!-- ***************** 검색 쿼리 추가 ***************** -->

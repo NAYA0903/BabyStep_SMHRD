@@ -85,10 +85,7 @@ public class BoardDAO {
 	            throw new IllegalArgumentException("Invalid search field: " + field);
 	    }
 
-	    // 쿼리 로그 추가
-	    System.out.println("Executing SQL query: SELECT * FROM board WHERE " + queryField + " LIKE '" + searchText + "'");
-
-	    String query = "SELECT * FROM board WHERE " + queryField + " LIKE ?";
+	    String query = "SELECT * FROM board WHERE " + queryField + " LIKE CONCAT('%', ?, '%')";
 
 	    try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
 	        results = sqlSession.selectList("com.babystep.db.BoardMapper.searchBoard", searchText);
@@ -97,6 +94,8 @@ public class BoardDAO {
 	    }
 	    return results;
 	}
+
+
 	// ***************** 검색 기능 메서드 *****************
 
 
