@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<link rel="stylesheet" href="assets/css/Menu.css">
+<link rel="stylesheet" href="assets/css/Title.css">
 <body>
 	<!-- menu.jsp -->
 	<div class="title">
