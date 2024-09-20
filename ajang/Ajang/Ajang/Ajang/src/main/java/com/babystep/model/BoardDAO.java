@@ -1,6 +1,7 @@
 package com.babystep.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -69,7 +70,7 @@ public class BoardDAO {
 	// ***************** 검색 기능 메서드 *****************
 	public List<BoardDTO> searchBoard(String field, String searchText) {
 	    List<BoardDTO> results = null;
-	    String queryField = "";
+	    String queryField;
 
 	    switch (field) {
 	        case "BO_TITLE":
@@ -85,15 +86,22 @@ public class BoardDAO {
 	            throw new IllegalArgumentException("Invalid search field: " + field);
 	    }
 
-	    String query = "SELECT * FROM board WHERE " + queryField + " LIKE CONCAT('%', ?, '%')";
+	    // 검색어에 % 추가
+	    final String modifiedSearchText = "%" + searchText + "%";
 
 	    try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
-	        results = sqlSession.selectList("com.babystep.db.BoardMapper.searchBoard", searchText);
+	        results = sqlSession.selectList("com.babystep.db.BoardMapper.searchBoard", 
+	                                         new HashMap<String, Object>() {{
+	                                             put("field", queryField);
+	                                             put("value", modifiedSearchText);
+	                                         }});
 	    } catch (Exception e) {
 	        e.printStackTrace();
 	    }
 	    return results;
 	}
+
+
 
 
 	// ***************** 검색 기능 메서드 *****************

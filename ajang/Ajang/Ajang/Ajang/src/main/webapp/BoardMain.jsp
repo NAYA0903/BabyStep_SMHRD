@@ -182,26 +182,36 @@ td {
     List<BoardDTO> boards = new ArrayList<>();
     String searchField = request.getParameter("searchField");
     String searchText = request.getParameter("searchText");
-    boards = new BoardDAO().allBoard(); // 모든 게시글 초기 목록
+
+    // 초기 목록: 모든 게시글 가져오기
+    boards = new BoardDAO().allBoard();
 
     boolean noResults = false; // 검색 결과가 없는지 체크하는 변수
 
     // 검색 기능 추가
     if (searchField != null && searchText != null && !searchText.trim().isEmpty()) {
         try {
-            searchText = "%" + searchText.trim() + "%"; // 검색어 양쪽에 % 추가
+            // 검색어 처리
+            searchText = "%" + searchText.trim() + "%"; // % 추가
+
+            // 로그 출력
+            System.out.println("Searching with: " + searchText);
+
+            // 검색 조건 생성
             SearchCriteria criteria = new SearchCriteria(searchField, searchText);
             List<BoardDTO> searchResults = new BoardDAO().searchBoard(criteria.getField(), criteria.getSearchText());
 
-            if (searchResults == null || searchResults.isEmpty()) { // 검색 결과가 없을 때
-                noResults = true; 
+            if (searchResults == null || searchResults.isEmpty()) {
+                noResults = true; // 검색 결과가 없으면 true로 설정
             } else {
-                boards = searchResults; // 검색 결과로 boards 업데이트
+                boards = searchResults; // 검색 결과가 있으면 해당 결과로 boards 업데이트
             }
         } catch (IllegalArgumentException e) {
-            boards = new BoardDAO().allBoard(); // 잘못된 필드일 경우 전체 게시글 반환
+            boards = new BoardDAO().allBoard(); // 잘못된 필드면 전체 게시글 반환
         }
     }
+    // 검색 기능 추가 종료
+
     pageContext.setAttribute("boards", boards);
     %>
 
@@ -249,7 +259,7 @@ td {
 
             <c:if test="${noResults}">
                 <script type="text/javascript">
-                    alert("검색 결과가 없습니다."); // 검색 결과가 없을 때 알림
+                    alert("검색 결과가 없습니다."); // 검색 결과가 없을 때 경고창 표시
                 </script>
             </c:if>
         </div>
