@@ -203,6 +203,7 @@ td {
 
             if (searchResults == null || searchResults.isEmpty()) {
                 noResults = true; // 검색 결과가 없으면 true로 설정
+                boards.clear(); // boards를 비워서 아무 것도 표시하지 않음
             } else {
                 boards = searchResults; // 검색 결과가 있으면 해당 결과로 boards 업데이트
             }
@@ -222,7 +223,6 @@ td {
                 <div class="search-form">
                     <select name="searchField">
                         <option value="BO_TITLE">제목</option>
-                        <option value="USER_NICK">이름</option>
                         <option value="BO_CONTENT">내용</option>
                     </select> 
                     <input type="text" name="searchText" placeholder="검색어를 입력하세요">
@@ -259,7 +259,7 @@ td {
 
             <c:if test="${noResults}">
                 <script type="text/javascript">
-                    alert("검색 결과가 없습니다."); // 검색 결과가 없을 때 경고창 표시
+                    alert("검색 결과가 없습니다. 검색어를 다시 입력해주세요."); // 검색 결과가 없을 때 경고창 표시
                 </script>
             </c:if>
         </div>

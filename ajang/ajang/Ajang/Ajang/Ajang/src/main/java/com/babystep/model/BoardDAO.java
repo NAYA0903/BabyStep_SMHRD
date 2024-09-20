@@ -76,9 +76,6 @@ public class BoardDAO {
 	        case "BO_TITLE":
 	            queryField = "BO_TITLE";
 	            break;
-	        case "USER_NICK":
-	            queryField = "USER_NICK";
-	            break;
 	        case "BO_CONTENT":
 	            queryField = "BO_CONTENT";
 	            break;
