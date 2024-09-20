@@ -1,3 +1,4 @@
+<%@page import="com.babystep.model.DiaryPopupDTO"%>
 <%@page import="java.util.Map"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.List"%>
@@ -50,6 +51,7 @@
 
     // holidayMap을 JavaScript에서 사용할 수 있도록 JSON으로 변환
     String holidayMapJson = new com.google.gson.Gson().toJson(holidayMap);
+    List<DiaryPopupDTO> diaryList = (List<DiaryPopupDTO>) request.getAttribute("diaryList");
 %>
 
 <!-- 타이틀 부분 -->
@@ -81,21 +83,56 @@
             </div>
         </div>
 
-        <!-- 이미지 업로드와 일기 작성 섹션을 가로로 나누는 부분 -->
+         <!-- 이미지 업로드와 일기 작성 섹션을 가로로 나누는 부분 -->
         <div class="upload-diary-container">
-            <div class="image-upload-section">
+            <!-- 이미지 업로드 섹션 -->
+            <div id="image-upload-section">
                 <h3>이미지</h3>
+                <%
+                    if (diaryList != null && !diaryList.isEmpty()) {
+                        for (DiaryPopupDTO diary : diaryList) {
+                            if (diary.getDI_FILE1() != null && !diary.getDI_FILE1().isEmpty()) {
+                %>
+                                <img src="./file/<%= diary.getDI_FILE1() %>" alt="Diary Image 1">
+                <%
+                            }
+                            if (diary.getDI_FILE2() != null && !diary.getDI_FILE2().isEmpty()) {
+                %>
+                                <img src="./file/<%=diary.getDI_FILE2() %>" alt="Diary Image 2">
+                <%
+                            }
+                        }
+                    } else {
+                %>
+                    <p>이미지가 없습니다.</p>
+                <%
+                    }
+                %>
             </div>
 
-            <div class="diary-section">
+            <!-- 일기 메모 작성 섹션 -->
+            <div id="diary-section">
                 <h3>일기</h3>
-                <div class="button-container">
+                <%
+                    if (diaryList != null && !diaryList.isEmpty()) {
+                        for (DiaryPopupDTO diary : diaryList) {
+                %>
+                            <p><%= diary.getDI_CONTENT() %></p>
+                <%
+                        }
+                    } else {
+                %>
+                    <p>작성된 일기가 없습니다.</p>
+                <%
+                    }
+                %>
+            </div>
                     <button class="write-btn" onclick="toggleDiaryPopup(); return false;">작성하기</button>
                 </div>
+                <jsp:include page="DiaryPopup.jsp" />
             </div>
         </div>
-    </div>
-</div>
+ 
 
 <script>
     // JavaScript로 holidayMap 데이터를 가져옴

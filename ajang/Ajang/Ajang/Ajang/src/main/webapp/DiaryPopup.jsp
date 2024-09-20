@@ -160,9 +160,11 @@
 
 <!-- 팝업 창 -->
 <div id="diaryPopup" class="popup">
+<form action="DiaryPopupService" method="post" enctype="multipart/form-data">
     <div class="popup-header">
         <h2>Diary Entry</h2>
         <button class="close-btn" onclick="toggleDiaryPopup()">❌</button>
+        <input  class="close-btn"type="reset" value="초기화">
     </div>
     <div>
         <label>제목:</label>
@@ -199,9 +201,13 @@
         </div>
     </div>
     <div class="button-container">
-        <button class="add-btn" onclick="toggleDiaryPopup()">작성</button>
+         <input class="add-btn" type="submit"  onclick="toggleDiaryPopup()" value="작성하기">
         <button class="update-btn" onclick="toggleDiaryPopup()">수정</button>
+         <div class="button-group">
+           
+        </div>
     </div>
+    </form>
 </div>
 
 <!-- 팝업 배경 -->
