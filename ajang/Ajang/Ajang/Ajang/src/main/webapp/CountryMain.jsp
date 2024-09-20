@@ -21,11 +21,13 @@ body {
 }
 
 .container {
-	max-width: 800px;
+	width: 1200px;
 	margin: 20px auto;
 	padding: 20px;
 	background-color: white;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	max-height: 80vh; /* 화면 높이의 80%로 제한 */
+	overflow-y: auto; /* 내부 컨텐츠가 넘치면 스크롤 */
 }
 
 .card {
@@ -51,7 +53,7 @@ body {
 	flex-grow: 1;
 }
 
-.card .title {
+.card .titles {
 	font-size: 18px;
 	font-weight: bold;
 	color: #333;
@@ -115,15 +117,23 @@ a {
 	text-decoration: none;
 	color: inherit;
 }
+
+.menu {
+	margin-bottom: 120px;
+}
 </style>
 </head>
 <body>
 
-	<% 
-    List<CountryDTO> countrys = new CountryDAO().allCountry(); 
-    System.out.print(countrys.size());
-    pageContext.setAttribute("countrys", countrys); 
-%>
+	<%
+	List<CountryDTO> countrys = new CountryDAO().allCountry();
+	System.out.print(countrys.size());
+	pageContext.setAttribute("countrys", countrys);
+	%>
+
+	<div class="menu">
+		<jsp:include page="Menu.jsp" />
+	</div>
 
 	<div class="container">
 		<h2>중고나라</h2>
@@ -134,8 +144,10 @@ a {
 					<img src="<%=request.getContextPath()%>/file/${c.USED_IMG1}"
 						alt="Item Image">
 					<div class="content">
-						<div class="title">
-							<div class="title"><a href="CountryDetail.jsp?num=${c.USED_IDX}">${c.USED_TITLE}</a></div>
+						<div class="titles">
+							<div class="titles">
+								<a href="CountryDetail.jsp?num=${c.USED_IDX}">${c.USED_TITLE}</a>
+							</div>
 
 						</div>
 						<div class="name">${c.USER_NICK}</div>
