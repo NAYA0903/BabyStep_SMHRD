@@ -4,6 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 import javax.servlet.ServletException;
@@ -58,6 +61,7 @@ public class DiaryPopupService extends HttpServlet {
 			// form 데이터 및 파일 처리
 			String DI_TITLE = multi.getParameter("title");
 			String DI_CONTENT = multi.getParameter("content");
+			System.out.println("content " + DI_CONTENT);
 			String[] DI_FILE = new String[2];
 
 			for (int i = 1; i <= 2; i++) {
@@ -67,10 +71,14 @@ public class DiaryPopupService extends HttpServlet {
 			    }
 			}
 			// 날짜 처리
-			String dateString = multi.getParameter("date");
-			SimpleDateFormat formatter = new SimpleDateFormat("YYYY-MM-DD");
-			Date CREATED_AT = formatter.parse(dateString); // 문자열을 Date로 변환
-
+			  String dateString = multi.getParameter("date");
+			    System.out.println("데이터 :" + dateString);
+			    
+			    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); // yyyy로 수정
+			    Date CREATED_AT = formatter.parse(dateString); // 문자열을 Date로 변환
+			    System.out.println("CREATED_AT 😻😻😻😻😻😻😻😻😻😻😻 " + CREATED_AT);
+			    
+	        
 			// 나머지 파라미터 처리
 			Integer DI_BABYNUMBER = Integer.parseInt(multi.getParameter("babynumber"));
 			int DI_HEIGHT = Integer.parseInt(multi.getParameter("height"));

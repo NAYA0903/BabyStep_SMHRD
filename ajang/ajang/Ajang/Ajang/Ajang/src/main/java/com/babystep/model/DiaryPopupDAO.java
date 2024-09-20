@@ -46,7 +46,7 @@ public class DiaryPopupDAO {
 	   public List<DiaryPopupDTO> detaildiary(String USER_ID, String selectedDate) {
 		    SqlSession session = null; // MyBatis의 SqlSession을 선언 (데이터베이스와의 통신을 위한 객체)
 		    List<DiaryPopupDTO> detaildiary = null; // 조회된 DiaryPopupDTO 객체들을 담을 리스트 선언
-		    
+		    System.out.println("DiaryPopupDAO");
 		    try {
 		        session = SqlSessionManager.getSession(); // SqlSessionManager로부터 세션을 얻어옴 (데이터베이스 연결)
 		        
