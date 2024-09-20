@@ -21,9 +21,9 @@
     <div class="container">
         <div class="item-list">
             <!-- 각 항목 클릭 시 팝업에 제목, 설명, URL을 전달합니다. -->
-            <div class="item" onclick="openPopup('적절한 이유식 시작 시기', '이것은 아이템 1에 대한 세부 정보입니다.', 'https://youtu.be/l0lnoaBMOFY?si=OWEp0z_bdrD3Uxhk')">적절한 이유식 시작 시기<br><br>#이유식</div>
-            <div class="item" onclick="openPopup('이유식 준비물과 추천 레시피', '이것은 아이템 2에 대한 세부 정보입니다.', 'https://youtu.be/A6ejeygQOaU?si=ujmTqArEfwvzphkL')">이유식 준비물과 추천 레시피</div>
-            <div class="item" onclick="openPopup('부모가 절대 소리치지 않으면 아이들은 이렇게 자랍니다.', '이것은 아이템 3에 대한 세부 정보입니다.', 'https://youtu.be/mnAI0vuJZCQ?si=s3XwDsIi1LOeZdGj')">부모가 절대 소리치지 않으면 아이들은 이렇게 자랍니다.</div>
+            <div class="item" onclick="openPopup('적절한 이유식 시작 시기', '초보 엄마를 위한 이유식 시작 시기에 대한 설명이 담긴 영상입니다.', 'https://youtu.be/l0lnoaBMOFY?si=OWEp0z_bdrD3Uxhk')">적절한 이유식 시작 시기<br><br>#이유식</div>
+            <div class="item" onclick="openPopup('이유식 준비물과 추천 레시피', '어떤 이유식을 먹여야 우리아이에게 좋은지 고민이시죠? 이 영상 하나로 고민 해결해보세요!', 'https://youtu.be/A6ejeygQOaU?si=ujmTqArEfwvzphkL')">이유식 준비물과 추천 레시피</div>
+            <div class="item" onclick="openPopup('부모가 절대 소리치지 않으면 아이들은 이렇게 자랍니다.', '########', 'https://youtu.be/mnAI0vuJZCQ?si=s3XwDsIi1LOeZdGj')">부모가 절대 소리치지 않으면 아이들은 이렇게 자랍니다.</div>
             <div class="item" onclick="openPopup('내 아들 자존감 높게 키우는 법', '이것은 아이템 4에 대한 세부 정보입니다.', 'https://youtu.be/CUFswRt-v8E?si=mtulBj3doaox_IYY')">내 아들 자존감 높게 키우는 법</div>
             <div class="item" onclick="openPopup('똑똑한 아이들은 OO을 잘합니다.', '이것은 아이템 5에 대한 세부 정보입니다.', 'https://youtu.be/8nHxEdnbIm0?si=N-q7cXeSqfgZMLR7')">똑똑한 아이들은 OO을 잘합니다.</div>
             <div class="item" onclick="openPopup('아이에게 욱해서 화냈다면 5분 안에 해야 할 말', '이것은 아이템 6에 대한 세부 정보입니다.', 'https://youtu.be/Nnz75WJITlE?si=yLaghQD0gdNl4hRe')">아이에게 욱해서 화냈다면 5분 안에 해야 할 말</div>
