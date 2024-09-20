@@ -175,7 +175,7 @@ td {
 </head>
 <body>
 	<div class="menu">
-        <jsp:include page="Menu.jsp" />
+        <jsp:include page="Title.jsp" />
     </div>
 
     <%
