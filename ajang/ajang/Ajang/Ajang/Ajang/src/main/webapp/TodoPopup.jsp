@@ -39,6 +39,13 @@
         align-items: center;
         margin-bottom: 15px;
     }
+    
+    .popup-header img {
+    height: 40px;
+    width: 60px;
+    position: fixed;
+    right: 5px;
+ 	}
 
     .popup h2 {
         font-size: 24px;
@@ -50,7 +57,7 @@
     .popup .close-btn {
         background-color: transparent; /* 배경을 투명하게 설정 */
         color: #CF0202;
-        font-size: 30px;
+        font-size: 10px;
         text-align: center;
         border: none; /* 테두리도 제거 */
         cursor: pointer;
@@ -153,18 +160,19 @@
 	<form action="TodoListServlet" method="post" >
     	<div class="popup-header">
         	<h2>오늘의 TODO!</h2>
-        	<button class="close-btn" onclick="toggleTodoPopup()">❌</button>
+        	<img src="img/x.png" class="close-btn" onclick="toggleTodoPopup()">
+        </div>
         <div>
-        	<label>Todo 내용:</label>
+        	<label> Todo 내용 :</label>
         	<input type="text" name="todoContent" placeholder="오늘의 TODO를 적어보세요 !">
         </div>
         	
         <div>
-            <label>날짜:</label>
+            <label> 날짜 :</label>
             <input type="text" id="todoDate" name="todoDate" readonly>
         </div>
         
-    	</div>
+    	
     
     	<div class="button-container">
          	<input class="add-btn" type="submit" onclick="toggleTodoPopup()" value="작성하기">

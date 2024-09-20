@@ -79,7 +79,7 @@
 
 			<!-- To-do 리스트 -->
 			<div class="todo-section">
-				<h3>To-do 리스트</h3>
+				<h3>오늘의 ToDo!</h3>
 				<div id="todoList">
 					<p>할 일이 없습니다.</p>
 				</div>
