@@ -11,7 +11,7 @@
 <body>
 	<!-- 메뉴 바 포함 -->
 	<div class="menu-container">
-		<jsp:include page="Menu.jsp" />
+		<jsp:include page="Title.jsp" />
 	</div>
 
 	<div class="search-container">
