@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.babystep.db.PlaceLikeMapper">
+    <insert id="createFavorite" parameterType="com.babystep.model.PlaceLikeDTO">
+        INSERT INTO tb_favorite (fav_idx, place_idx, user_id, created_at)
+        VALUES (#{favIdx}, #{placeIdx}, #{userId}, #{createdAt})
+    </insert>
+
+    <select id="getFavorite" parameterType="double" resultType="com.babystep.model.PlaceLikeDTO">
+        SELECT * FROM tb_favorite WHERE fav_idx = #{value}
+    </select>
+
+    <select id="getFavoritesByUser" parameterType="string" resultType="com.babystep.model.PlaceLikeDTO">
+        SELECT * FROM tb_favorite WHERE user_id = #{value}
+    </select>
+
+    <update id="updateFavorite" parameterType="com.babystep.model.PlaceLikeDTO">
+        UPDATE tb_favorite
+        SET place_idx = #{placeIdx},
+            user_id = #{userId},
+            created_at = #{createdAt}
+        WHERE fav_idx = #{favIdx}
+    </update>
+
+    <delete id="deleteFavorite" parameterType="double">
+        DELETE FROM tb_favorite WHERE fav_idx = #{value}
+    </delete>
+</mapper>

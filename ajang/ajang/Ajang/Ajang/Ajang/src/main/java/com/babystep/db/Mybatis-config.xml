@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties resource="com/babystep/db/db.properties"></properties>
+
+	<!-- 타입 별칭 설정 -->
+	<typeAliases>
+		<typeAlias type="com.babystep.model.UserDTO" alias="User" />
+		<typeAlias type="com.babystep.model.BoardDTO" alias="BoardDTO" />
+		<typeAlias type="com.babystep.model.BoardLikeDTO" alias="BoardLikeDTO" />
+		<typeAlias type="com.babystep.model.CountryDTO" alias="CountryDTO" />
+		<typeAlias type="com.babystep.model.CalendarDTO" alias="CalendarDTO" />
+		<typeAlias type="com.babystep.model.ChatDTO" alias="ChatDTO" />
+		<typeAlias type="com.babystep.model.ChatRoomDTO" alias="ChatRoomDTO" />
+		<typeAlias type="com.babystep.model.TodoDTO" alias="TodoDTO" />
+		<typeAlias type="com.babystep.model.CountryLikeDTO" alias="CountryLikeDTO" />
+		<typeAlias type="com.babystep.model.HolidayDTO" alias="HolidayDTO" />
+		<typeAlias type="com.babystep.model.DiaryPopupDTO" alias="DiaryPopupDTO" />
+	</typeAliases>
+
+	<!-- 환경 설정 (데이터베이스 연결) -->
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+
+	<!-- 매퍼 설정 -->
+	<mappers>
+		<mapper resource="com/babystep/db/UserMapper.xml" />
+		<mapper resource="com/babystep/db/BoardMapper.xml" />
+		<mapper resource="com/babystep/db/CountryMapper.xml" />
+		<mapper resource="com/babystep/db/ChatMapper.xml" />
+		<mapper resource="com/babystep/db/ChatRoomMapper.xml" />
+		<mapper resource="com/babystep/db/TodoMapper.xml" />
+		<mapper resource="com/babystep/db/CounrtyLikeMapper.xml" />
+		<mapper resource="com/babystep/db/BoardLikeMapper.xml"/>
+		<mapper resource="com/babystep/db/HolidayMapper.xml"/>
+		<mapper resource="com/babystep/db/DiaryPopupMapper.xml"/>
+		
+	</mappers>
+	
+</configuration>

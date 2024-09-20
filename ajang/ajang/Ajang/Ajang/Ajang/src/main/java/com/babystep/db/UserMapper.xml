@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.babystep.db.UserMapper">
+
+	<!-- User 테이블 관련 SQL 쿼리 담당하는 UserMapper -->
+
+	<!-- insert의 경우 결과값은 int형 이다! -->
+	<insert id="register" parameterType="com.babystep.model.UserDTO">
+		INSERT INTO TB_USER
+		(USER_ID, USER_PW, USER_NICK, USER_ADDR) VALUES (#{id}, #{pw},
+		#{nickname}, #{addr})
+	</insert>
+
+	<select id="login" parameterType="com.babystep.model.UserDTO"
+		resultType="User">
+		SELECT * FROM TB_USER WHERE USER_ID=#{id} and USER_PW=#{pw}
+	</select>
+
+	<select id="getPasswordById" parameterType="String"
+		resultType="String">
+		SELECT USER_PW FROM TB_USER WHERE USER_ID=#{id}
+	</select>
+
+	<select id="getNicknameById" parameterType="String"
+		resultType="String">
+		SELECT USER_NICK FROM TB_USER WHERE USER_ID=#{id}
+	</select>
+
+	<select id="getsysdate" resultType="String">
+		SELECT JOINED_AT FROM TB_USER
+		WHERE USER_ID=#{id}
+	</select>
+
+	<select id="getUsedLike" resultType="CountryDTO">
+		SELECT U.USED_IDX, U.USED_TITLE
+		FROM TB_USED U
+		JOIN TB_USEDLIKE UL ON U.USED_IDX = UL.USED_IDX
+		WHERE UL.USER_ID = #{USER_ID}
+	</select>
+
+
+
+
+
+</mapper>

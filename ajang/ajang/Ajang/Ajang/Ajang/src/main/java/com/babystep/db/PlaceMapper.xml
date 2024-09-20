@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.babystep.db.PlaceMapper">
+
+	<insert id="createPlace"
+		parameterType="com.babystep.model.PlaceDTO">
+		INSERT INTO tb_place (place_idx, place_name, place_addr, place_tel,
+		place_url, createc_at, user_id, place_likes)
+		VALUES (#{placeIdx}, #{placeName}, #{placeAddr}, #{placeTel}, #{placeUrl},
+		#{createcAt}, #{userId}, #{placeLikes})
+	</insert>
+
+
+	<select id="getPlace" parameterType="double"
+		resultType="com.babystep.model.PlaceDTO">
+		SELECT * FROM tb_place WHERE place_idx = #{value}
+	</select>
+
+	<select id="getAllPlaces"
+		resultType="com.babystep.model.PlaceDTO">
+		SELECT * FROM tb_place
+	</select>
+
+	<update id="updatePlace"
+		parameterType="com.babystep.model.PlaceDTO">
+		UPDATE tb_place
+		SET place_name = #{placeName},
+		place_addr = #{placeAddr},
+		place_tel = #{placeTel},
+		place_url = #{placeUrl},
+		createc_at = #{createcAt},
+		user_id = #{userId},
+		place_likes = #{placeLikes}
+		WHERE place_idx = #{placeIdx}
+	</update>
+
+	<delete id="deletePlace" parameterType="double">
+		DELETE FROM tb_place WHERE place_idx = #{value}
+	</delete>
+
+	<!-- 추가된 쿼리 -->
+	<select id="getFavoritesByUser" parameterType="String"
+		resultType="com.babystep.model.PlaceDTO">
+		SELECT p.*,
+		(SELECT COUNT(*) FROM tb_favorite f WHERE f.place_idx = p.place_idx AND
+		f.user_id = #{value}) AS isFavorited
+		FROM tb_place p
+		WHERE EXISTS (SELECT * FROM tb_favorite f WHERE f.place_idx = p.place_idx
+		AND f.user_id = #{value})
+	</select>
+</mapper>

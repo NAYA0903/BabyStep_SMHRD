@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.babystep.db.ChatMapper">
+
+   <insert id="insertChatMessage" parameterType="ChatDTO">
+    INSERT INTO TB_CHAT (ROOM_IDX, USER_ID, CHAT_CONTENT, CHAT_EMOTICON, CHAT_FILE, CHATTED_AT)
+    VALUES (#{roomIdx}, #{userId}, #{chatContent}, #{chatEmoticon,jdbcType=VARCHAR}, #{chatFile,jdbcType=VARCHAR}, TO_TIMESTAMP(TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS'), 'YYYY-MM-DD HH24:MI:SS'))
+   </insert>
+
+    <!-- 채팅방 내 모든 메시지 조회 -->
+    <select id="selectChatMessagesByRoomId" parameterType="int" resultType="com.babystep.model.ChatDTO">
+    SELECT 
+        CHAT_IDX AS chatIdx, 
+        ROOM_IDX AS roomIdx, 
+        USER_ID AS userId, 
+        CHAT_CONTENT AS chatContent, 
+        CHAT_EMOTICON AS chatEmoticon, 
+        CHAT_FILE AS chatFile, 
+        CHATTED_AT AS chattedAt 
+    FROM TB_CHAT 
+    WHERE ROOM_IDX = #{roomIdx} 
+    ORDER BY CHATTED_AT ASC
+</select>
+
+    <!-- 채팅 메시지 삭제 -->
+    <delete id="deleteChatMessage" parameterType="int">
+        DELETE FROM TB_CHAT WHERE CHAT_IDX = #{chatIdx}
+    </delete>
+    
+</mapper>

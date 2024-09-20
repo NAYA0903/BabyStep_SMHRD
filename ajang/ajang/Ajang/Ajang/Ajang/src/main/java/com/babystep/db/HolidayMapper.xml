@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.babystep.db.HolidayMapper">
+
+    <!-- 특정 연도와 월의 공휴일 조회 -->
+    <select id="getHolidaysByMonth" resultType="HolidayDTO">
+    SELECT HOLIDAY_DATE AS holidayDate, HOLIDAY_NAME AS holidayName 
+    	FROM TB_HOLIDAYS 
+    	WHERE TO_CHAR(HOLIDAY_DATE, 'YYYY') = #{year}
+    	AND TO_CHAR(HOLIDAY_DATE, 'MM') = #{month}
+	</select>
+
+
+</mapper>

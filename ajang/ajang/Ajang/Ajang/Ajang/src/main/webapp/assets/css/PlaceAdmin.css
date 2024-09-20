@@ -1,0 +1,50 @@
+/* 관리자 페이지 스타일 */
+#request-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.request-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    display: flex;
+    align-items: center;
+}
+
+.request-item h3 {
+    margin: 0;
+}
+
+.request-item input[type="radio"] {
+    margin-right: 10px;
+}
+
+#action-buttons {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#action-buttons button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#action-buttons button:hover {
+    background-color: #0056b3;
+}
+
+#action-buttons button:last-of-type {
+    background-color: #dc3545;
+}
+
+#action-buttons button:last-of-type:hover {
+    background-color: #c82333;
+}
