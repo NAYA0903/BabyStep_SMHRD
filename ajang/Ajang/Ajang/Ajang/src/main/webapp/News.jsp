@@ -6,9 +6,7 @@
 <meta charset="UTF-8">
 <title>도감</title>
 <link rel="stylesheet" href="assets/css/News.css">
-<style>
-    /* 이전 CSS 내용... */
-</style>
+
 </head>
 <body>
 <!-- 메뉴 바 포함 -->
@@ -23,7 +21,7 @@
     <div class="container">
         <div class="item-list">
             <!-- 각 항목 클릭 시 팝업에 제목, 설명, URL을 전달합니다. -->
-            <div class="item" onclick="openPopup('적절한 이유식 시작 시기', '이것은 아이템 1에 대한 세부 정보입니다.', 'https://youtu.be/l0lnoaBMOFY?si=OWEp0z_bdrD3Uxhk')">적절한 이유식 시작 시기</div>
+            <div class="item" onclick="openPopup('적절한 이유식 시작 시기', '이것은 아이템 1에 대한 세부 정보입니다.', 'https://youtu.be/l0lnoaBMOFY?si=OWEp0z_bdrD3Uxhk')">적절한 이유식 시작 시기<br><br>#이유식</div>
             <div class="item" onclick="openPopup('이유식 준비물과 추천 레시피', '이것은 아이템 2에 대한 세부 정보입니다.', 'https://youtu.be/A6ejeygQOaU?si=ujmTqArEfwvzphkL')">이유식 준비물과 추천 레시피</div>
             <div class="item" onclick="openPopup('부모가 절대 소리치지 않으면 아이들은 이렇게 자랍니다.', '이것은 아이템 3에 대한 세부 정보입니다.', 'https://youtu.be/mnAI0vuJZCQ?si=s3XwDsIi1LOeZdGj')">부모가 절대 소리치지 않으면 아이들은 이렇게 자랍니다.</div>
             <div class="item" onclick="openPopup('내 아들 자존감 높게 키우는 법', '이것은 아이템 4에 대한 세부 정보입니다.', 'https://youtu.be/CUFswRt-v8E?si=mtulBj3doaox_IYY')">내 아들 자존감 높게 키우는 법</div>
@@ -47,25 +45,6 @@
         </div>
     </div>
     
-    <script>
-        function openPopup(title, description, url) {
-            document.getElementById('popup-title1').innerText = title;
-            document.getElementById('popup-description1').innerText = description;
-            // 팝업에 URL을 링크 형태로 추가
-            document.getElementById('popup-url').innerHTML = `<a href="${url}" target="_blank">${url}</a>`;
-            document.getElementById('popup1').style.display = 'block';
-        }
-
-        function closePopup() {
-            document.getElementById('popup1').style.display = 'none';
-        }
-
-        window.onclick = function(event) {
-            const popup = document.getElementById('popup1');
-            if (event.target === popup) {
-                closePopup();
-            }
-        }
-    </script>
+    <script src="assets/js/News.js"></script>
 </body>
 </html>
