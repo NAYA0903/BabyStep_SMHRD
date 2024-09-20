@@ -11,12 +11,6 @@ import com.babystep.db.SqlSessionManager;
 
 public class HolidayDAO {
     
-//    private SqlSessionFactory sqlSessionFactory;
-	
-//    public HolidayDAO() {
-//        sqlSessionFactory = SqlSessionManager.getSqlSession();
-//    }
-	
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();  
 	SqlSession sqlSession = sqlSessionFactory.openSession(true);
 	

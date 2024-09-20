@@ -14,6 +14,11 @@ public class DiaryPopupDTO {
     private int DI_BABYNUMBER;
     private int DI_HEIGHT;
     private int DI_WEIGHT;
+    
+    // 기본 생성자 생성 : 초기화
+    public DiaryPopupDTO() {
+    	
+    }
 
     // 수정된 생성자: java.util.Date를 java.sql.Date로 변환
     public DiaryPopupDTO(String DI_TITLE, String DI_CONTENT, String DI_FILE1, String DI_FILE2,

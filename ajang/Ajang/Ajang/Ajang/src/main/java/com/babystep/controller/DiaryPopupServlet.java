@@ -1,6 +1,7 @@
 package com.babystep.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -28,19 +29,33 @@ public class DiaryPopupServlet extends HttpServlet {
         String year = request.getParameter("year");
         String month = request.getParameter("month");
         String day = request.getParameter("day");
+        
+        // 
      
         // 선택된 날짜 생성
-        String selectedDate = year + "-" + month + "-" + day;
-       
+        String selectedDate = year + String.format("%02d", Integer.parseInt(month)) + String.format("%02d", Integer.parseInt(day));
+
         // 세션에서 사용자 ID 가져오기
         String USER_ID = (String) request.getSession().getAttribute("id");
-
+        
         // 날짜와 사용자 ID에 맞는 다이어리 목록 가져오기
         List<DiaryPopupDTO> detaildiary = diaryService.detaildiary(USER_ID, selectedDate);
+        
+        System.out.println("데이터 3: " + detaildiary);
 
         // 데이터를 request 객체에 담아 JSP로 전달
         request.setAttribute("diaryList", detaildiary);
-        request.getRequestDispatcher("Main.jsp").forward(request, response);
-
+        
+     // 응답 HTML 생성
+        PrintWriter out = response.getWriter();
+        if (detaildiary == null || detaildiary.isEmpty()) {
+            out.println("<p>할 일이 없습니다.</p>");
+        } else {
+            for (DiaryPopupDTO diary : detaildiary) {
+                out.println("<div class='diary-item'>");
+                out.println("<span>" + diary.getDI_CONTENT() + " </span>");
+                out.println("</div>");
+            }
+        }
     }
 }

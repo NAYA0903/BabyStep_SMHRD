@@ -68,7 +68,7 @@ public class DiaryPopupService extends HttpServlet {
 			}
 			// 날짜 처리
 			String dateString = multi.getParameter("date");
-			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+			SimpleDateFormat formatter = new SimpleDateFormat("YYYY-MM-DD");
 			Date CREATED_AT = formatter.parse(dateString); // 문자열을 Date로 변환
 
 			// 나머지 파라미터 처리

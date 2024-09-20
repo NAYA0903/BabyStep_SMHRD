@@ -8,17 +8,12 @@
 	<!-- 타입 별칭 설정 -->
 	<typeAliases>
 		<typeAlias type="com.babystep.model.UserDTO" alias="User" />
-		<typeAlias type="com.babystep.model.BoardDTO"
-			alias="BoardDTO" />
-		<typeAlias type="com.babystep.model.BoardLikeDTO"
-			alias="BoardLikeDTO" />
-		<typeAlias type="com.babystep.model.CountryDTO"
-			alias="CountryDTO" />
-		<typeAlias type="com.babystep.model.CalendarDTO"
-			alias="CalendarDTO" />
+		<typeAlias type="com.babystep.model.BoardDTO" alias="BoardDTO" />
+		<typeAlias type="com.babystep.model.BoardLikeDTO" alias="BoardLikeDTO" />
+		<typeAlias type="com.babystep.model.CountryDTO" alias="CountryDTO" />
+		<typeAlias type="com.babystep.model.CalendarDTO" alias="CalendarDTO" />
 		<typeAlias type="com.babystep.model.ChatDTO" alias="ChatDTO" />
-		<typeAlias type="com.babystep.model.ChatRoomDTO"
-			alias="ChatRoomDTO" />
+		<typeAlias type="com.babystep.model.ChatRoomDTO" alias="ChatRoomDTO" />
 		<typeAlias type="com.babystep.model.TodoDTO" alias="TodoDTO" />
 		<typeAlias type="com.babystep.model.CountryLikeDTO" alias="CountryLikeDTO" />
 		<typeAlias type="com.babystep.model.HolidayDTO" alias="HolidayDTO" />
@@ -53,5 +48,4 @@
 		
 	</mappers>
 	
-
 </configuration>
