@@ -1,14 +1,6 @@
-// 팝업 열기 함수
-function newsOpenPopup(title, description, url) {
-    document.getElementById('news-popup-title').innerText = title;
-    document.getElementById('news-popup-description').innerText = description;
-    document.getElementById('news-popup-url').innerHTML = `<a href="${url}" target="_blank">${url}</a>`;
-    document.getElementById('news-popup').style.display = 'block';
-}
-
-// 팝업 닫기 함수
-function newsClosePopup() {
-    document.getElementById('news-popup').style.display = 'none';
+// URL로 바로 이동하는 함수로 수정
+function newsWatchVideo(url) {
+    window.open(url, '_blank'); // 새 창으로 URL을 엽니다.
 }
 
 // 검색 필터 함수
@@ -25,3 +17,10 @@ function newsFilterItems() {
         }
     });
 }
+
+// 검색 버튼을 눌렀을 떄 검색 기능을 구현
+document.querySelector('.search-button').addEventListener('click', function() {
+    const searchTerm = document.querySelector('.search-input').value;
+    // 검색 로직을 여기에 추가
+    alert("검색어: " + searchTerm);
+});
