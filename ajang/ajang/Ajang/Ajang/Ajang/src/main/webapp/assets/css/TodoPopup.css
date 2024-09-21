@@ -26,6 +26,13 @@
 	margin-bottom: 15px;
 }
 
+.popup-header img {
+	height: 40px;
+	width: 60px;
+	position: fixed;
+	right: 5px;
+}
+
 .popup h2 {
 	font-size: 24px;
 	font-weight: bold;
@@ -36,7 +43,7 @@
 .popup .close-btn {
 	background-color: transparent; /* 배경을 투명하게 설정 */
 	color: #CF0202;
-	font-size: 30px;
+	font-size: 10px;
 	text-align: center;
 	border: none; /* 테두리도 제거 */
 	cursor: pointer;
@@ -73,17 +80,6 @@
 	resize: none;
 }
 
-/* 사진 업로드 영역 */
-.photo-upload {
-	display: flex;
-	flex-direction: column; /* 세로로 나열 */
-	gap: 15px; /* 사진 업로드 필드 간의 간격 */
-}
-
-.photo-upload div {
-	width: 100%; /* 사진 업로드 필드를 100%로 설정 */
-}
-
 /* 팝업 배경 어두운 부분 */
 .popup-overlay {
 	display: none;
@@ -99,7 +95,7 @@
 /* 차분한 톤의 버튼 색상 */
 .popup .add-btn, .popup .update-btn {
 	padding: 10px 20px; /* 동일한 패딩으로 크기 설정 */
-    width: 100px; /* 동일한 너비 설정 */
+	width: 100px; /* 동일한 너비 설정 */
 	border: none;
 	border-radius: 5px;
 	font-size: 14px;

@@ -3,7 +3,7 @@
 /* 달력 테이블 스타일 */
 table {
 	width: 100%;
-	height: auto;
+	height: 90%;
 	border-collapse: collapse;
 	background-color: white;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

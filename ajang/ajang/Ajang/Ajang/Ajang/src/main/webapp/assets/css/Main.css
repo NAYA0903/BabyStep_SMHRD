@@ -28,7 +28,7 @@ body {
 /* ==============왼쪽 4 비율 섹션============ */
 .left-section {
     flex-basis: 40%;
-    background-color: #f4f4f4;
+    background-color: white;
     padding: 20px;
     border-right: 1px solid #ddd;
 }
@@ -38,22 +38,20 @@ body {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 60%;
+    height: 90%;
     padding-bottom: 20px;
 }
 
 /* 캘린더 하단에 작성하기 버튼 */
 .calendar-write-btn {
     position: relative;
-    margin-top: 20px;
-    padding: 10px 20px;
+    padding: 8px 16px;
+    font-size: 14px;
     background-color: #5cb85c;
     color: white;
-    text-align: center;
-    border-radius: 5px;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
 }
 
 .calendar-write-btn:hover {
@@ -73,8 +71,10 @@ body {
 .date-section {
     margin-bottom: 20px;
     padding: 10px;
-    background-color: #f9f9f9;
+    background-color: #fff;
     border: 1px solid #ddd;
+    border-radius: 15px; /* 둥근 테두리 추가 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 가벼운 그림자 추가 */
 }
 
 .date-section h2 {
@@ -84,15 +84,20 @@ body {
 
 /* =================To-do 리스트 섹션=================== */
 .todo-section {
+	position: relative; /* 부모 요소를 기준으로 자식 요소의 위치 설정 */
     margin-bottom: 20px;
     padding: 10px;
-    background-color: #f9f9f9;
+    background-color: #fff;
     border: 1px solid #ddd;
+    border-radius: 15px; /* 둥근 테두리 추가 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 가벼운 그림자 추가 */
 }
 
 /* To-do 리스트의 버튼 */
 .todo-section .todo-write-btn {
-    
+	position: absolute; /* 부모 요소 안에서 절대 위치 */
+	top: 10px; /* 상단에서 10px 아래 */
+    right: 10px; /* 오른쪽에서 10px 떨어짐 */
     padding: 8px 16px;
     font-size: 14px;
     background-color: #5cb85c;
@@ -132,14 +137,17 @@ body {
     display: flex;
     justify-content: space-between;
     gap: 20px;
+    height: 400px; /* 전체 높이를 늘림 */
 }
 
 /* =======================이미지 업로드 섹션======================= */
 .image-upload-section {
     flex-basis: 48%;
     padding: 10px;
-    background-color: #f9f9f9;
+    background-color: #fff;
     border: 1px solid #ddd;
+    border-radius: 15px; /* 둥근 테두리 추가 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 가벼운 그림자 추가 */
 }
 
 .image-upload-section h3 {
@@ -153,21 +161,31 @@ body {
 
 /* =========================일기 작성 섹션======================== */
 .diary-section {
+	position: relative; /* 부모 요소를 기준으로 자식 요소의 위치 설정 */
     flex-basis: 48%;
     padding: 10px;
-    background-color: #f9f9f9;
+    background-color: #fff;
     border: 1px solid #ddd;
+    border-radius: 15px; /* 둥근 테두리 추가 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 가벼운 그림자 추가 */
 }
 
-.diary-section textarea {
-    width: 100%;
-    height: 150px;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
+
+.diary-section .diary-write-btn {
+	position: absolute; /* 부모 요소 안에서 절대 위치 */
+    top: 10px; /* 상단에서 10px 아래 */
+    right: 10px; /* 오른쪽에서 10px 떨어짐 */
+    padding: 8px 16px;
+    font-size: 14px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
     border-radius: 5px;
-    resize: none;
-    flex-grow: 1;
+    cursor: pointer;
+}
+
+.diary-section .diary-write-btn:hover {
+    background-color: #3a298f;
 }
 
 /* 작성하기 버튼 */
@@ -176,41 +194,10 @@ body {
     text-align: right;
 }
 
-.write-btn {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #5cb85c;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.write-btn:hover {
-    background-color: #3a298f;
-}
-
 /* 반응형 디자인을 위한 미디어 쿼리 */
 @media (max-width: 768px) {
-    .title {
-        padding: 2% 0;
-    }
-
-    .logo-image {
-        width: 15vw;
-    }
-
-    .chat-image, .logout-image, .mypage-image {
-        width: 25px;
-        top: 5px;
-    }
-
-    .com {
-        font-size: 4vw;
-        padding: 10px 2vw;
-    }
-
-    .left-section, .right-section {
+    .left-section,
+    .right-section {
         flex-basis: 100%;
         padding: 10px;
     }
@@ -219,7 +206,8 @@ body {
         flex-direction: column;
     }
 
-    .image-upload-section, .diary-section {
+    .image-upload-section,
+    .diary-section {
         width: 100%;
         margin-bottom: 20px;
     }

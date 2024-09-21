@@ -51,9 +51,9 @@
 				</div>
 			</div>
 			<div class="button-container">
+				<button class="update-btn" onclick="toggleDiaryPopup()">수정</button>
 				<input class="add-btn" type="submit" onclick="toggleDiaryPopup()"
 					value="작성하기">
-				<button class="update-btn" onclick="toggleDiaryPopup()">수정</button>
 				<div class="button-group"></div>
 			</div>
 		</form>

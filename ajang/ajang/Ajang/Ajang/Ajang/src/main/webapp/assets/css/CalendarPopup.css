@@ -1,0 +1,185 @@
+@charset "UTF-8";
+
+/* 팝업 창을 화면 중앙에 배치하고 반투명 배경 추가 */
+.calendar-popup-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* 반투명 배경 */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* 팝업 콘텐츠 스타일 */
+.calendar-popup-content {
+    background-color: #fff;
+    border-radius: 15px; /* 둥근 모서리 */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+    width: 90%;
+    max-width: 500px; /* 팝업 최대 너비 */
+    padding: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 팝업 헤더 스타일 */
+.calendar-popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd; /* 구분선 */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.calendar-popup-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* 닫기 버튼 스타일 */
+.close-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    color: #999;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
+/* 팝업 본문 섹션 스타일 */
+.calendar-popup-body {
+    flex-grow: 1;
+}
+
+.calendar-popup-section {
+    margin-bottom: 15px;
+}
+
+.calendar-popup-section label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.calendar-popup-section input[type="text"],
+.calendar-popup-section input[type="date"],
+.calendar-popup-section input[type="time"],
+.calendar-popup-section textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+    background-color: #f9f9f9;
+    margin-top: 5px;
+}
+
+.calendar-popup-section textarea {
+    height: 100px;
+    resize: none;
+}
+
+/* 하루 종일 스위치 스타일 */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.calendar-slider { /* 슬라이더 클래스 이름 변경 */
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.calendar-slider:before { /* 슬라이더의 before 스타일 */
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .calendar-slider {
+    background-color: #5cb85c;
+}
+
+input:checked + .calendar-slider:before {
+    transform: translateX(16px);
+}
+
+/* 팝업 하단 버튼 스타일 */
+.calendar-popup-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.cancel-btn, .save-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cancel-btn {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.cancel-btn:hover {
+    background-color: #ddd;
+}
+
+.save-btn {
+    background-color: #5cb85c;
+    color: white;
+}
+
+.save-btn:hover {
+    background-color: #4cae4c;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 600px) {
+    .calendar-popup-content {
+        width: 100%;
+        margin: 10px;
+    }
+
+    .date-time {
+        flex-direction: column;
+    }
+}

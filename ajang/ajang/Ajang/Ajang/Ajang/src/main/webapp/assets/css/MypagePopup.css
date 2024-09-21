@@ -1,96 +1,142 @@
 @charset "UTF-8";
 
-.popupmain {
-   font-family: Arial, sans-serif;
-   margin: 0;
-   padding: 0;
-   background-color: #f4f4f4;
+/* 팝업 전체를 덮는 어두운 배경 */
+.mypage-popup-overlay {
+    display: none; /* 기본적으로 숨김 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6); /* 반투명 어두운 배경 */
+    z-index: 999;
 }
 
-.popup {
-   display: none;
-   position: fixed;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-   width: 80%;
-   max-width: 600px;
-   background: #fff;
-   padding: 20px;
-   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-   z-index: 1000;
+/* 팝업 창 */
+.mypage-popup {
+    display: none; /* 기본적으로 숨김 */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    width: 90%;
+    max-width: 600px; /* 최대 너비 설정 */
+    padding: 30px;
+    border-radius: 15px; /* 둥근 모서리 */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out; /* 부드러운 팝업 효과 */
 }
 
-.popupmain img {
-   width: 30px;
-   height: 30px;
+/* 팝업 애니메이션 */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-.popup-header {
-   display: flex;
-   align-items: center;
-   border-bottom: 2px solid #ddd;
-   padding-bottom: 10px;
-   margin-bottom: 10px;
+/* 팝업 헤더 */
+.mypage-popup-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
-.popup-header img {
-   border-radius: 50%;
-   width: 80px;
-   height: 80px;
-   margin-right: 20px;
+.mypage-popup-header img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* 프로필 사진 둥글게 */
+    margin-right: 15px;
+    object-fit: cover; /* 이미지 비율 유지 */
 }
 
-.popup-header h1 {
-   margin: 0;
-   font-size: 20px;
+.mypage-popup-header h1 {
+    font-size: 24px;
+    color: #333;
+    margin: 0;
 }
 
-.popup-header p {
-   margin: 5px 0;
-   color: #666;
+.mypage-popup-header p {
+    font-size: 14px;
+    color: #888;
+    margin: 5px 0 0 0;
 }
 
-.popup .section {
-   margin-bottom: 20px;
+/* 팝업 섹션 */
+.mypage-popup-section {
+    margin-bottom: 20px;
 }
 
-.popup .section h2 {
-   font-size: 18px;
-   margin-bottom: 10px;
-   border-bottom: 1px solid #ddd;
-   padding-bottom: 5px;
+.mypage-popup-section h2 {
+    font-size: 18px;
+    color: #444;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
 }
 
-.popup .section ul {
-   list-style: none;
-   padding: 0;
+.mypage-popup-section ul {
+    list-style: none;
+    padding: 0;
 }
 
-.popup .section ul li {
-   background: #f9f9f9;
-   border: 1px solid #ddd;
-   margin-bottom: 10px;
-   padding: 10px;
+.mypage-popup-section ul li {
+    padding: 8px 0;
+    font-size: 16px;
+    color: #555;
+    border-bottom: 1px solid #f1f1f1;
 }
 
-.popup .close-btn {
-   display: block;
-   margin: 0 auto;
-   padding: 10px 20px;
-   background: #007BFF;
-   color: #fff;
-   border: none;
-   cursor: pointer;
+.mypage-popup-section ul li:last-child {
+    border-bottom: none;
 }
 
-.popup-overlay {
-   display: none;
-   position: fixed;
-   top: 0;
-   left: 0;
-   width: 100%;
-   height: 100%;
-   background: rgba(0, 0, 0, 0.5);
-   z-index: 999;
+.mypage-popup-section ul li a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.mypage-popup-section ul li a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* 공유 현황 */
+.mypage-share-status {
+    font-size: 14px;
+    color: #666;
+}
+
+/* 팝업 닫기 버튼 */
+.mypage-close-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: white;
+    background-color: #ff4c4c;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.mypage-close-btn:hover {
+    background-color: #e63946;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .mypage-popup {
+        width: 95%;
+    }
+    
+    .mypage-popup-header h1 {
+        font-size: 20px;
+    }
+    
+    .mypage-popup-header img {
+        width: 50px;
+        height: 50px;
+    }
 }

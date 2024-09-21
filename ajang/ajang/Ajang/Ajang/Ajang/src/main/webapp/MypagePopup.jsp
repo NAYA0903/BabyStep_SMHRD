@@ -13,15 +13,6 @@
 <link rel="stylesheet" href="assets/css/MypagePopup.css">
 </head>
 
-<style>
-
-.used {
-  text-decoration: none; /* 밑줄 제거 */
-  color: inherit; /* 부모 요소의 색상 유지 */
-  font-size: 18px;
-}
-
-</style>
 <body>
 
 
