@@ -12,7 +12,7 @@
 	background-color: white;
 	padding: 20px; /* 패딩을 줄여서 크기를 더 줄임 */
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	border-radius: 10px;
+	border-radius: 0;
 	z-index: 1000;
 	overflow-y: auto; /* 세로 스크롤 추가 */
 	max-height: 80vh; /* 화면 높이에 맞게 최대 높이 제한 */

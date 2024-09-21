@@ -1,16 +1,11 @@
 @charset "UTF-8";
 
-body {
-	font-family: 'Arial', sans-serif;
-	background-color: #f5f5f5;
-	margin: 0;
-	padding: 0; /* 패딩 제거 */
-}
+
 
 /* 메뉴 바 고정 스타일 */
 .menu-container {
 	position: fixed; /* 고정 위치 */
-	top: 0;
+	margin-top: 10px;
 	left: 0;
 	width: 100%; /* 전체 너비 */
 	background-color: #fff; /* 배경 색상 */
@@ -18,17 +13,14 @@ body {
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
 }
 
-/* 컨테이너 스타일 */
+/* 컨테이너 설정 */
 .container {
-	text-align: center;
-	/* 메뉴 높이만큼 여백 추가 margin-top: 60px; */
-	padding: 20px; /* 패딩 추가 */
-	max-height: calc(100vh - 60px); /* 메뉴 높이만큼 빼기 */
-	overflow-y: auto; /* 세로 스크롤 가능 */
-	font-size: 1vw;
-    font-weight: 600;
+	width: 1200px;
+	margin: 20px auto;
+	padding: 20px;
+	box-sizing: border-box;
+	max-height: 80vh;
 }
-
 
 
 .item-list {

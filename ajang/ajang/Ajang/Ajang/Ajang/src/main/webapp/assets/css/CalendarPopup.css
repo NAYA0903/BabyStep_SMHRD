@@ -17,14 +17,16 @@
 /* 팝업 콘텐츠 스타일 */
 .calendar-popup-content {
     background-color: #fff;
-    border-radius: 15px; /* 둥근 모서리 */
+    border-radius: 0; /* 둥근 모서리 */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
-    width: 90%;
-    max-width: 500px; /* 팝업 최대 너비 */
-    padding: 20px;
+    width: 80%;
+    max-width: 400px; /* 팝업 최대 너비 */
+    padding: 15px;
     position: relative;
     display: flex;
     flex-direction: column;
+    max-height: 70vh; /* 팝업 최대 높이 70% 설정 */
+    overflow-y: auto; /* 스크롤이 가능하도록 설정 */
 }
 
 /* 팝업 헤더 스타일 */

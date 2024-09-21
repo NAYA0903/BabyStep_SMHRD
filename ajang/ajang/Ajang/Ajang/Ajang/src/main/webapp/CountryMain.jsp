@@ -13,21 +13,15 @@
 <title>중고나라 게시판</title>
 
 <style>
-body {
-	font-family: Arial, sans-serif;
-	margin: 0;
-	padding: 0;
-	background-color: #f5f5f5;
-}
 
+
+/* 컨테이너 설정 */
 .container {
 	width: 1200px;
 	margin: 20px auto;
 	padding: 20px;
-	background-color: white;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	max-height: 80vh; /* 화면 높이의 80%로 제한 */
-	overflow-y: auto; /* 내부 컨텐츠가 넘치면 스크롤 */
+	box-sizing: border-box;
+	max-height: 80vh;
 }
 
 .card {

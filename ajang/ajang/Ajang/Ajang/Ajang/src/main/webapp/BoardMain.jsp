@@ -15,23 +15,15 @@
 
 <style>
 /* 기본적인 body 스타일 */
-html, body {
-	height: 100%;
-	margin: 0;
-	padding: 0;
-	font-family: Arial, sans-serif;
-	background-color: #f4f4f9;
-	color: #333;
-}
+
 
 /* 컨테이너 설정 */
 .container {
 	width: 1200px;
-	margin: 0 auto;
+	margin: 20px auto;
 	padding: 20px;
 	box-sizing: border-box;
 	max-height: 80vh;
-	overflow-y: auto;
 }
 
 /* 기본적인 카드 스타일 */
