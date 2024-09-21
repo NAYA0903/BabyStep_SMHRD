@@ -20,7 +20,7 @@
 		<div class="nav-links">
 			<a class="com" href="News.jsp">육아도감</a> 
 			<a class="com" href="BoardMain.jsp">게시판</a> 
-			<a class="com" href="CountryMain.jsp">중고거래</a>
+			<a class="com" href="CountryMain.jsp">중고나라</a>
 			<a class="com" href="Info.jsp">일기</a>
 		</div>
 

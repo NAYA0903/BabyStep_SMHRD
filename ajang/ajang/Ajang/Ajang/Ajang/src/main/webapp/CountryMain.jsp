@@ -13,26 +13,59 @@
 <title>중고나라 게시판</title>
 
 <style>
-
+body {
+    margin-top: 150px; /* 타이틀의 높이만큼 마진 추가 */
+}
 
 /* 컨테이너 설정 */
-.container {
-	width: 1200px;
-	margin: 20px auto;
-	padding: 20px;
-	box-sizing: border-box;
-	max-height: 80vh;
+.countrys-container {
+	max-width: 1200px; /* 최대 너비를 설정하여 가운데 정렬 */
+    margin: 0 auto; /* 위아래는 0, 좌우는 자동으로 여백 설정 */
+    padding: 20px; /* 안쪽 여백 추가 */
+    box-sizing: border-box;
+    max-height: 80vh; /* 화면 높이의 80%로 제한 */
+    height: calc(100% - 60px); /* 타이틀 섹션 높이를 뺀 나머지 */
+}
+
+/* 탑 바 (가운데 정렬) */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1100px; /* 최대 너비 설정 */
+    margin: 0 auto; /* 가운데 정렬 */
+    padding: 20px; /* 안쪽 여백 */
+    box-sizing: border-box;
+}
+
+/* 육아도감 제목을 왼쪽으로 배치 */
+.top-bar h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-left: 0; /* 왼쪽으로 정렬 */
+}
+
+/* 경계선을 가운데에만 남기고 양 옆 제거 */
+.section-divider-c {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    position: relative;
+    max-width: 1100px; /* 경계선이 가운데로 정렬되도록 설정 */
+    margin: 0 auto;
 }
 
 .card {
-	margin-bottom: 20px;
-	padding: 15px;
-	border: 1px solid #ddd;
-	border-radius: 10px;
-	background-color: white;
 	display: flex;
-	align-items: center;
-	justify-content: space-between; /* 하트와 게시글 정보를 양 끝에 배치 */
+    justify-content: space-between;
+    background-color: white;
+    padding: 20px;
+    margin: 10px;
+    width: 1000px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border: 1px solid #ddd;
 }
 
 .card img {
@@ -75,20 +108,14 @@
 	color: #999;
 }
 
-.form table {
-	width: 100%;
-	border-collapse: collapse;
+.country-form {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px auto; /* 자동으로 가운데 정렬되도록 설정 */
 }
 
-.form table tr {
-	border-bottom: 1px solid #ddd;
-}
-
-.form table td {
-	padding: 10px;
-}
-
-.write-button {
+.write-country-button {
 	position: fixed;
 	bottom: 20px;
 	right: 20px;
@@ -103,7 +130,7 @@
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.write-button:hover {
+.write-country-button:hover {
 	background-color: #e64a19;
 }
 
@@ -125,14 +152,22 @@ a {
 	pageContext.setAttribute("countrys", countrys);
 	%>
 
-	<div class="menu">
+	<!-- 메뉴 바 포함 -->
+	<div class="menu-container">
 		<jsp:include page="Title.jsp" />
 	</div>
+	
+	<!-- 상단 바 -->
+    <div class="top-bar">
+        <h2>거래상품</h2>
+    </div>
 
-	<div class="container">
-		<h2>중고나라</h2>
+	<!-- 경계 바 -->
+    <hr class="section-divider-c">
+    
+	<div class="countrys-container">
 
-		<div class="form">
+		<div class="country-form">
 			<c:forEach var="c" items="${countrys}">
 				<div class="card">
 					<img src="<%=request.getContextPath()%>/file/${c.USED_IMG1}"
@@ -157,7 +192,7 @@ a {
 
 		<!-- 글쓰기 버튼 -->
 		<a href="CountryWrite.jsp">
-			<button class="write-button">+</button>
+			<button class="write-country-button">+</button>
 		</a>
 	</div>
 

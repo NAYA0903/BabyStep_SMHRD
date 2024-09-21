@@ -14,16 +14,21 @@
 <title>게시판</title>
 
 <style>
-/* 기본적인 body 스타일 */
+/* 타이틀 메뉴 아래 body 전체에 마진을 추가 */
+body {
+    margin-top: 150px; /* 타이틀의 높이만큼 마진 추가 */
+}
+
 
 
 /* 컨테이너 설정 */
-.container {
+.Board-container {
 	width: 1200px;
 	margin: 20px auto;
 	padding: 20px;
 	box-sizing: border-box;
 	max-height: 80vh;
+	margin-top: 100px; /* 타이틀 높이만큼 간격 추가 */
 }
 
 /* 기본적인 카드 스타일 */
@@ -166,7 +171,7 @@ td {
 </style>
 </head>
 <body>
-	<div class="menu">
+	<div class="menu-container">
         <jsp:include page="Title.jsp" />
     </div>
 
@@ -208,7 +213,7 @@ td {
     pageContext.setAttribute("boards", boards);
     %>
 
-    <div class="container">
+    <div class="Board-container">
         <div class="card">
             <h2>게시판</h2>
             <form action="BoardMain.jsp" method="post">

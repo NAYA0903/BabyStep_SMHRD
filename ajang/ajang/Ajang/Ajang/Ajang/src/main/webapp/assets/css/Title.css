@@ -10,10 +10,10 @@
     z-index: 100;
     display: flex;
     align-items: center;
-    box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
     font-size: 1.5vw;
     flex-wrap: wrap;
     justify-content: space-between;
+    border-bottom: 1px solid #e0e0e0; /* 경계선 추가 */
 }
 
 /* 각 섹션이 타이틀바와 겹치지 않게 하기 위한 여백 추가 */
@@ -33,26 +33,36 @@ section {
     margin-left: 2vw; /* 좌측 간격 */
 }
 
-/* 네비게이션 링크 섹션 */
 .nav-links {
     display: flex;
-    gap: 70px; /* 링크 사이 간격 */
+    gap: 100px; /* 글씨 간 간격을 늘림 */
     align-items: center;
     margin-left: 4vw;
 }
 
 .nav-links a.com {
+    position: relative; /* ::after 위치를 조정하기 위한 relative 설정 */
     padding: 0px 1vw;
-    color: #333333;
+    color: black; /* 기본 글자색 유지 */
     text-decoration: none;
-    font-size: 1.5vw; /* 기본 폰트 크기 */
+    font-size: 1.5vw;
     font-weight: 600;
-    border: 2px solid transparent;
-    transition: all 0.1s ease; /* 호버 애니메이션 */
 }
 
-.nav-links a.com:hover {
-    color: rgb(255, 0, 0); /* 호버 시 텍스트 색상 */
+.nav-links a.com::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -5px; /* 텍스트 하단에 위치 */
+    width: 0;
+    height: 2px;
+    background-color: #98DBC6; /* 밑줄 색상 */
+    transition: width 0.4s ease, left 0.4s ease; /* 애니메이션 */
+}
+
+.nav-links a.com:hover::after {
+    width: 100%; /* 호버 시 전체 길이로 확장 */
+    left: 0; /* 중앙에서 왼쪽으로 이동 */
 }
 
 /* 이미지 아이콘 섹션 */
@@ -110,7 +120,7 @@ section {
 
 /* 스위치 활성화 상태 */
 input:checked + .slider {
-    background-color: #2196F3;
+    background-color: #98DBC6;
 }
 
 input:checked + .slider:before {
