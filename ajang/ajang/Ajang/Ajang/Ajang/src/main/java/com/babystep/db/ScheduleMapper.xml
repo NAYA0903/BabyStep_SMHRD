@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.babystep.db.ScheduleMapper">
+
+	<!-- 일정 추가 쿼리 -->
+	<insert id="addSchedule" parameterType="ScheduleDTO">
+		INSERT INTO TB_SCHEDULE (
+	    	SCHE_TITLE, SCHE_CONTENT, SCHE_ST_DT, SCHE_ED_DT, CREATED_AT, USER_ID
+		) VALUES (
+			#{scheTitle}, #{scheContent}, #{scheStDt}, #{scheEdDt}, SYSDATE, #{userId} 
+		)
+	</insert>
+	
+	<!-- 특정 날짜의 일정 조회 -->
+    <select id="getSchedulesByDate" parameterType="ScheduleDTO" resultType="ScheduleDTO">
+        SELECT SCHE_TITLE, SCHE_CONTENT, SCHE_ST_DT, SCHE_ED_DT
+        FROM TB_SCHEDULE
+        WHERE SCHE_ST_DT = #{scheStDt} AND USER_ID = #{userId}
+    </select>
+	
+</mapper>

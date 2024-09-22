@@ -79,6 +79,8 @@
 				<span id="selectedDateDisplay">선택된 날짜가 없습니다.</span>
 				<!-- 공휴일 이름을 표시할 영역 추가 -->
 				<span id="holidayNameDisplay"></span>
+				<!-- 일정을 표시할 영역 추가 -->
+				<span id="ScheduleDisplay"></span>
 			</div>
 
 			<!-- To-do 리스트 -->
@@ -234,7 +236,8 @@
 
 															loadDiaryList(year,
 																	month,
-																	selectedDay); // 선택된 날짜의 To-do 리스트 로드
+																	selectedDay); // 선택된 날짜의 일기 리스트 로드
+																	
 
 														});
 
@@ -267,6 +270,8 @@
 			};
 			xhr.send();
 		}
+		
+		
 	</script>
 
 

@@ -14,6 +14,14 @@
     <result property="createdAt" column="CREATED_AT"/>
   </resultMap>
   
+  <!-- 선택한 날짜에 맞는 TODO 목록을 저장하는 쿼리 -->
+  <insert id="addTodoListByDate" parameterType="TodoDTO">
+  	INSERT INTO TB_TODO (
+  		TODO_CONTENT, TODO_DT, USER_ID, CREATED_AT
+  		) VALUES (
+  		#{todoContent}, #{todoDate}, #{userId}, SYSDATE 
+  		) 
+  </insert>
   
   <!-- 선택한 날짜에 맞는 TODO 목록을 조회하는 쿼리 -->
   <select id="getTodoListByDate" parameterType="map" resultType="TodoDTO">
@@ -23,13 +31,5 @@
     AND TODO_DT = TO_DATE(#{selectedDate}, 'YYYY-MM-DD')
   </select>
   
-  <!-- 선택한 날짜에 맞는 TODO 목록을 저장하는 쿼리 -->
-  <insert id="addTodoListByDate" parameterType="TodoDTO">
-  	INSERT INTO TB_TODO (
-  		TODO_CONTENT, TODO_DT, USER_ID, CREATED_AT
-  		) VALUES (
-  		#{todoContent}, #{todoDate}, #{userId}, SYSDATE 
-  		) 
-  </insert>
   
 </mapper>

@@ -90,6 +90,12 @@
   	<description></description>
   	<servlet-class>com.babystep.controller.DiaryPopupServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ScheduleService</servlet-name>
+  	<display-name>ScheduleService</display-name>
+  	<description></description>
+  	<servlet-class>com.babystep.controller.ScheduleService</servlet-class>
+  </servlet>
   
   <servlet-mapping>
   	<servlet-name>LoginService</servlet-name>
@@ -134,6 +140,10 @@
   <servlet-mapping>
   	<servlet-name>DiaryPopupServlet</servlet-name>
   	<url-pattern>/DiaryPopupServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ScheduleService</servlet-name>
+  	<url-pattern>/ScheduleService</url-pattern>
   </servlet-mapping>
   
 </web-app>

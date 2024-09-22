@@ -18,6 +18,7 @@
 		<typeAlias type="com.babystep.model.CountryLikeDTO" alias="CountryLikeDTO" />
 		<typeAlias type="com.babystep.model.HolidayDTO" alias="HolidayDTO" />
 		<typeAlias type="com.babystep.model.DiaryPopupDTO" alias="DiaryPopupDTO" />
+		<typeAlias type="com.babystep.model.ScheduleDTO" alias="ScheduleDTO" />
 	</typeAliases>
 
 	<!-- 환경 설정 (데이터베이스 연결) -->
@@ -45,6 +46,7 @@
 		<mapper resource="com/babystep/db/BoardLikeMapper.xml"/>
 		<mapper resource="com/babystep/db/HolidayMapper.xml"/>
 		<mapper resource="com/babystep/db/DiaryPopupMapper.xml"/>
+		<mapper resource="com/babystep/db/ScheduleMapper.xml"/>
 		
 	</mappers>
 	
