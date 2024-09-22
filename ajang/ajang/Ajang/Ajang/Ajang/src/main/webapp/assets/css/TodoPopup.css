@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 /* 팝업 스타일 */
-.popup {
+.todo-popup {
 	display: none;
 	position: fixed;
 	top: 50%;
@@ -19,69 +19,69 @@
 }
 
 /* 팝업 헤더 */
-.popup-header {
+.todo-popup-header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	margin-bottom: 15px;
 }
 
-.popup-header img {
+.todo-popup-header img {
 	height: 40px;
 	width: 60px;
 	position: fixed;
 	right: 5px;
 }
 
-.popup h2 {
+.todo-popup-header h2 {
 	font-size: 24px;
 	font-weight: bold;
 	color: #333;
 	margin: 0;
 }
 
-.popup .close-btn {
-	background-color: transparent; /* 배경을 투명하게 설정 */
-	color: #CF0202;
-	font-size: 10px;
-	text-align: center;
-	border: none; /* 테두리도 제거 */
-	cursor: pointer;
+.todo-close-btn {
+	background-color: transparent;
+    border: none;
+    font-size: 24px;
+    color: #999;
+    cursor: pointer;
 }
 
-.popup .close-btn:hover {
-	color: #a00000; /* 버튼이 활성화될 때 색상 변경 */
-}
-
-/* 팝업 내부 항목 스타일 */
-.popup div {
-	margin-bottom: 15px;
-}
-
-.popup div label {
-	font-size: 16px;
-	font-weight: bold;
+.todo-close-btn:hover {
 	color: #333;
-	margin-bottom: 8px;
-	display: block;
 }
 
-.popup div input, .popup div textarea {
-	width: 100%;
-	padding: 10px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-	font-size: 14px;
-	margin-top: 5px;
+/* 팝업 내부 항목 스타일 (구체적으로 입력 필드에만 적용) */
+.todo-popup .form-field {
+    margin-bottom: 15px; /* margin을 모든 div에 적용하지 않고 필드에만 적용 */
 }
 
-.popup div textarea {
-	height: 80px;
-	resize: none;
+.todo-popup .form-field label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
 }
+
+.todo-popup .form-field input, .todo-popup .form-field textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.todo-popup .form-field textarea {
+    height: 80px;
+    resize: none;
+}
+
 
 /* 팝업 배경 어두운 부분 */
-.popup-overlay {
+.todo-popup-overlay {
 	display: none;
 	position: fixed;
 	top: 0;
@@ -92,10 +92,17 @@
 	z-index: 500;
 }
 
+.todo-popup-footer {
+    display: flex;
+    justify-content: flex-end; /* 버튼을 오른쪽 끝으로 정렬 */
+    gap: 10px; /* 버튼 간의 간격 */
+    margin-top: 20px; /* 버튼 위쪽에 여백 */
+}
+
 /* 차분한 톤의 버튼 색상 */
-.popup .add-btn, .popup .update-btn {
+.todo-add-btn, .todo-update-btn, input[type="submit"] {
 	padding: 10px 20px; /* 동일한 패딩으로 크기 설정 */
-	width: 100px; /* 동일한 너비 설정 */
+    width: 120px; /* 동일한 너비 설정 */
 	border: none;
 	border-radius: 5px;
 	font-size: 14px;
@@ -105,27 +112,29 @@
 	text-align: center;
 }
 
+
+
 /* 차분한 색상 */
-.popup .add-btn {
+.todo-add-btn {
 	background-color: #6a9fb5; /* 차분한 파란색 */
 	color: white;
 }
 
-.popup .add-btn:hover {
+.todo-add-btn:hover {
 	background-color: #568da0;
 }
 
-.popup .update-btn {
+.todo-update-btn {
 	background-color: #a9bfa3; /* 차분한 녹색 */
 	color: white;
 }
 
-.popup .update-btn:hover {
+.todo-update-btn:hover {
 	background-color: #8ea78d;
 }
 
 /* 버튼 간 간격을 패딩으로 조정 */
-.popup .add-btn, .popup .update-btn, .popup .close-btn {
+.todo-add-btn, .todo-update-btn {
 	margin-right: 10px;
 }
 

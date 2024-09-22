@@ -16,7 +16,7 @@
 		<div class="calendar-popup-content">
 			<div class="calendar-popup-header">
 				<h2 class="calendar-popup-title">새로운 일정</h2>
-				<button class="close-btn" onclick="toggleCalendarPopup()">&#10005;</button>
+				<button class="calendar-close-btn" onclick="toggleCalendarPopup()">&#10005;</button>
 				<!-- X 버튼으로 닫기 -->
 			</div>
 			<div class="calendar-popup-body">

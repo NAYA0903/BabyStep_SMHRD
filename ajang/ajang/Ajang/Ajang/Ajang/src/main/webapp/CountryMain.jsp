@@ -56,16 +56,22 @@ body {
 }
 
 .card {
-	display: flex;
+    display: flex;
     justify-content: space-between;
     background-color: white;
     padding: 20px;
-    margin: 10px;
+    margin: 10px 0; /* 카드 간의 위아래 간격 설정 */
     width: 1000px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    border: 1px solid #ddd;
+    /* border: 1px solid #ddd; 보더 제거 */
+}
+
+/* 카드 사이에만 경계선을 추가 */
+.card:not(:last-child) {
+    border-bottom: 1px solid #ddd; /* 카드 사이 경계선 */
+    padding-bottom: 15px; /* 경계선과 카드 내용 사이 여백 */
 }
 
 .card img {

@@ -46,7 +46,7 @@
 }
 
 /* 닫기 버튼 스타일 */
-.close-btn {
+.calendar-close-btn {
     background-color: transparent;
     border: none;
     font-size: 24px;
@@ -54,7 +54,7 @@
     cursor: pointer;
 }
 
-.close-btn:hover {
+.calendar-close-btn:hover {
     color: #333;
 }
 
@@ -149,11 +149,15 @@ input:checked + .calendar-slider:before {
 }
 
 .cancel-btn, .save-btn {
-    padding: 10px 20px;
-    font-size: 14px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    padding: 10px 20px; /* 동일한 패딩으로 크기 설정 */
+    width: 100px; /* 동일한 너비 설정 */
+	border: none;
+	border-radius: 5px;
+	font-size: 14px;
+	cursor: pointer;
+	display: inline-block;
+	margin-right: 10px;
+	text-align: center;
 }
 
 .cancel-btn {

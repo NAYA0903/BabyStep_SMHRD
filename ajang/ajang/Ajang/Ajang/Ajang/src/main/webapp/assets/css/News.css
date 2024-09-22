@@ -47,8 +47,8 @@ body {
     padding: 10px 20px;
     font-size: 16px;
     border: none;
-    background-color: #333;
-    color: white;
+    background-color: #fff;
+    color: black;
     border-radius: 0 4px 4px 0;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -84,11 +84,18 @@ body {
     padding: 20px;
     margin: 10px;
     width: 1000px;
-    border-radius: 5px;
+    border-radius: 50px;
     cursor: pointer;
     transition: background-color 0.3s;
     border: 1px solid #ddd;
     position: relative; /* 버튼 위치를 조정하기 위해 relative 설정 */
+}
+
+.item:hover {
+    border: 1px solid black; /* 마우스 호버 시 보더 색상과 두께 변경 */
+    background-color: white; /* 배경색도 변경 가능 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 마우스 호버 시 약간의 그림자 추가 */
+    transition: border 0.1s, background-color 0.1s, box-shadow 0.1s; /* 부드럽게 변화하도록 전환 */
 }
 
 .item-info {
@@ -97,8 +104,8 @@ body {
 
 /* "영상 시청" 버튼 스타일 */
 .news-watch-button {
-    background-color: #007bff;
-    color: white;
+    background-color: white;
+    color: black;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -108,8 +115,9 @@ body {
     right: 20px; /* 오른쪽에 20px 간격 */
     top: 50%; /* 상단에서 50% 위치 */
     transform: translateY(-50%); /* 정확한 가운데 정렬 */
+    border: 1px solid black;
 }
 
 .news-watch-button:hover {
-    background-color: #0056b3;
+    background-color: #dddddd;
 }
