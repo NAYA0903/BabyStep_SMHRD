@@ -13,7 +13,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="assets/css/Main.css">
-<title>아장</title>
+<title>걸음마</title>
 </head>
 
 <body>
