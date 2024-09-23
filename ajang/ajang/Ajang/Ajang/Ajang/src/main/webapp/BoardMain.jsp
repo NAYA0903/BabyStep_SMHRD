@@ -23,18 +23,17 @@ body {
 
 /* 컨테이너 설정 */
 .Board-container {
-	width: 1200px;
-	margin: 20px auto;
-	padding: 20px;
-	box-sizing: border-box;
-	max-height: 80vh;
-	margin-top: 100px; /* 타이틀 높이만큼 간격 추가 */
+	max-width: 1200px; /* 최대 너비를 설정하여 가운데 정렬 */
+    margin: 0 auto; /* 위아래는 0, 좌우는 자동으로 여백 설정 */
+    padding: 20px; /* 안쪽 여백 추가 */
+    box-sizing: border-box;
+    max-height: 80vh; /* 화면 높이의 80%로 제한 */
+    height: calc(100% - 60px); /* 타이틀 섹션 높이를 뺀 나머지 */
 }
 
 /* 기본적인 카드 스타일 */
-.card {
+.Board-card {
 	border: 0;
-	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 	background-color: #ffffff;
 	border-radius: 8px;
 	padding: 20px;
@@ -46,7 +45,7 @@ h2 {
 	text-align: center;
 	margin-bottom: 20px;
 	font-size: 2rem;
-	color: #6c757d;
+	color: black;
 }
 
 /* 검색 폼 디자인 */
@@ -61,8 +60,8 @@ h2 {
 	padding: 0.75rem;
 	font-size: 1rem;
 	border-radius: 5px;
-	border: 1px solid #ced4da;
-	background: #f1f3f5;
+	border: 1px solid black;
+	background: white;
 	width: auto;
 	flex: 1;
 }
@@ -74,15 +73,16 @@ h2 {
 .search-form button {
 	flex: 0 1 auto;
 	width: 100px;
-	background-color: #adb5bd;
-	color: white;
-	border: none;
+	background-color: white;
+	color: black;
+	border: 1px solid black;
 	cursor: pointer;
 	transition: background-color 0.3s ease;
 }
 
 .search-form button:hover {
-	background-color: #868e96;
+	background-color: #9b9b9b;
+	border: 1px solid white;
 }
 
 /* 게시판 테이블 */
@@ -90,7 +90,6 @@ table {
 	width: 100%;
 	border-collapse: collapse;
 	margin: 20px 0;
-	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 th, td {
@@ -109,22 +108,22 @@ th, td {
 }
 
 th {
-	background-color: #adb5bd;
-	color: white;
+	background-color: #f9f9f9;
+	color: black;
 	font-weight: bold;
 }
 
 td {
-	background-color: #f9f9f9;
+	background-color: white;
 }
 
 /* 작성하기 버튼 */
 #write {
 	width: 100px;
 	height: 35px;
-	background-color: #adb5bd;
-	color: white;
-	border: none;
+	background-color: white;
+	color: black;
+	border: 1px solid #adb5bd;
 	cursor: pointer;
 	border-radius: 5px;
 	font-size: 1rem;
@@ -132,10 +131,11 @@ td {
 	text-align: center;
 	line-height: 35px;
 	text-decoration: none;
+	
 }
 
 #write:hover {
-	background-color: #868e96;
+	background-color: #adb5bd;
 }
 
 /* 작성하기 버튼을 오른쪽으로 정렬 */
@@ -214,7 +214,7 @@ td {
     %>
 
     <div class="Board-container">
-        <div class="card">
+        <div class="Board-card">
             <h2>게시판</h2>
             <form action="BoardMain.jsp" method="post">
                 <div class="search-form">
@@ -228,9 +228,6 @@ td {
             </form>
 
             <hr>
-            <div class="button-wrapper">
-                <a href="BoardWrite.jsp" id="write">작성하기</a>
-            </div>
 
             <table>
                 <tr>
@@ -241,6 +238,7 @@ td {
                     <th class="like">하트수</th>
                     <th class="hitcount">조회수</th>
                 </tr>
+                
 
                 <c:forEach var="b" items="${boards}" varStatus="s">
                     <tr>
@@ -253,6 +251,10 @@ td {
                     </tr>
                 </c:forEach>
             </table>
+            
+            <div class="button-wrapper">
+                <a href="BoardWrite.jsp" id="write">작성하기</a>
+            </div>
 
             <c:if test="${noResults}">
                 <script type="text/javascript">

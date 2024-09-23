@@ -189,6 +189,7 @@ body {
 </style>
 </head>
 <body>
+
 	<%
 	int num = Integer.parseInt(request.getParameter("num"));
 	// 사용자가 요청한 URL에 포함된 num이라는 파라미터 값을 문자열로 받아온다
@@ -213,18 +214,31 @@ body {
 	<div class="container">
 		<div class="slider-container">
 			<div class="slider" id="slider">
-			
-			   <% if(dto.getUSED_IMG1() != null) { %>
-            <img alt="" src="./file/<%=dto.getUSED_IMG1()%>">
-            <%}if(dto.getUSED_IMG2() != null) {%> 
-            <img alt="" src="./file/<%=dto.getUSED_IMG2()%>">
-            <%}if(dto.getUSED_IMG3() != null) { %>
-            <img alt="" src="./file/<%=dto.getUSED_IMG3()%>">
-            <%}if(dto.getUSED_IMG4() != null) { %>
-            <img alt="" src="./file/<%=dto.getUSED_IMG4()%>"> 
-            <%} %>
-				
-				</div>
+
+				<%
+				if (dto.getUSED_IMG1() != null) {
+				%>
+				<img alt="" src="./file/<%=dto.getUSED_IMG1()%>">
+				<%
+				}
+				if (dto.getUSED_IMG2() != null) {
+				%>
+				<img alt="" src="./file/<%=dto.getUSED_IMG2()%>">
+				<%
+				}
+				if (dto.getUSED_IMG3() != null) {
+				%>
+				<img alt="" src="./file/<%=dto.getUSED_IMG3()%>">
+				<%
+				}
+				if (dto.getUSED_IMG4() != null) {
+				%>
+				<img alt="" src="./file/<%=dto.getUSED_IMG4()%>">
+				<%
+				}
+				%>
+
+			</div>
 
 
 			<button class="arrow arrow-left" id="prevBtn">&#10094;</button>
@@ -243,7 +257,7 @@ body {
 			<div class="user-info">
 				<div class="user-name">
 					작성자 :
-				<%=dto.getUSER_NICK()%></div>
+					<%=dto.getUSER_NICK()%></div>
 				<div class="status"><%=dto.getCREATED_AT()%></div>
 			</div>
 		</div>

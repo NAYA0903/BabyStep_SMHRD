@@ -8,13 +8,8 @@
 
 <style>
 /* 기본적인 body 스타일 */
-html, body {
-	height: 100%;
-	margin: 0;
-	padding: 0;
-	font-family: 'Arial', sans-serif;
-	background-color: #fff;
-	color: #333;
+body {
+    margin-top: 150px; /* 타이틀의 높이만큼 마진 추가 */
 }
 
 /* 컨테이너 설정 */
@@ -29,11 +24,11 @@ html, body {
 /* 카드 스타일 */
 .card {
 	border: 0;
-	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 	background-color: #ffffff;
-	border-radius: 0;
+	border-radius: 30px;
 	padding: 0;
 	margin-bottom: 1.875rem;
+	border: 2px solid black;
 }
 
 /* 제목 스타일 */
@@ -171,6 +166,10 @@ h2 {
 </style>
 </head>
 <body>
+
+	<div class="menu-container">
+		<jsp:include page="Title.jsp" />
+	</div>
 
 	<div class="container">
 		<form action="CountryService" method="post"
