@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.babystep.model.DiaryPopupDAO;
 import com.babystep.model.DiaryPopupDTO;
 
-
+@WebServlet("/ImageDiaryServlet")
 public class ImageDiaryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

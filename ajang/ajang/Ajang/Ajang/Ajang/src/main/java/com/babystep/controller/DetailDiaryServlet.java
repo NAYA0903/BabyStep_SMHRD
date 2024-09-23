@@ -18,7 +18,7 @@ public class DetailDiaryServlet extends HttpServlet {
     TodoService diaryService = new TodoService();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	System.out.println("DiaryPopupServlet 도달");
+    	System.out.println("DetailDiaryServlet 도달");
     	// 요청(Request) 인코딩 설정 (POST 방식)
         request.setCharacterEncoding("UTF-8");
 

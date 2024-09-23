@@ -62,8 +62,8 @@ public class DiaryPopupDAO {
          detaildiary = this.sqlSession.selectList("com.babystep.db.DiaryPopupMapper.detaildiary", paraMap);
          System.out.println("detaildiary: " +detaildiary);
          if (detaildiary == null) {
-            ArrayList var7 = new ArrayList();
-            return var7;
+            ArrayList var = new ArrayList();
+            return var;
          }
       } finally {
          if (session != null) {
