@@ -37,12 +37,13 @@
 
         <!-- 관심 장소 섹션 -->
         <div class="mypage-popup-section">
-            <h2>관심 장소</h2>
-            <ul>
-                <li>장소 1</li>
-                <li>장소 2</li>
-                <li>장소 3</li>
-            </ul>
+            <form action="addBabyService" method="post">
+            	<h2>내 아이 등록</h2>
+            		<input type="text" name="byName" placeholder="내 아이 이름을 적어주세요!"><br>
+            		<label>생년월일을 적어주세요</label><br>
+            		<input type="date" name="byBirthdate"><br>
+            		<input type="text" name="byGender" placeholder="남자/여자">
+            </form>
         </div>
 
         <!-- 관심 거래 섹션 -->

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.babystep.db.BabyMapper">
+
+	<insert id="addBaby" parameterType="BabyDTO">
+		INSERT INTO TB_BABY (
+			BY_NAME, BY_BIRTHDATE, BY_GENDER, BY_AGE, USER_ID
+		) VALUES (
+			#{byName}, #{byBirthdate}, #{byGender}, #{byAge}, #{userId}
+		)
+
+	</insert>
+
+</mapper>

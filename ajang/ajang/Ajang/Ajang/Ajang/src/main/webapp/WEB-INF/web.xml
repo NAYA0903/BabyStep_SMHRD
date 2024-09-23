@@ -96,6 +96,12 @@
   	<description></description>
   	<servlet-class>com.babystep.controller.ScheduleService</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>BabyService</servlet-name>
+  	<display-name>BabyService</display-name>
+  	<description></description>
+  	<servlet-class>com.babystep.controller.BabyService</servlet-class>
+  </servlet>
   
   <servlet-mapping>
   	<servlet-name>LoginService</servlet-name>
@@ -144,6 +150,10 @@
   <servlet-mapping>
   	<servlet-name>ScheduleService</servlet-name>
   	<url-pattern>/ScheduleService</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>BabyService</servlet-name>
+  	<url-pattern>/BabyService</url-pattern>
   </servlet-mapping>
   
 </web-app>
