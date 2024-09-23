@@ -47,9 +47,7 @@ public class ImageDiaryServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 		if(imagediary == null || imagediary.isEmpty()) {
-			out.print("<h3>이미지</h3>");
 			out.println("<br>");
-			out.println("<p>이미지가 없습니다.</p>");
 		} else {
 			out.print("<h3>이미지</h3>");
 			out.println("<br>");
