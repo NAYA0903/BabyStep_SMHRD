@@ -26,8 +26,10 @@
      AND CREATED_AT = TO_DATE(#{selectedDate},'YYYY-MM-DD')
   </select>
 
-	<select id="getNickname" parameterType="String"
-		resultType="String">
-		SELECT USER_NICK FROM TB_USER WHERE USER_ID=#{USER_ID}
-	</select>
+<select id = "babyage" parameterType="String" resultType ="int">
+  SELECT b.BY_AGE
+  FROM TB_BABY b
+  WHERE b.USER_ID = #{USER_ID}
+</select>
+	
 </mapper>

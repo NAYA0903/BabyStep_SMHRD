@@ -1,3 +1,8 @@
+<%@page import="java.util.List"%>
+<%@page import="com.babystep.model.DiaryPopupDTO"%>
+<%@page import="org.apache.ibatis.session.SqlSessionFactory"%>
+<%@page import="com.babystep.model.BabyDAO"%>
+<%@page import="com.babystep.model.DiaryPopupDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -10,6 +15,12 @@
 
 <body>
 
+
+<% 
+String USER_ID = (String) session.getAttribute("id");
+int babyage = new DiaryPopupDAO().babyage(USER_ID);
+
+%>
 	<!-- 팝업 창 -->
 	<div id="diaryPopup" class="diary-popup">
 		<form action="DiaryPopupService" method="post"
@@ -29,8 +40,8 @@
 					<label>날짜:</label> <input type="date" name="date">
 				</div>
 				<div>
-					<label>아기 개월수:</label> <input type="text" name="babynumber"
-						placeholder="개월수를 입력하세요">
+					<label>아기 개월수:</label> <p><%=babyage%></p>
+						
 				</div>
 				<div>
 					<label>키:</label> <input type="text" name="height"
@@ -56,7 +67,7 @@
 			</div>
 			<!-- 팝업 하단 버튼 -->
 			<div class="diary-popup-footer">
-				<button class="diary-update-btn" onclick="toggleTodoPopup()">수정</button>
+			
 				<input class="diary-add-btn" type="submit"
 					onclick="toggleTodoPopup()" value="작성하기">
 			</div>

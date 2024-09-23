@@ -38,7 +38,13 @@ public class DiaryPopupDTO {
         this.DI_WEIGHT = DI_WEIGHT;
     }
 
-    // Getter 메서드들
+    
+    
+    public DiaryPopupDTO(String USER_ID) {
+    	   this.USER_ID = USER_ID;
+	}
+
+	// Getter 메서드들
     public int getDI_IDX() {
         return DI_IDX;
     }
