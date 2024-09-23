@@ -99,7 +99,7 @@
 			<!-- 이미지 업로드와 일기 작성 섹션을 가로로 나누는 부분 -->
 			<div class="upload-diary-container">
 				<!-- 이미지 업로드 섹션 -->
-				<div class="image-upload-section">
+				<div class="image-upload-section" id="image-upload-section">
 					<h3>이미지</h3>
 					<%
 					if (diaryList != null && !diaryList.isEmpty()) {
@@ -125,7 +125,7 @@
 				</div>
 
 				<!-- 일기 메모 작성 섹션 -->
-				<div class="diary-section">
+				<div class="diary-section" id="diary-section">
 					<h3>일기</h3>
 					<p>여기에 일기 내용을 입력하세요.</p>
 					<button class="diary-write-btn"

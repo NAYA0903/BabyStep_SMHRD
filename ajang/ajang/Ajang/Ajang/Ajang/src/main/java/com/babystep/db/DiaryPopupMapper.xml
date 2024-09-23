@@ -11,12 +11,12 @@
     VALUES (#{DI_TITLE}, #{DI_CONTENT}, #{DI_FILE1}, #{DI_FILE2}, #{CREATED_AT}, #{USER_ID}, #{DI_BABYNUMBER}, #{DI_HEIGHT}, #{DI_WEIGHT})
   </insert>
 
-  <!-- 모든 일기 조회 -->
-  <select id="alldiary" resultType="DiaryPopupDTO">
+<select id="alldiary" parameterType="String" resultType="DiaryPopupDTO">
     SELECT * 
-	   FROM TB_DIARY 
-	   WHERE USER_ID = #{USER_ID} 
-  </select>
+    FROM TB_DIARY 
+    WHERE USER_ID = #{USER_ID}
+    ORDER BY CREATED_AT DESC
+</select>
 
   <!-- 특정 일기 상세 조회 -->
   <select id="detaildiary" parameterType="map" resultType="DiaryPopupDTO">
@@ -26,4 +26,8 @@
      AND CREATED_AT = TO_DATE(#{selectedDate},'YYYY-MM-DD')
   </select>
 
+	<select id="getNickname" parameterType="String"
+		resultType="String">
+		SELECT USER_NICK FROM TB_USER WHERE USER_ID=#{USER_ID}
+	</select>
 </mapper>

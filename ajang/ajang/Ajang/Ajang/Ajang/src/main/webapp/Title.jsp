@@ -20,7 +20,7 @@
 		<div class="nav-links">
 			<a class="com" href="News.jsp">육아도감</a> <a class="com"
 				href="BoardMain.jsp">게시판</a> <a class="com" href="CountryMain.jsp">중고나라</a>
-			<a class="com" href="Info.jsp">일기</a>
+			<a class="com" href="DiaryDetail.jsp">일기</a>
 		</div>
 
 		<!-- 섹션 -->
@@ -40,11 +40,15 @@
 
 		<!-- 이미지 아이콘 섹션 -->
 		<div class="icon-links">
-			<a href="AskPage.jsp"> <img src="img/admin.png" alt="상담" class="admin-image"></a>
-			<a href="#" onclick="openChatRoomPopup()"> <img src="img/ChatBlack.png" alt="채팅" class="chat-image"></a> 
-			<a href="#" onclick="toggleMypagePopup(); return false;"> <img src="img/MypageBlack.png" alt="마이페이지" class="mypage-image">
-			</a> 
-			<a href="LogoutService"> <img src="img/LogoutBlack.png" alt="로그아웃" class="logout-image">
+			<a href="#" onclick="openChatRoomPopup()"> <img
+				src="img/admin.png" alt="상담" class="admin-image">
+			</a>
+			<a href="#" onclick="openChatRoomPopup()"> <img
+				src="img/ChatBlack.png" alt="채팅" class="chat-image">
+			</a> <a href="#" onclick="toggleMypagePopup(); return false;"> <img
+				src="img/MypageBlack.png" alt="마이페이지" class="mypage-image">
+			</a> <a href="LogoutService"> <img src="img/LogoutBlack.png" alt="로그아웃"
+				class="logout-image">
 			</a>
 		</div>
 		<!-- 다크 모드 스위치 -->
