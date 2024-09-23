@@ -28,7 +28,7 @@ public class DiaryPopupDAO {
          this.sqlSession.close();
       }
 
-      System.out.println("cnt\uc758 \uac1c\uc218" + cnt);
+      System.out.println("cnt" + cnt);
       return cnt;
    }
 
@@ -46,7 +46,7 @@ public class DiaryPopupDAO {
 
       }
 
-      System.out.println("DAO\uc5d0\uc11c \uc870\ud68c\ub41c \ub370\uc774\ud130: " + String.valueOf(diaryList));
+      System.out.println("DAO " +diaryList);
       return diaryList;
    }
 
@@ -60,10 +60,10 @@ public class DiaryPopupDAO {
          paraMap.put("USER_ID", USER_ID);
          paraMap.put("selectedDate", selectedDate);
          detaildiary = this.sqlSession.selectList("com.babystep.db.DiaryPopupMapper.detaildiary", paraMap);
-         System.out.println(" \ub370\uc774\ud130 4 - detaildiary: " + String.valueOf(detaildiary));
+         System.out.println("detaildiary: " +detaildiary);
          if (detaildiary == null) {
-            ArrayList var7 = new ArrayList();
-            return var7;
+            ArrayList var = new ArrayList();
+            return var;
          }
       } finally {
          if (session != null) {
