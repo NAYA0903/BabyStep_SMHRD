@@ -61,13 +61,13 @@ public class DiaryPopupService extends HttpServlet {
             }
 
             String dateString = multi.getParameter("date");
-            System.out.println("\ub370\uc774\ud130 :" + dateString);
+          
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             Date CREATED_AT = formatter.parse(dateString);
-            Integer DI_BABYNUMBER = Integer.parseInt(multi.getParameter("babynumber"));
+            
             int DI_HEIGHT = Integer.parseInt(multi.getParameter("height"));
             int DI_WEIGHT = Integer.parseInt(multi.getParameter("weight"));
-            DiaryPopupDTO vo = new DiaryPopupDTO(DI_TITLE, DI_CONTENT, DI_FILE[0], DI_FILE[1], CREATED_AT, USER_ID, DI_BABYNUMBER, DI_HEIGHT, DI_WEIGHT);
+            DiaryPopupDTO vo = new DiaryPopupDTO(DI_TITLE, DI_CONTENT, DI_FILE[0], DI_FILE[1], CREATED_AT, USER_ID,  DI_HEIGHT, DI_WEIGHT);
             System.out.println(vo.toString());
             int cnt = (new DiaryPopupDAO()).insertdiary(vo);
             if (cnt > 0) {

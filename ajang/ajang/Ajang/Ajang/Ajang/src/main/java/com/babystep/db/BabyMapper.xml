@@ -15,12 +15,5 @@
 	</insert>
 
 
-<select id = "babyage" parameterType="String" resultType ="BabyDTO">
-SELECT  b.BY_AGE
-  FROM TB_BABY b
-  JOIN TB_DIARY d ON b.USER_ID = d.USER_ID
-  WHERE b.USER_ID = #{USER_ID}
-</select>
-
 
 </mapper>

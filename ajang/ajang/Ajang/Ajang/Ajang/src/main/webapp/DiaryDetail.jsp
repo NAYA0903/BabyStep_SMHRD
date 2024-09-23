@@ -19,16 +19,15 @@
 
 <style>
 body {
-    margin-top: 150px; /* 타이틀의 높이만큼 마진 추가 */
+    margin-top: 180px;
 }
 
 .container {
-    max-width: 1200px; /* 최대 너비를 설정하여 가운데 정렬 */
-    margin: 0 auto; /* 위아래는 0, 좌우는 자동으로 여백 설정 */
-    padding: 20px; /* 안쪽 여백 추가 */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
     box-sizing: border-box;
-    max-height: 80vh; /* 화면 높이의 80%로 제한 */
-    height: calc(100% - 60px); /* 타이틀 섹션 높이를 뺀 나머지 */
+    margin-top: 180px;
 }
 
 h1 {
@@ -69,22 +68,24 @@ h1 {
 .entry .image-container {
     position: relative;
     width: 100%;
-    max-width: 600px; /* 이미지 최대 너비 */
-    max-height: 400px; /* 이미지 최대 높이 */
-    margin: 0 auto; /* 이미지 가운데 정렬 */
-    overflow: hidden;
+    max-width: 100%;
+    height: 400px; /* 사진 영역의 최대 높이 지정 */
+    margin: 0 auto;
+    text-align: center;
 }
 
 .entry .image-container img {
-    width: 100%;
+    width: auto;
     height: auto;
+    max-width: 100%;
     max-height: 100%;
-    object-fit: contain; /* 이미지를 자르지 않고 전체를 보여줌 */
+    object-fit: contain; /* 이미지를 잘리지 않게 비율을 유지하며 화면에 맞춤 */
     display: none; /* 기본적으로 이미지는 보이지 않음 */
+    margin: 0 auto;
 }
 
 .entry .image-container img.active {
-    display: block; /* active 클래스를 가진 이미지만 표시 */
+    display: block; /* active 상태인 이미지만 표시 */
 }
 
 /* 이전/다음 버튼 */
@@ -122,13 +123,13 @@ h1 {
 .entry-details div {
     margin-bottom: 8px;
     color: #8e8e8e;
-    font-size: 1.1em; /* 글씨 크기 키움 */
+    font-size: 23px;
 }
 
 .entry .diary-content {
     flex: 2;
     color: #262626;
-    font-size: 1.2em; /* 글씨 크기 키움 */
+    font-size: 1.2em;
     margin-left: 30px;
     line-height: 1.5;
 }
@@ -139,7 +140,7 @@ h1 {
         flex-direction: column;
     }
     .entry .image-container {
-        max-height: 250px; /* 모바일에서 사진 크기 더 작게 */
+        height: 250px; /* 모바일에서 사진 크기 더 작게 */
     }
     .entry .diary-content {
         margin-left: 0;
@@ -149,7 +150,6 @@ h1 {
 </style>
 
 <script>
-    // 버튼으로 이미지 전환 기능
     function showImage(sliderId, index) {
         const images = document.querySelectorAll(`#${sliderId} img`);
         images.forEach((img, i) => {
@@ -191,67 +191,57 @@ h1 {
 		
 		<hr>
 
-		<div class="entries">
-			<%
-			if (diaryList != null && !diaryList.isEmpty()) {
-			%>
-			<%
-			for (DiaryPopupDTO diary : diaryList) {
-			%>
-			<div class="entry">
-				<%-- 사진을 버튼으로 넘길 수 있도록 구현 --%>
-				<div class="image-container" id="slider-<%=diary.getDI_IDX()%>">
-					<%
-					if (diary.getDI_FILE1() != null && diary.getDI_FILE2() != null) {
-					%>
-					<img src="./file/<%=diary.getDI_FILE1()%>" class="active"> <img
-						src="./file/<%=diary.getDI_FILE2()%>"> <span class="prev"
-						onclick="prevImage('slider-<%=diary.getDI_IDX()%>')">&#10094;</span>
-					<span class="next"
-						onclick="nextImage('slider-<%=diary.getDI_IDX()%>')">&#10095;</span>
-					<%
-					} else if (diary.getDI_FILE1() != null) {
-					%>
-					<img src="./file/<%=diary.getDI_FILE1()%>" class="active">
-					<%
-					} else if (diary.getDI_FILE2() != null) {
-					%>
-					<img src="./file/<%=diary.getDI_FILE2()%>" class="active">
-					<%
-					}
-					%>
-				</div>
+	<div class="entries">
+    <%
+    if (diaryList != null && !diaryList.isEmpty()) {
+    %>
+    <%
+    for (DiaryPopupDTO diary : diaryList) {
+    %>
+    <div class="entry">
+        <%-- 사진이 있을 경우에만 이미지 컨테이너를 보여줍니다. --%>
+        <%
+        if (diary.getDI_FILE1() != null || diary.getDI_FILE2() != null) {
+        %>
+        <div class="image-container" id="slider-<%=diary.getDI_IDX()%>">
+            <% if (diary.getDI_FILE1() != null) { %>
+            <img src="./file/<%=diary.getDI_FILE1()%>" class="active">
+            <% } %>
+            <% if (diary.getDI_FILE2() != null) { %>
+            <img src="./file/<%=diary.getDI_FILE2()%>">
+            <% } %>
+            <%-- 이미지가 두 장일 경우에만 슬라이더 버튼을 표시 --%>
+            <% if (diary.getDI_FILE1() != null && diary.getDI_FILE2() != null) { %>
+            <span class="prev" onclick="prevImage('slider-<%=diary.getDI_IDX()%>')">&#10094;</span>
+            <span class="next" onclick="nextImage('slider-<%=diary.getDI_IDX()%>')">&#10095;</span>
+            <% } %>
+        </div>
+        <%
+        }
+        %>
 
-				<div class="entry-content-wrapper">
-					<div class="entry-details">
-						<div>
-							작성일:
-							<%=diary.getCREATED_AT()%></div>
-						<div class="babynumber">
-							아기 개월수:
-							<%=babyage%></div>
-						<div class="height">
-							아기 키:
-							<%=diary.getDI_HEIGHT()%></div>
-						<div class="weight">
-							아기 몸무게:
-							<%=diary.getDI_WEIGHT()%></div>
-					</div>
-					<div class="diary-content"><%=diary.getDI_CONTENT()%></div>
-				</div>
-			</div>
-			<%
-			}
-			%>
-			<%
-			} else {
-			%>
-			<p>조회된 일기가 없습니다.</p>
-			<%
-			}
-			%>
-		</div>
-	</div>
+        <div class="entry-content-wrapper">
+            <div class="entry-details">
+                <div>작성일: <%=diary.getCREATED_AT()%></div>
+                <div class="babynumber">아기 개월수: <%=babyage%></div>
+                <div class="height">아기 키: <%=diary.getDI_HEIGHT()%></div>
+                <div class="weight">아기 몸무게: <%=diary.getDI_WEIGHT()%></div>
+            </div>
+            <div class="diary-content"><%=diary.getDI_CONTENT()%></div>
+        </div>
+    </div>
+    <%
+    }
+    %>
+    <%
+    } else {
+    %>
+    <p>조회된 일기가 없습니다.</p>
+    <%
+    }
+    %>
+</div>
+</div>
 
 </body>
 </html>
