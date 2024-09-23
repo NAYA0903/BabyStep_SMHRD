@@ -108,6 +108,12 @@
      <description></description>
      <servlet-class>com.babystep.controller.ImageDiaryServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ScheduleListServlet</servlet-name>
+  	<display-name>ScheduleListServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.babystep.controller.ScheduleListServlet</servlet-class>
+  </servlet>
   
   
   <servlet-mapping>
@@ -161,6 +167,10 @@
   <servlet-mapping>
   	<servlet-name>BabyService</servlet-name>
   	<url-pattern>/BabyService</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ScheduleListServlet</servlet-name>
+  	<url-pattern>/ScheduleListServlet</url-pattern>
   </servlet-mapping>
   
   

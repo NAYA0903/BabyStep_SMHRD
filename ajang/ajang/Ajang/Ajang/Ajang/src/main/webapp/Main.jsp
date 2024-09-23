@@ -82,7 +82,7 @@ height: 400px;
                 <!-- 공휴일 이름을 표시할 영역 -->
                 <span id="holidayNameDisplay"></span>
                 <!-- 일정을 표시할 영역 -->
-                <span id="ScheduleDisplay"></span>
+                <span id="ScheduleDisplay">일정이 없습니다.</span>
             </div>
 
             <!-- To-do 리스트 -->
@@ -140,6 +140,7 @@ height: 400px;
                 loadTodoList(year, month, day); // To-do 리스트 로드
                 loadimageList(year, month, day); // Diary 리스트 로드
                 loadDiaryList(year, month, day); // Diary 리스트 로드
+                loadScheduleList(year, month, day); // 일정 리스트 로드
             }
 
             // 날짜를 클릭했을 때, 선택된 날짜를 실시간으로 갱신
@@ -162,6 +163,7 @@ height: 400px;
                     loadTodoList(year, month, selectedDay); // 선택된 날짜의 To-do 리스트 로드
                     loadimageList(year, month, selectedDay); // 선택된 날짜의 일기 리스트 로드
                     loadDiaryList(year, month, selectedDay); // 선택된 날짜의 일기 리스트 로드
+                    loadScheduleList(year, month, selectedDay); // 선택된 날짜의 일정 리스트 로드
                 });
             });
         });
@@ -201,6 +203,20 @@ height: 400px;
             };
             xhr.send();
         }
+        
+        // 선택된 날짜에 맞는 일정 리스트를 서버에서 불러오는 함수
+        function loadScheduleList(year, month, day) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "ScheduleListServlet?year=" + year + "&month=" + month + "&day=" + day, true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    document.getElementById("ScheduleDisplay").innerHTML = xhr.responseText;
+                }
+            };
+            xhr.send();
+        }
+        
+        
     </script>
 </body>
 

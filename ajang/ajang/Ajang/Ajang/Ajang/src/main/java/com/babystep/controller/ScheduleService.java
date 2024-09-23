@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -77,11 +76,6 @@ public class ScheduleService extends HttpServlet {
             response.getWriter().write("일정 저장에 실패했습니다.");
         }
         
-        // 일정 조회
-        List<ScheduleDTO> schedules = scheduleDAO.getSchedulesByDate(sche);
-        
-        // JSON으로 변환 후 응답
-        String jsonSchedules = new com.google.gson.Gson().toJson(schedules);
-        response.getWriter().write(jsonSchedules);
+      
     }
 }

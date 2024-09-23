@@ -4,7 +4,7 @@
   "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<properties resource="com/babystep/db/db.properties"></properties>
-
+	
 	<!-- 타입 별칭 설정 -->
 	<typeAliases>
 		<typeAlias type="com.babystep.model.UserDTO" alias="User" />

@@ -15,10 +15,11 @@
 	</insert>
 	
 	<!-- 특정 날짜의 일정 조회 -->
-    <select id="getSchedulesByDate" parameterType="ScheduleDTO" resultType="ScheduleDTO">
-        SELECT SCHE_TITLE, SCHE_CONTENT, SCHE_ST_DT, SCHE_ED_DT
-        FROM TB_SCHEDULE
-        WHERE SCHE_ST_DT = #{scheStDt} AND USER_ID = #{userId}
-    </select>
-	
+    <select id="getSchedulesByDate" parameterType="map" resultType="ScheduleDTO">
+    SELECT SCHE_TITLE
+    FROM TB_SCHEDULE
+    WHERE USER_ID = #{userId}
+    AND SCHE_ST_DT &lt; #{selectedDate}
+    AND SCHE_ED_DT &gt; #{selectedDate}
+</select>
 </mapper>
