@@ -7,6 +7,12 @@
 
 	<!-- 일정 추가 쿼리 -->
 	<insert id="addSchedule" parameterType="ScheduleDTO">
+		
+		<selectKey keyProperty="scheIdx" resultType="int" order="AFTER">
+        	SELECT TB_SCHEDULE_SEQ.NEXTVAL FROM DUAL
+    	</selectKey>
+	
+	
 		INSERT INTO TB_SCHEDULE (
 	    	SCHE_TITLE, SCHE_CONTENT, SCHE_ST_DT, SCHE_ED_DT, CREATED_AT, USER_ID
 		) VALUES (

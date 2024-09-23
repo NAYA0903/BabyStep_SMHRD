@@ -20,13 +20,12 @@ public class ScheduleDAO {
     // 일정 추가하는 메서드
     public int addSchedule(ScheduleDTO sche) {
 
-        int scheCnt = 0;
 
         // try-with-resources 구문에서 자동으로 세션을 닫음
         try (SqlSession session = sqlSessionFactory.openSession()) {
 
             // MyBatis 매퍼 호출
-            scheCnt = session.insert("com.babystep.db.ScheduleMapper.addSchedule", sche);
+        	session.insert("com.babystep.db.ScheduleMapper.addSchedule", sche);
 
             // 트랜잭션 커밋
             session.commit();
@@ -36,8 +35,7 @@ public class ScheduleDAO {
         }
 
         // 로그 출력
-        System.out.println("scheCnt의 개수: " + scheCnt);
-        return scheCnt;
+        return sche.getScheIdx();
     }
     
     
