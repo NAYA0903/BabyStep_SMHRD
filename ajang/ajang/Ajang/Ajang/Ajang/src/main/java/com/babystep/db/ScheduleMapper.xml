@@ -14,6 +14,7 @@
 		)
 	</insert>
 	
+	
 	<!--  특정 날짜의 일정 조회  -->
 	<select id="getSchedulesByDate" parameterType="map" resultType="ScheduleDTO"> 
 		SELECT SCHE_TITLE as scheTitle 
@@ -21,5 +22,24 @@
 			WHERE USER_ID = #{userId} 
 			AND SCHE_ST_DT &lt;= #{selectedDate} 
 			AND SCHE_ED_DT &gt;= #{selectedDate} 
+	</select>
+	
+	
+	<!-- 일정 공유자 등록 -->
+	<insert id="addShare" parameterType="map">
+		INSERT INTO TB_SCHEDULE_SHARE (
+			SHARE_ID, CREATED_AT	
+			) VALUES (
+			#(shareId), SYSDATE
+		)
+	</insert>
+	
+	
+	<!-- 공유 일정 조회 -->
+	<select id="getSharedSchedules" parameterType="String" resultType="ScheduleDTO">
+    	SELECT S.SCHE_TITLE, S.SCHE_CONTENT, S.SCHE_ST_DT, S.SCHE_ED_DT
+    		FROM TB_SCHEDULE S
+    		JOIN TB_SHARE SH ON S.SCHE_IDX = SH.SCHE_IDX
+    		WHERE SH.SHARE_ID = #{shareId}
 	</select>
 </mapper>

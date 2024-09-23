@@ -66,6 +66,11 @@
 
         <!-- 공유 현황 섹션 -->
         <div class="mypage-popup-section">
+        	<h2> 내 가족 등록하기 </h2>
+        	<form action="ScheduleListServlet" method="post">
+        		<input type="text" name="shareId" placeholder="내 가족의 아이디를 입력하세요!">
+        		<button type="submit">등록하기</button>
+        	</form>
             <h2>공유 현황</h2>
             <p class="mypage-share-status">이 페이지는 친구와 공유되고 있습니다.</p>
         </div>
