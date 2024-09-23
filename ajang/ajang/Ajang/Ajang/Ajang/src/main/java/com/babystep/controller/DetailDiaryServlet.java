@@ -49,14 +49,19 @@ public class DetailDiaryServlet extends HttpServlet {
      // 응답 HTML 생성
         PrintWriter out = response.getWriter();
         if (detaildiary == null || detaildiary.isEmpty()) {
-            out.println("<p>할 일이 없습니다.</p>");
+        	out.println("<h3>일기</h3>");
+        	out.println("<br>");
+            out.println("<p>작성된 일기가 없습니다.</p>");
+            out.println("<button class='diary-write-btn' onclick='toggleDiaryPopup(); return false;'>작성하기</button>");
+
         } else {
             for (DiaryPopupDTO diary : detaildiary) {
                 out.println("<div class='diary-item'>");
+                out.println("<h3>일기</h3>");
+            	out.println("<br>");
                 out.println("<span>" + diary.getDI_CONTENT() + " </span>");
                 out.println("</div>");
             }
-            out.println("<button class='diary-write-btn' onclick='toggleDiaryPopup(); return false;'>작성하기</button>");
         }
     }
 }
