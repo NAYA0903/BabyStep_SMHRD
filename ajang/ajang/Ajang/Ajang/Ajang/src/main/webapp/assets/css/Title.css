@@ -37,7 +37,7 @@ section {
 /* 네비게이션 링크 */
 .nav-links {
     display: flex;
-    gap: 2vw; /* 간격을 고정 비율로 조정 */
+    gap: 4vw; /* 간격을 고정 비율로 조정 */
     align-items: center;
     margin-left: 4vw;
 }
@@ -71,7 +71,7 @@ section {
 .icon-links {
     display: flex;
     align-items: center;
-    gap: 1.5vw;
+    gap: 2vw;
     margin-right: 2vw;
 }
 

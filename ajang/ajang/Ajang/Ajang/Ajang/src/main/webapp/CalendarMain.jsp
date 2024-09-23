@@ -126,12 +126,12 @@
 				%>
 			</tr>
 		</table>
-	</div>
 
-	<div>
-		<button class="calendar-write-btn"
-			onclick="toggleCalendarPopup(); return false;">작성하기</button>
-		<jsp:include page="CalendarPopup.jsp" />
+		<div>
+			<button class="calendar-write-btn"
+				onclick="toggleCalendarPopup(); return false;">작성하기</button>
+			<jsp:include page="CalendarPopup.jsp" />
+		</div>
 	</div>
 	<script>
         document.addEventListener('DOMContentLoaded', function() {
