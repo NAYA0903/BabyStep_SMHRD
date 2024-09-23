@@ -96,7 +96,7 @@
 				<div class="image-upload-section" id="image-upload-section">
 					<h3>이미지</h3>
 					<img class="image-upload-section-con"
-						src="./file/your_image_path_here" alt="이미지" />
+						src="./file/" alt="이미지" />
 				</div>
 
 
@@ -106,9 +106,9 @@
 					<h3>일기</h3>
 					<div class="diary-section-con">내용</div>
 				</div>
-				<button class="diary-write-btn"
-					onclick='toggleDiaryPopup(); return false;'>작성하기</button>
 			</div>
+			<button class="diary-write-btn"
+				onclick='toggleDiaryPopup(); return false;'>작성하기</button>
 
 			<jsp:include page="DiaryPopup.jsp" />
 		</div>

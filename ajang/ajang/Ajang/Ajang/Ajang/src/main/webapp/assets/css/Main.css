@@ -256,17 +256,19 @@ body {
 }
 
 .diary-write-btn {
-	position: absolute; /* 부모 요소 안에서 절대 위치 */
-	top: 10px; /* 상단에서 10px 아래 */
-	right: 10px; /* 오른쪽에서 10px 떨어짐 */
-	padding: 8px 16px;
-	font-size: 14px;
-	background-color: #A0DAD0;
-	color: white;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
+   float: right; /* 버튼을 오른쪽으로 정렬 */
+   top: 10px; /* 상단에서 10px 아래 */
+   right: 10px; /* 오른쪽에서 10px 떨어짐 */
+   padding: 8px 16px;
+   font-size: 14px;
+   background-color: #A0DAD0;
+   color: white;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   margin-top: 10px;
 }
+
 
 .diary-write-btn:hover {
 	background-color: #76C7C0;

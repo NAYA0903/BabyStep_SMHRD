@@ -114,6 +114,12 @@
   	<description></description>
   	<servlet-class>com.babystep.controller.ScheduleListServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ShareScheduleServlet</servlet-name>
+  	<display-name>ShareScheduleServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.babystep.controller.ShareScheduleServlet</servlet-class>
+  </servlet>
   
   
   <servlet-mapping>
@@ -171,6 +177,10 @@
   <servlet-mapping>
   	<servlet-name>ScheduleListServlet</servlet-name>
   	<url-pattern>/ScheduleListServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ShareScheduleServlet</servlet-name>
+  	<url-pattern>/ShareScheduleServlet</url-pattern>
   </servlet-mapping>
   
   
