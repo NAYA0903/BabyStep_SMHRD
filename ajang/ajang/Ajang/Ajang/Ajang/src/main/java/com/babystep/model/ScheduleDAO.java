@@ -41,27 +41,18 @@ public class ScheduleDAO {
     }
     
     
-    // 일정 조회 메서드 (오토 커밋 활성화)
+    // 특정 날짜의 일정 조회
     public List<ScheduleDTO> getSchedulesByDate(String userId, Date selectedDate) {
-        try (SqlSession session = sqlSessionFactory.openSession(true)) {
+    	
+        try (SqlSession session = sqlSessionFactory.openSession()) {
+        	
             Map<String, Object> params = new HashMap<>();
             params.put("userId", userId);
             params.put("selectedDate", selectedDate);
-
+            
             List<ScheduleDTO> scheduleList = session.selectList("com.babystep.db.ScheduleMapper.getSchedulesByDate", params);
-
-            System.out.println("scheduleLists" + scheduleList);
-            // 결과가 null인지 체크
-            if (scheduleList == null) {
-                System.out.println("scheduleList가 null입니다.");
-            } else if (scheduleList.isEmpty()) {
-                System.out.println("일정이 없습니다.");
-            } else {
-                for (ScheduleDTO sche : scheduleList) {
-                    System.out.println("일정 제목: " + sche.getScheTitle());
-                }
-            }
-
+            session.commit();  // 트랜잭션 수동 커밋
+            
             return scheduleList;
         }
     }
