@@ -70,8 +70,7 @@ height: 400px;
         <!-- 왼쪽 4 부분 (캘린더 API 통합 예정) -->
         <div class="left-section">
             <jsp:include page="CalendarMain.jsp" />
-            <button class="calendar-write-btn" onclick="toggleCalendarPopup(); return false;">작성하기</button>
-            <jsp:include page="CalendarPopup.jsp" />
+            
         </div>
 
         <!-- 오른쪽 6 부분 -->
@@ -107,7 +106,7 @@ height: 400px;
                 <!-- 일기 메모 작성 섹션 -->
                 <div class="diary-section" id="diary-section">
                     <h3>일기</h3>
-                 
+           
                 </div>
             </div>
 

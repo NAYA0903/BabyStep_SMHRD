@@ -8,6 +8,8 @@ table {
 	background-color: white;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	border-radius: 10px;
+    margin-bottom: 10px;
+	
 }
 
 /* 달력 타이틀 스타일 */
@@ -124,4 +126,23 @@ td:hover {
 	color: red;
 	font-size: 10px;
 	
+}
+
+/* 캘린더 하단에 작성하기 버튼 */
+.calendar-write-btn {
+	position: relative;
+	padding: 8px 16px;
+	font-size: 14px;
+	background-color: #A0DAD0;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-top: 20px; /* 버튼 아래쪽에 마진 추가 */
+	margin-left: 2px; 
+	
+}
+
+.calendar-write-btn:hover {
+	background-color: #76C7C0;
 }
