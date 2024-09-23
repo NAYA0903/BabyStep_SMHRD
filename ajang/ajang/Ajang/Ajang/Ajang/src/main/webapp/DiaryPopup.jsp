@@ -40,7 +40,9 @@ int babyage = new DiaryPopupDAO().babyage(USER_ID);
 					<label>날짜:</label> <input type="date" name="date">
 				</div>
 				<div>
-					<label>아기 개월수:</label> <p><%=babyage%></p>
+					<label>아기 개월수:</label> 
+					
+					<p><%=babyage%></p>
 						
 				</div>
 				<div>
