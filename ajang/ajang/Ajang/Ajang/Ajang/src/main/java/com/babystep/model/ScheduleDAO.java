@@ -1,11 +1,12 @@
 package com.babystep.model;
 
+import java.sql.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
-
-import com.babystep.db.SqlSessionManager;
 
 public class ScheduleDAO {
 
@@ -40,13 +41,28 @@ public class ScheduleDAO {
     }
     
     
-    // 일정 조회 메서드 (특정 날짜의 일정)
-    public List<ScheduleDTO> getSchedulesByDate(ScheduleDTO sche) {
-    	 List<ScheduleDTO> scheduleList;
-         try (SqlSession session = SqlSessionManager.getSqlSession().openSession()) {
-             scheduleList = session.selectList("com.babystep.db.ScheduleMapper.getSchedulesByDate", sche);
-         }
-         return scheduleList;
-     }
-    
+    // 일정 조회 메서드 (오토 커밋 활성화)
+    public List<ScheduleDTO> getSchedulesByDate(String userId, Date selectedDate) {
+        try (SqlSession session = sqlSessionFactory.openSession(true)) {
+            Map<String, Object> params = new HashMap<>();
+            params.put("userId", userId);
+            params.put("selectedDate", selectedDate);
+
+            List<ScheduleDTO> scheduleList = session.selectList("com.babystep.db.ScheduleMapper.getSchedulesByDate", params);
+
+            System.out.println("scheduleLists" + scheduleList);
+            // 결과가 null인지 체크
+            if (scheduleList == null) {
+                System.out.println("scheduleList가 null입니다.");
+            } else if (scheduleList.isEmpty()) {
+                System.out.println("일정이 없습니다.");
+            } else {
+                for (ScheduleDTO sche : scheduleList) {
+                    System.out.println("일정 제목: " + sche.getScheTitle());
+                }
+            }
+
+            return scheduleList;
+        }
+    }
 }

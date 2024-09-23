@@ -11,6 +11,7 @@ public class ScheduleDTO {
 	private String userId;
 	private String scheTitle;
 	
+	
 	// 기본 생성자
 	public ScheduleDTO() {
 		
@@ -28,14 +29,6 @@ public class ScheduleDTO {
 		
 	}
 	
-	// 일정 조회 생성자
-	public ScheduleDTO(Date scheStDt, String userId) {
-		
-		this.scheStDt = scheStDt ;
-		this.userId = userId ;
-		
-	}
-
 	// Getter and Setter
 	
 	public String getScheTitle() {
@@ -85,6 +78,5 @@ public class ScheduleDTO {
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-	
 
 }
