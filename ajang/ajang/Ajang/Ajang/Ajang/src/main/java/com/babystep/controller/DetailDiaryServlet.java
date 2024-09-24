@@ -59,7 +59,7 @@ public class DetailDiaryServlet extends HttpServlet {
                 out.println("<h3>일기</h3>");
             	out.println("<br>");
             	
-                out.println("<pre style='white-space: break-spaces'><span>" + diary.getDI_CONTENT() + " </span><pre>");
+                out.println("<pre style='white-space: break-spaces'><span class = 'diarydetail'	>" + diary.getDI_CONTENT() + " </span><pre>");
                
                 out.println("</div>");
             }
