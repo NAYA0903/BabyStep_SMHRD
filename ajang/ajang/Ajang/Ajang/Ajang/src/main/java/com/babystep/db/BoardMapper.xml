@@ -34,7 +34,7 @@
 		TB_USER u ON
 		b.USER_ID= u.USER_ID
 		ORDER BY
-		b.BO_IDX DESC
+		b.BO_IDX ASC
 	</select>
 
 	<!-- 게시글 상세 조회 -->
