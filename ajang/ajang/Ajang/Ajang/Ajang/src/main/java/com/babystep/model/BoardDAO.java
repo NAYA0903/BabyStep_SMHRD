@@ -14,18 +14,27 @@ public class BoardDAO {
 	SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
 	public int writeBoard(BoardDTO vo) {
-		int cnt = 0;
-		try {
-			cnt = sqlSession.insert("com.babystep.db.BoardMapper.writeBoard", vo);
-		} catch (Exception e) {
-			e.printStackTrace(); // 예외 처리
-			// TODO: handle exception
-		} finally {
-			sqlSession.close();
-		}
-		System.out.println("cnt의 개수" + cnt);
-		return cnt;
+	    int cnt = 0;
+	    SqlSession session = null;
+	    
+	    try {
+	        session = sqlSessionFactory.openSession(); // SqlSessionFactory에서 세션을 열기
+	        cnt = session.insert("com.babystep.db.BoardMapper.writeBoard", vo); // 게시물 삽입
+	        session.commit(); // 트랜잭션 커밋 (데이터베이스에 변경 사항 적용)
+	    } catch (Exception e) {
+	        e.printStackTrace(); // 예외 처리
+	        if (session != null) {
+	            session.rollback(); // 예외 발생 시 롤백
+	        }
+	    } finally {
+	        if (session != null) {
+	            session.close(); // 세션을 닫음
+	        }
+	    }
+	    
+	    return cnt; // 삽입된 게시물 개수 반환
 	}
+
 
 	public List<BoardDTO> allBoard() {
 		List<BoardDTO> boards = null; // 빈 리스트로 초기화

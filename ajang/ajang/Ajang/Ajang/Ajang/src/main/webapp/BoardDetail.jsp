@@ -246,78 +246,73 @@
     </div>
 	</form></div>
 	
-    </div>
     <div class="bottom-container">
         <jsp:include page="BoardMain.jsp" />
     </div>
     
 
 <script>
-    window.onload  = function() {
+    window.onload = function() {
         var heartBtn = document.getElementById('heart');
+        
+        // 하트가 좋아요 상태일 때 색상 변경
         if (<%=isLiked%>) {
             heartBtn.classList.add('liked');
         }
 
+        // 하트 버튼 클릭 이벤트 처리
         heartBtn.addEventListener('click', function () {
             const isLiked = this.classList.toggle('liked');
             const num = <%=num%>;
+            let action = isLiked ? 'like' : 'unlike';
 
-            if (isLiked) {
-                fetch('BoardLikeService', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: `action=like&num=${num}`
-                }).then(() => {
-                    console.log('좋아요 추가 성공');
-                }).catch(err => {
-                    console.error('좋아요 추가 실패', err);
-                });
-            } else {
-                fetch('BoardLikeService', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: `action=unlike&num=${num}`
-                }).then(() => {
-                    console.log('좋아요 취소 성공');
-                }).catch(err => {
-                    console.error('좋아요 취소 실패', err);
-                });
+            // 서버로 좋아요/좋아요 취소 요청 보내기
+            fetch('BoardLikeService', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: `action=${action}&num=${BO_IDX}`
+            })
+            .then(response => {
+                if (response.ok) {
+                    console.log(`좋아요 ${isLiked ? '추가' : '취소'} 성공`);
+                } else {
+                    console.error(`좋아요 ${isLiked ? '추가' : '취소'} 실패`);
+                }
+            })
+            .catch(err => {
+                console.error('서버 요청 실패: ', err);
+            });
+        });
+
+        // 댓글 작성 버튼 활성화/비활성화 처리
+        toggleSendButton(); // 처음엔 버튼 비활성화
+
+        // textarea의 입력 이벤트 감지
+        const commentInput = document.getElementById("CommentInput");
+        commentInput.addEventListener("input", toggleSendButton);
+
+        // Enter 키를 누르면 댓글 작성 폼 제출
+        commentInput.addEventListener("keydown", function(event) {
+            if (event.key === "Enter" && !event.shiftKey) {
+                event.preventDefault(); // 엔터 키의 기본 동작(줄바꿈) 방지
+                document.querySelector("form").submit(); // 폼 제출
             }
         });
     }
-    
- 	// 전송 버튼 활성화/비활성화 함수
+
+    // 전송 버튼 활성화/비활성화 함수
     function toggleSendButton() {
-        const CommentInput = document.getElementById("CommentInput");
+        const commentInput = document.getElementById("CommentInput");
         const sendButton = document.getElementById("sendButton");
-        
+
         // 입력된 값이 없거나 공백만 있을 경우 비활성화
-        if (CommentInput.value.trim() === "") {
+        if (commentInput.value.trim() === "") {
             sendButton.disabled = true;
         } else {
             sendButton.disabled = false;
         }
     }
-
-    // 페이지가 로드될 때 버튼을 비활성화 상태로 설정
-    window.onload = function() {
-        toggleSendButton();  // 처음엔 버튼 비활성화
-        
-        // textarea의 입력 이벤트 감지
-        const CommentInput = document.getElementById("CommentInput");
-        CommentInput.addEventListener("input", toggleSendButton);
-    };
-    
- // Enter 키를 누르면 폼이 제출되도록 처리
-    commentInput.addEventListener("keydown", function(event) {
-        if (event.key === "Enter" && !event.shiftKey) {
-            event.preventDefault(); // 엔터 키의 기본 동작(줄바꿈) 방지
-            document.querySelector("form").submit(); // 폼 제출
-        }
-    });
-};
-
+</script>
 
 </body>
 </html>
