@@ -24,12 +24,10 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    border: 0;
     background-color: #ffffff;
     border-radius: 30px;
     padding: 20px;
-    margin-bottom: 1.875rem;
-    border: 2px solid black;
+    margin: 0 auto; /* 위아래는 0, 좌우는 자동으로 여백 설정 */
 }
 
 .diary-detail-entry {

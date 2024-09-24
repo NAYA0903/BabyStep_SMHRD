@@ -3,18 +3,18 @@
     width: 100vw;
     background-color: white;
     color: black;
-    position: fixed;
+    position: fixed; /* 스크롤 시 타이틀바가 고정되도록 설정 */
     top: 0;
     left: 0;
     padding: 1.5% 0;
-    z-index: 100;
+    z-index: 1000; /* 기존 z-index에서 1000으로 증가 */
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: nowrap; /* 줄바꿈 방지 */
     font-size: 1.5vw;
     border-bottom: 1px solid #e0e0e0;
-    transition: background-color 0.3s ease;
+    transition: top 1s ease-in-out, background-color 1s ease; /* 스크롤 시 부드럽게 변화 */
 }
 
 /* 섹션 여백 추가 */

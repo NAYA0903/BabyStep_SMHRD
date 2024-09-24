@@ -24,3 +24,21 @@ document.querySelector('.search-button').addEventListener('click', function() {
     // 검색 로직을 여기에 추가
     alert("검색어: " + searchTerm);
 });
+
+// 스크롤시 자연스럽게 타이틀 사라짐
+let lastScrollTop = 0;
+const title = document.querySelector('.title');
+
+window.addEventListener('scroll', function () {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+        // 스크롤을 아래로 내리면 타이틀바를 부드럽게 위로 숨김
+        title.style.top = '-150px'; // 타이틀바 높이만큼 위로 이동
+    } else {
+        // 스크롤을 위로 올리면 타이틀바를 부드럽게 화면 상단에 표시
+        title.style.top = '0';
+    }
+
+    lastScrollTop = scrollTop;
+});
