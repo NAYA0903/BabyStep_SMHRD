@@ -4,6 +4,7 @@ import java.sql.Date;
 
 public class ScheduleDTO {
 	
+	private int scheIdx;
 	private String scheContent;
 	private Date scheStDt;
 	private Date scheEdDt;
@@ -30,6 +31,14 @@ public class ScheduleDTO {
 	}
 	
 	// Getter and Setter
+	
+	public int getScheIdx() {
+		return scheIdx;
+	}
+
+	public void setScheIdx(int scheIdx) {
+		this.scheIdx = scheIdx;
+	}
 	
 	public String getScheTitle() {
 		return scheTitle;

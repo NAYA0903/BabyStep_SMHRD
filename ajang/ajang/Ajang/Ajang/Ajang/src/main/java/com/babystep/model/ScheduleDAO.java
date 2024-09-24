@@ -20,13 +20,12 @@ public class ScheduleDAO {
     // 일정 추가하는 메서드
     public int addSchedule(ScheduleDTO sche) {
 
-        int scheCnt = 0;
 
         // try-with-resources 구문에서 자동으로 세션을 닫음
         try (SqlSession session = sqlSessionFactory.openSession()) {
 
             // MyBatis 매퍼 호출
-            scheCnt = session.insert("com.babystep.db.ScheduleMapper.addSchedule", sche);
+        	session.insert("com.babystep.db.ScheduleMapper.addSchedule", sche);
 
             // 트랜잭션 커밋
             session.commit();
@@ -36,32 +35,22 @@ public class ScheduleDAO {
         }
 
         // 로그 출력
-        System.out.println("scheCnt의 개수: " + scheCnt);
-        return scheCnt;
+        return sche.getScheIdx();
     }
     
     
-    // 일정 조회 메서드 (오토 커밋 활성화)
+    // 특정 날짜의 일정 조회
     public List<ScheduleDTO> getSchedulesByDate(String userId, Date selectedDate) {
-        try (SqlSession session = sqlSessionFactory.openSession(true)) {
+    	
+        try (SqlSession session = sqlSessionFactory.openSession()) {
+        	
             Map<String, Object> params = new HashMap<>();
             params.put("userId", userId);
             params.put("selectedDate", selectedDate);
-
+            
             List<ScheduleDTO> scheduleList = session.selectList("com.babystep.db.ScheduleMapper.getSchedulesByDate", params);
-
-            System.out.println("scheduleLists" + scheduleList);
-            // 결과가 null인지 체크
-            if (scheduleList == null) {
-                System.out.println("scheduleList가 null입니다.");
-            } else if (scheduleList.isEmpty()) {
-                System.out.println("일정이 없습니다.");
-            } else {
-                for (ScheduleDTO sche : scheduleList) {
-                    System.out.println("일정 제목: " + sche.getScheTitle());
-                }
-            }
-
+            session.commit();  // 트랜잭션 수동 커밋
+            
             return scheduleList;
         }
     }

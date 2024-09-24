@@ -85,8 +85,6 @@ body {
 	background: #ffffff; /* 스크롤바 색상 */
 }
 
-
-
 /*===================== 날짜 섹션====================== */
 .date-section {
 	margin-bottom: 20px;
@@ -98,10 +96,11 @@ body {
 }
 
 .date-section:hover {
-    border: 1px solid black; /* 마우스 호버 시 보더 색상과 두께 변경 */
-    background-color: white; /* 배경색도 변경 가능 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 마우스 호버 시 약간의 그림자 추가 */
-    transition: border 0.1s, background-color 0.1s, box-shadow 0.1s; /* 부드럽게 변화하도록 전환 */
+	border: 1px solid black; /* 마우스 호버 시 보더 색상과 두께 변경 */
+	background-color: white; /* 배경색도 변경 가능 */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 마우스 호버 시 약간의 그림자 추가 */
+	transition: border 0.1s, background-color 0.1s, box-shadow 0.1s;
+	/* 부드럽게 변화하도록 전환 */
 }
 
 .date-section h2 {
@@ -121,10 +120,11 @@ body {
 }
 
 .todo-section:hover {
-    border: 1px solid black; /* 마우스 호버 시 보더 색상과 두께 변경 */
-    background-color: white; /* 배경색도 변경 가능 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 마우스 호버 시 약간의 그림자 추가 */
-    transition: border 0.1s, background-color 0.1s, box-shadow 0.1s; /* 부드럽게 변화하도록 전환 */
+	border: 1px solid black; /* 마우스 호버 시 보더 색상과 두께 변경 */
+	background-color: white; /* 배경색도 변경 가능 */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 마우스 호버 시 약간의 그림자 추가 */
+	transition: border 0.1s, background-color 0.1s, box-shadow 0.1s;
+	/* 부드럽게 변화하도록 전환 */
 }
 
 /* To-do 리스트의 버튼 */
@@ -176,28 +176,47 @@ body {
 
 /* =======================이미지 업로드 섹션======================= */
 .image-upload-section {
+	position: relative; /* 부모 요소를 기준으로 자식 요소의 위치 설정 */
 	flex-basis: 48%;
 	padding: 10px;
 	background-color: #fff;
 	border: 1px solid #ddd;
 	border-radius: 15px; /* 둥근 테두리 추가 */
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 가벼운 그림자 추가 */
+	max-height: 400px; /* 최대 높이 설정 */
+	overflow-y: auto; /* 텍스트가 넘칠 경우 스크롤 생성 */
 }
 
 .image-upload-section:hover {
-    border: 1px solid black; /* 마우스 호버 시 보더 색상과 두께 변경 */
-    background-color: white; /* 배경색도 변경 가능 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 마우스 호버 시 약간의 그림자 추가 */
-    transition: border 0.1s, background-color 0.1s, box-shadow 0.1s; /* 부드럽게 변화하도록 전환 */
+	border: 1px solid black; /* 마우스 호버 시 보더 색상과 두께 변경 */
+	background-color: white; /* 배경색도 변경 가능 */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 마우스 호버 시 약간의 그림자 추가 */
+	transition: border 0.1s, background-color 0.1s, box-shadow 0.1s;
+	/* 부드럽게 변화하도록 전환 */
 }
 
-.image-upload-section h3 {
-	margin: 0 0 10px 0;
-	font-size: 20px;
+/* 스크롤바 스타일 설정 (선택사항) */
+.image-upload-section::-webkit-scrollbar {
+	width: 1px; /* 스크롤바 너비 */
+	margin-left: 5px;
 }
 
-.image-upload-section input {
-	margin-top: 10px;
+.image-upload-section::-webkit-scrollbar-track {
+	background: transparent; /* 스크롤바 트랙 배경색 */
+}
+
+.image-upload-section::-webkit-scrollbar-thumb {
+	background-color: transparent; /* 스크롤바 색상 */
+	border-radius: 10px; /* 스크롤바 모서리 둥글게 */
+}
+
+/* 이미지 텍스트 컨테이너 (긴 텍스트 처리) */
+.image-upload-section-con {
+  max-width: 100%; /* 이미지를 컨테이너 너비에 맞게 조정 */
+  max-height: 300px; /* 이미지 섹션의 최대 높이를 설정하여 스크롤이 가능하도록 함 */
+  object-fit: contain; /* 이미지를 컨테이너 안에 비율을 유지하며 맞춤 */
+  overflow-y: auto; /* 세로로 넘칠 경우 스크롤 추가 */
+  display: block; /* 이미지를 블록 요소로 설정 */
 }
 
 /* =========================일기 작성 섹션======================== */
@@ -209,29 +228,49 @@ body {
 	border: 1px solid #ddd;
 	border-radius: 15px; /* 둥근 테두리 추가 */
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 가벼운 그림자 추가 */
+	max-height: 400px; /* 최대 높이 설정 */
+	overflow-y: auto; /* 텍스트가 넘칠 경우 스크롤 생성 */
 }
 
 .diary-section:hover {
-    border: 1px solid black; /* 마우스 호버 시 보더 색상과 두께 변경 */
-    background-color: white; /* 배경색도 변경 가능 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 마우스 호버 시 약간의 그림자 추가 */
-    transition: border 0.1s, background-color 0.1s, box-shadow 0.1s; /* 부드럽게 변화하도록 전환 */
+	border: 1px solid black; /* 마우스 호버 시 보더 색상과 두께 변경 */
+	background-color: white; /* 배경색도 변경 가능 */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 마우스 호버 시 약간의 그림자 추가 */
+	transition: border 0.1s, background-color 0.1s, box-shadow 0.1s;
+	/* 부드럽게 변화하도록 전환 */
 }
 
-.diary-section .diary-write-btn {
-	position: absolute; /* 부모 요소 안에서 절대 위치 */
-	top: 10px; /* 상단에서 10px 아래 */
-	right: 10px; /* 오른쪽에서 10px 떨어짐 */
-	padding: 8px 16px;
-	font-size: 14px;
-	background-color: #A0DAD0;
-	color: white;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
+/* 스크롤바 스타일 설정 (선택사항) */
+.diary-section::-webkit-scrollbar {
+	width: 1px; /* 스크롤바 너비 */
+	margin-left: 5px;
 }
 
-.diary-section .diary-write-btn:hover {
+.diary-section::-webkit-scrollbar-track {
+	background: transparent; /* 스크롤바 트랙 배경색 */
+}
+
+.diary-section::-webkit-scrollbar-thumb {
+	background-color: transparent; /* 스크롤바 색상 */
+	border-radius: 10px; /* 스크롤바 모서리 둥글게 */
+}
+
+.diary-write-btn {
+   float: right; /* 버튼을 오른쪽으로 정렬 */
+   top: 10px; /* 상단에서 10px 아래 */
+   right: 10px; /* 오른쪽에서 10px 떨어짐 */
+   padding: 8px 16px;
+   font-size: 14px;
+   background-color: #A0DAD0;
+   color: white;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   margin-top: 10px;
+}
+
+
+.diary-write-btn:hover {
 	background-color: #76C7C0;
 }
 

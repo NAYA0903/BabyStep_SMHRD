@@ -2,37 +2,40 @@
 
 /* 팝업 전체를 덮는 어두운 배경 */
 .mypage-popup-overlay {
-    display: none; /* 기본적으로 숨김 */
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.6); /* 반투명 어두운 배경 */
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 999;
 }
 
 /* 팝업 창 */
 .mypage-popup {
-    display: none; /* 기본적으로 숨김 */
+    display: none;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #fff;
+    background-color: #ffffff; /* 팝업 전체 배경 흰색 */
     width: 90%;
-    max-width: 600px; /* 최대 너비 설정 */
-    padding: 30px;
-    border-radius: 15px; /* 둥근 모서리 */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     z-index: 1000;
-    animation: fadeIn 0.3s ease-in-out; /* 부드러운 팝업 효과 */
+    animation: fadeIn 0.3s ease-in-out;
+    box-sizing: border-box;
+    max-height: 90vh; /* 화면의 90% 높이로 제한 */
+    overflow-y: auto; /* 세로로 넘칠 경우 스크롤 추가 */
 }
 
 /* 팝업 애니메이션 */
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from { opacity: 0; transform: translate(-50%, -60%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
 }
 
 /* 팝업 헤더 */
@@ -40,95 +43,160 @@
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    background-color: #ffffff; /* 헤더 배경 흰색 */
 }
 
 .mypage-popup-header img {
     width: 60px;
     height: 60px;
-    border-radius: 50%; /* 프로필 사진 둥글게 */
+    border-radius: 50%;
     margin-right: 15px;
-    object-fit: cover; /* 이미지 비율 유지 */
+    object-fit: cover;
+    border: 2px solid #f0f0f0;
 }
 
 .mypage-popup-header h1 {
     font-size: 24px;
     color: #333;
+    font-weight: 600;
     margin: 0;
 }
 
 .mypage-popup-header p {
     font-size: 14px;
     color: #888;
-    margin: 5px 0 0 0;
+    margin: 5px 0 0;
+    background-color: #ffffff; /* 텍스트 배경 흰색 */
 }
 
-/* 팝업 섹션 */
-.mypage-popup-section {
+/* 팝업 섹션 스타일 */
+.mypage-popup-section1,
+.mypage-popup-section2,
+.mypage-popup-section3 {
     margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #ffffff; /* 각 섹션 배경 흰색 */
 }
 
-.mypage-popup-section h2 {
+/* 섹션 제목 */
+.mypage-popup-section1 h2,
+.mypage-popup-section2 h2,
+.mypage-popup-section3 h2 {
     font-size: 18px;
     color: #444;
     margin-bottom: 10px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 5px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    font-weight: 500;
+    background-color: #ffffff; /* 섹션 제목 배경 흰색 */
 }
 
-.mypage-popup-section ul {
-    list-style: none;
-    padding: 0;
+/* 입력 필드 스타일 */
+.mypage-popup-section1 input[type="text"],
+.mypage-popup-section1 input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+    background-color: #ffffff; /* 입력 필드 배경 흰색 */
 }
 
-.mypage-popup-section ul li {
-    padding: 8px 0;
+/* 등록 버튼 스타일 */
+.mypage-popup-section1 button {
+    width: 100%;
+    padding: 10px;
     font-size: 16px;
-    color: #555;
-    border-bottom: 1px solid #f1f1f1;
-}
-
-.mypage-popup-section ul li:last-child {
-    border-bottom: none;
-}
-
-.mypage-popup-section ul li a {
-    text-decoration: none;
-    color: #007bff;
-}
-
-.mypage-popup-section ul li a:hover {
-    color: #0056b3;
-    text-decoration: underline;
-}
-
-/* 공유 현황 */
-.mypage-share-status {
-    font-size: 14px;
-    color: #666;
-}
-
-/* 팝업 닫기 버튼 */
-.mypage-close-btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 14px;
-    color: white;
-    background-color: #ff4c4c;
+    background-color: #A0DAD0;
+    color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
+.mypage-popup-section1 button:hover {
+    background-color: #2980b9;
+}
+
+/* 관심 거래 목록 스타일 */
+.mypage-popup-section2 ul {
+    list-style: none;
+    padding: 0;
+    background-color: #ffffff; /* 리스트 배경 흰색 */
+}
+
+.mypage-popup-section2 ul li {
+    padding: 8px 0;
+    font-size: 16px;
+    color: #555;
+    border-bottom: 1px solid #eee;
+}
+
+.mypage-popup-section2 ul li a {
+    text-decoration: none;
+    color: #3498db;
+}
+
+.mypage-popup-section2 ul li a:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+/* 공유 현황 스타일 */
+.mypage-popup-section3 .mypage-share-status {
+    font-size: 14px;
+    color: #666;
+    background-color: #ffffff; /* 공유 현황 배경 흰색 */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* 팝업 닫기 버튼 */
+.mypage-close-btn {
+    display: block;
+    margin: 20px auto 0;
+    padding: 12px 20px;
+    font-size: 14px;
+    color:black;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
 .mypage-close-btn:hover {
-    background-color: #e63946;
+    background-color:white;
+    border: 1px solid black;
+}
+
+/* 스크롤바 전체 스타일 */
+.mypage-popup::-webkit-scrollbar {
+    width: 1px; /* 스크롤바의 너비 설정 */
+}
+
+/* 스크롤바 트랙 (스크롤바가 움직이는 경로) */
+.mypage-popup::-webkit-scrollbar-track {
+    background: transparent; /* 트랙을 투명하게 설정 */
+}
+
+/* 스크롤바 핸들 (스크롤바 자체) */
+.mypage-popup::-webkit-scrollbar-thumb {
+    background-color: transparent; /* 핸들을 투명하게 설정 */
+    border-radius: 10px;
 }
 
 /* 반응형 디자인 */
 @media (max-width: 768px) {
     .mypage-popup {
         width: 95%;
+        padding: 15px; /* 작은 화면에서 여백을 줄임 */
     }
     
     .mypage-popup-header h1 {
@@ -138,5 +206,26 @@
     .mypage-popup-header img {
         width: 50px;
         height: 50px;
+    }
+
+    .mypage-popup-section1 h2,
+    .mypage-popup-section2 h2,
+    .mypage-popup-section3 h2 {
+        font-size: 16px; /* 작은 화면에서는 제목 글꼴 크기 조정 */
+    }
+
+    .mypage-popup-section1 input[type="text"],
+    .mypage-popup-section1 input[type="date"],
+    .mypage-popup-section1 button {
+        font-size: 14px; /* 작은 화면에서는 입력 필드 크기 조정 */
+    }
+    
+    .mypage-popup-section2 ul li {
+        font-size: 14px;
+    }
+
+    .mypage-close-btn {
+        font-size: 13px;
+        padding: 10px 15px;
     }
 }

@@ -36,7 +36,7 @@
         </div>
 
         <!-- 관심 장소 섹션 -->
-        <div class="mypage-popup-section">
+        <div class="mypage-popup-section1">
             <form action="BabyService" method="post">
             	<h2>내 아이 등록</h2>
             		<input type="text" name="byName" placeholder="내 아이 이름을 적어주세요!"><br>
@@ -48,7 +48,7 @@
         </div>
 
         <!-- 관심 거래 섹션 -->
-        <div class="mypage-popup-section">
+        <div class="mypage-popup-section2">
             <h2>관심 거래</h2>
             <ul>
                 <%
@@ -65,7 +65,12 @@
         </div>
 
         <!-- 공유 현황 섹션 -->
-        <div class="mypage-popup-section">
+        <div class="mypage-popup-section3">
+        	<h2>내 가족 등록하기</h2>
+        		<form action="ShareScheduleServlet" method="post">
+        			<input type="text" name="shareId" id="shareId" placeholder="내 가족 등록하기" required>
+    				<button type="submit">등록하기</button>
+        		</form>
             <h2>공유 현황</h2>
             <p class="mypage-share-status">이 페이지는 친구와 공유되고 있습니다.</p>
         </div>

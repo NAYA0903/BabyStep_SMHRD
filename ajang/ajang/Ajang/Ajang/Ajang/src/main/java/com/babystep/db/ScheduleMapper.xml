@@ -7,6 +7,12 @@
 
 	<!-- 일정 추가 쿼리 -->
 	<insert id="addSchedule" parameterType="ScheduleDTO">
+		
+		<selectKey keyProperty="scheIdx" resultType="int" order="AFTER">
+        	SELECT TB_SCHEDULE_SEQ.NEXTVAL FROM DUAL
+    	</selectKey>
+	
+	
 		INSERT INTO TB_SCHEDULE (
 	    	SCHE_TITLE, SCHE_CONTENT, SCHE_ST_DT, SCHE_ED_DT, CREATED_AT, USER_ID
 		) VALUES (
@@ -14,12 +20,14 @@
 		)
 	</insert>
 	
-	<!-- 특정 날짜의 일정 조회 -->
-    <select id="getSchedulesByDate" parameterType="map" resultType="ScheduleDTO">
-    SELECT SCHE_TITLE
-    FROM TB_SCHEDULE
-    WHERE USER_ID = #{userId}
-    AND SCHE_ST_DT &lt; #{selectedDate}
-    AND SCHE_ED_DT &gt; #{selectedDate}
-</select>
+	
+	<!--  특정 날짜의 일정 조회  -->
+	<select id="getSchedulesByDate" parameterType="map" resultType="ScheduleDTO"> 
+		SELECT SCHE_TITLE as scheTitle 
+			FROM TB_SCHEDULE 
+			WHERE USER_ID = #{userId} 
+			AND SCHE_ST_DT &lt;= #{selectedDate} 
+			AND SCHE_ED_DT &gt;= #{selectedDate} 
+	</select>
+	
 </mapper>
