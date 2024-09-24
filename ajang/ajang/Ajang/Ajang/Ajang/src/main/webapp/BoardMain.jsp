@@ -263,6 +263,7 @@ td {
         </div>
     </div>
     
+    
     <script>
 	// 스크롤시 자연스럽게 타이틀 사라짐
 	let lastScrollTop = 0;

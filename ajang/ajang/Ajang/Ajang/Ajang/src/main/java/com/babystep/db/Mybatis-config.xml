@@ -24,6 +24,7 @@
 		<typeAlias type="com.babystep.model.ScheduleDTO" alias="ScheduleDTO" />
 		<typeAlias type="com.babystep.model.BabyDTO" alias="BabyDTO" />
 		<typeAlias type="com.babystep.model.VaccineDTO" alias="VaccineDTO" />
+		<typeAlias type="com.babystep.model.CommentDTO" alias="CommentDTO" />
 	</typeAliases>
 
 	<!-- 환경 설정 (데이터베이스 연결) -->
@@ -56,7 +57,7 @@
 		<mapper resource="com/babystep/db/ScheduleMapper.xml"/>
 		<mapper resource="com/babystep/db/BabyMapper.xml"/>
 		<mapper resource="com/babystep/db/VaccineMapper.xml"/>
-		
+		<mapper resource="com/babystep/db/CommentMapper.xml"/>
 	</mappers>
 	
 </configuration>
