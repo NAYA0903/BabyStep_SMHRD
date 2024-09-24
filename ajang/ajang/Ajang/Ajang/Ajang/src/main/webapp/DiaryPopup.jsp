@@ -55,9 +55,10 @@ int babyage = new DiaryPopupDAO().babyage(USER_ID);
 				</div>
 				<div>
 					<label>내용:</label>
-					<textarea name="content" placeholder="오늘의 기록을 적어보세요"></textarea>
+					<textarea cols=5 wrap="hard" name="content" placeholder="오늘의 기록을 적어보세요"></textarea>
 				</div>
 			</div>
+			
 
 			<div class="photo-upload">
 				<div>

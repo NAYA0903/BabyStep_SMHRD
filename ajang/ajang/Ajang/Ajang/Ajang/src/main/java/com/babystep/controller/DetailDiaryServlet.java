@@ -58,7 +58,9 @@ public class DetailDiaryServlet extends HttpServlet {
                 out.println("<div class='diary-section-con'>");
                 out.println("<h3>일기</h3>");
             	out.println("<br>");
-                out.println("<span>" + diary.getDI_CONTENT() + " </span>");
+            	
+                out.println("<pre style='white-space: break-spaces'><span>" + diary.getDI_CONTENT() + " </span><pre>");
+               
                 out.println("</div>");
             }
         }
