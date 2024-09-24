@@ -1,0 +1,130 @@
+@charset "UTF-8";
+body {
+    margin-top: 150px; /* 타이틀의 높이만큼 마진 추가 */
+}
+
+.diary-detail-container {
+    max-width: 1200px; /* 최대 너비를 설정하여 가운데 정렬 */
+    margin: 0 auto; /* 위아래는 0, 좌우는 자동으로 여백 설정 */
+    padding: 20px; /* 안쪽 여백 추가 */
+    box-sizing: border-box;
+    max-height: 80vh; /* 화면 높이의 80%로 제한 */
+    height: calc(100% - 60px); /* 타이틀 섹션 높이를 뺀 나머지 */
+}
+
+.diary-detail-container h1 {
+    color: #262626;
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.diary-detail-entries {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 0;
+    background-color: #ffffff;
+    border-radius: 30px;
+    padding: 20px;
+    margin-bottom: 1.875rem;
+    border: 2px solid black;
+}
+
+.diary-detail-entry {
+    border: 1px solid #dbdbdb;
+    border-radius: 12px;
+    background: white;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.diary-detail-entry:hover {
+    transform: scale(1.02);
+}
+
+.diary-detail-entry .diary-detail-image-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px; /* 이미지 최대 너비 */
+    max-height: 400px; /* 이미지 최대 높이 */
+    margin: 0 auto; /* 이미지 가운데 정렬 */
+    overflow: hidden;
+}
+
+.diary-detail-entry .diary-detail-image-container img {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain; /* 이미지를 자르지 않고 전체를 보여줌 */
+    display: none; /* 기본적으로 이미지는 보이지 않음 */
+}
+
+.diary-detail-entry .diary-detail-image-container img.active {
+    display: block; /* active 클래스를 가진 이미지만 표시 */
+}
+
+/* 이전/다음 버튼 */
+.diary-detail-entry .diary-detail-image-container .diary-detail-prev, 
+.diary-detail-entry .diary-detail-image-container .diary-detail-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    user-select: none;
+}
+
+.diary-detail-entry .diary-detail-image-container .diary-detail-prev {
+    left: 10px;
+}
+
+.diary-detail-entry .diary-detail-image-container .diary-detail-next {
+    right: 10px;
+}
+
+.diary-detail-entry-content-wrapper {
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+}
+
+.diary-detail-entry-details {
+    flex: 1;
+    text-align: left;
+}
+
+.diary-detail-entry-details div {
+    margin-bottom: 8px;
+    color: #8e8e8e;
+    font-size: 1.1em; /* 글씨 크기 키움 */
+}
+
+.diary-detail-entry .diary-detail-diary-content {
+    flex: 2;
+    color: #262626;
+    font-size: 1.2em; /* 글씨 크기 키움 */
+    margin-left: 30px;
+    line-height: 1.5;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 640px) {
+    .diary-detail-entry-content-wrapper {
+        flex-direction: column;
+    }
+    .diary-detail-entry .diary-detail-image-container {
+        max-height: 250px; /* 모바일에서 사진 크기 더 작게 */
+    }
+    .diary-detail-entry .diary-detail-diary-content {
+        margin-left: 0;
+        margin-top: 15px;
+    }
+}
