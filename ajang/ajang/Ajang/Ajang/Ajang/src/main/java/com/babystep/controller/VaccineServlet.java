@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.babystep.model.VaccineDAO;
 import com.babystep.model.VaccineDTO;
@@ -21,6 +22,24 @@ public class VaccineServlet extends HttpServlet {
 	
 		System.out.println("VaccineServlet 도달");
 		
+		HttpSession session = request.getSession();
+
+		String addageStr = (String) session.getAttribute("addage");
+		Integer addage = null;
+
+		if (addageStr != null && !addageStr.isEmpty()) {
+		    try {
+		        // 문자열을 Integer로 변환
+		        addage = Integer.parseInt(addageStr);
+		    } catch (NumberFormatException e) {
+		        System.out.println("Failed to parse addage: " + e.getMessage());
+		    }
+		} else {
+		    // addage가 없으면 기본값으로 설정하거나 다른 처리 수행
+		    System.out.println("addage is null or empty");
+		    addage = 0; // 기본값 설정 예시
+		}
+
 		 // 요청 인코딩 설정
         request.setCharacterEncoding("UTF-8");
 
@@ -32,16 +51,21 @@ public class VaccineServlet extends HttpServlet {
 		List<VaccineDTO> age = new VaccineDAO().babyageselect(USER_ID);
 		
 		 PrintWriter out = response.getWriter();
-	        if (age == null || age.isEmpty()) {
-	            out.println("<p>백신 정보가 없습니다.</p>");
-	        } else {
-	        	out.println("<br>");
+		 boolean vaccineFound = false;
+	     
 	            out.println("<h3>백신 접종 정보</h3>");
 	            out.println("<br>");
 	            for (VaccineDTO vac : age) {
-	                out.println("<p>" + vac.getVAC_NAME() + " (접종 시기: " + vac.getVAC_AGE() + "개월)</p>");
+	                if (addage == vac.getVAC_AGE()) {
+	                    // 백신이 있을 경우 정보 출력
+	                    out.println("<p>" + vac.getVAC_NAME() + " (접종 시기: " + vac.getVAC_AGE() + "개월)</p>");
+	                    vaccineFound = true;  // 백신 정보가 있음을 표시
+	                }
+	            }
+	            
+	            // 백신 정보가 없으면 출력
+	            if (!vaccineFound) {
+	                out.println("<p>백신 정보가 없습니다.</p>");
 	            }
 	        }
-	}
-
 }
