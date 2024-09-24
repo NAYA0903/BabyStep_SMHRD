@@ -5,12 +5,10 @@
   
 <mapper namespace="com.babystep.db.VaccineMapper">
 
-<select id="babyageselect" resultType="VaccineDTO">
+<select id="babyageselect" parameterType="Integer" resultType="VaccineDTO">
 SELECT *
-FROM TB_VACCINE V
-JOIN TB_BABY B
-ON V.VAC_AGE = B.BY_AGE
-WHERE B.USER_ID = #{USER ID}
+FROM TB_VACCINE
+WHERE VAC_AGE = #{babyage}
 </select>
 
 </mapper>

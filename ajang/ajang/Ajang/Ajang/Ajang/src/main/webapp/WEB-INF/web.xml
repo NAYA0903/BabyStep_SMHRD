@@ -138,6 +138,12 @@
   	<description></description>
   	<servlet-class>com.babystep.controller.CommentServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>BabyAgeServlet</servlet-name>
+  	<display-name>BabyAgeServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.babystep.controller.BabyAgeServlet</servlet-class>
+  </servlet>
   
   
   <servlet-mapping>
@@ -211,6 +217,10 @@
   <servlet-mapping>
   	<servlet-name>CommentServlet</servlet-name>
   	<url-pattern>/CommentServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>BabyAgeServlet</servlet-name>
+  	<url-pattern>/BabyAgeServlet</url-pattern>
   </servlet-mapping>
   
   

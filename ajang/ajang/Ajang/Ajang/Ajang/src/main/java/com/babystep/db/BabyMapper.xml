@@ -13,7 +13,12 @@
 		)
 
 	</insert>
-
+	
+	<select id="upbabyage" parameterType="map" resultType="String">
+	SELECT FLOOR(MONTHS_BETWEEN(TO_DATE(#{selectedDate, jdbcType=VARCHAR}, 'YYYY-MM-DD'), BY_BIRTHDATE)) 
+	FROM TB_BABY
+	WHERE USER_ID = #{USER_ID} 
+	</select>
 
 
 </mapper>

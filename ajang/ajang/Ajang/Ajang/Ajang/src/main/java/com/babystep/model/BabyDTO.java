@@ -26,9 +26,8 @@ public class BabyDTO {
 	}
 
 	
-	public BabyDTO(Date byBirthdate, int byAge) {
+	public BabyDTO(Date byBirthdate) {
 		this.byBirthdate = byBirthdate;
-		this.byAge = byAge;
 	}
 
 	// Getter and Setter

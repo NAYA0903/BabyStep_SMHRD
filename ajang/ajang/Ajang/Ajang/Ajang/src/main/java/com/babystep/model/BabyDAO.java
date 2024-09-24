@@ -1,5 +1,8 @@
 package com.babystep.model;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -36,5 +39,29 @@ public class BabyDAO {
     }
     
     
+    // 아기 개월수 업데이트 후 값을 반환하는 메서드
+       public String upbabyage(String USER_ID, String selectedDate) {
+       	String addage = null;
+           try (SqlSession session = sqlSessionFactory.openSession(true)) {
+               Map<String, Object> paramMap = new HashMap<>();
+               paramMap.put("USER_ID", USER_ID);
+               paramMap.put("selectedDate", selectedDate);
+               
+               System.out.println("USER_ID" + USER_ID);
+               System.out.println("selectedDate"+ selectedDate);
+              
+               addage = session.selectOne("com.babystep.db.BabyMapper.upbabyage", paramMap);
+               if (addage == null) {
+                   System.out.println("No result found for the query.");
+               } else {
+                   System.out.println("Result: " + addage);
+               }
+               session.commit();
+           } catch (Exception e) {
+               e.printStackTrace();
+           }
+           return addage;
+       }
+
    
 }

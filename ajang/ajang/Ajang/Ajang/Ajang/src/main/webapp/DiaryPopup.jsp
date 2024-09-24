@@ -17,31 +17,24 @@
 <body>
 
 
+
 <% 
-
 String USER_ID = (String) session.getAttribute("id");
-	
-// 만약 세션에 저장된 addage 값이 Integer 타입이 아니고, String으로 저장되어 있다면 변환
-String addageStr = (String) session.getAttribute("addage");
-Integer addage = null;
 
-if (addageStr != null && !addageStr.isEmpty()) {
-    try {
-        // 문자열을 Integer로 변환
-        addage = Integer.parseInt(addageStr);
-    } catch (NumberFormatException e) {
-        System.out.println("Failed to parse addage: " + e.getMessage());
-    }
-} else {
-    // addage가 없으면 기본값으로 설정하거나 다른 처리 수행
-    System.out.println("addage is null or empty");
-    addage = 0; // 기본값 설정 예시
-}
-
-
-System.out.print("USER_ID, addage : " + USER_ID + "  " + addage );
+// 세션에서 addage 값을 문자열로 가져옴
+   String addageStr = (String) session.getAttribute("addage");
+   Integer babyage = null;
+   
+   if (addageStr != null) {
+   	
+       try {
+       	babyage = Integer.parseInt(addageStr);
+           System.out.println("백신 서블릿에서 받아온 아기 개월수 : "+ babyage);
+       } catch (NumberFormatException e) {
+           System.out.println("세션에서 가져온 babyage 값 변환 실패: " + e.getMessage());
+       }
+   }
 %>
-
 
 
 
@@ -64,7 +57,7 @@ System.out.print("USER_ID, addage : " + USER_ID + "  " + addage );
 					<label>날짜:</label> <input type="date" name="date">
 				</div>
 				<div>
-					<label>아기 개월수: <%=addage %></label> 
+					<label>아기 개월수:<%=babyage %> </label> 
 					
 					<p></p>
 						

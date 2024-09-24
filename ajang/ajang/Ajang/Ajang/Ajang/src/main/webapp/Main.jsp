@@ -73,11 +73,11 @@
         <div class="right-section">
             <!-- 날짜 표시 영역 -->
             <div class="date-section">
-                <span id="selectedDateDisplay">선택된 날짜가 없습니다.</span>
+               <span id="selectedDateDisplay">선택된 날짜가 없습니다.</span>
                 <!-- 공휴일 이름을 표시할 영역 -->
                 <span id="holidayNameDisplay"></span>
                 <!-- 일정을 표시할 영역 -->
-                <span id="ScheduleDisplay">일정이 없습니다.</span>
+                <p id="ScheduleDisplay">일정이 없습니다.</p>
                 <!-- 백신을 표시할 영역 -->
                 <span id="VaccineDisplay"></span>
                 
@@ -106,6 +106,9 @@
                 <div class="diary-section" id="diary-section">
                     <h3>일기</h3>
                 </div>
+            </div>
+            <div id = "BabyAge">
+            
             </div>
                 <button class='diary-write-btn' onclick='toggleDiaryPopup(); return false;'>작성하기</button>
 
@@ -140,6 +143,7 @@
                 loadDiaryList(year, month, day); // Diary 리스트 로드
                 loadScheduleList(year, month, day); // 일정 리스트 로드
                 loadVaccineList(year, month, day); // 백신 리스트 로드
+                loadBabyAgeList(year, month, day); // 아기 개월 리스트 로드
             }
 
             // 날짜를 클릭했을 때, 선택된 날짜를 실시간으로 갱신
@@ -164,6 +168,7 @@
                     loadDiaryList(year, month, selectedDay); // 선택된 날짜의 일기 리스트 로드
                     loadScheduleList(year, month, selectedDay); // 선택된 날짜의 일정 리스트 로드
                     loadVaccineList(year, month, selectedDay); // 선택된 날짜의 백신 리스트 로드
+                    loadBabyAgeList(year, month, selectedDay); // 선택된 날짜의 아기 개월 리스트 로드
                 });
             });
         });
@@ -228,6 +233,17 @@
             xhr.send();
         }
         
+        // 선택된 날짜에 맞는 아기 개월 정보 불러오는 함수
+        function loadBabyAgeList(year, month, day) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "BabyAgeServlet?year=" + year + "&month=" + month + "&day=" + day, true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    document.getElementById("BabyAge").innerHTML = xhr.responseText;
+                }
+            };
+            xhr.send();
+        }
     </script>
 </body>
 

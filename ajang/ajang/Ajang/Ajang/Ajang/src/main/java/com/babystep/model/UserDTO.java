@@ -28,7 +28,9 @@ public class UserDTO {
 		this.JOINED_AT = jOINED_AT;
 	}
 
-
+	public UserDTO(String id) {
+		this.id = id ;
+	} 
 
 	public String getAddr() {
 		return addr;
