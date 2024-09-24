@@ -151,7 +151,7 @@ a {
 
 /* 다크 모드 전체 배경 및 텍스트 색상 */
 body.dark-mode {
-    background-color: #121212;
+    background-color: #1e1e1e;
     color: #e0e0e0;
 }
 

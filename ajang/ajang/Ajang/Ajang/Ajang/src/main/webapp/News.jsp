@@ -137,15 +137,7 @@
 		</div>
 	</div>
 
-	<!-- 팝업 -->
-	<div id="news-popup" class="news-popup">
-		<div class="news-popup-content">
-			<span class="news-close" onclick="newsClosePopup()">&times;</span>
-			<h2 id="news-popup-title"></h2>
-			<p id="news-popup-description"></p>
-			<p id="news-popup-url"></p>
-		</div>
-	</div>
+	
 
 	<script src="assets/js/News.js"></script>
 </body>

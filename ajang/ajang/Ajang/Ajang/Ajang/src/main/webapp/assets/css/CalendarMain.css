@@ -97,14 +97,14 @@ td.today {
 
 /* 선택된 날짜 (숫자는 중앙, 배경색만 변경) */
 td.selected {
-    background-color: #5EFBFF !important; /* 선택된 날짜 배경색을 강제로 적용 */
+    background-color: #f0f8ff !important; /* 선택된 날짜 배경색을 강제로 적용 */
     color: #000 !important; /* 텍스트 색상 유지 */
     font-weight: normal; /* 두께는 기본 */
 }
 
 /* 호버 시 배경색만 살짝 변경 (선택적) */
 td:hover {
-    background-color: #5EFBFF; /* 호버 시 밝은 색으로 */
+    background-color: #f0f8ff; /* 호버 시 밝은 색으로 */
     cursor: pointer;
 }
 
@@ -137,20 +137,20 @@ body.dark-mode table {
 }
 
 body.dark-mode .calendar-container {
-    background-color: #333; /* 메인 컨테이너 배경 어둡게 */
+    background-color: #1e1e1e; /* 메인 컨테이너 배경 어둡게 */
     color: #e0e0e0; /* 밝은 회색 텍스트 */
     border-radius: 20px;
 }
 
 /* 다크 모드에서 달력 타이틀 */
 body.dark-mode .calendar-title {
-    background-color: #333; /* 타이틀 배경 */
+    background-color: #1e1e1e; /* 타이틀 배경 */
     color: #e0e0e0; /* 텍스트 색상 */
 }
 
 /* 다크 모드에서 버튼 */
 body.dark-mode .calendar-title input[type="button"] {
-    background-color: #333; /* 다크 모드 버튼 배경색 */
+    background-color: #1e1e1e; /* 다크 모드 버튼 배경색 */
     color: #e0e0e0; /* 텍스트 색상 */
 }
 

@@ -73,7 +73,6 @@
         <div class="right-section">
             <!-- 날짜 표시 영역 -->
             <div class="date-section">
-                <h2>날짜</h2>	
                 <span id="selectedDateDisplay">선택된 날짜가 없습니다.</span>
                 <!-- 공휴일 이름을 표시할 영역 -->
                 <span id="holidayNameDisplay"></span>

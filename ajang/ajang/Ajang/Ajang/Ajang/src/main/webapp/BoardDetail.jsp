@@ -16,171 +16,237 @@
 <style>
     body {
     
-        font-family: 'Noto Sans KR', sans-serif;
-        background-color: white;
-        overflow-x: hidden; /* 가로 스크롤 방지 */
-    	overflow-y: auto; /* 세로 스크롤 허용 */
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        flex-direction: column;
-    	justify-content: flex-start;
-    }
+     body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: white;
+    overflow-x: hidden; /* 가로 스크롤 방지 */
+    overflow-y: auto; /* 세로 스크롤 허용 */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: flex-start;
+}
 
-    .container {
-        width: 90vw;
-        height: 90vh;
-        max-width: 1200px;
-        max-height: 800px;
-        background-color: white;
-        padding: 20px;
-        box-sizing: border-box;
-        margin-top: 50px;
-    }
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
 
-    .titles {
-        font-size: 24px;
-        font-weight: bold;
-        margin-bottom: 10px;
-        border-bottom: 1px solid #ddd;
-        padding-bottom: 5px;
-    }
+.container {
+    width: 90vw;
+    height: 90vh;
+    max-width: 1200px;
+    max-height: 800px;
+    background-color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: 50px;
+}
 
-    .meta {
-        font-size: 14px;
-        color: #555;
-        margin-bottom: 10px;
-        border-bottom: 1px solid #ddd;
-        padding-bottom: 5px;
-    }
+body.dark-mode .container {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+}
 
-    .content {
-        width: 100%;
-        min-height: 100px;
-        border: 1px solid #ccc;
-        margin-bottom: 15px;
-        overflow: auto;
-    }
+.titles {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
 
-    .content img {
-        max-width: 75%; /* 이미지를 컨테이너의 75% 너비로 제한 */
-        max-height: 500px; /* 이미지의 최대 높이를 500px로 제한 */
-        height: auto;    /* 비율에 맞춰 자동으로 높이 조정 */
-        margin-bottom: 10px; /* 이미지 간 간격 */
-        display: block;
-        margin-left: auto;
-        margin-right: auto; /* 이미지를 중앙에 정렬 */
-    }
+body.dark-mode .titles {
+    border-bottom: 1px solid #555;
+    color: #ffffff;
+}
 
-    .interactions {
-        text-align: center;
-        margin-bottom: 15px;
-        font-size: 14px;
-        color: #555;
-    }
+.meta {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
 
-    .comments-section {
-        border: 1px solid #ccc;
-        padding: 10px;
-        margin-top: 20px;
-    }
+body.dark-mode .meta {
+    color: #aaaaaa;
+    border-bottom: 1px solid #444;
+}
 
-    .comment {
-        margin-bottom: 10px;
-    }
+.content {
+    width: 100%;
+    min-height: 100px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+    overflow: auto;
+}
 
-    .comment-author {
-        font-weight: bold;
-        font-size: 14px;
-        margin-bottom: 5px;
-    }
+body.dark-mode .content {
+    border: 1px solid #555;
+}
 
-    #heart {
-        font-size: 22px;
-        color: black;
-        background: none;
-        border: none;
-    }
+.content img {
+    max-width: 75%;
+    max-height: 500px;
+    height: auto;
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-    #heart.liked {
-        color: red;
-    }
-    
-    .comment-box {
-            width: 100%;
-            max-width: 1140px; /* 최대 너비 */
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 10px;
-            margin: 10px auto;
-            background-color: #fff;
-            display: flex;
-            flex-direction: column;
-        }
+.interactions {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #555;
+}
 
-        .comment-header {
-            font-weight: bold;
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
+body.dark-mode .interactions {
+    color: #aaaaaa;
+}
 
-        .comment-input {
-            width: 100%;
-            border: none;
-            outline: none;
-            font-size: 14px;
-            color: #999;
-            resize: none;
-            margin-bottom: 10px;
-        }
+.comments-section {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 20px;
+}
 
-        .comment-input::placeholder {
-            color: #ccc;
-        }
+body.dark-mode .comments-section {
+    border: 1px solid #555;
+}
 
-        .comment-icons {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+.comment {
+    margin-bottom: 10px;
+}
 
-        .icon-set {
-            display: flex;
-            align-items: center;
-        }
+.comment-author {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
 
-        .icon-set img {
-            width: 24px;
-            height: 24px;
-            margin-right: 8px;
-            cursor: pointer;
-        }
+body.dark-mode .comment-author {
+    color: #ffffff;
+}
 
-        .comment-submit {
-            color: #999;
-            font-size: 14px;
-            border: none;
-            background: none;
-            cursor: pointer;
-            outline: none;
-        }
+#heart {
+    font-size: 22px;
+    color: black;
+    background: none;
+    border: none;
+}
 
-        .comment-submit:hover {
-            color: #333;
-        }
-        
-        /* BoardMain 영역 */
-        .board-main {
-            margin-top: 20px;
-        }
-        
-        .bottom-container {
-        	width : 1500px;
-        }
-        
+body.dark-mode #heart {
+    color: #e0e0e0;
+}
+
+#heart.liked {
+    color: red;
+}
+
+.comment-box {
+    width: 100%;
+    max-width: 1140px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 10px auto;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+body.dark-mode .comment-box {
+    background-color: #2c2c2c;
+    border: 1px solid #555;
+}
+
+.comment-header {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.comment-input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: #999;
+    resize: none;
+    margin-bottom: 10px;
+}
+
+body.dark-mode .comment-input {
+    background-color: #2c2c2c;
+    color: #dddddd;
+}
+
+.comment-input::placeholder {
+    color: #ccc;
+}
+
+body.dark-mode .comment-input::placeholder {
+    color: #888;
+}
+
+.comment-icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon-set {
+    display: flex;
+    align-items: center;
+}
+
+.icon-set img {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.comment-submit {
+    color: #999;
+    font-size: 14px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.comment-submit:hover {
+    color: #333;
+}
+
+body.dark-mode .comment-submit {
+    color: #e0e0e0;
+}
+
+.comment-submit:hover {
+    color: #ffffff;
+}
+
+.board-main {
+    margin-top: 20px;
+}
+
+.bottom-container {
+    width: 1500px;
+}
+
+body.dark-mode .bottom-container {
+    background-color: #1e1e1e;
+}
+
 </style>
 </head>
 <body>
