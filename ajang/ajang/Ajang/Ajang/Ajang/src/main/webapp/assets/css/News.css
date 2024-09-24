@@ -40,24 +40,22 @@ body {
     padding: 10px;
     width: 200px; /* 입력란 너비 */
     font-size: 16px;
-    border: 1px solid black;
 }
 
 /* 검색 버튼 스타일 */
 .search-button {
     padding: 10px 20px;
     font-size: 16px;
-    border: 1px solid black;
+    border: none;
     background-color: #fff;
     color: black;
-    border-radius: 4px;
+    border-radius: 0 4px 4px 0;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 .search-button:hover {
     background-color: #555;
-    border: 1px solid black;
 }
 
 /* 경계선을 가운데에만 남기고 양 옆 제거 */
@@ -149,28 +147,4 @@ body.dark-mode .news-watch-button:hover {
 /* 다크 모드에서 아이템 설명 텍스트 */
 body.dark-mode .item-info {
     color: #e0e0e0;
-}
-
-body.dark-mode .search-input {
-    padding: 10px 20px;
-    width: 200px; /* 입력란 너비 */
-    font-size: 16px;
-    border: 1px solid #333;
-    background-color: #333;
-}
-
-body.dark-mode .search-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: 1px solid #333;
-    background-color: #333;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-body.dark-mode .search-button:hover {
-    background-color: #555;
-    border: 1px solid black;
 }
