@@ -148,6 +148,74 @@ a {
 .menu {
 	margin-bottom: 120px;
 }
+
+/* 다크 모드 전체 배경 및 텍스트 색상 */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+/* 다크 모드에서 컨테이너 설정 */
+body.dark-mode .countrys-container {
+    background-color: #1e1e1e; /* 어두운 배경 */
+    color: #e0e0e0; /* 텍스트 밝은 회색 */
+}
+
+/* 다크 모드에서 탑 바 */
+body.dark-mode .top-bar {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+/* 다크 모드에서 제목 색상 */
+body.dark-mode .top-bar h1 {
+    color: #e0e0e0;
+}
+
+/* 다크 모드에서 카드 배경과 텍스트 */
+body.dark-mode .card {
+    background-color: #1e1e1e; /* 카드 배경 어둡게 */
+    color: #e0e0e0; /* 텍스트 밝게 */
+    border: 1px solid #333;
+}
+
+body.dark-mode .card:not(:last-child) {
+    border-bottom: 1px solid #333; /* 카드 사이 경계선 어둡게 */
+}
+
+body.dark-mode .card:hover {
+    background-color: #2c2c2c; /* 호버 시 배경 조금 밝게 */
+}
+
+body.dark-mode .card .titles {
+    color: #e0e0e0;
+}
+
+body.dark-mode .card .name, 
+body.dark-mode .card .date {
+    color: #999; /* 이름과 날짜 색상 유지 */
+}
+
+/* 다크 모드에서 하트 아이콘 및 좋아요 수 */
+body.dark-mode .heart-container .likes-count {
+    color: #e0e0e0;
+}
+
+/* 다크 모드에서 작성하기 버튼 */
+body.dark-mode .write-country-button {
+    background-color: #333;
+    color: #e0e0e0;
+}
+
+body.dark-mode .write-country-button:hover {
+    background-color: #444;
+}
+
+/* 다크 모드에서 경계선 스타일 */
+body.dark-mode .section-divider-c {
+    border-bottom: 1px solid #333;
+}
+
 </style>
 </head>
 <body>

@@ -166,6 +166,80 @@ td {
 .menu {
 	margin-bottom: 120px;
 }
+
+/* 다크 모드 전체 배경 및 텍스트 색상 */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+/* 다크 모드에서 컨테이너 설정 */
+body.dark-mode .Board-container {
+    background-color: #1e1e1e; /* 어두운 배경 */
+    color: #e0e0e0; /* 텍스트 밝은 회색 */
+}
+
+/* 다크 모드에서 카드 스타일 */
+body.dark-mode .Board-card {
+    background-color: #1e1e1e; /* 어두운 배경 */
+    color: #e0e0e0; /* 텍스트 밝은 회색 */
+}
+
+/* 다크 모드에서 게시판 제목 */
+body.dark-mode h2 {
+    color: #e0e0e0; /* 텍스트 색상 밝게 */
+}
+
+/* 다크 모드에서 검색 폼 디자인 */
+body.dark-mode .search-form select,
+body.dark-mode .search-form input {
+    background-color: #333; /* 어두운 배경 */
+    color: #e0e0e0; /* 텍스트 밝은 회색 */
+    border: 1px solid #444; /* 테두리 어둡게 */
+}
+
+body.dark-mode .search-form button {
+    background-color: #333;
+    color: #e0e0e0;
+    border: 1px solid #444;
+}
+
+body.dark-mode .search-form button:hover {
+    background-color: #444;
+    border: 1px solid #555;
+}
+
+/* 다크 모드에서 게시판 테이블 */
+body.dark-mode table {
+    background-color: #1e1e1e; /* 테이블 배경 어둡게 */
+    color: #e0e0e0; /* 텍스트 색상 밝게 */
+}
+
+body.dark-mode th {
+    background-color: #333; /* 헤더 배경 어둡게 */
+    color: #e0e0e0;
+}
+
+body.dark-mode td {
+    background-color: #1e1e1e; /* 테이블 셀 배경 어둡게 */
+    color: #e0e0e0;
+}
+
+/* 다크 모드에서 작성하기 버튼 */
+body.dark-mode #write {
+    background-color: #333;
+    color: #e0e0e0;
+}
+
+body.dark-mode #write:hover {
+    background-color: #444;
+}
+
+/* 다크 모드에서 링크 색상 */
+body.dark-mode .titles {
+    color: #e0e0e0;
+}
+
 </style>
 </head>
 <body>
