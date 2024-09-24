@@ -44,20 +44,21 @@ public class ImageDiaryServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 
 		if (imagediary == null || imagediary.isEmpty()) {
+			out.print("<h3>이미지</h3>");
 			out.println("<br>");
+			out.println("<p>작성된 이미지가 없습니다</p>");
+		
 		} else {
 			out.print("<h3>이미지</h3>");
 			out.println("<br>");
 			for (DiaryPopupDTO image : imagediary) {
 				if (image != null) {
-					out.println("<img class = 'image-upload-section-con' src='./file/" + image.getDI_FILE1() + "' />");
-				}
+					out.println("<img class='image-upload-section-con' src='./file/" + image.getDI_FILE1() + "' onerror=\"this.style.display='none'\">");;
+				} 
 				if (image != null) {
-					out.println("<img class = 'image-upload-section-con' src='./file/" + image.getDI_FILE2() + "' />");
-				} else {
-					out.println("<p>이미지가 없습니다</p>");
-				}
+					out.println("<img class='image-upload-section-con' src='./file/" + image.getDI_FILE2() + "' onerror=\"this.style.display='none'\">");
 
+				} 
 			}
 		}
 	}

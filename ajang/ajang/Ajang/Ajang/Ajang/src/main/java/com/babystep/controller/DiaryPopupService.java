@@ -52,11 +52,10 @@ public class DiaryPopupService extends HttpServlet {
             System.out.println("content " + DI_CONTENT);
             String[] DI_FILE = new String[2];
 
-            for(int i = 1; i <= 2; ++i) {
-               DI_FILE[i - 1] = multi.getFilesystemName("file" + i);
-               if (DI_FILE[i - 1] == null || DI_FILE[i - 1].isEmpty()) {
-                  DI_FILE[i - 1] = "";
-               }
+         
+            for (int i = 1; i <= 2; ++i) {
+            	DI_FILE[i-1] = multi.getFilesystemName("file" + i);
+                if (DI_FILE[i-1] == null) DI_FILE[i-1] = ""; // 파일이 없을 경우 빈 문자열로 설정
             }
 
             String dateString = multi.getParameter("date");
@@ -70,10 +69,10 @@ public class DiaryPopupService extends HttpServlet {
             System.out.println(vo.toString());
             int cnt = (new DiaryPopupDAO()).insertdiary(vo);
             if (cnt > 0) {
-               System.out.println("\uc77c\uae30 \uc791\uc131 \uc131\uacf5");
+               
                response.sendRedirect("Main.jsp");
             } else {
-               System.out.println("\uc77c\uae30 \uc791\uc131 \uc2e4\ud328");
+              
                response.sendRedirect("Error.jsp");
             }
          } catch (ParseException var26) {
