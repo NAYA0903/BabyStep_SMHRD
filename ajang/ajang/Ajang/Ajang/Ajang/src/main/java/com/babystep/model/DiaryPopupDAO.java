@@ -3,6 +3,7 @@ package com.babystep.model;
 
 import com.babystep.db.SqlSessionManager;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -49,31 +50,22 @@ public class DiaryPopupDAO {
       System.out.println("DAO " +diaryList);
       return diaryList;
    }
-
    public List<DiaryPopupDTO> detaildiary(String USER_ID, String selectedDate) {
-      SqlSession session = null;
-      List<DiaryPopupDTO> detaildiary = null;
+	    try (SqlSession session = SqlSessionManager.getSession()) {
+	        Map<String, Object> paraMap = new HashMap<>();
+	        paraMap.put("USER_ID", USER_ID);
+	        paraMap.put("selectedDate", selectedDate);
+	        
+	        List<DiaryPopupDTO> detaildiary = session.selectList("com.babystep.db.DiaryPopupMapper.detaildiary", paraMap);
+	        System.out.println("detaildiary: " + detaildiary);
+	        
+	        return detaildiary != null ? detaildiary : Collections.emptyList();
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        return Collections.emptyList(); // 예외가 발생한 경우에도 빈 리스트 반환
+	    }
+	}
 
-      try {
-         session = SqlSessionManager.getSession();
-         Map<String, Object> paraMap = new HashMap();
-         paraMap.put("USER_ID", USER_ID);
-         paraMap.put("selectedDate", selectedDate);
-         detaildiary = this.sqlSession.selectList("com.babystep.db.DiaryPopupMapper.detaildiary", paraMap);
-         System.out.println("detaildiary: " +detaildiary);
-         if (detaildiary == null) {
-            ArrayList var = new ArrayList();
-            return var;
-         }
-      } finally {
-         if (session != null) {
-            session.close();
-         }
-
-      }
-
-      return detaildiary;
-   }
    
    public int babyage (String USER_ID) {
        // SqlSession을 생성

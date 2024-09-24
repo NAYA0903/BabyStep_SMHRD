@@ -120,6 +120,12 @@
   	<description></description>
   	<servlet-class>com.babystep.controller.ShareScheduleServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>VaccineServlet</servlet-name>
+  	<display-name>VaccineServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.babystep.controller.VaccineServlet</servlet-class>
+  </servlet>
   
   
   <servlet-mapping>
@@ -181,6 +187,10 @@
   <servlet-mapping>
   	<servlet-name>ShareScheduleServlet</servlet-name>
   	<url-pattern>/ShareScheduleServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>VaccineServlet</servlet-name>
+  	<url-pattern>/VaccineServlet</url-pattern>
   </servlet-mapping>
   
   
