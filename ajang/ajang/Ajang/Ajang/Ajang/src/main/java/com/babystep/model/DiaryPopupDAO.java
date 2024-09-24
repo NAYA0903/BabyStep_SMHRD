@@ -67,16 +67,18 @@ public class DiaryPopupDAO {
 	}
 
    
-   public int babyage (String USER_ID) {
-       // SqlSession을 생성
-       SqlSession session = sqlSessionFactory.openSession();
-       int babyage = 0 ;
-       try {
-    	   System.out.println("USER_ID" + USER_ID);
-	 babyage = session.selectOne("com.babystep.db.DiaryPopupMapper.babyage", USER_ID) ;
-       } finally {
-           session.close(); // 세션을 반드시 닫아야 함
-	} 
-       return babyage ;
-   }
+   public int babyage(String USER_ID) {
+	    int babyage = 0;
+	    try (SqlSession session = SqlSessionManager.getSession()) {
+	        System.out.println("USER_ID: " + USER_ID);
+	        babyage = session.selectOne("com.babystep.db.DiaryPopupMapper.babyage", USER_ID);
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    return babyage;
+	}
+
+	
+	
+
 }

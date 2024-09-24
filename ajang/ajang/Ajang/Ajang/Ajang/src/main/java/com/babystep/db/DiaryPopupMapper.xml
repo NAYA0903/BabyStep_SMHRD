@@ -28,9 +28,11 @@
   </select>
 
 <select id = "babyage" parameterType="String" resultType ="int">
-  SELECT b.BY_AGE
-  FROM TB_BABY b
-  WHERE b.USER_ID = #{USER_ID}
+ SELECT FLOOR(MONTHS_BETWEEN(SYSDATE, b.BY_BIRTHDATE)) AS BY_AGE
+FROM TB_BABY b
+WHERE b.USER_ID = #{USER_ID}
 </select>
 	
+
+
 </mapper>

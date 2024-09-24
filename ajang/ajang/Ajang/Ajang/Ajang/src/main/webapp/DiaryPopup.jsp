@@ -1,3 +1,4 @@
+<%@page import="com.babystep.model.BabyDTO"%>
 <%@page import="java.util.List"%>
 <%@page import="com.babystep.model.DiaryPopupDTO"%>
 <%@page import="org.apache.ibatis.session.SqlSessionFactory"%>
@@ -18,9 +19,19 @@
 
 <% 
 String USER_ID = (String) session.getAttribute("id");
-int babyage = new DiaryPopupDAO().babyage(USER_ID);
-
+	
+BabyDTO baby = (BabyDTO) session.getAttribute("baby");
+if (baby != null) {
 %>
+    <p><%= baby.getByAge() %> 개월</p>
+<%
+} else {
+%>
+    <p>Baby information is not available.</p>
+<%
+}
+%>
+
 	<!-- 팝업 창 -->
 	<div id="diaryPopup" class="diary-popup">
 		<form action="DiaryPopupService" method="post"
@@ -42,7 +53,7 @@ int babyage = new DiaryPopupDAO().babyage(USER_ID);
 				<div>
 					<label>아기 개월수:</label> 
 					
-					<p><%=babyage%></p>
+					<p></p>
 						
 				</div>
 				<div>

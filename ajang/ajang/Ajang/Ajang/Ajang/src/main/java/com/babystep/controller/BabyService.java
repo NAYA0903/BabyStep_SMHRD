@@ -56,6 +56,7 @@ public class BabyService extends HttpServlet {
             return;
         }
         
+      
         // 생년월일을 기준으로 개월 수 계산
         int byAge = calculateBabyAgeInMonths(byBirthdateStr);
 

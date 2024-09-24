@@ -8,6 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.babystep.db.SqlSessionManager;
+import com.babystep.model.BabyDAO;
+import com.babystep.model.BabyDTO;
 import com.babystep.model.DiaryPopupDTO;
 
 @WebServlet("/DetailDiaryServlet")
@@ -40,7 +44,7 @@ public class DetailDiaryServlet extends HttpServlet {
         
         // 날짜와 사용자 ID에 맞는 다이어리 목록 가져오기
         List<DiaryPopupDTO> detaildiary = diaryService.detaildiary(USER_ID, selectedDate);
-        
+       
 
         
         // 데이터를 request 객체에 담아 JSP로 전달

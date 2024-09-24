@@ -24,10 +24,19 @@ public class BabyDTO {
 		this.userId = userId ;
 		
 	}
+
 	
-	
+	public BabyDTO(Date byBirthdate, int byAge) {
+		this.byBirthdate = byBirthdate;
+		this.byAge = byAge;
+	}
+
 	// Getter and Setter
 	
+	public BabyDTO(int byAge) {
+		this.byAge = byAge;
+	}
+
 	public String getByName() {
 		return byName;
 	}

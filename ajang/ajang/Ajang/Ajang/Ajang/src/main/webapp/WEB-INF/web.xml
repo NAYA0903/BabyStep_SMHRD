@@ -126,6 +126,12 @@
   	<description></description>
   	<servlet-class>com.babystep.controller.VaccineServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>BabyageService</servlet-name>
+  	<display-name>BabyageService</display-name>
+  	<description></description>
+  	<servlet-class>com.babystep.controller.BabyageService</servlet-class>
+  </servlet>
   
   
   <servlet-mapping>
@@ -191,6 +197,10 @@
   <servlet-mapping>
   	<servlet-name>VaccineServlet</servlet-name>
   	<url-pattern>/VaccineServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>BabyageService</servlet-name>
+  	<url-pattern>/BabyageService</url-pattern>
   </servlet-mapping>
   
   
