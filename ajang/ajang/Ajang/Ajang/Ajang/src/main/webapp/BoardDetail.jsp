@@ -227,6 +227,7 @@
             <div class="comment-author"><%=comments.getUserId() %></div>
             <div class="comment-content"><%=comments.getCommentContent() %></div>
             <div class="comment-date"><%=comments.getCreatedAt() %></div>
+            <br>
         </div>
         <% } %>
     </div>
