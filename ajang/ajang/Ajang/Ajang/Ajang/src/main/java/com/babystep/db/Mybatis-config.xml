@@ -6,6 +6,10 @@
 <configuration>
 	<properties resource="com/babystep/db/db.properties"></properties>
 	
+	<!--  <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings> -->
+	
 	<!-- 타입 별칭 설정 -->
 	<typeAliases>
 		<typeAlias type="com.babystep.model.UserDTO" alias="User" />

@@ -97,14 +97,14 @@ td.today {
 
 /* 선택된 날짜 (숫자는 중앙, 배경색만 변경) */
 td.selected {
-    background-color: #ffff8c !important; /* 선택된 날짜 배경색을 강제로 적용 */
+    background-color: #5EFBFF !important; /* 선택된 날짜 배경색을 강제로 적용 */
     color: #000 !important; /* 텍스트 색상 유지 */
     font-weight: normal; /* 두께는 기본 */
 }
 
 /* 호버 시 배경색만 살짝 변경 (선택적) */
 td:hover {
-    background-color: #ffff8c; /* 호버 시 밝은 색으로 */
+    background-color: #5EFBFF; /* 호버 시 밝은 색으로 */
     cursor: pointer;
 }
 

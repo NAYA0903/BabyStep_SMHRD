@@ -315,7 +315,7 @@ body.dark-mode .titles {
                 <c:forEach var="b" items="${boards}" varStatus="s">
                     <tr>
                         <td>${s.count}</td>
-                        <td><a class="titles" href="BoardDetail.jsp?num=${b.BO_IDX}">${b.BO_TITLE}</a></td>
+                        <td><a class="titles" href="BoardService?num=${b.BO_IDX}" onclick="increaseViews(${b.BO_IDX}); return false;">${b.BO_TITLE}</a></td>
                         <td>${b.USER_NICK}</td>
                         <td>${b.CREATED_AT}</td>
                         <td>${b.BO_LIKES}</td>
@@ -355,6 +355,16 @@ body.dark-mode .titles {
 
 	    lastScrollTop = scrollTop;
 	});
+	
+	function increaseViews(boIdx) {
+	    fetch('BoardService?num=' + boIdx)
+	        .then(response => {
+	            if (response.ok) {
+	                window.location.href = 'BoardDetail.jsp?num=' + boIdx;
+	            }
+	        })
+	        .catch(error => console.log('조회수 증가 실패: ', error));
+	}
 	</script>
 	
 </body>

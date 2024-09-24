@@ -29,17 +29,17 @@ public class BoardDAO {
 
 	public List<BoardDTO> allBoard() {
 		List<BoardDTO> boards = null; // 빈 리스트로 초기화
-		System.out.println("allboard 도달");
-		System.out.println(boards);
+		//System.out.println("allboard 도달");
+		//System.out.println(boards);
 		try {
 			boards = sqlSession.selectList("com.babystep.db.BoardMapper.allBoard");
-			System.out.println("게시글 개수: " + boards.size()); // 로그 출력
+			//System.out.println("게시글 개수: " + boards.size()); // 로그 출력
 		} catch (Exception e) {
 			e.printStackTrace(); // 예외 처리
 		} finally {
 			sqlSession.close();
 		}
-		System.out.println("조회된 데이터: " + boards);
+		//System.out.println("조회된 데이터: " + boards);
 		return boards;
 	}
 
@@ -57,7 +57,7 @@ public class BoardDAO {
 	}
 
 	public void increaseBoardHit(int boIdx) {
-		try {
+		try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
 			sqlSession.update("com.babystep.db.BoardMapper.boardHit", boIdx);
 			sqlSession.commit(); // 트랜잭션 커밋
 		} catch (Exception e) {

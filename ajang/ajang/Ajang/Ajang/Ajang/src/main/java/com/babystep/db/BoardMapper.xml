@@ -61,7 +61,7 @@
 		문에서만 사용을 함 넣어 줄 값을 인트형으로 넣어주겠다 그것이 parameterType임 -->
 	<update id="boardHit" parameterType="int">
 		UPDATE TB_BOARD SET BO_VIEWS
-		= BO_VIEWS + 1 WHERE BO_IDX = #{BO_IDX}
+		= BO_VIEWS + 1 WHERE BO_IDX = #{boIdx}
 	</update>
 
 
@@ -71,10 +71,10 @@
 		SELECT * FROM tb_board WHERE ${field} LIKE #{value}
 	</select>
 
+	
 
 
-
-	<!-- ***************** 검색 쿼리 추가 ***************** -->
+	
 
 
 </mapper>
