@@ -97,20 +97,14 @@ td.today {
 
 /* 선택된 날짜 (숫자는 중앙, 배경색만 변경) */
 td.selected {
-    background-color: #d3e0ff; /* 선택된 날짜 배경색만 변경 */
-    color: #000; /* 텍스트 색상 유지 */
+    background-color: #ffff8c !important; /* 선택된 날짜 배경색을 강제로 적용 */
+    color: #000 !important; /* 텍스트 색상 유지 */
     font-weight: normal; /* 두께는 기본 */
-}
-
-/* 클릭할 때 텍스트 위치 변경 없음, 배경색만 변경 */
-td:active {
-    background-color: #d3e0ff; /* 클릭 시에도 배경색만 변경 */
-    color: #000;
 }
 
 /* 호버 시 배경색만 살짝 변경 (선택적) */
 td:hover {
-    background-color: #f0f8ff; /* 호버 시 밝은 색으로 */
+    background-color: #ffff8c; /* 호버 시 밝은 색으로 */
     cursor: pointer;
 }
 
@@ -134,6 +128,100 @@ td:hover {
 	color: red;
 	font-size: 10px;
 	
+}
+
+/* 다크 모드에서의 달력 스타일 */
+body.dark-mode table {
+    background-color: #333; /* 어두운 배경색 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 다크 모드에서 그림자를 좀 더 강하게 */
+}
+
+body.dark-mode .calendar-container {
+    background-color: #333; /* 메인 컨테이너 배경 어둡게 */
+    color: #e0e0e0; /* 밝은 회색 텍스트 */
+    border-radius: 20px;
+}
+
+/* 다크 모드에서 달력 타이틀 */
+body.dark-mode .calendar-title {
+    background-color: #333; /* 타이틀 배경 */
+    color: #e0e0e0; /* 텍스트 색상 */
+}
+
+/* 다크 모드에서 버튼 */
+body.dark-mode .calendar-title input[type="button"] {
+    background-color: #333; /* 다크 모드 버튼 배경색 */
+    color: #e0e0e0; /* 텍스트 색상 */
+}
+
+body.dark-mode .calendar-title input[type="button"]:hover {
+    background-color: #444; /* 호버 시 조금 더 밝게 */
+}
+
+/* 다크 모드에서 요일 헤더 */
+body.dark-mode th {
+    color: #e0e0e0; /* 요일 텍스트 색상 */
+}
+
+/* 일요일과 토요일 */
+body.dark-mode th.sun {
+    color: #ff8a80; /* 일요일 빨간색 */
+}
+
+body.dark-mode th.sat {
+    color: #82b1ff; /* 일요일 빨간색 */
+}
+
+body.dark-mode td.sun {
+    color: #ff8a80; /* 일요일 빨간색 */
+}
+
+body.dark-mode td.sat {
+    color: #82b1ff; /* 토요일 파란색 */
+}
+
+/* 다크 모드에서 날짜 셀 */
+body.dark-mode td {
+    background-color: #333; /* 셀 배경 */
+    color: #e0e0e0; /* 기본 텍스트 색상 */
+    border: 1px solid #333; /* 셀 테두리 */
+}
+
+/* 다크 모드에서 오늘 날짜 */
+body.dark-mode td.today {
+    background-color: #37474f; /* 다크 모드에서 오늘 날짜 배경 */
+    color: #e0e0e0;
+}
+
+/* 다크 모드에서 선택된 날짜 */
+body.dark-mode td.selected {
+    background-color: #bdbdbd!important; /* 선택된 날짜 배경 */
+    color: #ffffff !important; /* 텍스트 색상을 흰색으로 */
+}
+
+/* 다크 모드에서 호버 */
+body.dark-mode td:hover {
+    background-color: #bdbdbd; /* 호버 시 배경 */
+    cursor: pointer;
+}
+
+/* 다크 모드에서 공휴일 */
+body.dark-mode .holiday {
+    color: #ff5252; /* 다크 모드 공휴일 색상 */
+}
+
+body.dark-mode .holidayName {
+    color: #ff5252;
+}
+
+/* 다크 모드에서 작성하기 버튼 */
+body.dark-mode .calendar-write-btn {
+    background-color: #333; /* 다크 모드 버튼 배경색 */
+    color: #e0e0e0; /* 버튼 텍스트 색상 */
+}
+
+body.dark-mode .calendar-write-btn:hover {
+    background-color: #444;
 }
 
 /* 캘린더 하단에 작성하기 버튼 */

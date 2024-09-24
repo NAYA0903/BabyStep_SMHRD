@@ -10,19 +10,28 @@ window.onload = function () {
           document.querySelector('.main-content').style.paddingTop = titleHeight + 'px'; // 본문에 패딩 적용
       }
  
-      // 다크 모드 스위치 동작
-      const darkModeToggle = document.getElementById('darkModeToggle');
-      darkModeToggle.addEventListener('change', () => {
-          document.body.classList.toggle('dark-mode');
-          document.body.classList.toggle('light-mode');
+	  // 다크 모드 토글 스위치
+	  document.addEventListener('DOMContentLoaded', function() {
+	      const darkModeToggle = document.getElementById('darkModeToggle');
+	      const body = document.body;
 
-          // 로컬 저장소에 사용자가 선택한 모드 저장
-          if (document.body.classList.contains('dark-mode')) {
-              localStorage.setItem('theme', 'dark');
-          } else {
-              localStorage.setItem('theme', 'light');
-          }
-      });
+	      // 저장된 다크 모드 상태가 있는지 확인하고 적용
+	      if (localStorage.getItem('darkMode') === 'enabled') {
+	          body.classList.add('dark-mode');
+	          darkModeToggle.checked = true;
+	      }
+
+	      // 다크 모드 토글 동작
+	      darkModeToggle.addEventListener('change', function() {
+	          if (darkModeToggle.checked) {
+	              body.classList.add('dark-mode');
+	              localStorage.setItem('darkMode', 'enabled'); // 다크 모드 상태 저장
+	          } else {
+	              body.classList.remove('dark-mode');
+	              localStorage.setItem('darkMode', 'disabled'); // 라이트 모드 상태 저장
+	          }
+	      });
+	  });
 
       // 사용자의 이전 선택 기억 (로컬 저장소)
       const savedTheme = localStorage.getItem('theme');
@@ -46,5 +55,6 @@ window.onload = function () {
 	             'status=no, location=no, height=' + popupHeight + ', width=' + popupWidth + ', left=' + popupX + ', top=' + popupY + ', resizable=yes'
 	         );
 	     }
+		 
 		 
 	

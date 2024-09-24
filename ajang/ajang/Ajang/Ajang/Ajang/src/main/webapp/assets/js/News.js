@@ -42,3 +42,26 @@ window.addEventListener('scroll', function () {
 
     lastScrollTop = scrollTop;
 });
+
+// 다크 모드 토글 스위치
+document.addEventListener('DOMContentLoaded', function() {
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+
+    // 저장된 다크 모드 상태가 있는지 확인하고 적용
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        body.classList.add('dark-mode');
+        darkModeToggle.checked = true;
+    }
+	
+    // 다크 모드 토글 동작
+    darkModeToggle.addEventListener('change', function() {
+        if (darkModeToggle.checked) {
+            body.classList.add('dark-mode');
+            localStorage.setItem('darkMode', 'enabled'); // 다크 모드 상태 저장
+        } else {
+            body.classList.remove('dark-mode');
+            localStorage.setItem('darkMode', 'disabled'); // 라이트 모드 상태 저장
+        }
+    });
+});

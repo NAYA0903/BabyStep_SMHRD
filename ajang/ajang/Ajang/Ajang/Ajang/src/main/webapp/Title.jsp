@@ -18,9 +18,9 @@
 
 		<!-- 네비게이션 링크 섹션 -->
 		<div class="nav-links">
-			<a class="com" href="News.jsp">육아도감</a> <a class="com"
-				href="BoardMain.jsp">게시판</a> <a class="com" href="CountryMain.jsp">중고나라</a>
-			<a class="com" href="DiaryDetail.jsp">일기</a>
+			<a class="com" href="News.jsp">아장Tube</a> <a class="com"
+				href="BoardMain.jsp">놀이터</a> <a class="com" href="CountryMain.jsp">걸음마켓</a>
+			<a class="com" href="DiaryDetail.jsp">성장일기</a>
 		</div>
 
 		<!-- 섹션 -->
@@ -65,21 +65,6 @@
 		<jsp:include page="MypagePopup.jsp" />
 	</div>
 	<script src="assets/js/Title.js"></script>
-	<script>
-		window
-				.addEventListener(
-						'scroll',
-						function() {
-							const title = document.querySelector('.title'); // 타이틀 선택
-							const scrollPosition = window.scrollY; // 현재 스크롤 위치
-
-							if (scrollPosition > 0) { // 스크롤이 조금이라도 발생했을 때
-								title.style.background = `linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(240, 240, 240, 1))`; // 흰색에서 연한 회색으로 빠르게 전환
-							} else {
-								title.style.background = 'white'; // 스크롤을 맨 위로 올렸을 때 다시 흰색으로 변경
-							}
-						});
-	</script>
 
 </body>
 </html>

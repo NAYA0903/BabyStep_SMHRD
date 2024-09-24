@@ -102,7 +102,7 @@ section {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: #A0DAD0;
     transition: 0.4s;
     border-radius: 34px;
 }
@@ -125,6 +125,32 @@ input:checked + .slider {
 
 input:checked + .slider:before {
     transform: translateX(26px);
+}
+
+/* 다크 모드 타이틀 */
+body.dark-mode .title {
+    background-color: #1e1e1e; /* 타이틀 바 배경색 */
+    color: #e0e0e0; /* 텍스트 색상 */
+    border-bottom: 1px solid #333;
+}
+
+/* 다크 모드 네비게이션 링크 */
+body.dark-mode .nav-links a.com {
+    color: #e0e0e0;
+}
+
+/* 다크 모드에서 아이콘 섹션 */
+body.dark-mode .icon-links img {
+    filter: brightness(0) invert(1); /* 아이콘을 반전시켜 다크 모드에 맞게 표시 */
+}
+
+/* 다크 모드 다크 모드 스위치 */
+body.dark-mode .dark-mode-switch .slider {
+    background-color: #333;
+}
+
+body.dark-mode .dark-mode-switch input:checked + .slider {
+    background-color: #333; /* 구글 포인트 색상과 비슷한 밝은 퍼플 */
 }
 
 /* 반응형 디자인 */

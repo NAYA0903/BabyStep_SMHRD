@@ -34,7 +34,6 @@ body {
 	flex-basis: 40%;
 	background-color: white;
 	padding: 20px;
-	border-right: 1px solid #ddd;
 }
 
 /* 달력 컨테이너를 부모 영역 크기에 맞게 조정 */
@@ -280,6 +279,85 @@ body {
 	margin-top: 10px;
 	text-align: right;
 }
+
+/* 다크 모드 전체 배경 */
+body.dark-mode {
+    background-color: #1e1e1e; /* 부드러운 검은색 배경 */
+    color: #e0e0e0; /* 밝은 회색 텍스트 */
+}
+
+/* 다크 모드 왼쪽 섹션 */
+body.dark-mode .left-section {
+    background-color: #1e1e1e; /* 서브 배경색 */
+    color: #e0e0e0;
+}
+
+/* 다크 모드 오른쪽 섹션 */
+body.dark-mode .right-section {
+    background-color: #1e1e1e; /* 서브 배경색 */
+    color: #e0e0e0;
+}
+
+/* 다크 모드 날짜 섹션 */
+body.dark-mode .date-section {
+    background-color: #333;
+    border: 1px solid #333;
+    color: #e0e0e0;
+}
+
+/* 다크 모드 To-do 섹션 */
+body.dark-mode .todo-section {
+    background-color: #333;
+    border: 1px solid #333;
+    color: #e0e0e0;
+}
+
+/* 다크 모드 이미지 업로드 섹션 */
+body.dark-mode .image-upload-section {
+    background-color: #333;
+    border: 1px solid #333;
+    color: #e0e0e0;
+}
+
+/* 다크 모드 일기 섹션 */
+body.dark-mode .diary-section {
+    background-color: #333;
+    border: 1px solid #333;
+    color: #e0e0e0;
+}
+
+/* 다크 모드 버튼 */
+body.dark-mode .calendar-write-btn,
+body.dark-mode .todo-section .todo-write-btn,
+body.dark-mode .diary-write-btn {
+    background-color: #333;
+    color: #e0e0e0;
+    border: 1px solid #ddd;
+}
+
+body.dark-mode .calendar-write-btn:hover,
+body.dark-mode .todo-section .todo-write-btn:hover,
+body.dark-mode .diary-write-btn:hover {
+    background-color: black;
+}
+
+/* 다크 모드에서 스크롤바 스타일 */
+body.dark-mode .right-section::-webkit-scrollbar-thumb,
+body.dark-mode .image-upload-section::-webkit-scrollbar-thumb,
+body.dark-mode .diary-section::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+
+body.dark-mode .right-section::-webkit-scrollbar-track,
+body.dark-mode .image-upload-section::-webkit-scrollbar-track,
+body.dark-mode .diary-section::-webkit-scrollbar-track {
+    background-color: #1e1e1e;
+}
+
+
+
+
+
 
 /* 반응형 디자인을 위한 미디어 쿼리 */
 @media ( max-width : 768px) {

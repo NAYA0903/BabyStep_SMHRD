@@ -12,7 +12,6 @@
 <head>
 <meta charset="UTF-8">
 <title>게시판</title>
-
 <style>
 /* 타이틀 메뉴 아래 body 전체에 마진을 추가 */
 body {
@@ -214,7 +213,7 @@ td {
 
     <div class="Board-container">
         <div class="Board-card">
-            <h2>게시판</h2>
+            <h2>놀이터</h2>
             <form action="BoardMain.jsp" method="post">
                 <div class="search-form">
                     <select name="searchField">

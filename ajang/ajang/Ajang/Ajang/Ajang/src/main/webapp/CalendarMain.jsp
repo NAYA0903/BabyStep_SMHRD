@@ -134,12 +134,18 @@
 		</div>
 	</div>
 	<script>
+	
+	
+    
         document.addEventListener('DOMContentLoaded', function() {
             var dayCells = document.querySelectorAll('td[data-day]');
+            
+        
             var selectedCell = null;
 
             dayCells.forEach(function(cell) {
                 cell.addEventListener('click', function() {
+                	
                     if (selectedCell) {
                         selectedCell.classList.remove('selected'); // 이전 선택된 셀에서 클래스 제거
                     }
@@ -149,9 +155,8 @@
 
                     var selectedDay = cell.getAttribute('data-day');
                     var year = "<%=year%>";
-                    var month = "<%=month%>
-		";
-
+                    var month = "<%=month%>"
+		
 					// AJAX 요청을 통해 선택된 날짜를 서버로 전송
 					var xhr = new XMLHttpRequest();
 					xhr.open("POST", "SaveSelectedDate.jsp", true);

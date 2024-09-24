@@ -6,7 +6,6 @@
 <meta charset="UTF-8">
 <title>도감</title>
 <link rel="stylesheet" href="assets/css/News.css">
-
 </head>
 <body>
 	<!-- 메뉴 바 포함 -->
