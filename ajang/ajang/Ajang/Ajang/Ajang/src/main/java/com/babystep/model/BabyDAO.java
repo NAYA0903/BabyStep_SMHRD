@@ -36,16 +36,5 @@ public class BabyDAO {
     }
     
     
-    public int babyage(String USER_ID) {
-        // SqlSession을 생성
-    	
-        SqlSession session = sqlSessionFactory.openSession();
-        int babyage = 0 ;
-        try {
- 	 babyage = session.selectOne("com.babystep.db.BabyMapper.babyage", USER_ID) ;
-        } finally {
-            session.close(); // 세션을 반드시 닫아야 함
- 	} 
-        return babyage ;
-    }
+   
 }

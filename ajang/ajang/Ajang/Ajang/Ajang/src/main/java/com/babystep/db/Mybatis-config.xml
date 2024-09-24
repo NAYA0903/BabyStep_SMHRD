@@ -20,7 +20,7 @@
 		<typeAlias type="com.babystep.model.DiaryPopupDTO" alias="DiaryPopupDTO" />
 		<typeAlias type="com.babystep.model.ScheduleDTO" alias="ScheduleDTO" />
 		<typeAlias type="com.babystep.model.BabyDTO" alias="BabyDTO" />
-		<typeAlias type="com.babystep.model.ShareDTO" alias="ShareDTO" />
+		<typeAlias type="com.babystep.model.VaccineDTO" alias="VaccineDTO" />
 	</typeAliases>
 
 	<!-- 환경 설정 (데이터베이스 연결) -->
@@ -50,7 +50,7 @@
 		<mapper resource="com/babystep/db/DiaryPopupMapper.xml"/>
 		<mapper resource="com/babystep/db/ScheduleMapper.xml"/>
 		<mapper resource="com/babystep/db/BabyMapper.xml"/>
-		<mapper resource="com/babystep/db/ShareMapper.xml"/>
+		<mapper resource="com/babystep/db/VaccineMapper.xml"/>
 		
 	</mappers>
 	

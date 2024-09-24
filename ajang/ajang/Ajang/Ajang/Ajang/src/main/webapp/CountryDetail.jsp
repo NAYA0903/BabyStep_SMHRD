@@ -17,6 +17,7 @@ body {
 	margin: 0;
 	padding: 0;
 	background-color: #f5f5f5;
+	margin-top: 150px;
 }
 
 .container {
@@ -29,6 +30,7 @@ body {
 	position: relative;
 	top: 20px;
 	padding-bottom: 50px;
+	
 }
 
 /* 슬라이더 전체 컨테이너 */
@@ -189,7 +191,7 @@ body {
 </style>
 </head>
 <body>
-
+   <jsp:include page="Title.jsp" />
 	<%
 	int num = Integer.parseInt(request.getParameter("num"));
 	// 사용자가 요청한 URL에 포함된 num이라는 파라미터 값을 문자열로 받아온다
@@ -278,7 +280,7 @@ body {
 
 
 
-				<button class="chat-btn">채팅하기</button>
+				<button class="chat-btn">옹알이하기</button>
 			</div>
 		</div>
 	</div>

@@ -24,6 +24,7 @@
      FROM TB_DIARY
     WHERE USER_ID = #{USER_ID} 
      AND CREATED_AT = TO_DATE(#{selectedDate},'YYYY-MM-DD')
+     ORDER BY CREATED_AT DESC
   </select>
 
 <select id = "babyage" parameterType="String" resultType ="int">
