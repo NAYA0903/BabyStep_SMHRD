@@ -121,9 +121,8 @@ td {
 #write {
 	width: 100px;
 	height: 35px;
-	background-color: white;
-	color: black;
-	border: 1px solid #adb5bd;
+	background-color: #A0DAD0;
+	color: white;
 	cursor: pointer;
 	border-radius: 5px;
 	font-size: 1rem;
@@ -135,7 +134,7 @@ td {
 }
 
 #write:hover {
-	background-color: #adb5bd;
+	background-color: #76C7C0;
 }
 
 /* 작성하기 버튼을 오른쪽으로 정렬 */
