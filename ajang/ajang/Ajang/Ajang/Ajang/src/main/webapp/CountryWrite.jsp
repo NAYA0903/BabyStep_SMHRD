@@ -194,7 +194,7 @@ h2 {
 				<!-- 거래 방식 선택 -->
 				<div class="transaction-type">
 					<button type="button" class="active">판매하기</button>
-					<button type="button">나눔하기</button>
+					
 				</div>
 
 				<div class="form-group">
@@ -202,11 +202,7 @@ h2 {
 						placeholder="₩ 가격을 입력해주세요." required>
 				</div>
 
-				<!-- 가격 제안 받기 -->
-				<div class="checkbox">
-					<input type="checkbox" id="price-offer" name="price-offer" checked>
-					<label for="price-offer">가격 제안 받기</label>
-				</div>
+		
 
 				<div class="form-group">
 					<label for="content">상세한 설명</label>

@@ -267,7 +267,7 @@ body {
 		<div class="container">
 			<div class="post-details">
 				<div class="post-title"><%=dto.getUSED_TITLE()%></div>
-				<div class="post-content"><%=dto.getUSED_CONTENT()%></div>
+				<div class="post-content" style="white-space: break-spaces;"><%=dto.getUSED_CONTENT()%></div>
 			</div>
 
 			<div class="footer">

@@ -47,23 +47,24 @@ body {
 
 .diary-detail-entry .diary-detail-image-container {
     position: relative;
-    width: 100%; /* 부모 요소에 맞춰 넓이를 설정 */
-    max-width: 600px; /* 이미지 컨테이너의 최대 너비 */
-    margin: 0 auto; /* 이미지 가운데 정렬 */
-    overflow: hidden;
+    width: 100%; /* 컨테이너 너비를 100%로 설정 */
+    max-width: 600px; /* 컨테이너의 최대 너비를 설정 */
+    height: auto; /* 컨테이너의 높이는 자동으로 조정 */
+    margin: 0 auto; /* 컨테이너 자체를 가운데 정렬 */
+    overflow: hidden; /* 넘치는 이미지는 숨김 */
 }
 
 .diary-detail-entry .diary-detail-image-container img {
-    width: auto;
-    height: auto;
-    max-width: 70%; /* 이미지 크기를 더 작게 설정 */
-    max-height: 80%; /* 이미지의 최대 높이를 제한 */
-    display: block;
-    margin: 0 auto; /* 이미지 가운데 정렬 */
+    width: 80%; /* 이미지를 줄여서 표시 (비율 유지) */
+    height: auto; /* 비율을 유지하면서 높이를 자동으로 설정 */
+    max-width: 100%; /* 컨테이너의 100%보다 커지지 않도록 설정 */
+    display: block; /* 이미지를 블록 요소로 설정 */
+    margin: 0 auto; /* 이미지를 컨테이너 내에서 가운데 정렬 */
+    object-fit: contain; /* 비율을 유지하면서 이미지 전체 표시 */
 }
 
 .diary-detail-entry .diary-detail-image-container img.active {
-    display: block; /* active 클래스를 가진 이미지만 표시 */
+    display: block; /* active가 적용된 이미지만 보이도록 설정 */
 }
 
 /* 이전/다음 버튼 */
@@ -109,9 +110,10 @@ body {
     flex: 2;
     color: #262626;
     font-size: 1.2em; /* 글씨 크기 키움 */
-    margin-left: 30px;
+
     line-height: 1.5;
 }
+
 
 /* 다크 모드 전체 배경 및 텍스트 색상 */
 body.dark-mode {
@@ -179,6 +181,13 @@ body.dark-mode .diary-detail-entry .diary-detail-diary-content {
         margin-top: 15px;
     }
 }
+
+.diary-detail-diary-content {
+    white-space: normal; /* 공백과 줄바꿈을 무시하고 기본 설정으로 사용 */
+    line-height: 1.5; /* 줄 간격을 적절하게 설정 */
+    text-align: left; /* 텍스트 왼쪽 정렬 */
+}
+
 
 /* 반응형 디자인 */
 @media (max-width: 640px) {
