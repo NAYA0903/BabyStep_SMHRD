@@ -268,6 +268,7 @@ body.dark-mode .bottom-container {
     CommentDAO commentDAO = new CommentDAO();
     List<CommentDTO> commentList = commentDAO.getCommentsByBoard(num);
     %>
+    <div class="playground">
     <div class="container">
         <div class="titles"><%=dto.getBO_TITLE() %></div>
         <div class="meta"><%=dto.getUSER_NICK() %>   |   <%=dto.getCREATED_AT() %></div>
@@ -314,6 +315,7 @@ body.dark-mode .bottom-container {
 	
     <div class="bottom-container">
         <jsp:include page="BoardMain.jsp" />
+    </div>
     </div>
     
 

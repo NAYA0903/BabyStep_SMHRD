@@ -49,7 +49,7 @@ public class TodoListServlet extends HttpServlet {
 	                    if (todo != null) {
 	                        out.println("<div class='todo-item'>");
 	                        out.println("<img src='img/check.png' alt='아이콘'>");
-	                        out.println("<span>" + todo.getTodoContent() + " (" + (todo.getTodoDone().equals("Y") ? "완료" : "미완료") + ")</span>");
+	                        out.println("<span>" + todo.getTodoContent() + "</span>");
 	                        out.println("</div>");
 	                    }
 	                }
