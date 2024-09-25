@@ -72,8 +72,7 @@
                     <div class="diary-detail-entry-details">
                         <div>
                             작성일: <%=diary.getCREATED_AT()%></div>
-                        <div class="babynumber">
-                            아기 개월수: <%=babyage%></div>
+                    
                         <div class="height">
                             아기 키: <%=diary.getDI_HEIGHT()%></div>
                         <div class="weight">

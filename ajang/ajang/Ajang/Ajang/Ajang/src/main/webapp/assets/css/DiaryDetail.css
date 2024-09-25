@@ -47,19 +47,19 @@ body {
 
 .diary-detail-entry .diary-detail-image-container {
     position: relative;
-    width: 100%;
-    max-width: 600px; /* 이미지 최대 너비 */
-    max-height: 400px; /* 이미지 최대 높이 */
+    width: 100%; /* 부모 요소에 맞춰 넓이를 설정 */
+    max-width: 600px; /* 이미지 컨테이너의 최대 너비 */
     margin: 0 auto; /* 이미지 가운데 정렬 */
     overflow: hidden;
 }
 
 .diary-detail-entry .diary-detail-image-container img {
-    width: 100%;
+    width: auto;
     height: auto;
-    max-height: 100%;
-    object-fit: contain; /* 이미지를 자르지 않고 전체를 보여줌 */
-    display: none; /* 기본적으로 이미지는 보이지 않음 */
+    max-width: 70%; /* 이미지 크기를 더 작게 설정 */
+    max-height: 80%; /* 이미지의 최대 높이를 제한 */
+    display: block;
+    margin: 0 auto; /* 이미지 가운데 정렬 */
 }
 
 .diary-detail-entry .diary-detail-image-container img.active {
@@ -179,7 +179,6 @@ body.dark-mode .diary-detail-entry .diary-detail-diary-content {
         margin-top: 15px;
     }
 }
-
 
 /* 반응형 디자인 */
 @media (max-width: 640px) {
