@@ -6,9 +6,7 @@
 <mapper namespace="com.babystep.db.VaccineMapper">
 
 <select id="babyageselect" parameterType="Integer" resultType="VaccineDTO">
-SELECT *
-FROM TB_VACCINE
-WHERE VAC_AGE = #{babyage}
+   SELECT * FROM TB_VACCINE WHERE VAC_AGE = #{babyage, jdbcType=INTEGER}
 </select>
 
 </mapper>
