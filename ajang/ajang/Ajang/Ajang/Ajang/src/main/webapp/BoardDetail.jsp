@@ -39,7 +39,7 @@ body.dark-mode {
 .container {
     width: 90vw;
     height: 90vh;
-    max-width: 1200px;
+    max-width: 1500px;
     max-height: 800px;
     background-color: white;
     padding: 20px;
@@ -247,6 +247,10 @@ body.dark-mode .bottom-container {
     background-color: #1e1e1e;
 }
 
+.sub {
+	margin-left: 170px;
+}
+
 </style>
 </head>
 <body>
@@ -268,8 +272,8 @@ body.dark-mode .bottom-container {
     CommentDAO commentDAO = new CommentDAO();
     List<CommentDTO> commentList = commentDAO.getCommentsByBoard(num);
     %>
-    <div class="playground">
-    <div class="container">
+    <div class="container">	
+    	<div class="sub">
         <div class="titles"><%=dto.getBO_TITLE() %></div>
         <div class="meta"><%=dto.getUSER_NICK() %>   |   <%=dto.getCREATED_AT() %></div>
         
@@ -298,9 +302,7 @@ body.dark-mode .bottom-container {
         </div>
         <% } %>
     </div>
-            
-        </div>
-        <div class="comment-box">
+            <div class="comment-box">
     	<form action="CommentServlet" method="post">
     	<div class="comment-header"><%=nickname%></div>
     		<textarea name="commentContent" class="comment-input" rows="3" placeholder="댓글을 남겨보세요"></textarea>
@@ -312,12 +314,17 @@ body.dark-mode .bottom-container {
         <button class="comment-submit" type="submit">등록</button>
     </div>
 	</form></div>
-	
-    <div class="bottom-container">
+	</div>
+	<div class="bottom-container">
         <jsp:include page="BoardMain.jsp" />
-    </div>
-    </div>
+      </div>
     
+	  
+	
+        </div>
+        
+	
+  
 
 <script>
     window.onload = function() {
