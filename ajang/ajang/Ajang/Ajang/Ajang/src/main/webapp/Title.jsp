@@ -59,7 +59,10 @@
 		</div>
 		<!-- 다크 모드 스위치 -->
 		<label class="dark-mode-switch"> <input type="checkbox"
-			id="darkModeToggle"> <span class="slider"></span>
+			id="darkModeToggle"> 
+			<span class="slider">
+				<img src="img/lightmode.png" alt="모드 이미지" class="png-image" id="modeImage">
+			</span>
 		</label>
 
 		<jsp:include page="MypagePopup.jsp" />

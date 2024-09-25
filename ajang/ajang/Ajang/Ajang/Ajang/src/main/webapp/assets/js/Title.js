@@ -17,14 +17,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const darkModeToggle = document.getElementById('darkModeToggle');
     const body = document.body;
     const logoImage = document.getElementById('logoImage'); // 로고 이미지 태그
+    const modeImage = document.getElementById('modeImage'); // PNG 이미지 태그
 
     // 저장된 다크 모드 상태가 있는지 확인하고 적용
     if (localStorage.getItem('darkMode') === 'enabled') {
         body.classList.add('dark-mode');
         darkModeToggle.checked = true;
         logoImage.src = 'img/MainLogoDark.png'; // 다크 모드일 때 로고 이미지 설정
+        modeImage.src = 'img/darkmode.png'; // 다크 모드일 때 PNG 이미지 설정
+        modeImage.style.right = 'calc(100% - 30px)'; // 다크 모드일 때 우측으로 이동
+        modeImage.style.left = 'auto'; // 좌측 초기화
     } else {
         logoImage.src = 'img/MainLogo.png'; // 라이트 모드일 때 로고 이미지 설정
+        modeImage.src = 'img/lightmode.png'; // 라이트 모드일 때 PNG 이미지 설정
+        modeImage.style.left = 'calc(100% - 30px)'; // 라이트 모드일 때 좌측 배치
+        modeImage.style.right = 'auto'; // 우측 초기화
     }
 
     // 다크 모드 토글 동작
@@ -33,10 +40,16 @@ document.addEventListener('DOMContentLoaded', function() {
             body.classList.add('dark-mode');
             localStorage.setItem('darkMode', 'enabled'); // 다크 모드 상태 저장
             logoImage.src = 'img/MainLogoDark.png'; // 다크 모드일 때 로고 이미지 변경
+            modeImage.src = 'img/darkmode.png'; // 다크 모드일 때 PNG 이미지 변경
+            modeImage.style.right = 'calc(100% - 30px)'; // 다크 모드일 때 우측으로 이동
+            modeImage.style.left = 'auto'; // 좌측 초기화
         } else {
             body.classList.remove('dark-mode');
             localStorage.setItem('darkMode', 'disabled'); // 라이트 모드 상태 저장
             logoImage.src = 'img/MainLogo.png'; // 라이트 모드일 때 로고 이미지 변경
+            modeImage.src = 'img/lightmode.png'; // 라이트 모드일 때 PNG 이미지 변경
+            modeImage.style.left = 'calc(100% - 30px)'; // 라이트 모드일 때 좌측 배치
+            modeImage.style.right = 'auto'; // 우측 초기화
         }
     });
 });

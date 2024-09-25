@@ -12,7 +12,7 @@
     align-items: center;
     justify-content: space-between;
     flex-wrap: nowrap; /* 줄바꿈 방지 */
-    font-size: 1.5vw;
+    font-size: 1vw;
     border-bottom: 1px solid #e0e0e0;
     transition: top 1s ease-in-out, background-color 1s ease; /* 스크롤 시 부드럽게 변화 */
 }
@@ -84,7 +84,7 @@ section {
 .dark-mode-switch {
     position: relative;
     display: flex;
-    width: 60px;
+    width: 70px;
     height: 34px;
     margin-right: 2vw;
 }
@@ -124,7 +124,37 @@ input:checked + .slider {
 }
 
 input:checked + .slider:before {
-    transform: translateX(26px);
+    transform: translateX(36px);
+}
+
+/* 스위치가 꺼졌을 때 기본 상태 - 라이트 모드에서 이미지가 우측에 있음 */
+.slider .png-image {
+    position: absolute;
+    top: 50%;
+    right: 4px; /* 기본적으로 우측에 배치 */
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    transition: right 0.4s ease, left 0.4s ease;
+}
+
+/* 스위치가 켜졌을 때 이미지가 좌측으로 이동 - 라이트 모드 */
+input:checked + .slider .png-image {
+    left: 4px; /* 스위치 켜졌을 때 좌측으로 이동 */
+    right: auto; /* 우측 초기화 */
+}
+
+/* 다크 모드 상태에서 이미지 기본 좌측에 배치 */
+body.dark-mode .slider .png-image {
+    left: 4px; /* 다크 모드일 때 기본적으로 좌측에 배치 */
+    right: auto; /* 우측 초기화 */
+    transition: left 0.4s ease, right 0.4s ease;
+}
+
+/* 다크 모드에서 스위치가 켜졌을 때 이미지가 우측으로 이동 */
+body.dark-mode input:checked + .slider .png-image {
+    right: 4px; /* 스위치 켜졌을 때 우측으로 이동 */
+    left: auto; /* 좌측 초기화 */
 }
 
 /* 다크 모드 타이틀 */
@@ -147,11 +177,13 @@ body.dark-mode .icon-links img {
 /* 다크 모드 다크 모드 스위치 */
 body.dark-mode .dark-mode-switch .slider {
     background-color: #333;
+    border: 1px solid white;
 }
 
 body.dark-mode .dark-mode-switch input:checked + .slider {
     background-color: #333; /* 구글 포인트 색상과 비슷한 밝은 퍼플 */
 }
+
 
 /* 반응형 디자인 */
 @media (max-width: 768px) {
