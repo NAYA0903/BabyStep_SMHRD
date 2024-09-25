@@ -12,8 +12,8 @@
 	<div class="title">
 		<!-- 로고 섹션 -->
 		<div class="logo">
-			<img src="img/MainLogo.png" alt="걸음마 로고" class="logo-image"
-				onclick="location.href='Main.jsp'">
+			<img src="img/MainLogo.png" alt="걸음마 로고" class="logo-image" id="logoImage"
+             onclick="location.href='Main.jsp'">
 		</div>
 
 		<!-- 네비게이션 링크 섹션 -->

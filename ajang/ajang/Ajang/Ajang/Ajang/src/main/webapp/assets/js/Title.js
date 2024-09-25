@@ -16,24 +16,33 @@ function adjustContentPadding() {
 document.addEventListener('DOMContentLoaded', function() {
     const darkModeToggle = document.getElementById('darkModeToggle');
     const body = document.body;
+    const logoImage = document.getElementById('logoImage'); // 로고 이미지 태그
 
     // 저장된 다크 모드 상태가 있는지 확인하고 적용
     if (localStorage.getItem('darkMode') === 'enabled') {
         body.classList.add('dark-mode');
         darkModeToggle.checked = true;
+        logoImage.src = 'img/MainLogoDark.png'; // 다크 모드일 때 로고 이미지 설정
+    } else {
+        logoImage.src = 'img/MainLogo.png'; // 라이트 모드일 때 로고 이미지 설정
     }
-	
+
     // 다크 모드 토글 동작
     darkModeToggle.addEventListener('change', function() {
         if (darkModeToggle.checked) {
             body.classList.add('dark-mode');
             localStorage.setItem('darkMode', 'enabled'); // 다크 모드 상태 저장
+            logoImage.src = 'img/MainLogoDark.png'; // 다크 모드일 때 로고 이미지 변경
         } else {
             body.classList.remove('dark-mode');
             localStorage.setItem('darkMode', 'disabled'); // 라이트 모드 상태 저장
+            logoImage.src = 'img/MainLogo.png'; // 라이트 모드일 때 로고 이미지 변경
         }
     });
 });
+
+
+
 
 // 사용자의 이전 선택 기억 (로컬 저장소)
 const savedTheme = localStorage.getItem('theme');
