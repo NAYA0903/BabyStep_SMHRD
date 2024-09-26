@@ -141,9 +141,9 @@
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/NAYA0903" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
+    <td align="center"><a href="https://github.com/K-wonsub1871" target='_blank'>github</a></td>
+    <td align="center"><a href="https://github.com/NAPJACKMANDU" target='_blank'>github</a></td>
+    <td align="center"><a href="https://github.com/bicyclesung" target='_blank'>github</a></td>
   </tr>
 </table>
 
