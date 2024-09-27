@@ -32,6 +32,7 @@ section {
     width: 12vw;
     height: auto;
     margin-left: 2vw;
+    cursor: pointer;
 }
 
 /* 네비게이션 링크 */
